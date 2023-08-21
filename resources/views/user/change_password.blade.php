@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.user')
 @section('title','Change Password')
 @section('content')
 

@@ -69,6 +69,6 @@ class LoginController extends Controller
 
         $request->session()->invalidate();
 
-        return $this->loggedOut($request) ?: redirect(config('admin.admin_route_prefix').'/login');
+        return $this->loggedOut($request) ?: redirect('login');
     }
 }

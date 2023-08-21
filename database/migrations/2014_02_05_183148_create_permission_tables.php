@@ -138,6 +138,7 @@ class CreatePermissionTables extends Migration
         $roleSuperAdmin = Role::create(['name' => 'super-admin']);
         $roleUser = Role::create(['name' => 'user']);
         $roleAdmin = Role::create(['name' => 'admin', 'description' => 'Admin can access everything.']);
+        $roleCustomer = Role::create(['name' => 'customer', 'description' => 'Customer are the users']);
         $roleStaff = Role::create(['name' => 'staff', 'description' => 'Staff can access specific things.']);
 
 
@@ -271,6 +272,30 @@ class CreatePermissionTables extends Migration
 
 
 
+        $customerPermissions = [
+
+            [
+                'group_name' => 'dashboard',
+                'permissions' => [
+                    'dashboard-view',
+                ]
+            ],
+            [
+                'group_name' => 'profile',
+                'permissions' => [
+                    'change-password',
+                ]
+            ],
+            [
+                'group_name' => 'others',
+                'permissions' => [
+                    'contact-view',
+                ]
+            ],
+
+
+        ];
+
         $staffPermissions = [
 
             [
@@ -342,6 +367,19 @@ class CreatePermissionTables extends Migration
             }
         }
 
+        // Customer Permission
+
+        foreach ($customerPermissions as $customerPermission) {
+            foreach ($customerPermission['permissions'] as $permission) {
+                $permissionForCustomer = Permission::updateOrCreate(
+                    [
+                        'name' => $permission,
+                    ]
+                );
+                $roleCustomer->givePermissionTo($permissionForCustomer);
+            }
+        }
+
         // Staff Permission
 
         foreach ($staffPermissions as $staffPermission) {
@@ -364,10 +402,12 @@ class CreatePermissionTables extends Migration
         $staff = User::find(3);
         $staff->assignRole('staff');
         $user = User::find(4);
-        $user->assignRole('user');
+        $user->assignRole('customer');
         $user = User::find(5);
-        $user->assignRole('user');
+        $user->assignRole('customer');
         $user = User::find(6);
+        $user->assignRole('user');
+        $user = User::find(7);
         $user->assignRole('user');
     }
 

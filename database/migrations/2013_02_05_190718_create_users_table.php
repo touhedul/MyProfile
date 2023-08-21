@@ -67,7 +67,7 @@ class CreateUsersTable extends Migration
                 'remember_token' => rand(100,1000000),
             ]
         );
-       
+
         User::create(
             [
                 'name' => 'user-a',
@@ -96,6 +96,18 @@ class CreateUsersTable extends Migration
             [
                 'name' => 'user-ac',
                 'email' => 'c@c.com',
+                'password' => bcrypt('12345678'),
+                'phone' => '01833996321',
+                'address' => 'Demo Address',
+                'image' => 'user.jpg',
+                'email_verified_at' => now(),
+                'remember_token' => rand(100,1000000),
+            ]
+        );
+        User::create(
+            [
+                'name' => 'user-d',
+                'email' => 'd@d.com',
                 'password' => bcrypt('12345678'),
                 'phone' => '01833996321',
                 'address' => 'Demo Address',
