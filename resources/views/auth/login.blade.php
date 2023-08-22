@@ -76,22 +76,6 @@
                             Don't have any account? <a href="{{ route('register') }}"> Register Here </a>
                         </div>
                     </div><br>
-                    <div class="pull-right">
-
-                        <a href="{{route('login.social','facebook')}}" style="display:inline" class="btn btn-primary"><i
-                                class="fa fa-facebook"></i>
-                            Login
-                            With Facebook</a>
-                        <a href="{{route('login.social','google')}}" style="display:inline" class="btn btn-danger"><i
-                                class="fa fa-google"></i>
-                            Login
-                            With Google</a>
-                        {{-- <a href="{{route('login.social','twitter')}}" style="display:inline" class="btn btn-success"><i
-                                class="fa fa-google"></i>
-                            Login
-                            With Twitter</a> --}}
-                        {{-- <a style="display:inline" class="btn btn-primary">Login With Google</a> --}}
-                    </div>
                 </div>
             </div>
         </div>

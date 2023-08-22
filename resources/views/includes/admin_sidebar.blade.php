@@ -221,3 +221,12 @@
         @csrf
     </form>
 </li>
+@can('Theme-view')
+<li class="">
+    <a href="{{route('admin.themes.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/themes**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Themes') }}
+    </a>
+</li>
+@endcan
+

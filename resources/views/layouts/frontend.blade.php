@@ -79,28 +79,6 @@
                             </div>
                         </li>
                         @endguest
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdownLang" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('Language') }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownLang">
-                                @php
-                                    $languages = App\Models\Language::where('status',1)->get();
-                                @endphp
-                                @foreach ($languages as $language)
-                                {{-- <a class="dropdown-item" href="#">{{ Session::get('locale') }}</a> --}}
-                                <a class="dropdown-item" href="{{route('changeLanguage',$language->code)}}">{{$language->name}}</a>
-                                @endforeach
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('about') }}">{{ __('About') }}</a>
-                        </li>
                     </ul>
                 </div>
             </div>

@@ -28,11 +28,6 @@
                                 placeholder="Enter Phone">
                         </div>
                         <div class="form-group">
-                            <label>Address</label>
-                            <input maxlength="191" value="{{old('address')}}" name="address" type="text"
-                                class="form-control" placeholder="Enter Address">
-                        </div>
-                        <div class="form-group">
                             <label>Password*</label>
                             <input required name="password" minlength="8" type="password" class="form-control"
                                 placeholder="Enter Password">
@@ -41,11 +36,6 @@
                             <label>Confirm Password*</label>
                             <input required name="password_confirmation" minlength="8" type="password"
                                 class="form-control" placeholder="ConfirmPassword">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Image</label>
-                            <input name="image" type="file" class="form-control" accept="image/*">
                         </div>
                         <div class="form-footer pt-4 pt-2 mt-4 border-top">
                             <button type="submit" class="mb-1 btn btn-success">

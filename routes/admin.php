@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\VisitorInfoController;
 use App\Http\Controllers\Auth\Admin\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -137,6 +138,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
          Route::resources(
             [
                 // 'faculties' => FacultyController::class,
+                'themes'=>ThemeController::class
             ]
         );
     });

@@ -145,7 +145,7 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return LogOptions::defaults();
     }
-    
+
     public static function roleIsNotUser(){
         $roles = Role::whereNotIn('name', ['user'])->pluck('name');
         return User::role($roles)->get();
@@ -168,4 +168,13 @@ class User extends Authenticatable //implements MustVerifyEmail
     //     $this->notify(new ResetPasswordQueue($token));
     // }
 
+    public function themes()
+    {
+        return $this->hasMany(UserTheme::class);
+    }
+
+    public function default_theme()
+    {
+        return $this->hasOne(UserTheme::class)->where('default',1);
+    }
 }

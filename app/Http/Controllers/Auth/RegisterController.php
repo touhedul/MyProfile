@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Theme;
 use App\Models\User;
+use App\Models\UserTheme;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'user/dashboard';
+    protected $redirectTo = '';
 
     /**
      * Create a new controller instance.
@@ -40,6 +42,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $this ->redirectTo = config('admin.admin_route_prefix')."/".config('admin.admin_dashboard');
         $this->middleware(['guest','blockIp']);
     }
 
@@ -54,7 +57,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:191'],
             'email' => ['required', 'string', 'email', 'max:191', 'unique:users'],
-            'phone' => ['nullable'],
+            'phone' => ['required', 'string','max:11','starts_with:01'],
             'address' => ['nullable', 'string', 'max:191'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'image' => ['nullable', 'image', 'max:10000'],
@@ -76,13 +79,18 @@ class RegisterController extends Controller
             Image::make($image)->resize(250, 250)->save('user_images/' . $imageName);
         }
 
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'address' => $data['address'],
+            // 'address' => $data['address'],
             'image' => $imageName,
             'password' => Hash::make($data['password']),
         ]);
+
+        $user->assignRole('customer');
+        $theme = Theme::first();
+        UserTheme::create(['user_id'=>$user->id,'theme_id'=>$theme->id,'default'=>1]);
+        return $user;
     }
 }
