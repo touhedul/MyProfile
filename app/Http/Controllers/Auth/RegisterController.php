@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Theme;
 use App\Models\User;
 use App\Models\UserTheme;
+use App\Services\UserService;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -87,10 +88,7 @@ class RegisterController extends Controller
             'image' => $imageName,
             'password' => Hash::make($data['password']),
         ]);
-
-        $user->assignRole('customer');
-        $theme = Theme::first();
-        UserTheme::create(['user_id'=>$user->id,'theme_id'=>$theme->id,'default'=>1]);
+        (new UserService)->createUserInfo($user);
         return $user;
     }
 }

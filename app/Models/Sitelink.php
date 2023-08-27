@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserTheme extends Model
+class Sitelink extends Model
 {
     use HasFactory;
 
-    protected $fillable=['user_id','theme_id','default_status','color_code'];
-
-
+    protected $fillable = [
+        'user_id',
+        'link',
+        'default_status',
+    ];
 }

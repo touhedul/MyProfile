@@ -4,9 +4,11 @@ namespace Tests\Feature\Frontend;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\ResetPasswordNotification;
 class AuthTest extends TestCase
 {
     use RefreshDatabase;
@@ -80,9 +82,10 @@ class AuthTest extends TestCase
             'password' => 'password123',
             'password_confirmation' => 'password123',
         ]);
-
+        
         $response->assertRedirect(route('admin.dashboard'));
         $this->assertDatabaseHas('users', ['email' => 'john@example.com']);
+        $this->assertDatabaseHas('user_themes', ['user_id' => '11']);
     }
 
     /** @test */
@@ -119,6 +122,7 @@ class AuthTest extends TestCase
         $response->assertSessionHasErrors(['password']);
     }
 
+
     /** @test */
     public function user_cannot_register_with_existing_email()
     {
@@ -132,5 +136,15 @@ class AuthTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors(['email']);
+    }
+
+    /** @test */
+    public function user_can_request_password_reset_link()
+    {
+        $user = User::factory()->create();
+
+        $this->post(route('password.email'), ['email' => $user->email])
+            ->assertStatus(302)
+            ->assertSessionHas('status');
     }
 }

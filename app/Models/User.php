@@ -175,6 +175,16 @@ class User extends Authenticatable //implements MustVerifyEmail
 
     public function default_theme()
     {
-        return $this->hasOne(UserTheme::class)->where('default',1);
+        return $this->hasOne(UserTheme::class)->where('default_status',1);
+    }
+
+    public function sitelinks()
+    {
+        return $this->hasMany(Sitelink::class);
+    }
+
+    public function default_sitelink()
+    {
+        return $this->hasOne(Sitelink::class)->where('default_status',1);
     }
 }

@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_themes', function (Blueprint $table) {
+        Schema::create('sitelinks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('theme_id');
-            $table->boolean('default_status')->default(0);
-            $table->string('color_code')->default('#fffff');
+            $table->string('link');
+            $table->boolean('default_status')->default(1);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_themes');
+        Schema::dropIfExists('sitelinks');
     }
 };

@@ -93,8 +93,11 @@
                     </div>
                     <ul class="header-menu nav">
 
+                        @php
+                            $sitelink = App\Models\Sitelink::where('user_id',auth()->id())->where('default_status',1)->first();
+                        @endphp
                         <li class="btn-group nav-item">
-                            <a href="{{ route('index') }}" target="_blank" class="nav-link">
+                            <a href="{{ $sitelink->link }}" target="_blank" class="nav-link">
                                 <i class="nav-link-icon fas fa-share-square"></i>
                                 {{ __('Visit Site') }}
                             </a>

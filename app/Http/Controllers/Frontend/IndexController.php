@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\ContactFeedback;
 use App\Models\Gallery;
+use App\Models\User;
 use App\Services\VisitorService;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,14 @@ class IndexController extends Controller
         app()->setLocale($locale);
         session()->put('locale', $locale);
         return back();
+    }
+
+    public function sitelink($base64Userid)
+    {
+        $userId = base64_decode($base64Userid);
+        $user = User::findOrFail($userId);
+        $user->load('default_theme');
+        return view('frontend.site',compact('user'));
     }
 
 
