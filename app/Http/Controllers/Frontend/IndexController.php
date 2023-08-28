@@ -5,19 +5,25 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\ContactFeedback;
 use App\Models\Gallery;
+use App\Models\Sitelink;
 use App\Models\User;
+use App\Services\UserService;
 use App\Services\VisitorService;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // return date('Y-m-d H:i:s');
 
-        // (new VisitorService())->checkBlockIp();
-        // (new VisitorService())->saveVisitorInfo();
-        // return redirect()->route('login');
+        $url = request()->url();
+
+        $siteLink = Sitelink::where('link',$url)->with('user')->first();
+
+        if($siteLink){
+            $userInfo = (new UserService)->userInfoForSite($siteLink->user_id);
+            return view('user.site',compact('userInfo'));
+        }
         return view('frontend.index');
     }
 
@@ -31,9 +37,8 @@ class IndexController extends Controller
     public function sitelink($base64Userid)
     {
         $userId = base64_decode($base64Userid);
-        $user = User::findOrFail($userId);
-        $user->load('default_theme');
-        return view('frontend.site',compact('user'));
+        $userInfo = (new UserService)->userInfoForSite($userId);
+        return view('user.site',compact('userInfo'));
     }
 
 

@@ -14,4 +14,10 @@ class Sitelink extends Model
         'link',
         'default_status',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

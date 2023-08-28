@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware'=>['blockIp','localaization']],function(){
 
     Route::get('/', [IndexController::class, 'index'])->name('index');
-    Route::get('/{base64Userid}', [IndexController::class, 'sitelink'])->name('sitelink');
 
     //Give feed back and contact User side
     Route::get('contact', [ContactFeedbackController::class, 'contact'])->name('contact');
@@ -32,6 +31,7 @@ Route::group(['middleware'=>['blockIp','localaization']],function(){
 
 
     Route::get('/language/{locale}', [IndexController::class, 'changeLanguage'])->name('changeLanguage');
+    
 });
 
 

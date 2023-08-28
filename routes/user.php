@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\ProfileController;
 
@@ -23,3 +24,5 @@ Route::group(['middleware' =>['role:user'], ['auth', 'preventBackHistory','block
 
     });
 });
+
+Route::get('/{base64Userid}', [IndexController::class, 'sitelink'])->name('sitelink');
