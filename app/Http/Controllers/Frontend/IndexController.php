@@ -22,7 +22,7 @@ class IndexController extends Controller
 
         if($siteLink){
             $userInfo = (new UserService)->userInfoForSite($siteLink->user_id);
-            return view('user.site',compact('userInfo'));
+            return view('user.themes.site'.$userInfo->default_theme->theme_id,compact('userInfo'));
         }
         return view('frontend.index');
     }
@@ -38,7 +38,7 @@ class IndexController extends Controller
     {
         $userId = base64_decode($base64Userid);
         $userInfo = (new UserService)->userInfoForSite($userId);
-        return view('user.site',compact('userInfo'));
+        return view('user.themes.site'.$userInfo->default_theme->theme_id,compact('userInfo'));
     }
 
 

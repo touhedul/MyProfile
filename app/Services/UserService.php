@@ -18,7 +18,7 @@ class UserService
 
     public function createTheme($user)
     {
-        $theme = Theme::first();
+        $theme = Theme::where('default_status',1)->first();
         UserTheme::create(['user_id'=>$user->id,'theme_id'=>$theme->id,'default_status'=>1]);
     }
 

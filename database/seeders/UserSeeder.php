@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Database\Seeder;
 use Str;
 
@@ -15,6 +16,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(20)->create();
+        $customers = User::role('customer')->get();
+        $userService = new UserService();
+        foreach($customers as $customer){
+            $userService->createUserInfo($customer);
+        }
     }
 }

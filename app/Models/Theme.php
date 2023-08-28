@@ -19,12 +19,12 @@ class Theme extends Model
     use HasFactory;
 
     public $table = 'themes';
-    
+
 
 
 
     public $fillable = [
-        'name'
+        'name','default_status'
     ];
 
     /**
@@ -46,5 +46,5 @@ class Theme extends Model
         'name' => 'required|string|max:191'
     ];
 
-    
+
 }

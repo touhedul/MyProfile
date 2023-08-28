@@ -19,6 +19,7 @@ class CreateThemesTable extends Migration
         Schema::create('themes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('default_status')->default(0);
             $table->timestamps();
         });
 
@@ -38,7 +39,8 @@ class CreateThemesTable extends Migration
 
         (new AdminHelper())->addPermission("admin",$adminPermissions);
 
-        Theme::create(['name' => 'Default']);
+        Theme::create(['name' => 'Theme One','default_status'=>1]);
+        Theme::create(['name' => 'Theme Two']);
     }
 
     /**
