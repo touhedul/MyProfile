@@ -2,9 +2,11 @@
 
 namespace App\Services;
 
+use App\Models\Menu;
 use App\Models\Sitelink;
 use App\Models\Theme;
 use App\Models\User;
+use App\Models\UserMenu;
 use App\Models\UserTheme;
 
 class UserService
@@ -14,6 +16,7 @@ class UserService
         $user->assignRole('customer');
         $this->createTheme($user);
         $this->createWebsiteURL($user);
+        $this->createMenus($user);
     }
 
     public function createTheme($user)
@@ -33,5 +36,16 @@ class UserService
         $user = User::findOrFail($userId);
         $user->load('default_theme');
         return $user;
+    }
+
+    public function createMenus($user)
+    {
+        $menus = Menu::where('status',1)->get();
+
+        $userMenus = array();
+        foreach ($menus as $menu) {
+            $userMenus[] = ['user_id' => $user->id,'menu_id' => $menu->id,'menu_title' => $menu->name,'created_at' => now(),'updated_at' => now()];
+        }
+        UserMenu::insert($userMenus);
     }
 }

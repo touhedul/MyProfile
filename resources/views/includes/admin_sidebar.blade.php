@@ -202,7 +202,7 @@
                         <i class="metismenu-icon"></i>
                         {{ __('Content') }}
 
-                        
+
                     </a>
                 </li>
             @endcan
@@ -226,6 +226,25 @@
     <a href="{{route('admin.themes.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/themes**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-menu"></i>
         {{ __('Themes') }}
+    </a>
+</li>
+@endcan
+
+
+@can('Menu-view')
+<li class="">
+    <a href="{{route('admin.menus.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/menus**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Menus') }}
+    </a>
+</li>
+@endcan
+
+@can('Menu-management')
+<li class="">
+    <a href="{{route('admin.menuManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/menu-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Menu Management') }}
     </a>
 </li>
 @endcan

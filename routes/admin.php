@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\MenuManagementController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\VisitorInfoController;
@@ -138,8 +140,11 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
          Route::resources(
             [
                 // 'faculties' => FacultyController::class,
-                'themes'=>ThemeController::class
+                'themes'=>ThemeController::class,
+                'menus'=>MenuController::class,
             ]
         );
+
+        Route::get('menu-management',[MenuManagementController::class,'index'])->name('menuManagement.index');
     });
 });

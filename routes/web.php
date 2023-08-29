@@ -37,3 +37,10 @@ Route::group(['middleware'=>['blockIp','localaization']],function(){
 
 
 
+
+
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('menus', App\Http\Controllers\Admin\MenuController::class, ["as" => 'admin']);
+});
