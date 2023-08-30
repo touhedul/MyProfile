@@ -146,5 +146,6 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         );
 
         Route::get('menu-management',[MenuManagementController::class,'index'])->name('menuManagement.index');
+        Route::post('menu-management',[MenuManagementController::class,'save'])->name('menuManagement.save');
     });
 });

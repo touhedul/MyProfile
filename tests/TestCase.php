@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Spatie\Permission\Models\Role;
 
@@ -12,6 +13,7 @@ abstract class TestCase extends BaseTestCase
 
     public User $admin;
     public User $user;
+    public User $customer;
     public User $noPermissionAdmin;
 
 
@@ -20,6 +22,7 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
         $this->admin = $this->createAdmin();
         $this->user = $this->createUser();
+        $this->customer = $this->createCustomer();
         $this->noPermissionAdmin = $this->createNoPermissionAdmin();
     }
 
@@ -35,6 +38,14 @@ abstract class TestCase extends BaseTestCase
     {
         $user = User::factory()->create();
         $user->assignRole('user');
+        return $user;
+    }
+
+
+    public function createCustomer()
+    {
+        $user = User::factory()->create();
+        (new UserService)->createUserInfo($user);
         return $user;
     }
 
