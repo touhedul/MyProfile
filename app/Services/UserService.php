@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Home;
 use App\Models\Menu;
 use App\Models\Sitelink;
 use App\Models\Theme;
@@ -17,6 +18,7 @@ class UserService
         $this->createTheme($user);
         $this->createWebsiteURL($user);
         $this->createMenus($user);
+        $this->createHomeSection($user);
     }
 
     public function createTheme($user)
@@ -47,5 +49,17 @@ class UserService
             $userMenus[] = ['user_id' => $user->id,'menu_id' => $menu->id,'menu_title' => $menu->name,'created_at' => now(),'updated_at' => now()];
         }
         UserMenu::insert($userMenus);
+    }
+
+
+    public function createHomeSection($user)
+    {
+        Home::create([
+            'user_id' => $user->id,
+            'text_1' => 'WELCOME TO MY WORLD',
+            'text_2' => json_encode(["I'm $user->name","I'm a $user->profession"]),
+            'text_3' => 'based in Dhaka, Bangladesh',
+            'button_text' => 'Download CV',
+        ]);
     }
 }

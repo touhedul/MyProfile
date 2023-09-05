@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\ContactFeedbackController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FrontendCMSController;
+use App\Http\Controllers\Admin\HomeManagementController;
 use App\Http\Controllers\Admin\LogActivityController;
 use App\Http\Controllers\Admin\MultipurposeController;
 use App\Http\Controllers\Admin\RoleController;
@@ -147,5 +148,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
 
         Route::get('menu-management',[MenuManagementController::class,'index'])->name('menuManagement.index');
         Route::post('menu-management',[MenuManagementController::class,'save'])->name('menuManagement.save');
+
+        Route::get('home-management',[HomeManagementController::class,'index'])->name('homeManagement.index');
     });
 });

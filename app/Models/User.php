@@ -67,6 +67,7 @@ class User extends Authenticatable //implements MustVerifyEmail
         'email',
         'password',
         'phone',
+        'profession',
         'address',
         'image',
         'status' //default 1
@@ -186,5 +187,10 @@ class User extends Authenticatable //implements MustVerifyEmail
     public function default_sitelink()
     {
         return $this->hasOne(Sitelink::class)->where('default_status',1);
+    }
+
+    public function home()
+    {
+        return $this->hasOne(Home::class);
     }
 }

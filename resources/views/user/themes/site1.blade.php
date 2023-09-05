@@ -37,14 +37,14 @@
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="0">
 
     <!-- Preloader -->
-    <div class="preloader">
+    {{-- <div class="preloader">
         <div class="lds-ellipsis">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div> --}}
     <!-- Preloader End -->
 
     <!-- Document Wrapper
@@ -119,7 +119,7 @@
                                     <h2 class="text-17 fw-600 text-white mb-2 mb-md-3"><span class="typed"></span>
                                     </h2>
                                     <p class="text-5 text-light">based in San Francisco, California.</p>
-                                    <a href="#" class="btn btn-primary rounded-pill mt-3">Download CV</a>
+                                    {{-- <a href="#" class="btn btn-primary rounded-pill mt-3">Download CV</a> --}}
                                 </div>
                             </div>
                         </div>

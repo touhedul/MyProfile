@@ -248,4 +248,12 @@
     </a>
 </li>
 @endcan
+@can('Home-management')
+<li class="">
+    <a href="{{route('admin.homeManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/home-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Home Management') }}
+    </a>
+</li>
+@endcan
 

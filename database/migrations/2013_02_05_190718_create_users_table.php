@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->boolean('status')->default(1);
             $table->string('provider')->nullable();
+            $table->string('profession')->default('student');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
@@ -75,6 +76,7 @@ class CreateUsersTable extends Migration
                 'password' => bcrypt('12345678'),
                 'phone' => '01833996321',
                 'address' => 'Demo Address',
+                'profession' => 'Student',
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
                 'remember_token' => rand(100,1000000),
@@ -87,6 +89,7 @@ class CreateUsersTable extends Migration
                 'password' => bcrypt('12345678'),
                 'phone' => '01833996321',
                 'address' => 'Demo Address',
+                'profession' => 'Developer',
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
                 'remember_token' => rand(100,1000000),
