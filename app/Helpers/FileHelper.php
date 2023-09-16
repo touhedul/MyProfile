@@ -89,4 +89,16 @@ class FileHelper
             }
         }
     }
+
+
+    public static function uploadImageByName($request, $imageFile,$width=520,$height=400)
+    {
+        $imageName = "";
+        if ($request->hasFile("$imageFile")) {
+            $image = $request->file($imageFile);
+            $imageName = time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize($width, $height)->save('images/' . $imageName, 50);
+        }
+        return $imageName;
+    }
 }

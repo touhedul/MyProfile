@@ -27,7 +27,7 @@ return new class extends Migration
             $table->json('text_2')->nullable();
             $table->string('text_3')->nullable();
             $table->string('button_text')->nullable();
-            $table->string('cv')->nullable();
+            $table->string('file')->nullable();
             $table->boolean('button_status')->default(1);
             $table->timestamps();
         });

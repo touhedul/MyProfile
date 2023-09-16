@@ -66,10 +66,30 @@ if (!function_exists('notification')) {
     }
 }
 
+if (!function_exists('defaultImage')) {
+    function defaultImage($type)
+    {
+        $image = "";
+        switch ($type) {
+            case 'home_slider_1':
+                $image = asset('frontend/theme1/images/intro-bg.jpg');
+                break;
+            case 'home_slider_2':
+                $image = asset('frontend/theme1/images/intro-bg-2.jpg');
+                break;
+            case 'home_slider_3':
+                $image = asset('frontend/theme1/images/intro-bg-3.jpg');
+                break;
+        }
+
+        return $image;
+    }
+}
+
 if (!function_exists('myDateFormat')) {
     function myDateFormat($timeStamp, $returnDate = true, $returnTime = true, $returnDifference = true)
     {
-        if($timeStamp == NULL){
+        if ($timeStamp == NULL) {
             return "";
         }
         $date = date('d/M/Y', strtotime($timeStamp));
@@ -82,15 +102,15 @@ if (!function_exists('myDateFormat')) {
             $return =  $date . " " . $time;
         } elseif ($returnDate && $returnTime == false && $returnDifference) {
             $return =  $date . " " . " (" . $difference . ")";
-        } elseif ($returnDate==false && $returnTime && $returnDifference) {
+        } elseif ($returnDate == false && $returnTime && $returnDifference) {
             $return =  $time . " " . " (" . $difference . ")";
         } elseif ($returnDate && $returnTime == false && $returnDifference == false) {
             $return =  $date;
-        } elseif ($returnDate==false && $returnTime == true && $returnDifference == false) {
+        } elseif ($returnDate == false && $returnTime == true && $returnDifference == false) {
             $return =  $time;
-        } elseif ($returnDate==false && $returnTime == false && $returnDifference) {
+        } elseif ($returnDate == false && $returnTime == false && $returnDifference) {
             $return =  $difference;
-        }else{
+        } else {
             $return = "";
         }
 

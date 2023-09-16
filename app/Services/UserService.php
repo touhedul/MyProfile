@@ -58,7 +58,7 @@ class UserService
             'user_id' => $user->id,
             'text_1' => 'WELCOME TO MY WORLD',
             'text_2' => json_encode(["I'm $user->name","I'm a $user->profession"]),
-            'text_3' => 'based in Dhaka, Bangladesh',
+            'text_3' => 'lived in Dhaka, Bangladesh',
             'button_text' => 'Download CV',
         ]);
     }

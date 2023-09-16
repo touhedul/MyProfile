@@ -21,7 +21,7 @@ class Home extends Model
         'text_2',
         'text_3',
         'button_text',
-        'cv',
+        'file',
         'button_status',
     ];
 }

@@ -150,5 +150,6 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         Route::post('menu-management',[MenuManagementController::class,'save'])->name('menuManagement.save');
 
         Route::get('home-management',[HomeManagementController::class,'index'])->name('homeManagement.index');
+        Route::post('home-management',[HomeManagementController::class,'save'])->name('homeManagement.save');
     });
 });
