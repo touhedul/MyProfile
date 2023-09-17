@@ -37,6 +37,9 @@ class UserService
     {
         $user = User::findOrFail($userId);
         $user->load('default_theme');
+        $user->load('home');
+        $user->load('menus');
+
         return $user;
     }
 

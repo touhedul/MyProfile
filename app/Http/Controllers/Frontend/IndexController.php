@@ -38,6 +38,7 @@ class IndexController extends Controller
     {
         $userId = base64_decode($base64Userid);
         $userInfo = (new UserService)->userInfoForSite($userId);
+
         return view('user.themes.site'.$userInfo->default_theme->theme_id,compact('userInfo'));
     }
 

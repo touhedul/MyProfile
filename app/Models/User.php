@@ -193,4 +193,9 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return $this->hasOne(Home::class);
     }
+
+    public function menus()
+    {
+        return $this->hasMany(UserMenu::class);
+    }
 }

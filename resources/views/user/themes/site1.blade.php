@@ -65,7 +65,9 @@
                         data-bs-target="#header-nav"><span></span><span></span><span></span></button>
                     <div id="header-nav" class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link smooth-scroll active" href="#home">Home</a></li>
+                            @if ($userInfo->menus[0]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll active" href="#home">{{ $userInfo->menus[0]->menu_title }}</a></li>
+                            @endif
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#services">Services</a></li>
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#why-choose">Why Choose</a>
@@ -90,6 +92,8 @@
 
             <!-- Intro
     ============================================= -->
+        @if ($userInfo->menus[0]->show_status)
+
             <section id="home">
                 <div class="hero-wrap">
                     <div id="particles-js" class="hero-particles"></div>
@@ -97,29 +101,45 @@
                     <div class="hero-bg owl-carousel owl-theme single-slideshow" data-animateout="fadeOut"
                         data-animatein="fadeIn" data-autoplay="true" data-loop="true" data-dots="false" data-nav="false"
                         data-items="1">
+                        @if ($userInfo->home?->slider_1_status)
                         <div class="item"
-                            style="background-image:url('{{ asset('frontend/theme1/images/intro-bg.jpg') }}');"></div>
+                            style="background-image:url('{{ $userInfo->home?->slider_1 ? asset('images/'.$userInfo->home?->slider_1) : asset('frontend/theme1/images/intro-bg.jpg') }}');"></div>
+                        @endif
+                        @if ($userInfo->home?->slider_2_status)
                         <div class="item"
-                            style="background-image:url('{{ asset('frontend/theme1/images/intro-bg-2.jpg') }}');"></div>
+                            style="background-image:url('{{ $userInfo->home?->slider_2 ? asset('images/'.$userInfo->home?->slider_2) : asset('frontend/theme1/images/intro-bg-2.jpg') }}');"></div>
+                        @endif
+
+                        @if ($userInfo->home?->slider_3_status)
                         <div class="item"
-                            style="background-image:url('{{ asset('frontend/theme1/images/intro-bg-3.jpg') }}');"></div>
+                            style="background-image:url('{{ $userInfo->home?->slider_3 ? asset('images/'.$userInfo->home?->slider_3) : asset('frontend/theme1/images/intro-bg-3.jpg') }}');"></div>
+                        @endif
                     </div>
                     <div class="hero-content section d-flex min-vh-100">
                         <div class="container my-auto">
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <p class="text-5 text-uppercase text-white ls-4 mb-2 mb-md-3">Welcome to My World
+                                    <p class="text-5 text-uppercase text-white ls-4 mb-2 mb-md-3">
+                                        {{$userInfo->home?->text_1}}
                                     </p>
+                                    @if(count(json_decode($userInfo->home?->text_2)) > 0)
                                     <div class="typed-strings">
-                                        <p>I'm Kenil Patel</p>
-                                        <p>I'm a Freelancer.</p>
-                                        <p>I'm a Photographer.</p>
-                                        <p>I'm a Designer.</p>
+                                        @foreach (json_decode($userInfo->home?->text_2) as $item)
+                                            <p>{{$item}}</p>
+                                        @endforeach
                                     </div>
+                                    @endif
                                     <h2 class="text-17 fw-600 text-white mb-2 mb-md-3"><span class="typed"></span>
                                     </h2>
-                                    <p class="text-5 text-light">based in San Francisco, California.</p>
-                                    {{-- <a href="#" class="btn btn-primary rounded-pill mt-3">Download CV</a> --}}
+                                    <p class="text-5 text-light">{{$userInfo->home?->text_3}}</p>
+
+                                    @if ($userInfo->home?->button_status)
+                                    @if($userInfo->home?->file)
+                                    <a href="{{asset('files/'.$userInfo->home?->file)}}" download="" class="btn btn-primary rounded-pill mt-3">{{$userInfo->home?->button_text}}</a>
+                                    @else
+                                    <a href="#" class="btn btn-primary rounded-pill mt-3">{{$userInfo->home?->button_text}}</a>
+                                    @endif
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -129,7 +149,7 @@
                 </div>
             </section>
             <!-- Intro end -->
-
+        @endif
 
 
             <!-- About
