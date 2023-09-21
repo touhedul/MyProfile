@@ -2,6 +2,7 @@
 
 //admin Login, logout, forget password routes
 
+use App\Http\Controllers\Admin\AboutManagementController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\BackupController;
@@ -151,5 +152,8 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
 
         Route::get('home-management',[HomeManagementController::class,'index'])->name('homeManagement.index');
         Route::post('home-management',[HomeManagementController::class,'save'])->name('homeManagement.save');
+
+        Route::get('about-management',[AboutManagementController::class,'index'])->name('aboutManagement.index');
+        Route::post('about-management',[AboutManagementController::class,'save'])->name('aboutManagement.save');
     });
 });

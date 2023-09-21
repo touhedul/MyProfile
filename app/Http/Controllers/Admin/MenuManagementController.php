@@ -13,7 +13,7 @@ class MenuManagementController extends Controller
     {
         $this->authorize('Menu-management');
         $userMenus = UserMenu::where('user_id', auth()->id())->get();
-        return view('admin.menuManagement.index', compact('userMenus'));
+        return view('admin.sectionManagements.menu', compact('userMenus'));
     }
 
 

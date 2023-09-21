@@ -17,7 +17,7 @@ class HomeManagementController extends Controller
          $userHome = Home::where('user_id', auth()->id())->first();
         $userHome->text_2 = json_decode($userHome->text_2);
         // return $userHome;
-        return view('admin.homeManagement.index', compact('userHome'));
+        return view('admin.sectionManagements.home', compact('userHome'));
     }
 
 

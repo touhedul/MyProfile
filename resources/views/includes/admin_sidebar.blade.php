@@ -256,4 +256,12 @@
     </a>
 </li>
 @endcan
+@can('About-management')
+<li class="">
+    <a href="{{route('admin.aboutManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/about-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('About Management') }}
+    </a>
+</li>
+@endcan
 
