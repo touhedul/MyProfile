@@ -80,6 +80,9 @@ if (!function_exists('defaultImage')) {
             case 'home_slider_3':
                 $image = asset('frontend/theme1/images/intro-bg-3.jpg');
                 break;
+            case 'about_image':
+                $image = asset('frontend/theme1/images/about-me.jpg');
+                break;
         }
 
         return $image;

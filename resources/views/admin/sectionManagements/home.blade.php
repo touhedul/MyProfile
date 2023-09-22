@@ -85,15 +85,15 @@
                                 Texts
                             </div>
                             <div class="card-body">
-                                <input type="text" name="text_1" value="{{ $userHome->text_1 }}" class="form-control col-md-6">
+                                <input type="text" placeholder="Write welcome message" name="text_1" value="{{ $userHome->text_1 }}" class="form-control col-md-6">
                                 {{-- <br> --}}
                                 {{-- Typing Texts: --}}
                                 <br>
-                                <input type="text" name="text_2[]" value="{{ $userHome->text_2[0] }}" class="form-control col-md-6">
+                                <input type="text" placeholder="Typing text..." name="text_2[]" value="{{ $userHome->text_2[0] }}" class="form-control col-md-6">
                                 <br>
-                                <input type="text" name="text_2[]" value="{{ $userHome->text_2[1] }}" class="form-control col-md-6">
+                                <input type="text" placeholder="Typing text..." name="text_2[]" value="{{ $userHome->text_2[1] }}" class="form-control col-md-6">
                                 <br>
-                                <input type="text" name="text_3" value="{{ $userHome->text_3 }}" class="form-control col-md-6">
+                                <input type="text" placeholder="" name="text_3" value="{{ $userHome->text_3 }}" class="form-control col-md-6">
                             </div>
                         </div>
                         <br>
