@@ -103,16 +103,16 @@
                         data-items="1">
                         @if ($userInfo->home?->slider_1_status)
                         <div class="item"
-                            style="background-image:url('{{ $userInfo->home?->slider_1 ? asset('images/'.$userInfo->home?->slider_1) : asset('frontend/theme1/images/intro-bg.jpg') }}');"></div>
+                            style="background-image:url('{{ $userInfo->home?->slider_1 ? asset('images/'.$userInfo->home?->slider_1) : defaultImage('home_slider_1') }}');"></div>
                         @endif
                         @if ($userInfo->home?->slider_2_status)
                         <div class="item"
-                            style="background-image:url('{{ $userInfo->home?->slider_2 ? asset('images/'.$userInfo->home?->slider_2) : asset('frontend/theme1/images/intro-bg-2.jpg') }}');"></div>
+                            style="background-image:url('{{ $userInfo->home?->slider_2 ? asset('images/'.$userInfo->home?->slider_2) : defaultImage('home_slider_2') }}');"></div>
                         @endif
 
                         @if ($userInfo->home?->slider_3_status)
                         <div class="item"
-                            style="background-image:url('{{ $userInfo->home?->slider_3 ? asset('images/'.$userInfo->home?->slider_3) : asset('frontend/theme1/images/intro-bg-3.jpg') }}');"></div>
+                            style="background-image:url('{{ $userInfo->home?->slider_3 ? asset('images/'.$userInfo->home?->slider_3) : defaultImage('home_slider_3') }}');"></div>
                         @endif
                     </div>
                     <div class="hero-content section d-flex min-vh-100">
@@ -151,7 +151,7 @@
             <!-- Intro end -->
         @endif
 
-
+        @if ($userInfo->menus[1]->show_status)
             <!-- About
     ============================================= -->
             <section id="about" class="section">
@@ -159,55 +159,64 @@
                     <div class="row">
                         <div class="col-lg-5 text-center mb-5 mb-lg-0 wow fadeInLeft"> <img
                                 class="img-fluid shadow-md rounded d-inline-block"
-                                src="{{ asset('frontend/theme1/images/about-me.jpg') }}" title="I'm Kenil Patel"
+                                src="{{ $userInfo->about?->image ? asset('images/'.$userInfo->about?->image) : defaultImage('about_image') }}" title="I'm Kenil Patel"
                                 alt=""> </div>
                         <div class="col-lg-7 text-center text-lg-start ps-lg-4 wow fadeInRight">
-                            <h2 class="fw-600 mb-4">About Me</h2>
-                            <h3 class="text-6 mb-4">Hello! <span class="text-primary fw-600">I'm Kenil Patel.</span>
+                            <h2 class="fw-600 mb-4">{{$userInfo->about?->text_1}}</h2>
+                            <h3 class="text-6 mb-4"><span class="text-primary fw-600">{{$userInfo->about?->text_2}}</span>
                             </h3>
-                            <p>I combine our passion for design focused in people with advanced development
-                                technologies. <strong class="fw-600">350+ clients</strong> have procured exceptional
-                                results and happiness while working with me.</p>
-                            <p>Delivering work within <strong class="fw-600">time and budget</strong> which meets
-                                client’s requirements is our moto. when an unknown printer took a galley of type and
-                                scrambled it to make a type specimen book lorem Ipsum has been the industry's standard.
-                                Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                            <p>{!! $userInfo->about?->text_3!!}</p>
                             <div class="brands-grid separator-border my-sm-4">
                                 <div class="row">
+                                    @if ($userInfo->about?->count_1)
+
                                     <div class="col-sm-4 py-4 py-sm-2">
                                         <div class="featured-box text-center">
                                             <h4 class="text-8 text-muted mb-0"><span class="counter" data-from="0"
-                                                    data-to="10">10</span>+</h4>
-                                            <p class="mb-0">Years Experiance</p>
+                                                    data-to="{{$userInfo->about?->count_1}}">{{$userInfo->about?->count_1}}</span>+</h4>
+                                            <p class="mb-0">{{$userInfo->about?->count_text_1}}</p>
                                         </div>
                                     </div>
+                                    @endif
+                                    @if ($userInfo->about?->count_2)
+
                                     <div class="col-sm-4 py-4 py-sm-2">
                                         <div class="featured-box text-center">
                                             <h4 class="text-8 text-muted mb-0"><span class="counter" data-from="0"
-                                                    data-to="350">350</span>+</h4>
-                                            <p class="mb-0">Happy Clients</p>
+                                                    data-to="{{$userInfo->about?->count_2}}">{{$userInfo->about?->count_2}}</span>+</h4>
+                                            <p class="mb-0">{{$userInfo->about?->count_text_2}}</p>
                                         </div>
                                     </div>
+                                    @endif
+                                    @if ($userInfo->about?->count_3)
+
                                     <div class="col-sm-4 py-4 py-sm-2">
                                         <div class="featured-box text-center">
                                             <h4 class="text-8 text-muted mb-0"><span class="counter" data-from="0"
-                                                    data-to="780">780</span>+</h4>
-                                            <p class="mb-0">Projects Done</p>
+                                                    data-to="{{$userInfo->about?->count_3}}">{{$userInfo->about?->count_3}}</span>+</h4>
+                                            <p class="mb-0">{{$userInfo->about?->count_text_3}}</p>
                                         </div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
+                            @if ($userInfo->about?->button_status)
                             <a class="btn btn-secondary rounded-pill mt-3" data-bs-toggle="modal"
-                                data-bs-target="#about-us-details" href="#">About more</a> <a href="#portfolio"
-                                class="btn btn-link smooth-scroll mt-3 px-4">Discover My Work<span
-                                    class="text-1 ms-2"><i class="fas fa-chevron-right"></i></span></a>
+                                data-bs-target="#about-us-details" href="#">{{$userInfo->about?->button_text}}</a>
+                            @endif
+
+                            @if ($userInfo->about?->extra_text)
+                            <a href="#portfolio"
+                            class="btn btn-link smooth-scroll mt-3 px-4">{{$userInfo->about?->extra_text}}<span
+                                class="text-1 ms-2"><i class="fas fa-chevron-right"></i></span></a>
+                            @endif
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- About end -->
-
+            @endif
             <!-- Services
     ============================================= -->
             <section id="services" class="section bg-light">

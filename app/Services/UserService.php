@@ -41,6 +41,7 @@ class UserService
         $user->load('default_theme');
         $user->load('home');
         $user->load('menus');
+        $user->load('about');
 
         return $user;
     }
@@ -78,11 +79,11 @@ class UserService
             'text_3' => "I combine our passion for design focused in people with advanced development technologies. 350+ clients have procured exceptional results and happiness while working with me.
 
             Delivering work within time and budget which meets client’s requirements is our moto. when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard. Lorem Ipsum has been the industry's standard dummy text ever since.",
-            'count_1' => '10+',
+            'count_1' => '10',
             'count_text_1' => 'Years Experiance',
-            'count_2' => '20+',
+            'count_2' => '20',
             'count_text_2' => 'Happy Clients',
-            'count_3' => '30+',
+            'count_3' => '30',
             'count_text_3' => 'Projects Done',
             'button_text' => 'My Services',
             'button_status' => true,

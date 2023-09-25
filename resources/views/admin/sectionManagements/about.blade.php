@@ -53,19 +53,19 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" name="count_1" placeholder="10+" value="{{ $userAbout->count_1 }}" class="form-control col-md-6">
+                                        <input type="number" min="0" name="count_1" placeholder="10" value="{{ $userAbout->count_1 }}" class="form-control col-md-6">
                                         <br>
                                         <input type="text" name="count_text_1" placeholder="Years of experience" value="{{ $userAbout->count_text_1 }}" class="form-control col-md-6">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" name="count_2" placeholder="20+" value="{{ $userAbout->count_2 }}" class="form-control col-md-6">
+                                        <input type="number" min="0" name="count_2" placeholder="20" value="{{ $userAbout->count_2 }}" class="form-control col-md-6">
                                         <br>
-                                        <input type="text" name="count_text_2" placeholder="Years of experience" value="{{ $userAbout->count_text_2 }}" class="form-control col-md-6">
+                                        <input type="text" name="count_text_2" placeholder="Project Done" value="{{ $userAbout->count_text_2 }}" class="form-control col-md-6">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" name="count_3" placeholder="30+" value="{{ $userAbout->count_3 }}" class="form-control col-md-6">
+                                        <input type="number" min="0" name="count_3" placeholder="30" value="{{ $userAbout->count_3 }}" class="form-control col-md-6">
                                         <br>
-                                        <input type="text" name="count_text_3" placeholder="Years of experience" value="{{ $userAbout->count_text_3 }}" class="form-control col-md-6">
+                                        <input type="text" name="count_text_3" placeholder="Number of clients" value="{{ $userAbout->count_text_3 }}" class="form-control col-md-6">
                                     </div>
                                 </div>
                             </div>
