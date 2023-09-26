@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\AdditionalInfo;
 use App\Models\Home;
 use App\Models\Menu;
+use App\Models\Service;
 use App\Models\Sitelink;
 use App\Models\Theme;
 use App\Models\User;
@@ -106,5 +107,11 @@ class UserService
             'key' => 'service_description',
             'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
         ]);
+
+        // Service::create([
+        //     'title',
+        //     'description',
+        //     'icon',
+        // ]);
     }
 }

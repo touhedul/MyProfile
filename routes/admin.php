@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuManagementController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\VisitorInfoController;
 use App\Http\Controllers\Auth\Admin\LoginController;
@@ -144,6 +145,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 // 'faculties' => FacultyController::class,
                 'themes'=>ThemeController::class,
                 'menus'=>MenuController::class,
+                'services' => ServiceController::class,
             ]
         );
 

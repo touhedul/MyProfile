@@ -265,3 +265,15 @@
 </li>
 @endcan
 
+
+
+
+@can('Service-view')
+<li class="">
+    <a href="{{route('admin.services.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/services**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Service Management') }}
+    </a>
+</li>
+@endcan
+

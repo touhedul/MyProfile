@@ -31,16 +31,6 @@ Route::group(['middleware'=>['blockIp','localaization']],function(){
 
 
     Route::get('/language/{locale}', [IndexController::class, 'changeLanguage'])->name('changeLanguage');
-    
+
 });
 
-
-
-
-
-
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::resource('menus', App\Http\Controllers\Admin\MenuController::class, ["as" => 'admin']);
-});
