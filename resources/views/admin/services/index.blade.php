@@ -2,6 +2,10 @@
 @section('title'){{ __('Services') }} @endsection
 @section('content')
 @include('includes.page_header_index',['title'=>__('Services'),'url'=>route('admin.services.create'),'icon' => $icon??'','permission'=>'Service-create'])
+
+@push('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/theme1/vendor/font-awesome/css/all.min.css') }}" />
+@endpush
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">

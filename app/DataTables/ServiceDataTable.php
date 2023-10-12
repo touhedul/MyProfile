@@ -17,22 +17,31 @@ class ServiceDataTable extends DataTable
         return $dataTable->addColumn('action', 'admin.services.datatables_actions')
             ->addIndexColumn()
             ->addColumn('', '')
-            ->addColumn('Sl', '');
-            // ->addColumn('details',function($dataTable){
-            //     return Str::limit($dataTable->details,50);
-            // })
+            ->addColumn('Sl', '')
+            ->addColumn('description',function($dataTable){
+                return Str::limit($dataTable->description,50);
+            })
+            ->addColumn('icon',function($dataTable){
+                return "<i class='".$dataTable->icon."'></i>";
+            })
+            ->addColumn('status', function ($dataTable) {
+                $active = '<div class="mb-2 mr-2 badge badge-success">'.__('Active').'</div>';
+                $deactive = '<div class="mb-2 mr-2 badge badge-danger">'.__('Deactive').'</div>';
+                return $dataTable->status == 1 ? $active : $deactive;
+            })
             // ->addColumn('image', function ($dataTable) {
             //     return "<img width='100px' height='80px' src='".asset('images/'.$dataTable->image)."'/>";
             // })
             // ->addColumn('file',function($dataTable){
             //     return "<a download href='".asset('files/'. $dataTable->file)."'>Download</a>";
             // })
-            // ->rawColumns(['details', 'action', 'image', 'file']);
+            ->rawColumns(['description', 'action', 'icon', 'status']);
+
     }
 
     public function query(Service $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->where('user_id',auth()->id());
     }
 
     public function html()

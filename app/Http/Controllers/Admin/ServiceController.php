@@ -37,8 +37,9 @@ class ServiceController extends AppBaseController
     public function store(ServiceCreateRequest $request)
     {
         $this->authorize('Service-create');
+        $status = $request->status ?? 0;;
         $request['user_id'] = auth()->id();
-        Service::create($request->all());
+        Service::create(array_merge($request->all(),['status' => $status]));
         notify()->success(__("Successfully Created"), __("Success"));
         return redirect(route('admin.services.index'));
     }

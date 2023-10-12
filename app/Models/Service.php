@@ -22,11 +22,12 @@ class Service extends Model
     use HasFactory;
 
     public $table = 'services';
-    
+
 
 
 
     public $fillable = [
+        'user_id',
         'title',
         'description',
         'icon',
@@ -52,10 +53,10 @@ class Service extends Model
      * @var array
      */
     public static $rules = [
-        'title' => 'nullable|string|max:191',
+        'title' => 'required|string|max:191',
         'description' => 'nullable|string|max:65530',
         'icon' => 'nullable|string|max:191'
     ];
 
-    
+
 }
