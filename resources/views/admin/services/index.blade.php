@@ -14,7 +14,7 @@
                     Texts
                 </div>
                 <div class="card-body">
-                    <form action="" method="POSt">
+                    <form action="{{route('admin.services.saveText')}}" method="POSt">
                         @csrf
                         <div class="form-group">
                             <input type="text" class="form-control" value="{{$serviceInfo->where('key','service_text')->first()->value}}" name="service_text" placeholder="My Services">

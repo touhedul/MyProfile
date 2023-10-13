@@ -119,4 +119,5 @@ return [
         'options' => 0,
     ],
 
+    'state_save' => 1,
 ];

@@ -88,7 +88,7 @@ class AdminHelper
             'scrollX' => true,
             // "scrollY" => "200px",
             'lengthMenu' => [[10, 20, 40, 50, 100, -1], ['10', '20', '40', '50', '100', 'All']],
-            'stateSave' => false,
+            'stateSave' => config('datatables.state_save'),
             'oLanguage' => [
                 'sLengthMenu' => '_MENU_',
             ],

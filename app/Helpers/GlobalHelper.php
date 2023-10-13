@@ -95,7 +95,7 @@ if (!function_exists('myDateFormat')) {
         if ($timeStamp == NULL) {
             return "";
         }
-        $date = date('d/M/Y', strtotime($timeStamp));
+        $date = date('d M, Y', strtotime($timeStamp));
         $time = date(' h:i a', strtotime($timeStamp));
         $difference = \Carbon\Carbon::parse($timeStamp)->diffForHumans();
 

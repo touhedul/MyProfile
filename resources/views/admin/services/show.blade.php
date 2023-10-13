@@ -2,6 +2,9 @@
 @section('title'){{ __('View') }} {{__('Service')}} {{ __('Details') }} @endsection
 @section('content')
 @include('includes.page_header',['title'=>__('View')." ".__('Service'),'url'=>route('admin.services.index'),'icon' => $icon??'','permission'=>'Service-view'])
+@push('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/theme1/vendor/font-awesome/css/all.min.css') }}" />
+@endpush
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">

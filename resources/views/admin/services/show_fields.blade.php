@@ -8,35 +8,39 @@
 <!-- Description Field -->
 <div class="form-group">
     <b>{!! Form::label('description',  __('Description')) !!}</b>
-    <p>{{ $service->description }}</p>
+    <p>{!! $service->description !!}</p>
 </div>
 
 
 <!-- Icon Field -->
 <div class="form-group">
     <b>{!! Form::label('icon',  __('Icon')) !!}</b>
-    <p>{{ $service->icon }}</p>
+    <p><i class="{!!  $service->icon !!}"></i></p>
 </div>
 
 
 <!-- Status Field -->
 <div class="form-group">
     <b>{!! Form::label('status',  __('Status')) !!}</b>
-    <p>{{ $service->status }}</p>
+    @if ($service->status)
+    <div class="mb-2 mr-2 badge badge-success">{{ __('Active')}}</div>
+    @else
+    <div class="mb-2 mr-2 badge badge-danger">{{ __('Deactive')}}</div>
+    @endif
 </div>
 
 
 <!-- Created At Field -->
 <div class="form-group">
     <b>{!! Form::label('created_at',  __('Created At')) !!}</b>
-    <p>{{ $service->created_at }}</p>
+    <p>{{ myDateFormat($service->created_at) }}</p>
 </div>
 
 
 <!-- Updated At Field -->
 <div class="form-group">
     <b>{!! Form::label('updated_at',  __('Updated At')) !!}</b>
-    <p>{{ $service->updated_at }}</p>
+    <p>{{ myDateFormat($service->updated_at) }}</p>
 </div>
 
 

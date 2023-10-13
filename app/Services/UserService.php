@@ -45,6 +45,8 @@ class UserService
         $user->load('home');
         $user->load('menus');
         $user->load('about');
+        $user->load('services');
+        $user->load('additional_infos');
 
         return $user;
     }
@@ -108,10 +110,46 @@ class UserService
             'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
         ]);
 
-        // Service::create([
-        //     'title',
-        //     'description',
-        //     'icon',
-        // ]);
+        $this->createServices($user);
+    }
+
+    public function createServices($user)
+    {
+        Service::create([
+            'title'=>'Graphic Design',
+            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon'=>'fas fa-palette',
+            'user_id' => $user->id
+        ]);
+        Service::create([
+            'title'=>'Web Design',
+            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon'=>'fas fa-desktop',
+            'user_id' => $user->id
+        ]);
+        Service::create([
+            'title'=>'Web Development',
+            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon'=>'fas fa-pencil-ruler',
+            'user_id' => $user->id
+        ]);
+        Service::create([
+            'title'=>'Brand Identity',
+            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon'=>'fas fa-paint-brush',
+            'user_id' => $user->id
+        ]);
+        Service::create([
+            'title'=>'Business Analysis',
+            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon'=>'fas fa-chart-area',
+            'user_id' => $user->id
+        ]);
+        Service::create([
+            'title'=>'Digital Marketing',
+            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon'=>'fas fa-bullhorn',
+            'user_id' => $user->id
+        ]);
     }
 }

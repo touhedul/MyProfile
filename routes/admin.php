@@ -157,5 +157,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
 
         Route::get('about-management',[AboutManagementController::class,'index'])->name('aboutManagement.index');
         Route::post('about-management',[AboutManagementController::class,'save'])->name('aboutManagement.save');
+
+        Route::post('service-management',[ServiceController::class,'saveText'])->name('services.saveText');
     });
 });
