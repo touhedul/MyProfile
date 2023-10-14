@@ -245,7 +245,7 @@
                         </div>
                         @endif
                         @endforeach
-                       
+
                     </div>
                 </div>
             </section>
@@ -255,101 +255,31 @@
     ============================================= -->
             <section id="why-choose" class="section">
                 <div class="container">
-                    <!-- Heading -->
-                    <div class="row mb-5 wow fadeIn">
-                        <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                            <h2 class="fw-600 mb-3">Why I'm Different?</h2>
-                            <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted">We're smart, we're hard working, we're easy to talk to, and we
-                                love a challenge.</p>
-                        </div>
-                    </div>
-                    <!-- Heading End -->
-
-                    <div class="row justify-content-center mb-md-4 wow fadeInUp">
-                        <div class="col-md-6 col-lg-4 mb-5">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon text-primary border rounded-circle"> <i
-                                        class="fas fa-fingerprint"></i></div>
-                                <h3>Unique Design</h3>
-                                <p class="text-muted mb-0">We're smart, we're hard working, we're easy to talk to, and
-                                    we love a challenge.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mb-5">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon text-primary border rounded-circle"> <i
-                                        class="fas fa-cog"></i> </div>
-                                <h3>Fully Customisable</h3>
-                                <p class="text-muted mb-0">We're smart, we're hard working, we're easy to talk to, and
-                                    we love a challenge.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mb-5">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon text-primary border rounded-circle"> <i
-                                        class="fas fa-layer-group"></i> </div>
-                                <h3>Different Layout</h3>
-                                <p class="text-muted mb-0">We're smart, we're hard working, we're easy to talk to, and
-                                    we love a challenge.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mb-5">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon text-primary border rounded-circle"> <i
-                                        class="fas fa-mobile-alt"></i> </div>
-                                <h3>Responsive Layout</h3>
-                                <p class="text-muted mb-0">We're smart, we're hard working, we're easy to talk to, and
-                                    we love a challenge.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mb-5">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon text-primary border rounded-circle"> <i
-                                        class="fas fa-expand-alt"></i> </div>
-                                <h3>Boxed & Wide Layouts</h3>
-                                <p class="text-muted mb-0">We're smart, we're hard working, we're easy to talk to, and
-                                    we love a challenge.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mb-5">
-                            <div class="featured-box style-3">
-                                <div class="featured-box-icon text-primary border rounded-circle"> <i
-                                        class="far fa-life-ring"></i> </div>
-                                <h3>Extensive Documentation</h3>
-                                <p class="text-muted mb-0">We're smart, we're hard working, we're easy to talk to, and
-                                    we love a challenge.</p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-6 col-lg-6 text-center wow fadeInLeft">
                             <div class="hero-wrap section h-100 rounded shadow-lg p-5">
                                 <div class="hero-mask opacity-6 bg-dark rounded"></div>
                                 <div class="hero-bg hero-bg-scroll rounded"
-                                    style="background-image:url('{{ asset('frontend/theme1/images/why-choose.jpg') }}');">
-                                </div>
-                                <div
-                                    class="hero-content h-100 d-flex flex-column align-items-center justify-content-center py-5">
-                                    <a class="btn-video-play popup-youtube"
-                                        href="http://www.youtube.com/watch?v=7e90gBu4pas"><i
-                                            class="fas fa-play"></i></a>
-                                    <p class="text-white fw-500 text-uppercase mt-3 mb-0">Play &amp; Watch!</p>
+                                    @php
+                                        $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->value;
+                                    @endphp
+                                    style="background-image:url('{{ $skillImage ? asset('images/'.$skillImage) : defaultImage('skill_image') }}');">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 align-self-center mt-5 mt-md-0 wow fadeInRight">
                             <div class="px-lg-4">
-                                <h3 class="text-6 mb-3">My Skills</h3>
-                                <p class="text-muted">Lisque persius interesset his et, in quot quidam persequeris vim,
-                                    ad mea essent possim iriure.</p>
-                                <p class="fw-500 text-start mb-2">Branding & Desing <span class="float-end">95%</span>
+                                <h3 class="text-6 mb-3">{{$userInfo->additional_infos->where('key','skill_text')->first()->value}}</h3>
+                                <p class="text-muted">{!!$userInfo->additional_infos->where('key','skill_description')->first()->value!!}</p>
+                                @foreach ($userInfo->skills as $skill)
+                                <p class="fw-500 text-start mb-2">{{$skill->title}} <span class="float-end">{{$skill->percentage}}%</span>
                                 </p>
                                 <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 95%"
-                                        aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: {{$skill->percentage}}%"
+                                        aria-valuenow="{{$skill->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <p class="fw-500 text-start mb-2">Web Development <span class="float-end">65%</span>
+                                @endforeach
+                                {{-- <p class="fw-500 text-start mb-2">Web Development <span class="float-end">65%</span>
                                 </p>
                                 <div class="progress progress-sm mb-4">
                                     <div class="progress-bar bg-primary" role="progressbar" style="width: 65%"
@@ -365,7 +295,7 @@
                                 <div class="progress progress-sm mb-4">
                                     <div class="progress-bar bg-primary" role="progressbar" style="width: 75%"
                                         aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

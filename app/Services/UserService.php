@@ -8,6 +8,7 @@ use App\Models\Home;
 use App\Models\Menu;
 use App\Models\Service;
 use App\Models\Sitelink;
+use App\Models\Skill;
 use App\Models\Theme;
 use App\Models\User;
 use App\Models\UserMenu;
@@ -24,6 +25,7 @@ class UserService
         $this->createHomeSection($user);
         $this->createAboutSection($user);
         $this->createServiceSection($user);
+        $this->createSkillSection($user);
     }
 
     public function createTheme($user)
@@ -47,6 +49,7 @@ class UserService
         $user->load('about');
         $user->load('services');
         $user->load('additional_infos');
+        $user->load('skills');
 
         return $user;
     }
@@ -150,6 +153,51 @@ class UserService
             'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
             'icon'=>'fas fa-bullhorn',
             'user_id' => $user->id
+        ]);
+    }
+
+
+    public function createSkillSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'skill_text',
+            'value' => 'My Skills',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'skill_description',
+            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'skill_image',
+            'value' => null,
+        ]);
+        $this->createSkills($user);
+    }
+
+    public function createSkills($user)
+    {
+        Skill::create([
+            'user_id' => $user->id,
+            'title'=> 'Branding & Desing',
+            'percentage'=> 95,
+        ]);
+        Skill::create([
+            'user_id' => $user->id,
+            'title'=> 'Web Development',
+            'percentage'=> 90,
+        ]);
+        Skill::create([
+            'user_id' => $user->id,
+            'title'=> 'Business Analysis',
+            'percentage'=> 75,
+        ]);
+        Skill::create([
+            'user_id' => $user->id,
+            'title'=> 'Digital Marketing',
+            'percentage'=> 85,
         ]);
     }
 }

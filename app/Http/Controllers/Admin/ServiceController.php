@@ -80,6 +80,7 @@ class ServiceController extends AppBaseController
 
     public function saveText(ServiceTextUpdate $request)
     {
+        $this->authorize('Service-update');
         AdditionalInfo::where('user_id',auth()->id())->where('key','service_text')->update(['value' => $request->service_text]);
         AdditionalInfo::where('user_id',auth()->id())->where('key','service_description')->update(['value' => $request->service_description]);
 

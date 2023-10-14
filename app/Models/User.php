@@ -213,4 +213,9 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return $this->hasMany(AdditionalInfo::class);
     }
+
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
 }

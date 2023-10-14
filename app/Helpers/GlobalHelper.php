@@ -83,6 +83,9 @@ if (!function_exists('defaultImage')) {
             case 'about_image':
                 $image = asset('frontend/theme1/images/about-me.jpg');
                 break;
+            case 'skill_image':
+                $image = asset('frontend/theme1/images/why-choose.jpg');
+                break;
         }
 
         return $image;

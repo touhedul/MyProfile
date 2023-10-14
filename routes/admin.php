@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuManagementController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\VisitorInfoController;
 use App\Http\Controllers\Auth\Admin\LoginController;
@@ -146,6 +147,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 'themes'=>ThemeController::class,
                 'menus'=>MenuController::class,
                 'services' => ServiceController::class,
+                'skills'=>SkillController::class
             ]
         );
 
@@ -159,5 +161,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         Route::post('about-management',[AboutManagementController::class,'save'])->name('aboutManagement.save');
 
         Route::post('service-management',[ServiceController::class,'saveText'])->name('services.saveText');
+
+        Route::post('skill-management',[SkillController::class,'saveText'])->name('skills.saveText');
     });
 });
