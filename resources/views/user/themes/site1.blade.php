@@ -355,7 +355,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-1.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-1.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-1.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 1</h5>
@@ -371,7 +371,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-2.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-2.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-2.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 2</h5>
@@ -387,7 +387,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-3.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-3.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-3.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 3</h5>
@@ -403,7 +403,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-4.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-4.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-4.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 4</h5>
@@ -419,7 +419,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-5.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-5.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-5.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 5</h5>
@@ -435,7 +435,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-6.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-6.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-6.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 6</h5>
@@ -451,7 +451,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-7.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-7.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-7.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 7</h5>
@@ -467,7 +467,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-8.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-8.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-8.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 8</h5>
@@ -483,7 +483,7 @@
                                             src="{{ asset('frontend/theme1/images/projects/project-9.jpg') }}"
                                             alt="">
                                         <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
-                                                href="ajax/portfolio-ajax-project-9.html"></a>
+                                                href="frontend/theme1/ajax/portfolio-ajax-project-9.html"></a>
                                             <div class="portfolio-overlay-details">
                                                 <p class="text-white text-6"><i class="fas fa-plus"></i></p>
                                                 <h5 class="text-white fw-400">Project Title 9</h5>

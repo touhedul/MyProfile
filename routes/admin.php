@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuManagementController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\ThemeController;
@@ -147,7 +148,8 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 'themes'=>ThemeController::class,
                 'menus'=>MenuController::class,
                 'services' => ServiceController::class,
-                'skills'=>SkillController::class
+                'skills'=>SkillController::class,
+                'projects'=>ProjectController::class,
             ]
         );
 

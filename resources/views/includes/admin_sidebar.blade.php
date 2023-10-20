@@ -286,3 +286,12 @@
 </li>
 @endcan
 
+@can('Project-view')
+<li class="">
+    <a href="{{route('admin.projects.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/projects**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Project Management') }}
+    </a>
+</li>
+@endcan
+
