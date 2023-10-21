@@ -165,5 +165,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         Route::post('service-management',[ServiceController::class,'saveText'])->name('services.saveText');
 
         Route::post('skill-management',[SkillController::class,'saveText'])->name('skills.saveText');
+
+        Route::post('project-management',[ProjectController::class,'saveText'])->name('projects.saveText');
     });
 });

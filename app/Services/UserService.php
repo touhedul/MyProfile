@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\AdditionalInfo;
 use App\Models\Home;
 use App\Models\Menu;
+use App\Models\Project;
 use App\Models\Service;
 use App\Models\Sitelink;
 use App\Models\Skill;
@@ -26,6 +27,7 @@ class UserService
         $this->createAboutSection($user);
         $this->createServiceSection($user);
         $this->createSkillSection($user);
+        $this->createProjectSection($user);
     }
 
     public function createTheme($user)
@@ -198,6 +200,72 @@ class UserService
             'user_id' => $user->id,
             'title'=> 'Digital Marketing',
             'percentage'=> 85,
+        ]);
+    }
+
+    public function createProjectSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'project_text',
+            'value' => 'My Projects',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'project_description',
+            'value' => 'I help you build brand for your business at an affordable price. Thousands of clients have procured exceptional results while working with Me..',
+        ]);
+
+        $this->createProjects($user);
+    }
+
+
+    public function createProjects($user)
+    {
+        Project::create([
+            'title'=>'Project Title 1',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+        Project::create([
+            'title'=>'Project Title 2',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+        Project::create([
+            'title'=>'Project Title 3',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+        Project::create([
+            'title'=>'Project Title 4',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+        Project::create([
+            'title'=>'Project Title 5',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+        Project::create([
+            'title'=>'Project Title 6',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+        Project::create([
+            'title'=>'Project Title 7',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+        Project::create([
+            'title'=>'Project Title 8',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+        Project::create([
+            'title'=>'Project Title 9',
+            'user_id' => $user->id,
+            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
     }
 }

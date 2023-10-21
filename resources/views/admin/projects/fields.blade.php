@@ -14,7 +14,10 @@
 
 <!-- Image Field -->
 @isset($project)
-<img height="50px" width="80px" src="{{asset('images/'.$project->image)}}" alt="" srcset="">
+@php
+$image = $project->image ? asset('images/'.$project->image) : defaultImage('no_image') ;
+@endphp
+<img height="150px" width="auto" src="{{$image}}" alt="" srcset="">
 @endisset
 <div class="form-group">
     <br>

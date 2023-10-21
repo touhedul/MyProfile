@@ -9,6 +9,8 @@ use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\Project;
 use App\Http\Controllers\AppBaseController;
 use App\Helpers\FileHelper;
+use App\Http\Requests\ProjectTextUpdate;
+use App\Models\AdditionalInfo;
 
 class ProjectController extends AppBaseController
 {
@@ -18,9 +20,13 @@ class ProjectController extends AppBaseController
 
     public function index(ProjectDataTable $projectDataTable)
     {
+        
         $this->authorize('Project-view');
         $icon = $this->icon;
-        return $projectDataTable->render('admin.projects.index',compact('icon'));
+        $projectInfo = AdditionalInfo::where('user_id',auth()->id())->where(function($query){
+            $query->where('key','project_text')->orWhere('key','project_description');
+        })->get();
+        return $projectDataTable->render('admin.projects.index',compact('icon','projectInfo'));
     }
 
 
@@ -74,5 +80,15 @@ class ProjectController extends AppBaseController
         $this->authorize('Project-delete');
         FileHelper::deleteImage($project);
         $project->delete();
+    }
+
+    public function saveText(ProjectTextUpdate $request)
+    {
+        $this->authorize('Project-update');
+        AdditionalInfo::where('user_id',auth()->id())->where('key','project_text')->update(['value' => $request->project_text]);
+        AdditionalInfo::where('user_id',auth()->id())->where('key','project_description')->update(['value' => $request->project_description]);
+
+        notify()->success(__("Successfully Updated"), __("Success"));
+        return redirect(route('admin.projects.index'));
     }
 }

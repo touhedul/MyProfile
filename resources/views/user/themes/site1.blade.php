@@ -279,23 +279,6 @@
                                         aria-valuenow="{{$skill->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 @endforeach
-                                {{-- <p class="fw-500 text-start mb-2">Web Development <span class="float-end">65%</span>
-                                </p>
-                                <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 65%"
-                                        aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="fw-500 text-start mb-2">Business Analysis <span class="float-end">80%</span>
-                                </p>
-                                <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="fw-500 text-start">Digital Marketing <span class="float-end">75%</span></p>
-                                <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 75%"
-                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
