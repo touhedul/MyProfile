@@ -32,5 +32,7 @@ Route::group(['middleware'=>['blockIp','localaization']],function(){
 
     Route::get('/language/{locale}', [IndexController::class, 'changeLanguage'])->name('changeLanguage');
 
+    Route::get('/project-details/{project}', [IndexController::class, 'projectDetails'])->name('projectDetails');
+
 });
 

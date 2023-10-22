@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\ContactFeedback;
 use App\Models\Gallery;
+use App\Models\Project;
 use App\Models\Sitelink;
 use App\Models\User;
 use App\Services\UserService;
@@ -40,6 +41,11 @@ class IndexController extends Controller
         $userInfo = (new UserService)->userInfoForSite($userId);
 
         return view('user.themes.site'.$userInfo->default_theme->theme_id,compact('userInfo'));
+    }
+
+    public function projectDetails(Project $project)
+    {
+        return view('includes.project_details',compact('project'));
     }
 
 

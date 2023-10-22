@@ -52,6 +52,7 @@ class UserService
         $user->load('services');
         $user->load('additional_infos');
         $user->load('skills');
+        $user->load('projects');
 
         return $user;
     }

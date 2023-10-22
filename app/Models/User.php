@@ -218,4 +218,9 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return $this->hasMany(Skill::class);
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
