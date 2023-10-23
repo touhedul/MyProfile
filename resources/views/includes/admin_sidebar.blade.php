@@ -295,3 +295,11 @@
 </li>
 @endcan
 
+@can('Color-section-management')
+<li class="">
+    <a href="{{route('admin.colorSectionManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/color-section-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Color Section Management') }}
+    </a>
+</li>
+@endcan

@@ -223,4 +223,9 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return $this->hasMany(Project::class);
     }
+
+    public function color_section()
+    {
+        return $this->hasOne(ColorSection::class);
+    }
 }

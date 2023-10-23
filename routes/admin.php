@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AboutManagementController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\BackupController;
+use App\Http\Controllers\Admin\ColorSectionManagementController;
 use App\Http\Controllers\Admin\ContactFeedbackController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FrontendCMSController;
@@ -167,5 +168,9 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         Route::post('skill-management',[SkillController::class,'saveText'])->name('skills.saveText');
 
         Route::post('project-management',[ProjectController::class,'saveText'])->name('projects.saveText');
+
+
+        Route::get('color-section-management',[ColorSectionManagementController::class,'index'])->name('colorSectionManagement.index');
+        Route::post('color-section-management',[ColorSectionManagementController::class,'save'])->name('colorSectionManagement.save');
     });
 });

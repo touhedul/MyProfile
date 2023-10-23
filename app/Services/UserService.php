@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\About;
 use App\Models\AdditionalInfo;
+use App\Models\ColorSection;
 use App\Models\Home;
 use App\Models\Menu;
 use App\Models\Project;
@@ -28,6 +29,7 @@ class UserService
         $this->createServiceSection($user);
         $this->createSkillSection($user);
         $this->createProjectSection($user);
+        $this->createColorSection($user);
     }
 
     public function createTheme($user)
@@ -53,6 +55,7 @@ class UserService
         $user->load('additional_infos');
         $user->load('skills');
         $user->load('projects');
+        $user->load('color_section');
 
         return $user;
     }
@@ -267,6 +270,17 @@ class UserService
             'title'=>'Project Title 9',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+        ]);
+    }
+
+    public function createColorSection($user)
+    {
+        ColorSection::create([
+            'user_id' => $user->id,
+            'text_1' => 'I am Available for Freelancer',
+            'text_2' => 'Start a project with Me today',
+            'color' => '#d63384',
+            'button_text' => 'Contact',
         ]);
     }
 }
