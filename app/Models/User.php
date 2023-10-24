@@ -56,7 +56,7 @@ use Spatie\Activitylog\LogOptions;
 class User extends Authenticatable //implements MustVerifyEmail
 {
 
-    use Notifiable , HasFactory,HasRoles, LogsActivity;
+    use Notifiable, HasFactory, HasRoles, LogsActivity;
     public $table = 'users';
 
 
@@ -147,7 +147,8 @@ class User extends Authenticatable //implements MustVerifyEmail
         return LogOptions::defaults();
     }
 
-    public static function roleIsNotUser(){
+    public static function roleIsNotUser()
+    {
         $roles = Role::whereNotIn('name', ['user'])->pluck('name');
         return User::role($roles)->get();
     }
@@ -176,7 +177,7 @@ class User extends Authenticatable //implements MustVerifyEmail
 
     public function default_theme()
     {
-        return $this->hasOne(UserTheme::class)->where('default_status',1);
+        return $this->hasOne(UserTheme::class)->where('default_status', 1);
     }
 
     public function sitelinks()
@@ -186,7 +187,7 @@ class User extends Authenticatable //implements MustVerifyEmail
 
     public function default_sitelink()
     {
-        return $this->hasOne(Sitelink::class)->where('default_status',1);
+        return $this->hasOne(Sitelink::class)->where('default_status', 1);
     }
 
     public function home()
@@ -227,5 +228,10 @@ class User extends Authenticatable //implements MustVerifyEmail
     public function color_section()
     {
         return $this->hasOne(ColorSection::class);
+    }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
     }
 }

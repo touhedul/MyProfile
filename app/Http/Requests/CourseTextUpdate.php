@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectTextUpdate extends FormRequest
+class CourseTextUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class ProjectTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'project_text' => 'nullable|string|max:191',
-            'project_description' => 'nullable|string|max:65530',
+            'course_text' => 'nullable|string|max:191',
+            'course_description' => 'nullable|string|max:65530',
         ];
     }
 }

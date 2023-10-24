@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\About;
 use App\Models\AdditionalInfo;
 use App\Models\ColorSection;
+use App\Models\Course;
 use App\Models\Home;
 use App\Models\Menu;
 use App\Models\Project;
@@ -30,6 +31,7 @@ class UserService
         $this->createSkillSection($user);
         $this->createProjectSection($user);
         $this->createColorSection($user);
+        $this->createCourseSection($user);
     }
 
     public function createTheme($user)
@@ -56,6 +58,7 @@ class UserService
         $user->load('skills');
         $user->load('projects');
         $user->load('color_section');
+        $user->load('courses');
 
         return $user;
     }
@@ -281,6 +284,55 @@ class UserService
             'text_2' => 'Start a project with Me today',
             'color' => '#d63384',
             'button_text' => 'Contact',
+        ]);
+    }
+
+    public function createCourseSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'course_text',
+            'value' => 'My Course',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'course_description',
+            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+        ]);
+        $this->createCourse($user);
+    }
+
+    public function createCourse($user)
+    {
+        Course::create([
+            'user_id' => $user->id,
+            'title' => 'Planning & Consulting',
+            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+        ]);
+        Course::create([
+            'user_id' => $user->id,
+            'title' => 'Content',
+            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+        ]);
+        Course::create([
+            'user_id' => $user->id,
+            'title' => 'Conception',
+            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+        ]);
+        Course::create([
+            'user_id' => $user->id,
+            'title' => 'Design & Development',
+            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+        ]);
+        Course::create([
+            'user_id' => $user->id,
+            'title' => 'Final discussion',
+            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+        ]);
+        Course::create([
+            'user_id' => $user->id,
+            'title' => 'Delivery & Launch',
+            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
         ]);
     }
 }

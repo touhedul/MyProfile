@@ -233,7 +233,7 @@
                     <!-- Heading End -->
 
                     <div class="row g-4">
-                        @foreach ($userInfo->services as $service)
+                        @foreach ($userInfo->services->sortByDesc('id') as $service)
                         @if ($service->status)
                         <div class="col-sm-6 col-lg-4 wow fadeInLeft">
                             <div class="featured-box bg-white text-center rounded shadow-sm py-5 px-4">
@@ -271,7 +271,7 @@
                             <div class="px-lg-4">
                                 <h3 class="text-6 mb-3">{{$userInfo->additional_infos->where('key','skill_text')->first()->value}}</h3>
                                 <p class="text-muted">{!!$userInfo->additional_infos->where('key','skill_description')->first()->value!!}</p>
-                                @foreach ($userInfo->skills as $skill)
+                                @foreach ($userInfo->skills->sortByDesc('id') as $skill)
                                 <p class="fw-500 text-start mb-2">{{$skill->title}} <span class="float-end">{{$skill->percentage}}%</span>
                                 </p>
                                 <div class="progress progress-sm mb-4">
@@ -319,7 +319,7 @@
 
                     <div class="portfolio popup-ajax-gallery wow fadeInUp">
                         <div class="row portfolio-filter g-4">
-                            @foreach ($userInfo->projects as $project)
+                            @foreach ($userInfo->projects->sortByDesc('id') as $project)
                             @if ($project->status)
                             <div class="col-sm-6 col-lg-4 artwork">
                                 <div class="portfolio-box rounded">
@@ -351,10 +351,9 @@
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                            <h2 class="fw-600 mb-3">Work Process</h2>
+                            <h2 class="fw-600 mb-3">{{$userInfo->additional_infos->where('key','course_text')->first()->value}}</h2>
                             <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted">Simple work process of build your design. Delivering work
-                                within time and budget which meets client’s requirements is our moto.</p>
+                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key','course_description')->first()->value!!}</p>
                         </div>
                     </div>
                     <!-- Heading End -->
@@ -362,17 +361,20 @@
                     <div class="row">
                         <div class="col-xl-10 mx-auto">
                             <div class="row gy-5 wow fadeInUp">
+                                @foreach ($userInfo->courses->sortByDesc('id') as $course)
+                                @if ($course->status)
                                 <div class="col-md-6">
                                     <div class="featured-box style-3">
                                         <div
                                             class="featured-box-icon text-primary border border-primary border-3 rounded-circle">
-                                            <span class="text-8 fw-600">1</span></div>
-                                        <h3 class="text-5">Planning &amp; Consulting</h3>
-                                        <p class="text-muted mb-0">We're smart, we're hard working, we're easy to talk
-                                            to, and we love a challenge lisque persius mea essent possim iriure.</p>
+                                            <span class="text-8 fw-600">{{$loop->index+1}}</span></div>
+                                        <h3 class="text-5">{{$course->title}}</h3>
+                                        <p class="text-muted mb-0">{!! $course->details !!}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                @endif
+                                @endforeach
+                                {{-- <div class="col-md-6">
                                     <div class="featured-box style-3">
                                         <div
                                             class="featured-box-icon text-primary border border-primary border-3 rounded-circle">
@@ -421,7 +423,7 @@
                                         <p class="text-muted mb-0">We're smart, we're hard working, we're easy to talk
                                             to, and we love a challenge lisque persius mea essent possim iriure.</p>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

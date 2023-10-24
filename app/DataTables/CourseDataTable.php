@@ -2,35 +2,36 @@
 
 namespace App\DataTables;
 
-use App\Models\Project;
+use App\Models\Course;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 use App\Helpers\AdminHelper;
 use Str;
 
-class ProjectDataTable extends DataTable
+class CourseDataTable extends DataTable
 {
 
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
-        return $dataTable->addColumn('action', 'admin.projects.datatables_actions')
+        return $dataTable->addColumn('action', 'admin.courses.datatables_actions')
             ->addIndexColumn()
             ->addColumn('', '')
             ->addColumn('Sl', '')
             ->addColumn('details',function($dataTable){
                 return Str::limit($dataTable->details,50);
             })
-            ->addColumn('image', function ($dataTable) {
-                $image = $dataTable->image ? asset('images/'.$dataTable->image) : defaultImage('no_image') ;
-                return "<img width='auto' height='80px' src='{$image}'/>";
-            })
-
+            // ->addColumn('image', function ($dataTable) {
+            //     return "<img width='100px' height='80px' src='".asset('images/'.$dataTable->image)."'/>";
+            // })
+            // ->addColumn('file',function($dataTable){
+            //     return "<a download href='".asset('files/'. $dataTable->file)."'>Download</a>";
+            // })
             ->addColumn('status', 'includes.status_show')
             ->rawColumns(['details', 'action', 'image', 'status']);
     }
 
-    public function query(Project $model)
+    public function query(Course $model)
     {
         return $model->newQuery()->where('user_id',auth()->id());
     }
@@ -41,7 +42,7 @@ class ProjectDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false,'title' => __('Action')])
-            ->parameters(AdminHelper::datatableDesign("Project","Project-delete"));
+            ->parameters(AdminHelper::datatableDesign("Course","Course-delete"));
     }
 
     protected function getColumns()
@@ -52,13 +53,12 @@ class ProjectDataTable extends DataTable
             ['data'=>'Sl','title'=>__('Sl')],
             'title',
             'details',
-            'image',
             'status'
         ];
     }
 
     protected function filename()
     {
-        return 'projects_datatable_' . time();
+        return 'courses_datatable_' . time();
     }
 }
