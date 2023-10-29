@@ -307,7 +307,16 @@
 <li class="">
     <a href="{{route('admin.courses.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/courses**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Courses') }}
+        {{ __('Course Management') }}
+    </a>
+</li>
+@endcan
+
+@can('Experience-view')
+<li class="">
+    <a href="{{route('admin.experiences.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/experiences**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Experiences Management') }}
     </a>
 </li>
 @endcan

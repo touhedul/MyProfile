@@ -141,7 +141,8 @@
 
                                         @if ($userInfo->home?->button_status)
                                             @if ($userInfo->home?->file)
-                                                <a href="{{ asset('files/' . $userInfo->home?->file) }}" download=""
+                                                <a href="{{ asset('files/' . $userInfo->home?->file) }}"
+                                                    download=""
                                                     class="btn btn-primary rounded-pill mt-3">{{ $userInfo->home?->button_text }}</a>
                                             @else
                                                 <a href="#"
@@ -410,9 +411,10 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     <div class="row mb-5 wow fadeIn">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
                             <h2 class="fw-600 mb-3">
-                                {{ $userInfo->additional_infos->where('key', 'course_text')->first()->value }} EX</h2>
+                                {{ $userInfo->additional_infos->where('key', 'experience_text')->first()->value }}
+                            </h2>
                             <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'course_description')->first()->value !!} EX</p>
+                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'experience_description')->first()->value !!} </p>
                         </div>
                     </div>
                     <!-- Heading -->
@@ -422,105 +424,33 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                             <div class="row gy-5 wow fadeInUp">
                                 <div class="main-timeline">
 
-                                    <!-- start experience section-->
-                                    <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                    <span class="month">2 Years</span>
-                                                    <span class="year">2013</span>
-                                                </span>
+                                    @foreach ($userInfo->experiences->where('status',1)->sortBy('year') as $experience)
+                                        <div class="timeline">
+                                            <div class="icon"></div>
+                                            <div class="date-content">
+                                                <div class="date-outer">
+                                                    <span class="date">
+                                                        <span class="month">{{ $experience->duration }}</span>
+                                                        <span class="year">{{ $experience->year }}</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h5 class="title">{{ $experience->company }}</h5>
+                                                <h6>{{ $experience->role }}</h6>
+                                                <p class="description">
+                                                    {!! $experience->details !!}
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Visual Art &amp; Design</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex
-                                                sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit
-                                                molestie.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end experience section-->
-
-                                    <!-- start experience section-->
-                                    <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                    <span class="month">1 Years</span>
-                                                    <span class="year">2015</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Product Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex
-                                                sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit
-                                                molestie.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end experience section-->
-
-                                    <!-- start experience section-->
-                                    <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                    <span class="month">2 Years</span>
-                                                    <span class="year">2016</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Web Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex
-                                                sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit
-                                                molestie.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end experience section-->
-
-                                    <!-- start experience section-->
-                                    <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                    <span class="month">2 Years</span>
-                                                    <span class="year">2018</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Graphic Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex
-                                                sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit
-                                                molestie.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end experience section-->
-
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        <!-- Experience End -->
+            <!-- Experience End -->
 
             <!-- Achievement start -->
 
@@ -556,9 +486,11 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                                         <div class="timeline-content">
                                             <h5 class="title">Visual Art &amp; Design</h5>
                                             <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur
+                                                ex
                                                 sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit
+                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices
+                                                elit
                                                 molestie.
                                             </p>
                                         </div>
@@ -579,9 +511,11 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                                         <div class="timeline-content">
                                             <h5 class="title">Product Designer</h5>
                                             <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur
+                                                ex
                                                 sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit
+                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices
+                                                elit
                                                 molestie.
                                             </p>
                                         </div>
@@ -602,9 +536,11 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                                         <div class="timeline-content">
                                             <h5 class="title">Web Designer</h5>
                                             <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur
+                                                ex
                                                 sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit
+                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices
+                                                elit
                                                 molestie.
                                             </p>
                                         </div>
@@ -625,9 +561,11 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                                         <div class="timeline-content">
                                             <h5 class="title">Graphic Designer</h5>
                                             <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur ex
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur
+                                                ex
                                                 sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices elit
+                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices
+                                                elit
                                                 molestie.
                                             </p>
                                         </div>
@@ -640,244 +578,244 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     </div>
                 </div>
             </section>
-        <!-- Achievement End -->
-        <section id="clients" class="section">
-            <div class="container">
+            <!-- Achievement End -->
+            <section id="clients" class="section">
+                <div class="container">
 
-                <!-- Heading -->
-                <div class="row mb-5 wow fadeIn">
-                    <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                        <h2 class="fw-600 mb-3">Our Clients</h2>
-                        <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                        <p class="text-4 text-muted">See what my happy clients say about me. I'm proud to have my
-                            clients.</p>
+                    <!-- Heading -->
+                    <div class="row mb-5 wow fadeIn">
+                        <div class="col-lg-9 col-xl-8 mx-auto text-center">
+                            <h2 class="fw-600 mb-3">Our Clients</h2>
+                            <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
+                            <p class="text-4 text-muted">See what my happy clients say about me. I'm proud to have my
+                                clients.</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Heading End -->
+                    <!-- Heading End -->
 
-                <div class="row wow fadeInUp">
-                    <div class="col-lg-9 mx-auto">
-                        <div class="owl-carousel owl-theme" data-autoplay="true" data-loop="true" data-nav="true"
-                            data-margin="30" data-slideby="1" data-stagepadding="5" data-items-xs="1"
-                            data-items-sm="1" data-items-md="1" data-items-lg="1">
-                            <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
-                                        class="fa fa-quote-left"></i></span>
-                                <p class="text-4">Easy to use, reasonably priced simply dummy text of the printing
-                                    and typesetting industry. Quidam lisque persius interesset his et, in quot
-                                    quidam possim iriure. simply dummy text of the printing and typesetting
-                                    industry.”</p>
-                                <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                    src="{{ asset('frontend/theme1/images/testimonial/client-sm-1.jpg') }}"
-                                    alt=""> <strong class="d-block fw-500">Jay Shah</strong> <span
-                                    class="text-muted text-2">Founder at Icomatic Pvt Ltd</span>
-                            </div>
-                            <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
-                                        class="fa fa-quote-left"></i></span>
-                                <p class="text-4">“I am happy Working with printing and typesetting industry.
-                                    Quidam lisque persius interesset his et, in quot quidam persequeris essent
-                                    possim iriure. simply dummy text of the printing and typesetting industry.”</p>
-                                <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                    src="{{ asset('frontend/theme1/images/testimonial/client-sm-2.jpg') }}"
-                                    alt=""> <strong class="d-block fw-500">Patrick Cary</strong> <span
-                                    class="text-muted text-2">Freelancer from USA</span>
-                            </div>
-                            <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
-                                        class="fa fa-quote-left"></i></span>
-                                <p class="text-4">“Only trying it out since a few days. But up to now excellent.
-                                    Seems to work flawlessly. priced simply dummy text of the printing and
-                                    typesetting industry.”</p>
-                                <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                    src="{{ asset('frontend/theme1/images/testimonial/client-sm-3.jpg') }}"
-                                    alt=""> <strong class="d-block fw-500">Dennis Jacques</strong> <span
-                                    class="text-muted text-2">iDeal Inc</span>
-                            </div>
-                            <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
-                                        class="fa fa-quote-left"></i></span>
-                                <p class="text-4">“I have used them twice now. Good rates, very efficient service
-                                    and priced simply dummy text of the printing and typesetting industry quidam
-                                    interesset his et. simply dummy text of the printing and typesetting industry.
-                                    Excellent.”</p>
-                                <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                    src="{{ asset('frontend/theme1/images/testimonial/client-sm-4.jpg') }}"
-                                    alt=""> <strong class="d-block fw-500">Chris Tom</strong> <span
-                                    class="text-muted text-2">Company CEO from UK</span>
+                    <div class="row wow fadeInUp">
+                        <div class="col-lg-9 mx-auto">
+                            <div class="owl-carousel owl-theme" data-autoplay="true" data-loop="true"
+                                data-nav="true" data-margin="30" data-slideby="1" data-stagepadding="5"
+                                data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
+                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
+                                            class="fa fa-quote-left"></i></span>
+                                    <p class="text-4">Easy to use, reasonably priced simply dummy text of the printing
+                                        and typesetting industry. Quidam lisque persius interesset his et, in quot
+                                        quidam possim iriure. simply dummy text of the printing and typesetting
+                                        industry.”</p>
+                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
+                                        src="{{ asset('frontend/theme1/images/testimonial/client-sm-1.jpg') }}"
+                                        alt=""> <strong class="d-block fw-500">Jay Shah</strong> <span
+                                        class="text-muted text-2">Founder at Icomatic Pvt Ltd</span>
+                                </div>
+                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
+                                            class="fa fa-quote-left"></i></span>
+                                    <p class="text-4">“I am happy Working with printing and typesetting industry.
+                                        Quidam lisque persius interesset his et, in quot quidam persequeris essent
+                                        possim iriure. simply dummy text of the printing and typesetting industry.”</p>
+                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
+                                        src="{{ asset('frontend/theme1/images/testimonial/client-sm-2.jpg') }}"
+                                        alt=""> <strong class="d-block fw-500">Patrick Cary</strong> <span
+                                        class="text-muted text-2">Freelancer from USA</span>
+                                </div>
+                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
+                                            class="fa fa-quote-left"></i></span>
+                                    <p class="text-4">“Only trying it out since a few days. But up to now excellent.
+                                        Seems to work flawlessly. priced simply dummy text of the printing and
+                                        typesetting industry.”</p>
+                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
+                                        src="{{ asset('frontend/theme1/images/testimonial/client-sm-3.jpg') }}"
+                                        alt=""> <strong class="d-block fw-500">Dennis Jacques</strong> <span
+                                        class="text-muted text-2">iDeal Inc</span>
+                                </div>
+                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
+                                            class="fa fa-quote-left"></i></span>
+                                    <p class="text-4">“I have used them twice now. Good rates, very efficient service
+                                        and priced simply dummy text of the printing and typesetting industry quidam
+                                        interesset his et. simply dummy text of the printing and typesetting industry.
+                                        Excellent.”</p>
+                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
+                                        src="{{ asset('frontend/theme1/images/testimonial/client-sm-4.jpg') }}"
+                                        alt=""> <strong class="d-block fw-500">Chris Tom</strong> <span
+                                        class="text-muted text-2">Company CEO from UK</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Clients end -->
+            </section>
+            <!-- Clients end -->
 
-        <!-- Clients Logo
+            <!-- Clients Logo
     ============================================= -->
-        <div class="bg-light py-5">
-            <div class="container">
-                <div class="brands-grid separator-border">
-                    <div class="row align-items-center">
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                    alt=""></a></div>
-                        <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                    class="img-fluid wow bounceIn"
-                                    src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                    alt=""></a></div>
+            <div class="bg-light py-5">
+                <div class="container">
+                    <div class="brands-grid separator-border">
+                        <div class="row align-items-center">
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
+                                        alt=""></a></div>
+                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
+                                        class="img-fluid wow bounceIn"
+                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
+                                        alt=""></a></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Clients Logo end -->
+
+            <!-- Contact
+    ============================================= -->
+            <section id="contact" class="section">
+                <div class="container">
+                    <!-- Heading -->
+                    <div class="row mb-5 wow fadeIn">
+                        <div class="col-lg-9 col-xl-8 mx-auto text-center">
+                            <h2 class="fw-600 mb-3">Contact Us</h2>
+                            <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
+                            <p class="text-4 text-muted">Send me a note, and let’s get started on your project today!
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Heading End -->
+
+                    <!-- Contact Form -->
+                    <div class="row wow fadeInUp">
+                        <div class="col-lg-10 col-xl-9 mx-auto">
+                            <form id="contact-form" action="php/mail.php" method="post">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <input name="name" type="text" class="form-control border-2" required
+                                            placeholder="Your Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input name="email" type="email" class="form-control border-2" required
+                                            placeholder="Your Email">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <textarea name="form-message" class="form-control border-2" rows="5" required
+                                            placeholder="Tell us more about your needs........"></textarea>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <button id="submit-btn" class="btn btn-primary rounded-pill d-inline-flex"
+                                            type="submit">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Contact Form End -->
+
+                    <div class="brands-grid separator-border h-100 mt-5">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
+                                    <div class="featured-box-icon text-light"> <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <h3 class="text-uppercase">Visit Us</h3>
+                                    <p class="text-muted mb-0">145 Murphy Canyon Rd.<br>
+                                        Suite 100-18, San Diego CA 2028 </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
+                                    <div class="featured-box-icon text-light"> <i class="fas fa-phone-alt"></i> </div>
+                                    <h3 class="text-uppercase">Call Us Now</h3>
+                                    <p class="text-muted mb-0">Phone: (+060) 9898980098<br>
+                                        Fax: (+060) 8898880088</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
+                                    <div class="featured-box-icon text-light"> <i class="fas fa-envelope"></i> </div>
+                                    <h3 class="text-uppercase">Inquiries</h3>
+                                    <p class="text-muted mb-0"><a
+                                            href="mailto:info@kenilpatel.com">info@kenilpatel.com</a><br>
+                                        Mon to Fri (10 am – 8 pm)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Contact end -->
+
         </div>
-        <!-- Clients Logo end -->
+        <!-- Content end -->
 
-        <!-- Contact
-    ============================================= -->
-        <section id="contact" class="section">
-            <div class="container">
-                <!-- Heading -->
-                <div class="row mb-5 wow fadeIn">
-                    <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                        <h2 class="fw-600 mb-3">Contact Us</h2>
-                        <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                        <p class="text-4 text-muted">Send me a note, and let’s get started on your project today!
-                        </p>
-                    </div>
-                </div>
-                <!-- Heading End -->
-
-                <!-- Contact Form -->
-                <div class="row wow fadeInUp">
-                    <div class="col-lg-10 col-xl-9 mx-auto">
-                        <form id="contact-form" action="php/mail.php" method="post">
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <input name="name" type="text" class="form-control border-2" required
-                                        placeholder="Your Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input name="email" type="email" class="form-control border-2" required
-                                        placeholder="Your Email">
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea name="form-message" class="form-control border-2" rows="5" required
-                                        placeholder="Tell us more about your needs........"></textarea>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <button id="submit-btn" class="btn btn-primary rounded-pill d-inline-flex"
-                                        type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- Contact Form End -->
-
-                <div class="brands-grid separator-border h-100 mt-5">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-4">
-                            <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
-                                <div class="featured-box-icon text-light"> <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <h3 class="text-uppercase">Visit Us</h3>
-                                <p class="text-muted mb-0">145 Murphy Canyon Rd.<br>
-                                    Suite 100-18, San Diego CA 2028 </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
-                                <div class="featured-box-icon text-light"> <i class="fas fa-phone-alt"></i> </div>
-                                <h3 class="text-uppercase">Call Us Now</h3>
-                                <p class="text-muted mb-0">Phone: (+060) 9898980098<br>
-                                    Fax: (+060) 8898880088</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
-                                <div class="featured-box-icon text-light"> <i class="fas fa-envelope"></i> </div>
-                                <h3 class="text-uppercase">Inquiries</h3>
-                                <p class="text-muted mb-0"><a
-                                        href="mailto:info@kenilpatel.com">info@kenilpatel.com</a><br>
-                                    Mon to Fri (10 am – 8 pm)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact end -->
-
-    </div>
-    <!-- Content end -->
-
-    <!-- Footer
+        <!-- Footer
   ============================================= -->
-    <footer id="footer" class="section bg-dark footer-text-light">
-        <div class="container">
-            <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3 wow bounceIn">
-                <li class="social-icons-twitter"><a data-bs-toggle="tooltip"
-                        href="https://twitter.com/harnishdesign/" target="_blank" title="Twitter"><i
-                            class="fab fa-twitter"></i></a></li>
-                <li class="social-icons-facebook"><a data-bs-toggle="tooltip"
-                        href="http://www.facebook.com/harnishdesign/" target="_blank" title="Facebook"><i
-                            class="fab fa-facebook-f"></i></a></li>
-                <li class="social-icons-linkedin"><a data-bs-toggle="tooltip" href="http://www.linkedin.com/"
-                        target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                <li class="social-icons-dribbble"><a data-bs-toggle="tooltip"
-                        href="http://www.dribbble.com/harnishdesign/" target="_blank" title="Dribbble"><i
-                            class="fab fa-dribbble"></i></a></li>
-                <li class="social-icons-github"><a data-bs-toggle="tooltip" href="http://www.github.com/"
-                        target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
-            </ul>
-            <p class="text-muted text-center">Copyright &copy; 2022 <a href="#">Kenil</a>. All Rights
-                Reserved.</p>
-            <ul class="nav text-2 justify-content-center wow fadeIn">
-                <li class="nav-item"> <a class="nav-link" data-bs-toggle="modal" data-bs-target="#terms-policy"
-                        href="#">Terms & Policy</a></li>
-                <li class="nav-item"> <a class="nav-link" data-bs-toggle="modal" data-bs-target="#disclaimer"
-                        href="#">Disclaimer</a></li>
-            </ul>
-        </div>
-    </footer>
-    <!-- Footer end -->
+        <footer id="footer" class="section bg-dark footer-text-light">
+            <div class="container">
+                <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3 wow bounceIn">
+                    <li class="social-icons-twitter"><a data-bs-toggle="tooltip"
+                            href="https://twitter.com/harnishdesign/" target="_blank" title="Twitter"><i
+                                class="fab fa-twitter"></i></a></li>
+                    <li class="social-icons-facebook"><a data-bs-toggle="tooltip"
+                            href="http://www.facebook.com/harnishdesign/" target="_blank" title="Facebook"><i
+                                class="fab fa-facebook-f"></i></a></li>
+                    <li class="social-icons-linkedin"><a data-bs-toggle="tooltip" href="http://www.linkedin.com/"
+                            target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li class="social-icons-dribbble"><a data-bs-toggle="tooltip"
+                            href="http://www.dribbble.com/harnishdesign/" target="_blank" title="Dribbble"><i
+                                class="fab fa-dribbble"></i></a></li>
+                    <li class="social-icons-github"><a data-bs-toggle="tooltip" href="http://www.github.com/"
+                            target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
+                </ul>
+                <p class="text-muted text-center">Copyright &copy; 2022 <a href="#">Kenil</a>. All Rights
+                    Reserved.</p>
+                <ul class="nav text-2 justify-content-center wow fadeIn">
+                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="modal" data-bs-target="#terms-policy"
+                            href="#">Terms & Policy</a></li>
+                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="modal" data-bs-target="#disclaimer"
+                            href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+        </footer>
+        <!-- Footer end -->
 
     </div>
     <!-- Document Wrapper end -->

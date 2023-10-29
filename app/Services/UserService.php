@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\AdditionalInfo;
 use App\Models\ColorSection;
 use App\Models\Course;
+use App\Models\Experience;
 use App\Models\Home;
 use App\Models\Menu;
 use App\Models\Project;
@@ -32,6 +33,7 @@ class UserService
         $this->createProjectSection($user);
         $this->createColorSection($user);
         $this->createCourseSection($user);
+        $this->createExperienceSection($user);
     }
 
     public function createTheme($user)
@@ -59,6 +61,7 @@ class UserService
         $user->load('projects');
         $user->load('color_section');
         $user->load('courses');
+        $user->load('experiences');
 
         return $user;
     }
@@ -333,6 +336,57 @@ class UserService
             'user_id' => $user->id,
             'title' => 'Delivery & Launch',
             'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+        ]);
+    }
+
+    public function createExperienceSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'experience_text',
+            'value' => 'My experience',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'experience_description',
+            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+        ]);
+        $this->createExperience($user);
+    }
+
+    public function createExperience($user)
+    {
+        Experience::create([
+            'user_id' => $user->id,
+            'company' => 'Company 1',
+            'role' => 'Designer',
+            'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'duration' => '2 Year',
+            'year' => 2016,
+        ]);
+        Experience::create([
+            'user_id' => $user->id,
+            'company' => 'Company 2',
+            'role' => 'Developer',
+            'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'duration' => '1 Year',
+            'year' => 2018,
+        ]);
+        Experience::create([
+            'user_id' => $user->id,
+            'company' => 'Company 3',
+            'role' => 'Visulaizer',
+            'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'duration' => '6 Month',
+            'year' => 2019,
+        ]);
+        Experience::create([
+            'user_id' => $user->id,
+            'company' => 'Company 4',
+            'role' => 'Business Analyst',
+            'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'duration' => '1 Year',
+            'year' => 2020,
         ]);
     }
 }
