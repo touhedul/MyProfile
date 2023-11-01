@@ -467,111 +467,33 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     </div>
                     <!-- Heading -->
 
-                    <div class="row">
-                        <div class="col-xl-10 mx-auto">
-                            <div class="row gy-5 wow fadeInUp">
-                                <div class="main-timeline">
+                    <div class="row wow fadeInUp">
+                        <div class="col-lg-9 mx-auto">
+                            <div class="owl-carousel owl-theme" data-autoplay="true" data-loop="true"
+                                data-nav="true" data-margin="30" data-slideby="1" data-stagepadding="5"
+                                data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
 
-                                    <!-- start experience section-->
-                                    <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                    <span class="month">2 Years</span>
-                                                    <span class="year">2013</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Visual Art &amp; Design</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur
-                                                ex
-                                                sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices
-                                                elit
-                                                molestie.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end experience section-->
+                                <div class="item text-center px-5">
 
-                                    <!-- start experience section-->
-                                    <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                    <span class="month">1 Years</span>
-                                                    <span class="year">2015</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Product Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur
-                                                ex
-                                                sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices
-                                                elit
-                                                molestie.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end experience section-->
+                                    <img class="img-fluid d-inline-block w-auto"
+                                        src="{{ defaultImage('skill_image') }}"
+                                        alt="">
+                                        <br>
+                                    <h5>The title of the achievement</h5>
+                                    <p class="text-4">Only trying it out since a few days. But up to now excellent.
+                                        Seems to work flawlessly. priced simply dummy text of the printing and
+                                        typesetting industry.</p>
+                                </div>
+                                <div class="item text-center px-5">
 
-                                    <!-- start experience section-->
-                                    <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                    <span class="month">2 Years</span>
-                                                    <span class="year">2016</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Web Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur
-                                                ex
-                                                sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices
-                                                elit
-                                                molestie.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end experience section-->
-
-                                    <!-- start experience section-->
-                                    <div class="timeline">
-                                        <div class="icon"></div>
-                                        <div class="date-content">
-                                            <div class="date-outer">
-                                                <span class="date">
-                                                    <span class="month">2 Years</span>
-                                                    <span class="year">2018</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-content">
-                                            <h5 class="title">Graphic Designer</h5>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur
-                                                ex
-                                                sit amet massa scelerisque scelerisque. Aliquam erat volutpat. Aenean
-                                                interdum finibus efficitur. Praesent dapibus dolor felis, eu ultrices
-                                                elit
-                                                molestie.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end experience section-->
-
+                                    <img class="img-fluid d-inline-block w-auto"
+                                        src="{{ defaultImage('skill_image') }}"
+                                        alt="">
+                                        <br>
+                                    <h5>The title of the achievement</h5>
+                                    <p class="text-4">Only trying it out since a few days. But up to now excellent.
+                                        Seems to work flawlessly. priced simply dummy text of the printing and
+                                        typesetting industry.</p>
                                 </div>
                             </div>
                         </div>
