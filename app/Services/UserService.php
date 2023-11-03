@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\About;
+use App\Models\Achievement;
 use App\Models\AdditionalInfo;
 use App\Models\ColorSection;
 use App\Models\Course;
@@ -34,6 +35,7 @@ class UserService
         $this->createColorSection($user);
         $this->createCourseSection($user);
         $this->createExperienceSection($user);
+        $this->createAchievementSection($user);
     }
 
     public function createTheme($user)
@@ -62,6 +64,7 @@ class UserService
         $user->load('color_section');
         $user->load('courses');
         $user->load('experiences');
+        $user->load('achievements');
 
         return $user;
     }
@@ -131,39 +134,39 @@ class UserService
     public function createServices($user)
     {
         Service::create([
-            'title'=>'Graphic Design',
-            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
-            'icon'=>'fas fa-palette',
+            'title' => 'Graphic Design',
+            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon' => 'fas fa-palette',
             'user_id' => $user->id
         ]);
         Service::create([
-            'title'=>'Web Design',
-            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
-            'icon'=>'fas fa-desktop',
+            'title' => 'Web Design',
+            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon' => 'fas fa-desktop',
             'user_id' => $user->id
         ]);
         Service::create([
-            'title'=>'Web Development',
-            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
-            'icon'=>'fas fa-pencil-ruler',
+            'title' => 'Web Development',
+            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon' => 'fas fa-pencil-ruler',
             'user_id' => $user->id
         ]);
         Service::create([
-            'title'=>'Brand Identity',
-            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
-            'icon'=>'fas fa-paint-brush',
+            'title' => 'Brand Identity',
+            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon' => 'fas fa-paint-brush',
             'user_id' => $user->id
         ]);
         Service::create([
-            'title'=>'Business Analysis',
-            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
-            'icon'=>'fas fa-chart-area',
+            'title' => 'Business Analysis',
+            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon' => 'fas fa-chart-area',
             'user_id' => $user->id
         ]);
         Service::create([
-            'title'=>'Digital Marketing',
-            'description'=>"We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
-            'icon'=>'fas fa-bullhorn',
+            'title' => 'Digital Marketing',
+            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'icon' => 'fas fa-bullhorn',
             'user_id' => $user->id
         ]);
     }
@@ -193,23 +196,23 @@ class UserService
     {
         Skill::create([
             'user_id' => $user->id,
-            'title'=> 'Branding & Desing',
-            'percentage'=> 95,
+            'title' => 'Branding & Desing',
+            'percentage' => 95,
         ]);
         Skill::create([
             'user_id' => $user->id,
-            'title'=> 'Web Development',
-            'percentage'=> 90,
+            'title' => 'Web Development',
+            'percentage' => 90,
         ]);
         Skill::create([
             'user_id' => $user->id,
-            'title'=> 'Business Analysis',
-            'percentage'=> 75,
+            'title' => 'Business Analysis',
+            'percentage' => 75,
         ]);
         Skill::create([
             'user_id' => $user->id,
-            'title'=> 'Digital Marketing',
-            'percentage'=> 85,
+            'title' => 'Digital Marketing',
+            'percentage' => 85,
         ]);
     }
 
@@ -233,47 +236,47 @@ class UserService
     public function createProjects($user)
     {
         Project::create([
-            'title'=>'Project Title 1',
+            'title' => 'Project Title 1',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
         Project::create([
-            'title'=>'Project Title 2',
+            'title' => 'Project Title 2',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
         Project::create([
-            'title'=>'Project Title 3',
+            'title' => 'Project Title 3',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
         Project::create([
-            'title'=>'Project Title 4',
+            'title' => 'Project Title 4',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
         Project::create([
-            'title'=>'Project Title 5',
+            'title' => 'Project Title 5',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
         Project::create([
-            'title'=>'Project Title 6',
+            'title' => 'Project Title 6',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
         Project::create([
-            'title'=>'Project Title 7',
+            'title' => 'Project Title 7',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
         Project::create([
-            'title'=>'Project Title 8',
+            'title' => 'Project Title 8',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
         Project::create([
-            'title'=>'Project Title 9',
+            'title' => 'Project Title 9',
             'user_id' => $user->id,
             'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
         ]);
@@ -387,6 +390,36 @@ class UserService
             'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
             'duration' => '1 Year',
             'year' => 2020,
+        ]);
+    }
+
+
+    public function createAchievementSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'achievement_text',
+            'value' => 'My achievement',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'achievement_description',
+            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+        ]);
+        $this->createAchievement($user);
+    }
+
+    public function createAchievement($user)
+    {
+        Achievement::create([
+            'user_id' => $user->id,
+            'title' => 'Champion in Hackathon',
+            'details' => 'This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]);
+        Achievement::create([
+            'user_id' => $user->id,
+            'title' => 'Participate in Student 2 Startup',
+            'details' => 'This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ]);
     }
 }

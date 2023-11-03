@@ -239,4 +239,9 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return $this->hasMany(Experience::class);
     }
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
 }

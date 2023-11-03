@@ -321,3 +321,12 @@
 </li>
 @endcan
 
+@can('Achievement-view')
+<li class="">
+    <a href="{{route('admin.achievements.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/achievements**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Achievements') }}
+    </a>
+</li>
+@endcan
+

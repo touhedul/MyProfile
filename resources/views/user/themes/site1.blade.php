@@ -460,9 +460,9 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     <div class="row mb-5 wow fadeIn">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
                             <h2 class="fw-600 mb-3">
-                                {{ $userInfo->additional_infos->where('key', 'course_text')->first()->value }} AC</h2>
+                                {{ $userInfo->additional_infos->where('key', 'achievement_text')->first()->value }} </h2>
                             <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'course_description')->first()->value !!} AC</p>
+                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'achievement_description')->first()->value !!} </p>
                         </div>
                     </div>
                     <!-- Heading -->
@@ -473,28 +473,20 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                                 data-nav="true" data-margin="30" data-slideby="1" data-stagepadding="5"
                                 data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
 
+
+                                @foreach ($userInfo->achievements->where('status',1)->sortByDesc('id') as $achievement)
+
                                 <div class="item text-center px-5">
 
                                     <img class="img-fluid d-inline-block w-auto"
-                                        src="{{ defaultImage('skill_image') }}"
+                                        src="{{ $achievement->image ? asset('images/' . $achievement->image) : defaultImage('no_image') }}"
                                         alt="">
                                         <br>
-                                    <h5>The title of the achievement</h5>
-                                    <p class="text-4">Only trying it out since a few days. But up to now excellent.
-                                        Seems to work flawlessly. priced simply dummy text of the printing and
-                                        typesetting industry.</p>
+                                    <h5>{{$achievement->title}}</h5>
+                                    <p class="text-4">{!! $achievement->details !!}</p>
                                 </div>
-                                <div class="item text-center px-5">
 
-                                    <img class="img-fluid d-inline-block w-auto"
-                                        src="{{ defaultImage('skill_image') }}"
-                                        alt="">
-                                        <br>
-                                    <h5>The title of the achievement</h5>
-                                    <p class="text-4">Only trying it out since a few days. But up to now excellent.
-                                        Seems to work flawlessly. priced simply dummy text of the printing and
-                                        typesetting industry.</p>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,7 @@
 //admin Login, logout, forget password routes
 
 use App\Http\Controllers\Admin\AboutManagementController;
+use App\Http\Controllers\Admin\AchievementController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\BackupController;
@@ -155,6 +156,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 'projects'=>ProjectController::class,
                 'courses' => CourseController::class,
                 'experiences' => ExperienceController::class,
+                'achievements' => AchievementController::class,
             ]
         );
 
@@ -176,6 +178,8 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         Route::post('course-management',[CourseController::class,'saveText'])->name('courses.saveText');
 
         Route::post('experience-management',[ExperienceController::class,'saveText'])->name('experiences.saveText');
+
+        Route::post('achievement-management',[AchievementController::class,'saveText'])->name('achievements.saveText');
 
 
         Route::get('color-section-management',[ColorSectionManagementController::class,'index'])->name('colorSectionManagement.index');
