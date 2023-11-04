@@ -25,20 +25,20 @@
 
 <div class="form-group">
     <b>{!! Form::label('status',  __('Status')) !!}</b>
-    @include('includes.status_show',['status'=>$experience->status])
+    @include('includes.status_show',['status'=>$achievement->status])
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
     <b>{!! Form::label('created_at',  __('Created At')) !!}</b>
-    <p>{{ myDateFormat($experience->created_at) }}</p>
+    <p>{{ myDateFormat($achievement->created_at) }}</p>
 </div>
 
 
 <!-- Updated At Field -->
 <div class="form-group">
     <b>{!! Form::label('updated_at',  __('Updated At')) !!}</b>
-    <p>{{ myDateFormat($experience->updated_at) }}</p>
+    <p>{{ myDateFormat($achievement->updated_at) }}</p>
 </div>
 
 

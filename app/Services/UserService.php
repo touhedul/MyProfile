@@ -7,6 +7,7 @@ use App\Models\Achievement;
 use App\Models\AdditionalInfo;
 use App\Models\ColorSection;
 use App\Models\Course;
+use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Home;
 use App\Models\Menu;
@@ -36,6 +37,7 @@ class UserService
         $this->createCourseSection($user);
         $this->createExperienceSection($user);
         $this->createAchievementSection($user);
+        $this->createEducationSection($user);
     }
 
     public function createTheme($user)
@@ -65,6 +67,7 @@ class UserService
         $user->load('courses');
         $user->load('experiences');
         $user->load('achievements');
+        $user->load('educations');
 
         return $user;
     }
@@ -420,6 +423,41 @@ class UserService
             'user_id' => $user->id,
             'title' => 'Participate in Student 2 Startup',
             'details' => 'This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]);
+    }
+
+
+    public function createEducationSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'education_text',
+            'value' => 'My education',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'education_description',
+            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+        ]);
+        $this->createEducation($user);
+    }
+
+    public function createEducation($user)
+    {
+        Education::create([
+            'user_id' => $user->id,
+            'name' => 'S.S.C',
+            'details' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]);
+        Education::create([
+            'user_id' => $user->id,
+            'name' => 'H.S.C',
+            'details' => 'This is a HSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]);
+        Education::create([
+            'user_id' => $user->id,
+            'name' => 'Honours',
+            'details' => 'This is a Honours paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ]);
     }
 }

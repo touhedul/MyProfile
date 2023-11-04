@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ColorSectionManagementController;
 use App\Http\Controllers\Admin\ContactFeedbackController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FrontendCMSController;
 use App\Http\Controllers\Admin\HomeManagementController;
@@ -157,6 +158,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 'courses' => CourseController::class,
                 'experiences' => ExperienceController::class,
                 'achievements' => AchievementController::class,
+                'education' => EducationController::class,
             ]
         );
 
@@ -180,6 +182,8 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         Route::post('experience-management',[ExperienceController::class,'saveText'])->name('experiences.saveText');
 
         Route::post('achievement-management',[AchievementController::class,'saveText'])->name('achievements.saveText');
+
+        Route::post('education-management',[EducationController::class,'saveText'])->name('education.saveText');
 
 
         Route::get('color-section-management',[ColorSectionManagementController::class,'index'])->name('colorSectionManagement.index');

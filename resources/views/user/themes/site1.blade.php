@@ -424,7 +424,7 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                             <div class="row gy-5 wow fadeInUp">
                                 <div class="main-timeline">
 
-                                    @foreach ($userInfo->experiences->where('status',1)->sortBy('year') as $experience)
+                                    @foreach ($userInfo->experiences->where('status', 1)->sortBy('year') as $experience)
                                         <div class="timeline">
                                             <div class="icon"></div>
                                             <div class="date-content">
@@ -460,7 +460,8 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     <div class="row mb-5 wow fadeIn">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
                             <h2 class="fw-600 mb-3">
-                                {{ $userInfo->additional_infos->where('key', 'achievement_text')->first()->value }} </h2>
+                                {{ $userInfo->additional_infos->where('key', 'achievement_text')->first()->value }}
+                            </h2>
                             <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
                             <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'achievement_description')->first()->value !!} </p>
                         </div>
@@ -474,18 +475,16 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                                 data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
 
 
-                                @foreach ($userInfo->achievements->where('status',1)->sortByDesc('id') as $achievement)
+                                @foreach ($userInfo->achievements->where('status', 1)->sortByDesc('id') as $achievement)
+                                    <div class="item text-center px-5">
 
-                                <div class="item text-center px-5">
-
-                                    <img class="img-fluid d-inline-block w-auto"
-                                        src="{{ $achievement->image ? asset('images/' . $achievement->image) : defaultImage('no_image') }}"
-                                        alt="">
+                                        <img class="img-fluid d-inline-block w-auto"
+                                            src="{{ $achievement->image ? asset('images/' . $achievement->image) : defaultImage('no_image') }}"
+                                            alt="">
                                         <br>
-                                    <h5>{{$achievement->title}}</h5>
-                                    <p class="text-4">{!! $achievement->details !!}</p>
-                                </div>
-
+                                        <h5>{{ $achievement->title }}</h5>
+                                        <p class="text-4">{!! $achievement->details !!}</p>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
@@ -620,6 +619,58 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                 </div>
             </div>
             <!-- Clients Logo end -->
+
+            {{-- Education Start --}}
+
+            <section id="contact" class="section">
+                <div class="container">
+                    <!-- Heading -->
+                    <div class="row mb-5 wow fadeIn">
+                        <div class="col-lg-9 col-xl-8 mx-auto text-center">
+                            <h2 class="fw-600 mb-3">{{ $userInfo->additional_infos->where('key', 'education_text')->first()->value }}</h2>
+                            <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
+                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'education_description')->first()->value !!}
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Heading End -->
+
+                    <!-- Contact Form -->
+                    <div class="row justify-content-center wow fadeInUp">
+                        <div class="col-md-3">
+                            <!-- Tabs nav -->
+                            <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
+                                aria-orientation="vertical">
+
+                                @foreach ($userInfo->educations->where('status', 1)->sortByDesc('id') as $education)
+                                <a class="nav-link mb-3 p-3 shadow {{ $loop->index == 0 ? 'active':''  }}" id="" data-bs-toggle="tab"
+                                    href="#tab-{{ $education->id }}" role="tab" aria-controls=""
+                                    aria-selected="true"><span class="font-weight-bold small text-uppercase">{{$education->name}}</span></a>
+                                @endforeach
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-8">
+                            <!-- Tabs content -->
+
+                            <div class="tab-content" id="v-pills-tabContent">
+                                @foreach ($userInfo->educations->where('status', 1)->sortByDesc('id') as $education)
+                                <div class="tab-pane fade shadow rounded bg-white {{ $loop->index == 0 ? 'show active':''  }}  p-5" id="tab-{{ $education->id }}" role="tabpanel"
+                                    aria-labelledby="">
+                                    <p>{!! $education->details !!}</p>
+                                </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{-- Education end --}}
+
+
 
             <!-- Contact
     ============================================= -->

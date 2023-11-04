@@ -330,3 +330,12 @@
 </li>
 @endcan
 
+@can('Education-view')
+<li class="">
+    <a href="{{route('admin.education.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/education**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Education') }}
+    </a>
+</li>
+@endcan
+
