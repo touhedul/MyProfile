@@ -546,30 +546,12 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                         <div class="owl-carousel owl-theme" data-autoplay="true" data-nav="true" data-loop="true"
                             data-margin="30" data-slideby="2" data-stagepadding="5" data-items-xs="2"
                             data-items-sm="3" data-items-md="4" data-items-lg="6">
+
+                            @foreach ($userInfo->clients->where('status',1)->sortByDesc('id') as $client)
                             <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
+                                        src="{{ $client->image ? asset('images/'.$client->image) : defaultImage('client_image') }}"
                                         alt="" /></a></div>
-                            <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                        alt="" /></a></div>
-                            <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                        alt="" /></a></div>
-                            <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
-                                        alt="" /></a></div>
-                            <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                        alt="" /></a></div>
-                            <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                        alt="" /></a></div>
-                            <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
-                                        alt="" /></a></div>
-                            <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                        alt="" /></a></div>
+                            @endforeach
                         </div>
 
                     </div>

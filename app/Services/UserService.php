@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\About;
 use App\Models\Achievement;
 use App\Models\AdditionalInfo;
+use App\Models\Client;
 use App\Models\ColorSection;
 use App\Models\Course;
 use App\Models\Education;
@@ -40,6 +41,7 @@ class UserService
         $this->createAchievementSection($user);
         $this->createEducationSection($user);
         $this->createTestimonialSection($user);
+        $this->createClientSection($user);
     }
 
     public function createTheme($user)
@@ -71,6 +73,7 @@ class UserService
         $user->load('achievements');
         $user->load('educations');
         $user->load('testimonials');
+        $user->load('clients');
 
         return $user;
     }
@@ -499,6 +502,26 @@ class UserService
             'name' => 'Torikul Islam',
             'designation' => 'CTO at ratul tech',
             'message' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]);
+    }
+
+    public function createClientSection($user)
+    {
+        Client::create([
+            'user_id'=>$user->id,
+            'image'=>''
+        ]);
+        Client::create([
+            'user_id'=>$user->id,
+            'image'=>''
+        ]);
+        Client::create([
+            'user_id'=>$user->id,
+            'image'=>''
+        ]);
+        Client::create([
+            'user_id'=>$user->id,
+            'image'=>''
         ]);
     }
 }

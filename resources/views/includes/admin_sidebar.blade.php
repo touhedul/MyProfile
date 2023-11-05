@@ -348,3 +348,12 @@
 </li>
 @endcan
 
+@can('Client-view')
+<li class="">
+    <a href="{{route('admin.clients.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/clients**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Clients') }}
+    </a>
+</li>
+@endcan
+

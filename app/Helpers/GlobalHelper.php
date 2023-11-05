@@ -89,6 +89,9 @@ if (!function_exists('defaultImage')) {
             case 'no_image':
                 $image = asset('frontend/theme1/images/no-image.jpg');
                 break;
+            case 'client_image':
+                $image = asset('frontend/theme1/images/clients/client-logo1.png');
+                break;
         }
 
         return $image;
