@@ -498,63 +498,40 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                            <h2 class="fw-600 mb-3">Our Clients</h2>
+                            <h2 class="fw-600 mb-3"> {{ $userInfo->additional_infos->where('key', 'testimonial_text')->first()->value }}</h2>
                             <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted">See what my happy clients say about me. I'm proud to have my
-                                clients.</p>
+                            <p class="text-4 text-muted"> {!! $userInfo->additional_infos->where('key', 'testimonial_description')->first()->value !!}</p>
                         </div>
                     </div>
                     <!-- Heading End -->
 
                     <div class="row wow fadeInUp">
                         <div class="col-lg-9 mx-auto">
+
                             <div class="owl-carousel owl-theme" data-autoplay="true" data-loop="true"
                                 data-nav="true" data-margin="30" data-slideby="1" data-stagepadding="5"
                                 data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
+
+                                @foreach ($userInfo->testimonials->where('status',1)->sortByDesc('id') as $testimonial)
+
                                 <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
                                             class="fa fa-quote-left"></i></span>
-                                    <p class="text-4">Easy to use, reasonably priced simply dummy text of the printing
-                                        and typesetting industry. Quidam lisque persius interesset his et, in quot
-                                        quidam possim iriure. simply dummy text of the printing and typesetting
-                                        industry.”</p>
+                                    <p class="text-4">{!! $testimonial->message !!}</p>
+                                    @if ($testimonial->image)
                                     <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                        src="{{ asset('frontend/theme1/images/testimonial/client-sm-1.jpg') }}"
-                                        alt=""> <strong class="d-block fw-500">Jay Shah</strong> <span
-                                        class="text-muted text-2">Founder at Icomatic Pvt Ltd</span>
+                                        src="{{ asset('images/'.$testimonial->image) }}" />
+                                    @endif
+                                    <strong class="d-block fw-500">{{$testimonial->name}}</strong> <span
+                                    class="text-muted text-2">{{$testimonial->designation}}</span>
                                 </div>
-                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
-                                            class="fa fa-quote-left"></i></span>
-                                    <p class="text-4">“I am happy Working with printing and typesetting industry.
-                                        Quidam lisque persius interesset his et, in quot quidam persequeris essent
-                                        possim iriure. simply dummy text of the printing and typesetting industry.”</p>
-                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                        src="{{ asset('frontend/theme1/images/testimonial/client-sm-2.jpg') }}"
-                                        alt=""> <strong class="d-block fw-500">Patrick Cary</strong> <span
-                                        class="text-muted text-2">Freelancer from USA</span>
-                                </div>
-                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
-                                            class="fa fa-quote-left"></i></span>
-                                    <p class="text-4">“Only trying it out since a few days. But up to now excellent.
-                                        Seems to work flawlessly. priced simply dummy text of the printing and
-                                        typesetting industry.”</p>
-                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                        src="{{ asset('frontend/theme1/images/testimonial/client-sm-3.jpg') }}"
-                                        alt=""> <strong class="d-block fw-500">Dennis Jacques</strong> <span
-                                        class="text-muted text-2">iDeal Inc</span>
-                                </div>
-                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
-                                            class="fa fa-quote-left"></i></span>
-                                    <p class="text-4">“I have used them twice now. Good rates, very efficient service
-                                        and priced simply dummy text of the printing and typesetting industry quidam
-                                        interesset his et. simply dummy text of the printing and typesetting industry.
-                                        Excellent.”</p>
-                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                        src="{{ asset('frontend/theme1/images/testimonial/client-sm-4.jpg') }}"
-                                        alt=""> <strong class="d-block fw-500">Chris Tom</strong> <span
-                                        class="text-muted text-2">Company CEO from UK</span>
-                                </div>
+
+                                @endforeach
+
                             </div>
+
                         </div>
+
+
                     </div>
                 </div>
             </section>
@@ -564,57 +541,37 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
     ============================================= -->
             <div class="bg-light py-5">
                 <div class="container">
-                    <div class="brands-grid separator-border">
-                        <div class="row align-items-center">
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
+                    <div class="row align-items-center">
+
+                        <div class="owl-carousel owl-theme" data-autoplay="true" data-nav="true" data-loop="true"
+                            data-margin="30" data-slideby="2" data-stagepadding="5" data-items-xs="2"
+                            data-items-sm="3" data-items-md="4" data-items-lg="6">
+                            <div class="item"><a href="#"><img class="img-fluid"
                                         src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
+                                        alt="" /></a></div>
+                            <div class="item"><a href="#"><img class="img-fluid"
                                         src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
+                                        alt="" /></a></div>
+                            <div class="item"><a href="#"><img class="img-fluid"
                                         src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
+                                        alt="" /></a></div>
+                            <div class="item"><a href="#"><img class="img-fluid"
                                         src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
+                                        alt="" /></a></div>
+                            <div class="item"><a href="#"><img class="img-fluid"
                                         src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
+                                        alt="" /></a></div>
+                            <div class="item"><a href="#"><img class="img-fluid"
                                         src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
+                                        alt="" /></a></div>
+                            <div class="item"><a href="#"><img class="img-fluid"
                                         src="{{ asset('frontend/theme1/images/clients/client-logo1.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
+                                        alt="" /></a></div>
+                            <div class="item"><a href="#"><img class="img-fluid"
                                         src="{{ asset('frontend/theme1/images/clients/client-logo2.png') }}"
-                                        alt=""></a></div>
-                            <div class="col-6 col-sm-3 col-lg-2 text-center"><a href=""><img
-                                        class="img-fluid wow bounceIn"
-                                        src="{{ asset('frontend/theme1/images/clients/client-logo3.png') }}"
-                                        alt=""></a></div>
+                                        alt="" /></a></div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -627,7 +584,8 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                            <h2 class="fw-600 mb-3">{{ $userInfo->additional_infos->where('key', 'education_text')->first()->value }}</h2>
+                            <h2 class="fw-600 mb-3">
+                                {{ $userInfo->additional_infos->where('key', 'education_text')->first()->value }}</h2>
                             <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
                             <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'education_description')->first()->value !!}
                             </p>
@@ -643,9 +601,10 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                                 aria-orientation="vertical">
 
                                 @foreach ($userInfo->educations->where('status', 1)->sortByDesc('id') as $education)
-                                <a class="nav-link mb-3 p-3 shadow {{ $loop->index == 0 ? 'active':''  }}" id="" data-bs-toggle="tab"
-                                    href="#tab-{{ $education->id }}" role="tab" aria-controls=""
-                                    aria-selected="true"><span class="font-weight-bold small text-uppercase">{{$education->name}}</span></a>
+                                    <a class="nav-link mb-3 p-3 shadow {{ $loop->index == 0 ? 'active' : '' }}"
+                                        id="" data-bs-toggle="tab" href="#tab-{{ $education->id }}"
+                                        role="tab" aria-controls="" aria-selected="true"><span
+                                            class="font-weight-bold small text-uppercase">{{ $education->name }}</span></a>
                                 @endforeach
 
                             </div>
@@ -657,10 +616,10 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
 
                             <div class="tab-content" id="v-pills-tabContent">
                                 @foreach ($userInfo->educations->where('status', 1)->sortByDesc('id') as $education)
-                                <div class="tab-pane fade shadow rounded bg-white {{ $loop->index == 0 ? 'show active':''  }}  p-5" id="tab-{{ $education->id }}" role="tabpanel"
-                                    aria-labelledby="">
-                                    <p>{!! $education->details !!}</p>
-                                </div>
+                                    <div class="tab-pane fade shadow rounded bg-white {{ $loop->index == 0 ? 'show active' : '' }}  p-5"
+                                        id="tab-{{ $education->id }}" role="tabpanel" aria-labelledby="">
+                                        <p>{!! $education->details !!}</p>
+                                    </div>
                                 @endforeach
 
                             </div>

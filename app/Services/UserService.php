@@ -15,6 +15,7 @@ use App\Models\Project;
 use App\Models\Service;
 use App\Models\Sitelink;
 use App\Models\Skill;
+use App\Models\Testimonial;
 use App\Models\Theme;
 use App\Models\User;
 use App\Models\UserMenu;
@@ -38,6 +39,7 @@ class UserService
         $this->createExperienceSection($user);
         $this->createAchievementSection($user);
         $this->createEducationSection($user);
+        $this->createTestimonialSection($user);
     }
 
     public function createTheme($user)
@@ -68,6 +70,7 @@ class UserService
         $user->load('experiences');
         $user->load('achievements');
         $user->load('educations');
+        $user->load('testimonials');
 
         return $user;
     }
@@ -458,6 +461,44 @@ class UserService
             'user_id' => $user->id,
             'name' => 'Honours',
             'details' => 'This is a Honours paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]);
+    }
+
+
+    public function createTestimonialSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'testimonial_text',
+            'value' => 'My testimonial',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'testimonial_description',
+            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+        ]);
+        $this->createTestimonial($user);
+    }
+
+    public function createTestimonial($user)
+    {
+        Testimonial::create([
+            'user_id' => $user->id,
+            'name' => 'Touhedul Islam',
+            'designation' => 'Founder at ratul tech',
+            'message' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]);
+        Testimonial::create([
+            'user_id' => $user->id,
+            'name' => 'Fayes Islam',
+            'designation' => 'CEO at ratul tech',
+            'message' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]);
+        Testimonial::create([
+            'user_id' => $user->id,
+            'name' => 'Torikul Islam',
+            'designation' => 'CTO at ratul tech',
+            'message' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ]);
     }
 }

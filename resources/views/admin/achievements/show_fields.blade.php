@@ -16,7 +16,7 @@
 <div class="form-group">
     <b>{!! Form::label('image',  __('Image')) !!}</b>
     @php
-        $image = $project->image ? asset('images/'.$project->image) : defaultImage('no_image') ;
+        $image = $achievement->image ? asset('images/'.$achievement->image) : defaultImage('no_image') ;
     @endphp
     <p><img height="200px" width="auto" src="{{$image}}" alt=""></p>
 </div>

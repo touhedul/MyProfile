@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\VisitorInfoController;
 use App\Http\Controllers\Auth\Admin\LoginController;
@@ -159,6 +160,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 'experiences' => ExperienceController::class,
                 'achievements' => AchievementController::class,
                 'education' => EducationController::class,
+                'testimonials' => TestimonialController::class,
             ]
         );
 
@@ -185,6 +187,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
 
         Route::post('education-management',[EducationController::class,'saveText'])->name('education.saveText');
 
+        Route::post('testimonial-management',[TestimonialController::class,'saveText'])->name('testimonials.saveText');
 
         Route::get('color-section-management',[ColorSectionManagementController::class,'index'])->name('colorSectionManagement.index');
         Route::post('color-section-management',[ColorSectionManagementController::class,'save'])->name('colorSectionManagement.save');

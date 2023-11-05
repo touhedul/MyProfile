@@ -339,3 +339,12 @@
 </li>
 @endcan
 
+@can('Testimonial-view')
+<li class="">
+    <a href="{{route('admin.testimonials.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/testimonials**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Testimonials') }}
+    </a>
+</li>
+@endcan
+
