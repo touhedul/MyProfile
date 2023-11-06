@@ -34,11 +34,11 @@ use Spatie\Activitylog\LogOptions;
 class ContactFeedback extends Model
 {
     use HasFactory,LogsActivity;
-    protected $fillable = ['name', 'phone', 'email', 'message', 'feedback'];
+    protected $fillable = ['name','user_id', 'phone', 'email', 'message', 'feedback'];
 
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults();
     }
-    
+
 }

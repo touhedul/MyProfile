@@ -631,7 +631,9 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     <!-- Contact Form -->
                     <div class="row wow fadeInUp">
                         <div class="col-lg-10 col-xl-9 mx-auto">
-                            <form id="contact-form" action="php/mail.php" method="post">
+                            <form id="contact-form" action="{{route('submit.feedback')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ $userInfo->id }}"/>
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <input name="name" type="text" class="form-control border-2" required
@@ -642,7 +644,7 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                                             placeholder="Your Email">
                                     </div>
                                     <div class="col-md-12">
-                                        <textarea name="form-message" class="form-control border-2" rows="5" required
+                                        <textarea name="message" class="form-control border-2" rows="5" required
                                             placeholder="Tell us more about your needs........"></textarea>
                                     </div>
                                     <div class="col-md-12 text-center">

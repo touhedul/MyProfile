@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactFeedback;
+use App\Models\Sitelink;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 
 class ContactFeedbackController extends Controller
@@ -19,8 +21,10 @@ class ContactFeedbackController extends Controller
 
     public function submitFeedback(Request $request)
     {
+
         $this->validate($request, [
             'name' => 'required|string|max:191',
+            'user_id' => 'required|integer',
             'email' => 'required|string|email|max:191',
             'phone' => 'nullable|string|max:191',
             'message' => 'nullable|string|max:65500',
@@ -28,6 +32,7 @@ class ContactFeedbackController extends Controller
         ]);
         $feedback = new ContactFeedback();
         $feedback->name = $request->name;
+        $feedback->user_id = $request->user_id;
         $feedback->email = $request->email;
         $feedback->phone = $request->phone;
         $feedback->message = $request->message;
@@ -35,9 +40,11 @@ class ContactFeedbackController extends Controller
         $feedback->save();
         notification([
             'title'=>'New contact.',
+            'user_id' => $request->user_id,
             'description' => $feedback->name. ' send a contact request',
             'link' => route('admin.contacts')
         ]);
-        return back()->with('success', 'Thank you for cantacting us. We will contact you soon.');
+
+        return json_encode(array('response' => 'success', 'Message' => '<div class="alert alert-success alert-dismissible fade show text-start"><i class="fa fa-check-circle"></i> Thank you for contacting, will be in touch with you very soon <button type="button" class="btn-close text-1 mt-1" data-bs-dismiss="alert"></button></div>'));
     }
 }

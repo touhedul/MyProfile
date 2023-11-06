@@ -15,6 +15,7 @@ class CreateContactFeedbackTable extends Migration
     {
         Schema::create('contact_feedback', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('user_id')->nullable();
             $table->string('name');
             $table->string('email');
             $table->text('phone')->nullable();

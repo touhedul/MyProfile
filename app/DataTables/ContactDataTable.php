@@ -33,7 +33,7 @@ class ContactDataTable extends DataTable
 
     public function query(ContactFeedback $model)
     {
-        return $model->newQuery()->whereNotNull('phone');
+        return $model->newQuery()->where('user_id',auth()->id());
     }
 
     public function html()
@@ -53,7 +53,6 @@ class ContactDataTable extends DataTable
             ['data'=>'Sl','title'=>__('Sl')],
             ['data'=>'name','title'=>__('Name')],
             ['data'=>'email','title'=>__('Email')],
-            ['data'=>'phone','title'=>__('Phone')],
             ['data'=>'message','title'=>__('Message')],
         ];
     }
