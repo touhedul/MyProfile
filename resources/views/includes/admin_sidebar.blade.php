@@ -357,3 +357,13 @@
 </li>
 @endcan
 
+
+@can('Contactinfo-view')
+<li class="">
+    <a href="{{route('admin.contactinfos.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/contactinfos**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Contactinfos') }}
+    </a>
+</li>
+@endcan
+

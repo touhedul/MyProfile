@@ -7,6 +7,7 @@ use App\Models\Achievement;
 use App\Models\AdditionalInfo;
 use App\Models\Client;
 use App\Models\ColorSection;
+use App\Models\Contactinfo;
 use App\Models\Course;
 use App\Models\Education;
 use App\Models\Experience;
@@ -42,6 +43,7 @@ class UserService
         $this->createEducationSection($user);
         $this->createTestimonialSection($user);
         $this->createClientSection($user);
+        $this->createContactinfoSection($user);
     }
 
     public function createTheme($user)
@@ -74,6 +76,7 @@ class UserService
         $user->load('educations');
         $user->load('testimonials');
         $user->load('clients');
+        $user->load('contactinfos');
 
         return $user;
     }
@@ -522,6 +525,45 @@ class UserService
         Client::create([
             'user_id'=>$user->id,
             'image'=>''
+        ]);
+    }
+
+    public function createContactinfoSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'contactinfo_text',
+            'value' => 'My contact info',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'contactinfo_description',
+            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+        ]);
+        $this->createContactinfo($user);
+    }
+
+    public function createContactinfo($user)
+    {
+        Contactinfo::create([
+            'user_id'=>$user->id,
+            'title' => 'VISIT US',
+            'details' => '145 Murphy Canyon Rd. <br> Suite 100-18, San Diego CA 2028',
+            'icon' => 'fas fa-map-marker-alt',
+        ]);
+
+        Contactinfo::create([
+            'user_id'=>$user->id,
+            'title' => 'CALL US NOW',
+            'details' => 'Phone: (+060) 9898980098 <br>Fax: (+060) 8898880088',
+            'icon' => 'fas fa-phone-alt',
+        ]);
+
+        Contactinfo::create([
+            'user_id'=>$user->id,
+            'title' => 'INQUIRIES',
+            'details' => 'info@kenilpatel.com <br>Mon to Fri (10 am – 8 pm)',
+            'icon' => 'fas fa-envelope',
         ]);
     }
 }

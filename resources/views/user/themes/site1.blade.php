@@ -620,9 +620,9 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                            <h2 class="fw-600 mb-3">Contact Us</h2>
+                            <h2 class="fw-600 mb-3">{{ $userInfo->additional_infos->where('key', 'contactinfo_text')->first()->value }}</h2>
                             <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted">Send me a note, and let’s get started on your project today!
+                            <p class="text-4 text-muted">>{!! $userInfo->additional_infos->where('key', 'contactinfo_description')->first()->value !!}
                             </p>
                         </div>
                     </div>
@@ -659,32 +659,17 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
 
                     <div class="brands-grid separator-border h-100 mt-5">
                         <div class="row">
+                            @foreach ($userInfo->contactinfos->where('status', 1)->sortByDesc('id') as $contactinfo)
                             <div class="col-md-6 col-lg-4">
                                 <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
-                                    <div class="featured-box-icon text-light"> <i class="fas fa-map-marker-alt"></i>
+                                    <div class="featured-box-icon text-light"> <i class="{{$contactinfo->icon}}"></i>
                                     </div>
-                                    <h3 class="text-uppercase">Visit Us</h3>
-                                    <p class="text-muted mb-0">145 Murphy Canyon Rd.<br>
-                                        Suite 100-18, San Diego CA 2028 </p>
+                                    <h3 class="text-uppercase">{{$contactinfo->title}}</h3>
+                                    <p class="text-muted mb-0"> {!!$contactinfo->details!!} </p>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
-                                    <div class="featured-box-icon text-light"> <i class="fas fa-phone-alt"></i> </div>
-                                    <h3 class="text-uppercase">Call Us Now</h3>
-                                    <p class="text-muted mb-0">Phone: (+060) 9898980098<br>
-                                        Fax: (+060) 8898880088</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="featured-box text-center my-3 my-md-0 wow bounceIn">
-                                    <div class="featured-box-icon text-light"> <i class="fas fa-envelope"></i> </div>
-                                    <h3 class="text-uppercase">Inquiries</h3>
-                                    <p class="text-muted mb-0"><a
-                                            href="mailto:info@kenilpatel.com">info@kenilpatel.com</a><br>
-                                        Mon to Fri (10 am – 8 pm)</p>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>

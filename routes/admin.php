@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ColorSectionManagementController;
 use App\Http\Controllers\Admin\ContactFeedbackController;
+use App\Http\Controllers\Admin\ContactinfoController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationController;
@@ -163,6 +164,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 'education' => EducationController::class,
                 'testimonials' => TestimonialController::class,
                 'clients' => ClientController::class,
+                'contactinfos' => ContactinfoController::class,
             ]
         );
 
@@ -190,6 +192,8 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         Route::post('education-management',[EducationController::class,'saveText'])->name('education.saveText');
 
         Route::post('testimonial-management',[TestimonialController::class,'saveText'])->name('testimonials.saveText');
+
+        Route::post('contactinfo-management',[ContactinfoController::class,'saveText'])->name('contactinfos.saveText');
 
         Route::get('color-section-management',[ColorSectionManagementController::class,'index'])->name('colorSectionManagement.index');
         Route::post('color-section-management',[ColorSectionManagementController::class,'save'])->name('colorSectionManagement.save');
