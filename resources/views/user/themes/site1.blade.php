@@ -684,28 +684,14 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
         <footer id="footer" class="section bg-dark footer-text-light">
             <div class="container">
                 <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3 wow bounceIn">
+
+                    @foreach ($userInfo->socials->where('status', 1)->sortByDesc('id') as $social)
                     <li class="social-icons-twitter"><a data-bs-toggle="tooltip"
-                            href="https://twitter.com/harnishdesign/" target="_blank" title="Twitter"><i
-                                class="fab fa-twitter"></i></a></li>
-                    <li class="social-icons-facebook"><a data-bs-toggle="tooltip"
-                            href="http://www.facebook.com/harnishdesign/" target="_blank" title="Facebook"><i
-                                class="fab fa-facebook-f"></i></a></li>
-                    <li class="social-icons-linkedin"><a data-bs-toggle="tooltip" href="http://www.linkedin.com/"
-                            target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li class="social-icons-dribbble"><a data-bs-toggle="tooltip"
-                            href="http://www.dribbble.com/harnishdesign/" target="_blank" title="Dribbble"><i
-                                class="fab fa-dribbble"></i></a></li>
-                    <li class="social-icons-github"><a data-bs-toggle="tooltip" href="http://www.github.com/"
-                            target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
+                            href="{{$social->link}}" target="_blank" title=""><i
+                                class="{{$social->icon}}"></i></a></li>
+                    @endforeach
                 </ul>
-                <p class="text-muted text-center">Copyright &copy; 2022 <a href="#">Kenil</a>. All Rights
-                    Reserved.</p>
-                <ul class="nav text-2 justify-content-center wow fadeIn">
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="modal" data-bs-target="#terms-policy"
-                            href="#">Terms & Policy</a></li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="modal" data-bs-target="#disclaimer"
-                            href="#">Disclaimer</a></li>
-                </ul>
+                <p class="text-muted text-center">{!! $userInfo->additional_infos->where('key', 'footer_text')->first()->value !!}</p>
             </div>
         </footer>
         <!-- Footer end -->

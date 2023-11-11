@@ -17,6 +17,7 @@ use App\Models\Project;
 use App\Models\Service;
 use App\Models\Sitelink;
 use App\Models\Skill;
+use App\Models\Social;
 use App\Models\Testimonial;
 use App\Models\Theme;
 use App\Models\User;
@@ -44,6 +45,7 @@ class UserService
         $this->createTestimonialSection($user);
         $this->createClientSection($user);
         $this->createContactinfoSection($user);
+        $this->createFooterSection($user);
     }
 
     public function createTheme($user)
@@ -564,6 +566,41 @@ class UserService
             'title' => 'INQUIRIES',
             'details' => 'info@kenilpatel.com <br>Mon to Fri (10 am – 8 pm)',
             'icon' => 'fas fa-envelope',
+        ]);
+    }
+
+
+    public function createFooterSection($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'footer_text',
+            'value' => 'Copyright ©  '.date('Y')." ".$user->name.'. All Rights Reserved.',
+        ]);
+        $this->createSocial($user);
+    }
+
+    public function createSocial($user)
+    {
+        Social::create([
+            'user_id'=>$user->id,
+            'link' => 'https://twitter.com',
+            'icon' => 'fab fa-twitter',
+        ]);
+        Social::create([
+            'user_id'=>$user->id,
+            'link' => 'https://facebook.com',
+            'icon' => 'fab fa-facebook-f',
+        ]);
+        Social::create([
+            'user_id'=>$user->id,
+            'link' => 'https://linkedin.com',
+            'icon' => 'fab fa-linkedin-in',
+        ]);
+        Social::create([
+            'user_id'=>$user->id,
+            'link' => 'https://github.com',
+            'icon' => 'fab fa-github',
         ]);
     }
 }
