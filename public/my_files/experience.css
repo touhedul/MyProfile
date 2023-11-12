@@ -54,7 +54,7 @@
 
 .main-timeline .icon:before {
     background: #fff;
-    border: 2px solid #d63384;
+    border: 2px solid var(--theme-color);
     left: -3px
 }
 
@@ -115,7 +115,7 @@
 
 .main-timeline .date-outer:before {
     background: #fff;
-    border: 2px solid #d63384;
+    border: 2px solid var(--theme-color);
     left: -6px
 }
 
@@ -149,7 +149,7 @@
     display: block;
     font-size: 30px;
     font-weight: 700;
-    color: #d63384;
+    color: var(--theme-color);
     line-height: 36px
 }
 

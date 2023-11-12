@@ -11,6 +11,15 @@
         content="Kenil is creative Responsive Bootstrap 5 One Page Personal Portfolio Html Template.">
     <meta name="author" content="harnishdesign.net">
 
+    <style>
+        :root {
+            --header-color: {{ $userInfo->additional_infos->where('key', 'header_color')->first()->value }};
+            --theme-color: {{ $userInfo->additional_infos->where('key', 'theme_color')->first()->value }}
+        }
+        :root{
+        }
+    </style>
+
     <!-- Web Fonts -->
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900'
         type='text/css'>
@@ -37,7 +46,7 @@
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="0">
 
-    <!-- Preloader -->
+    @if ($userInfo->additional_infos->where('key', 'preloader_status')->first()->value)
     <div class="preloader">
         <div class="lds-ellipsis">
             <div></div>
@@ -47,6 +56,8 @@
         </div>
     </div>
     <!-- Preloader End -->
+    @endif
+    <!-- Preloader -->
 
     <!-- Document Wrapper
 =============================== -->
@@ -59,8 +70,11 @@
                 class="primary-menu navbar navbar-expand-lg navbar-text-light navbar-line-under-text bg-transparent border-bottom-0">
                 <div class="container">
                     <!-- Logo -->
+                    @php
+                    $websiteLogo = $userInfo->additional_infos->where('key','logo')->first()->value;
+                    @endphp
                     <a class="logo ms-3 ms-md-0" href="index.html" title="Kenil Patel"> <img
-                            src="{{ asset('frontend/theme1/images/logo-light.png') }}" alt="Kenil Patel" /> </a>
+                            src="{{ $websiteLogo ? asset('images/' . $websiteLogo) : defaultImage('logo') }}" alt="Kenil Patel" /> </a>
                     <!-- Logo End -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#header-nav"><span></span><span></span><span></span></button>
@@ -98,7 +112,9 @@
 
                 <section id="home">
                     <div class="hero-wrap">
+                        @if ($userInfo->additional_infos->where('key', 'particle_status')->first()->value)
                         <div id="particles-js" class="hero-particles"></div>
+                        @endif
                         <div class="hero-mask opacity-7 bg-dark"></div>
                         <div class="hero-bg owl-carousel owl-theme single-slideshow" data-animateout="fadeOut"
                             data-animatein="fadeIn" data-autoplay="true" data-loop="true" data-dots="false"
@@ -308,7 +324,7 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
             <!-- Promo Box
  ============================================= -->
             @if ($userInfo->color_section->show_status)
-                <section class="section text-center" style="background-color: {{ $userInfo->color_section->color }}">
+                <section class="section text-center" style="background-color: var(--theme-color)">
                     <div class="container wow bounceIn">
                         <p class="lead text-white">{{ $userInfo->color_section->text_1 }}</p>
                         <h2 class="text-10 text-white mb-4">{{ $userInfo->color_section->text_2 }}</h2>
@@ -681,7 +697,7 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
 
         <!-- Footer
   ============================================= -->
-        <footer id="footer" class="section bg-dark footer-text-light">
+        <footer id="footer" class="section bg-dark footer-text-light" style="background: {{ $userInfo->additional_infos->where('key', 'footer_color')->first()->value }} !important">
             <div class="container">
                 <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3 wow bounceIn">
 

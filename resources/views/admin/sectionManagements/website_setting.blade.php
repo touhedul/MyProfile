@@ -29,9 +29,9 @@
                                 <img height="100px" width="125px"
                                 src="{{ $websiteLogo ? asset('images/' . $websiteLogo) : defaultImage('logo') }}"
                                 alt="">
-                                 (500 X 625)
+                                 (70 X 30)
                                  <br>
-                                 <input type="file" accept="image/*" name="image" class="dropify" style="margin-top: 10px">
+                                 <input type="file" accept="image/*" name="logo" class="dropify" style="margin-top: 10px">
                             </div>
                         </div>
                         <br>
@@ -59,10 +59,10 @@
                             </div>
                             <div class="card-body">
                                 <br>
-                                Show Particle :
+                                Show Particle Animation:
                                 <div class="form-group">
                                     <div class="custom-control custom-switch">
-                                        <input name="button_status"
+                                        <input name="particle_status"
                                             @if ($websiteSettings->where('key','particle_status')->first()->value == 1) checked @endif type="checkbox"
                                             class="custom-control-input" id="button_status">
                                         <label class="custom-control-label"
@@ -73,7 +73,7 @@
                                 Show Preloader :
                                 <div class="form-group">
                                     <div class="custom-control custom-switch">
-                                        <input name="button_status2"
+                                        <input name="preloader_status"
                                             @if ($websiteSettings->where('key','preloader_status')->first()->value == 1) checked @endif type="checkbox"
                                             class="custom-control-input" id="button_status2">
                                         <label class="custom-control-label"
