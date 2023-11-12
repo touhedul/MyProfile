@@ -46,6 +46,7 @@ class UserService
         $this->createClientSection($user);
         $this->createContactinfoSection($user);
         $this->createFooterSection($user);
+        $this->createSettings($user);
     }
 
     public function createTheme($user)
@@ -601,6 +602,41 @@ class UserService
             'user_id'=>$user->id,
             'link' => 'https://github.com',
             'icon' => 'fab fa-github',
+        ]);
+    }
+
+
+    public function createSettings($user)
+    {
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'logo',
+            'value' => '',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'theme_color',
+            'value' => '#d63384',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'header_color',
+            'value' => '#111111',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'footer_color',
+            'value' => '#111418',
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'particle_status',
+            'value' => true,
+        ]);
+        AdditionalInfo::create([
+            'user_id' => $user->id,
+            'key' => 'preloader_status',
+            'value' => false,
         ]);
     }
 }

@@ -57,6 +57,16 @@
         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
     </a>
     <ul>
+
+        @can('website-setting')
+            <li class="{{ request()->route()->getName() == 'admin.websiteSettings.index'? 'mm-active': '' }}">
+                <a href="{{ route('admin.websiteSettings.index') }}">
+                    <i class="metismenu-icon"></i>
+                    {{ __('Website Setting') }}
+                </a>
+            </li>
+        @endcan
+
         @can('setting-view')
             <li class="{{ request()->route()->getName() == 'admin.settings.index'? 'mm-active': '' }}">
                 <a href="{{ route('admin.settings.index') }}">

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ColorSectionManagementController;
 use App\Http\Controllers\Admin\ContactFeedbackController;
 use App\Http\Controllers\Admin\ContactinfoController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\WebsiteSettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
@@ -201,5 +202,8 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
 
         Route::get('color-section-management',[ColorSectionManagementController::class,'index'])->name('colorSectionManagement.index');
         Route::post('color-section-management',[ColorSectionManagementController::class,'save'])->name('colorSectionManagement.save');
+
+        Route::get('website-settings',[WebsiteSettingController::class,'index'])->name('websiteSettings.index');
+        Route::post('website-settings',[WebsiteSettingController::class,'save'])->name('websiteSettings.save');
     });
 });

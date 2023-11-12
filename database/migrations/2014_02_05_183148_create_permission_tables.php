@@ -287,6 +287,12 @@ class CreatePermissionTables extends Migration
                 ]
             ],
             [
+                'group_name' => 'setting',
+                'permissions' => [
+                    'website-setting',
+                ]
+            ],
+            [
                 'group_name' => 'others',
                 'permissions' => [
                     'contact-view',
