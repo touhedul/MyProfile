@@ -27,6 +27,8 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuManagementController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\ProfessionCategoryController;
+use App\Http\Controllers\Admin\ProfessionController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
@@ -168,6 +170,8 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 'clients' => ClientController::class,
                 'contactinfos' => ContactinfoController::class,
                 'socials' => SocialController::class,
+                'professionCategories' => ProfessionCategoryController::class,
+                'professions' => ProfessionController::class,
             ]
         );
 

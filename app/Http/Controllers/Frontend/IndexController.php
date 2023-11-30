@@ -14,9 +14,9 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+
     public function index(Request $request)
     {
-
         $url = request()->url();
 
         $siteLink = Sitelink::where('link',$url)->with('user')->first();
@@ -26,6 +26,11 @@ class IndexController extends Controller
             return view('user.themes.site'.$userInfo->default_theme->theme_id,compact('userInfo'));
         }
         return view('frontend.index');
+    }
+
+    public function add($a)
+    {
+        return $a."ratul";
     }
 
     public function changeLanguage($locale)

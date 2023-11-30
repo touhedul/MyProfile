@@ -386,3 +386,21 @@
 </li>
 @endcan
 
+@can('ProfessionCategory-view')
+<li class="">
+    <a href="{{route('admin.professionCategories.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/professionCategories**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Profession Categories') }}
+    </a>
+</li>
+@endcan
+
+@can('Profession-view')
+<li class="">
+    <a href="{{route('admin.professions.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/professions**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Professions') }}
+    </a>
+</li>
+@endcan
+

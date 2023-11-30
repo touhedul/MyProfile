@@ -37,8 +37,3 @@ Route::group(['middleware'=>['blockIp','localaization']],function(){
 });
 
 
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::resource('socials', App\Http\Controllers\Admin\SocialController::class, ["as" => 'admin']);
-});

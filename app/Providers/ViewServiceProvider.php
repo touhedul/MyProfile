@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+
+use App\Models\ProfessionCategory;
 use App\Models\Admin;
 
 use Illuminate\Support\ServiceProvider;
@@ -26,9 +28,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['admin.twenty_sixes.fields'], function ($view) {
-            $adminItems = Admin::pluck('name','id')->toArray();
-            $view->with('adminItems', $adminItems);
+        View::composer(['admin.professions.fields'], function ($view) {
+            $profession_categoryItems = ProfessionCategory::pluck('name','id')->toArray();
+            $view->with('profession_categoryItems', $profession_categoryItems);
         });
         View::composer(['admin.admins.fields'], function ($view) {
             $roles = Role::where('name','!=','super-admin')->where('name','!=','user')->get();

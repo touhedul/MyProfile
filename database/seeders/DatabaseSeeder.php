@@ -2,6 +2,8 @@
 
 use App\Models\Notification;
 use App\Models\User;
+use Database\Seeders\ProfessionCategorySeeder;
+use Database\Seeders\ProfessionSeeder;
 use Database\Seeders\SettingSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
@@ -16,5 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserSeeder::class);
+        $this->call(ProfessionCategorySeeder::class);
+        $this->call(ProfessionSeeder::class);
     }
 }
