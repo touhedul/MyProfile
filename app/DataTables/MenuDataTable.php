@@ -17,17 +17,9 @@ class MenuDataTable extends DataTable
         return $dataTable->addColumn('action', 'admin.menus.datatables_actions')
             ->addIndexColumn()
             ->addColumn('', '')
-            ->addColumn('Sl', '');
-            // ->addColumn('details',function($dataTable){
-            //     return Str::limit($dataTable->details,50);
-            // })
-            // ->addColumn('image', function ($dataTable) {
-            //     return "<img width='100px' height='80px' src='".asset('images/'.$dataTable->image)."'/>";
-            // })
-            // ->addColumn('file',function($dataTable){
-            //     return "<a download href='".asset('files/'. $dataTable->file)."'>Download</a>";
-            // })
-            // ->rawColumns(['details', 'action', 'image', 'file']);
+            ->addColumn('Sl', '')
+            ->addColumn('status', 'includes.status_show')
+            ->rawColumns(['details', 'action', 'image', 'status']);
     }
 
     public function query(Menu $model)

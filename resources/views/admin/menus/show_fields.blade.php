@@ -5,24 +5,21 @@
 </div>
 
 
-<!-- Status Field -->
 <div class="form-group">
     <b>{!! Form::label('status',  __('Status')) !!}</b>
-    <p>{{ $menu->status }}</p>
+    @include('includes.status_show',['status'=>$menu->status])
 </div>
-
 
 <!-- Created At Field -->
 <div class="form-group">
     <b>{!! Form::label('created_at',  __('Created At')) !!}</b>
-    <p>{{ $menu->created_at }}</p>
+    <p>{{ myDateFormat($menu->created_at) }}</p>
 </div>
 
 
 <!-- Updated At Field -->
 <div class="form-group">
     <b>{!! Form::label('updated_at',  __('Updated At')) !!}</b>
-    <p>{{ $menu->updated_at }}</p>
+    <p>{{ myDateFormat($menu->updated_at) }}</p>
 </div>
-
 

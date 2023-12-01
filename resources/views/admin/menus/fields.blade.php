@@ -6,10 +6,8 @@
 
 
 <!-- Status Field -->
-<div class="form-group">
-    {!! Form::label('status',  __('Status')) !!}
-    {!! Form::number('status', null, ['class' => 'form-control','required']) !!}
-</div>
+
+@include('includes.status_field',['variable' => @$menu])
 
 
 <!-- Submit Field -->

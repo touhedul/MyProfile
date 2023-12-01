@@ -58,5 +58,10 @@ class Profession extends Model
         return $this->belongsTo(ProfessionCategory::class,'profession_category_id');
     }
 
+    public function menus()
+    {
+        return $this->belongsToMany(Menu::class);
+    }
+
 
 }

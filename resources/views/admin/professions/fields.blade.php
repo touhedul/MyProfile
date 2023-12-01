@@ -12,8 +12,23 @@
 </div>
 
 
-<!-- Status Field -->
-<!-- Status Field -->
+<!--MenuField -->
+<div class="form-group">
+    {!! Form::label('menu_id',  __('Menu')) !!}
+    <br>
+    @foreach ($menus as $menu)
+    <p><input type="checkbox" name="menu_id[]"
+        value="{{$menu->id}}"
+
+        @isset($profession)
+        @if (in_array($menu->id,$profession->menus->pluck('id')->toArray()))
+            checked
+        @endif
+    @endisset
+        > {{$menu->name}}</p>
+    @endforeach
+</div>
+
 
 @include('includes.status_field',['variable' => @$profession])
 

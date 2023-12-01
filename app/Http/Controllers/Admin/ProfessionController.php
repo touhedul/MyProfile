@@ -8,6 +8,7 @@ use App\Http\Requests\ProfessionCreateRequest;
 use App\Http\Requests\ProfessionUpdateRequest;
 use App\Models\Profession;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Menu;
 
 class ProfessionController extends AppBaseController
 {
@@ -26,15 +27,18 @@ class ProfessionController extends AppBaseController
     public function create()
     {
         $this->authorize('Profession-create');
-        return view('admin.professions.create')->with('icon', $this->icon);
+        $menus = Menu::orderBy('name')->get();
+        return view('admin.professions.create',compact('menus'))->with('icon', $this->icon);
     }
 
 
     public function store(ProfessionCreateRequest $request)
     {
+        // return $request;
         $this->authorize('Profession-create');
         $status = $request->status ?? 0;
-        Profession::create(array_merge($request->all(),['status' => $status]));
+        $profession = Profession::create(array_merge($request->all(),['status' => $status]));
+        $profession->menus()->attach($request->menu_id);
         notify()->success(__("Successfully Created"), __("Success"));
         return redirect(route('admin.professions.index'));
     }
@@ -50,7 +54,8 @@ class ProfessionController extends AppBaseController
     public function edit(Profession $profession)
     {
         $this->authorize('Profession-update');
-        return view('admin.professions.edit',compact('profession'))->with('icon', $this->icon);
+        $menus = Menu::orderBy('name')->get();
+        return view('admin.professions.edit',compact('profession','menus'))->with('icon', $this->icon);
     }
 
 
@@ -59,6 +64,7 @@ class ProfessionController extends AppBaseController
         $this->authorize('Profession-update');
         $status = $request->status ?? 0;
         $profession->fill(array_merge($request->all(),['status' => $status]))->save();
+        $profession->menus()->sync($request->menu_id);
         notify()->success(__("Successfully Updated"), __("Success"));
         return redirect(route('admin.professions.index'));
     }
@@ -67,6 +73,8 @@ class ProfessionController extends AppBaseController
     public function destroy(Profession $profession)
     {
         $this->authorize('Profession-delete');
+
+        $profession->menus()->detach();
         //FileHelper::deleteImage($profession);
         $profession->delete();
     }

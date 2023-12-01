@@ -21,13 +21,18 @@ class ProfessionDataTable extends DataTable
             ->addColumn('category',function($dataTable){
                 return $dataTable->category->name;
             })
+            ->addColumn('menus',function($dataTable){
+                $data = $dataTable->menus->pluck('name')->implode(', ');
+
+                return "<span class='badge badge-default mr-1'>$data</span>";
+            })
             ->addColumn('status', 'includes.status_show')
-            ->rawColumns(['action', 'status']);
+            ->rawColumns(['action', 'status','menus']);
     }
 
     public function query(Profession $model)
     {
-        return $model->newQuery()->with('category');
+        return $model->newQuery()->with('category','menus');
     }
 
     public function html()
@@ -47,6 +52,7 @@ class ProfessionDataTable extends DataTable
             ['data'=>'Sl','title'=>__('Sl')],
             'name',
             'category',
+            'menus',
             'status'
         ];
     }
