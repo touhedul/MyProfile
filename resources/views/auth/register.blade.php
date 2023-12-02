@@ -28,11 +28,11 @@
                                 placeholder="Enter Phone">
                         </div>
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>Profession*</label>
                             <input maxlength="191" autofocus required type="text" value="{{old('profession')}}" name="profession"
                                 class="form-control" placeholder="Enter Profession">
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
                             <label>Password*</label>

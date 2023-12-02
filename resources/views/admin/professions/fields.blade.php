@@ -13,7 +13,7 @@
 
 
 <!--MenuField -->
-<div class="form-group">
+{{-- <div class="form-group">
     {!! Form::label('menu_id',  __('Menu')) !!}
     <br>
     @foreach ($menus as $menu)
@@ -27,7 +27,7 @@
     @endisset
         > {{$menu->name}}</p>
     @endforeach
-</div>
+</div> --}}
 
 
 @include('includes.status_field',['variable' => @$profession])

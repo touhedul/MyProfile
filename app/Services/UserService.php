@@ -86,11 +86,11 @@ class UserService
 
     public function createMenus($user)
     {
-        $menus = Menu::where('status', 1)->get();
+        $menus = Menu::all();;
 
         $userMenus = array();
         foreach ($menus as $menu) {
-            $userMenus[] = ['user_id' => $user->id, 'menu_id' => $menu->id, 'menu_title' => $menu->name, 'created_at' => now(), 'updated_at' => now()];
+            $userMenus[] = ['user_id' => $user->id, 'menu_id' => $menu->id, 'menu_title' => $menu->name, 'show_status' => $menu->status, 'created_at' => now(), 'updated_at' => now()];
         }
         UserMenu::insert($userMenus);
     }

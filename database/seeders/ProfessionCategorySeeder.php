@@ -15,7 +15,7 @@ class ProfessionCategorySeeder extends Seeder
      */
     public function run()
     {
-        //! changing the name or position of the categories will effect on profession and menus
+        //! changing the position of the categories will effect on profession and menus
 
         $professionCategories = [
             ['name' => 'Freelancers'],

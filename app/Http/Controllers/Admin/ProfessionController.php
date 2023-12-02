@@ -38,7 +38,7 @@ class ProfessionController extends AppBaseController
         $this->authorize('Profession-create');
         $status = $request->status ?? 0;
         $profession = Profession::create(array_merge($request->all(),['status' => $status]));
-        $profession->menus()->attach($request->menu_id);
+        // $profession->menus()->attach($request->menu_id);
         notify()->success(__("Successfully Created"), __("Success"));
         return redirect(route('admin.professions.index'));
     }
@@ -64,7 +64,7 @@ class ProfessionController extends AppBaseController
         $this->authorize('Profession-update');
         $status = $request->status ?? 0;
         $profession->fill(array_merge($request->all(),['status' => $status]))->save();
-        $profession->menus()->sync($request->menu_id);
+        // $profession->menus()->sync($request->menu_id);
         notify()->success(__("Successfully Updated"), __("Success"));
         return redirect(route('admin.professions.index'));
     }

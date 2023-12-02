@@ -56,7 +56,7 @@ Route::group(['prefix' => config('admin.admin_route_prefix'), 'as' => 'admin.'],
 
 
 
-Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaization']], function () {
+Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaization','hasProfile']], function () {
     Route::group(['prefix' => config('admin.admin_route_prefix'), 'as' => 'admin.'], function () {
 
         // Dashboard

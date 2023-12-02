@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'onlyAjaxRequest' => \App\Http\Middleware\AlowOnlyAjaxRequest::class,
         'preventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
         'checkStatus' => \App\Http\Middleware\CheckStatus::class,
+        'hasProfile' => \App\Http\Middleware\HasProfile::class,
         'blockIp' => \App\Http\Middleware\BlockIp::class,
         'superAdmin' => \App\Http\Middleware\SuperAdmin::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,

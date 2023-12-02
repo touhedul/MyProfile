@@ -13,10 +13,10 @@
 
 
 <!-- Menu -->
-<div class="form-group">
+{{-- <div class="form-group">
     <b>{!! Form::label('profession_category_id',  __('Category ')) !!}</b>
     <p><span class='badge badge-default mr-1'>{{ $profession->menus->pluck('name')->implode(', ') }}</span></p>
-</div>
+</div> --}}
 
 
 <div class="form-group">

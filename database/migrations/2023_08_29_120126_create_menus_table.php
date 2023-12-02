@@ -37,7 +37,6 @@ class CreateMenusTable extends Migration
             ],
         ];
 
-        Menu::menuListCreate();
         (new AdminHelper())->addPermission("admin",$adminPermissions);
     }
 
