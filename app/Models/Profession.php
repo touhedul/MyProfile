@@ -63,5 +63,10 @@ class Profession extends Model
         return $this->belongsToMany(Menu::class);
     }
 
+    public function scopeActive()
+    {
+        return $this->where('status',1);
+    }
+
 
 }

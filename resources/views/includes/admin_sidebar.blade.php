@@ -404,3 +404,12 @@
 </li>
 @endcan
 
+@can('SkillList-view')
+<li class="">
+    <a href="{{route('admin.skillLists.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/skillLists**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Skill Lists') }}
+    </a>
+</li>
+@endcan
+

@@ -9,6 +9,8 @@ use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Profession;
+use App\Models\SkillList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -94,4 +96,22 @@ class UserController extends AppBaseController
         Auth::login($user);
         return redirect()->route('index');
     }
+
+
+    public function createProfilePage()
+    {
+        if(auth()->user()->has_profile){
+            return redirect()->route('admin.dashboard');
+        }
+        $professions = Profession::orderBy('name')->active()->get();
+        $skillList = SkillList::orderby('name')->get();
+        return view('admin.users.create_profile',compact('professions','skillList'));
+    }
+
+
+    public function createProfile(Request $request)
+    {
+        return $request;
+    }
+
 }

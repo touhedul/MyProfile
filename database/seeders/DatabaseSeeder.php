@@ -7,6 +7,7 @@ use Database\Seeders\MenuSeeder;
 use Database\Seeders\ProfessionCategorySeeder;
 use Database\Seeders\ProfessionSeeder;
 use Database\Seeders\SettingSeeder;
+use Database\Seeders\SkillListSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MenuSeeder::class);
         $this->call(ProfessionCategorySeeder::class);
         $this->call(ProfessionSeeder::class);
+        $this->call(SkillListSeeder::class);
         $this->call(UserSeeder::class);
         // $this->call(MenuProfessionSeeder::class);
     }

@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\ProfessionController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
+use App\Http\Controllers\Admin\SkillListController;
 use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ThemeController;
@@ -53,6 +54,11 @@ Route::group(['prefix' => config('admin.admin_route_prefix'), 'as' => 'admin.'],
 // Route::get('password/reset/{token}', 'Auth\Admin\ResetPasswordController@showResetForm')->name('password.reset');
 //update password
 // Route::post('password/reset', 'Auth\Admin\ResetPasswordController@reset')->name('password.update');
+
+//has profile middleware
+Route::get( config('admin.admin_route_prefix').'/create-profile', [UserController::class, 'createProfilePage'])->name('admin.users.createProfilePage')->middleware(['auth', 'preventBackHistory','notUser','localaization']);
+
+Route::post( config('admin.admin_route_prefix').'/create-profile', [UserController::class, 'createProfile'])->name('admin.users.createProfile')->middleware(['auth', 'preventBackHistory','notUser','localaization']);
 
 
 
@@ -172,6 +178,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
                 'socials' => SocialController::class,
                 'professionCategories' => ProfessionCategoryController::class,
                 'professions' => ProfessionController::class,
+                'skillLists' => SkillListController::class,
             ]
         );
 

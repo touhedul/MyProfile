@@ -16,8 +16,9 @@ class HasProfile
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->name != "a") {
-            // return redirect('disable');
+        if(!$request->user()->has_profile) {
+            notify()->info(__("Complete your profile please"), __(""));
+            return redirect()->route('admin.users.createProfilePage');
        }
        return $next($request);
     }

@@ -88,8 +88,10 @@ class ProfessionSeeder extends Seeder
             ['name'=>'Founders','profession_category_id'=>19],
             ['name'=>'NGO Representatives','profession_category_id'=>19],
 
-            ['name'=>'Graduates showcasing their portfolios','profession_category_id'=>20],
-            ['name'=>'Job seekers highlighting their skills and experiences','profession_category_id'=>20],
+            ['name'=>'Graduates','profession_category_id'=>20],
+            ['name'=>'Student','profession_category_id'=>20],
+            ['name'=>'Teacher','profession_category_id'=>20],
+            ['name'=>'Job seekers','profession_category_id'=>20],
 
             ['name'=>'SEO Experts','profession_category_id'=>21],
             ['name'=>'Social Media Managers','profession_category_id'=>21],
