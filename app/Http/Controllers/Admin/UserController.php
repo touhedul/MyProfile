@@ -10,7 +10,9 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Profession;
+use App\Models\Skill;
 use App\Models\SkillList;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -111,7 +113,46 @@ class UserController extends AppBaseController
 
     public function createProfile(Request $request)
     {
-        return $request;
+        $request->validate([
+            'address' => 'required|string|max:191',
+            'profession' => 'required',
+            'skills' => 'required',
+            'image' => 'required|image|max:5000',
+
+        ]);
+
+        $user = auth()->user();
+
+        $professionWithExtraText = array_map(function($value) { return "I'm a ".$value; }, $request->profession);
+        array_unshift($professionWithExtraText, "I'am $user->name");
+
+        $user->home->update([
+            'text_2' => json_encode($professionWithExtraText),
+            'text_3' => $request->address
+        ]);
+
+        $skillArray = array();
+        foreach($request->skills as $skill){
+            $skillArray[] = [
+                'user_id'=>$user->id,
+                'title' => $skill,
+                'percentage' => rand(80,95),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+        $user->skills()->delete();
+        
+        Skill::insert($skillArray);
+
+        $fileName = FileHelper::uploadImage($request,null,[],500,625);
+
+        $user->about->update(['image' => $fileName]);;
+
+        $user->update(['has_profile' => 1]);
+
+        notify()->success(__("Successfully created your profile."), __("Success"));
+        return redirect()->route('admin.dashboard');
     }
 
 }

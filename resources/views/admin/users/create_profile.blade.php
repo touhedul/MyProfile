@@ -25,14 +25,14 @@
             <div class="main-card mb-3 card">
                 <div class="card-body">
                     <form class="" data-parsley-validate method="POST" id="change-password-form"
-                        action="{{ route('admin.users.createProfile') }}">
+                        action="{{ route('admin.users.createProfile') }}" enctype="multipart/form-data">
                         @csrf
 
 
                         <div class="form-group">
                             <label for="password" class="">{{ __('Address') }} <i class="fas fa-info-circle" data-toggle="tooltip" title="Write your current address!"></i></label>
-                            <input placeholder="Dhaka, Bangladesh" class="form-control" type="text" name="address"
-                                required>
+                            <input placeholder="Write your address. Ex: Dhaka,Bangladesh" class="form-control" type="text" name="address"
+                                >
                         </div>
 
                         <div class="form-group">
