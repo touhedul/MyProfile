@@ -5,6 +5,7 @@ namespace Tests;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Support\Facades\Artisan;
 use Spatie\Permission\Models\Role;
 
 abstract class TestCase extends BaseTestCase
@@ -20,6 +21,7 @@ abstract class TestCase extends BaseTestCase
     public function setUp(): void
     {
         parent::setUp();
+        Artisan::call('db:seed');
         $this->admin = $this->createAdmin();
         $this->user = $this->createUser();
         $this->customer = $this->createCustomer();

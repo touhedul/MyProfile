@@ -90,9 +90,10 @@ class UserService
 
         $userMenus = array();
         foreach ($menus as $menu) {
-            $userMenus[] = ['user_id' => $user->id, 'menu_id' => $menu->id, 'menu_title' => $menu->name, 'show_status' => $menu->status, 'created_at' => now(), 'updated_at' => now()];
+            $userMenus = ['user_id' => $user->id, 'menu_id' => $menu->id, 'menu_title' => $menu->name, 'show_status' => $menu->status, 'created_at' => now(), 'updated_at' => now()];
+            UserMenu::create($userMenus);
         }
-        UserMenu::insert($userMenus);
+        // UserMenu::insert($userMenus);
     }
 
 

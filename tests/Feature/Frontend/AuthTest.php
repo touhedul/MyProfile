@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\ResetPasswordNotification;
+use Illuminate\Support\Facades\Artisan;
+
 class AuthTest extends TestCase
 {
     use RefreshDatabase;
@@ -82,10 +84,28 @@ class AuthTest extends TestCase
             'password' => 'password123',
             'password_confirmation' => 'password123',
         ]);
-        
+
         $response->assertRedirect(route('admin.dashboard'));
         $this->assertDatabaseHas('users', ['email' => 'john@example.com']);
-        $this->assertDatabaseHas('user_themes', ['user_id' => '11']);
+        $user = User::where('email','john@example.com')->first();
+        $this->assertDatabaseHas('user_themes', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('sitelinks', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('user_menus', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('homes', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('abouts', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('additional_infos', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('services', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('skills', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('projects', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('color_sections', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('courses', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('experiences', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('achievements', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('education', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('testimonials', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('clients', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('contactinfos', ['user_id' => $user->id]);
+        $this->assertDatabaseHas('socials', ['user_id' => $user->id]);
     }
 
     /** @test */
@@ -93,7 +113,7 @@ class AuthTest extends TestCase
     {
         $response = $this->post('/register', []);
 
-        $response->assertSessionHasErrors(['name', 'email', 'password']);
+        $response->assertSessionHasErrors(['name', 'email', 'password','phone']);
     }
 
     /** @test */
