@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\ResetPasswordNotification;
+use App\Services\UserService;
 use Illuminate\Support\Facades\Artisan;
 
 class AuthTest extends TestCase
@@ -108,6 +109,10 @@ class AuthTest extends TestCase
         $this->assertDatabaseHas('socials', ['user_id' => $user->id]);
     }
 
+
+
+
+
     /** @test */
     public function user_cannot_register_without_required_fields()
     {
@@ -166,5 +171,18 @@ class AuthTest extends TestCase
         $this->post(route('password.email'), ['email' => $user->email])
             ->assertStatus(302)
             ->assertSessionHas('status');
+    }
+
+    /** @test */
+    public function user_can_create_profile()
+    {
+        $user = User::factory()->create();
+
+        (new UserService)->createUserInfo($user);
+
+        // $response = $this->actingAs($user)->post(route('admin.users.createProfile'), ['email' => $user->email]);
+        // $response = $this->actingAs($this->admin)->post(route('admin.users.store', $data));
+
+
     }
 }

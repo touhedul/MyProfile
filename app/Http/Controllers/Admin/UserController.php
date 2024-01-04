@@ -115,11 +115,16 @@ class UserController extends AppBaseController
     {
         $request->validate([
             'address' => 'required|string|max:191',
-            'profession' => 'required',
-            'skills' => 'required',
+            'profession' => 'required|array',
+            'skills' => 'required|array',
             'image' => 'required|image|max:5000',
 
-        ]);
+        ],
+        [
+            'image.image' => 'Your profile image is not valid. Please provide valid image like png,jpg,jpeg,webp',
+            'image.max' => 'Max profile image size is 5 mb'
+        ]
+    );
 
         $user = auth()->user();
 
@@ -142,7 +147,7 @@ class UserController extends AppBaseController
             ];
         }
         $user->skills()->delete();
-        
+
         Skill::insert($skillArray);
 
         $fileName = FileHelper::uploadImage($request,null,[],500,625);

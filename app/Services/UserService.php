@@ -23,11 +23,13 @@ use App\Models\Theme;
 use App\Models\User;
 use App\Models\UserMenu;
 use App\Models\UserTheme;
+use Illuminate\Support\Facades\DB;
 
 class UserService
 {
     public function createUserInfo($user)
     {
+        DB::beginTransaction();
         $user->assignRole('customer');
         $this->createTheme($user);
         $this->createWebsiteURL($user);
@@ -47,6 +49,7 @@ class UserService
         $this->createContactinfoSection($user);
         $this->createFooterSection($user);
         $this->createSettings($user);
+        DB::commit();
     }
 
     public function createTheme($user)

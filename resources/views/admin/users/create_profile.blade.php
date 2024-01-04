@@ -30,13 +30,13 @@
 
 
                         <div class="form-group">
-                            <label for="password" class="">{{ __('Address') }} <i class="fas fa-info-circle" data-toggle="tooltip" title="Write your current address!"></i></label>
-                            <input placeholder="Write your address. Ex: Dhaka,Bangladesh" class="form-control" type="text" name="address"
-                                >
+                            <label for="password" class="">{{ __('Address') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write your current address!"></i></label>
+                            <input placeholder="Write your address. Ex: Dhaka,Bangladesh" value="{{ old('address') }}" class="form-control" type="text" name="address"
+                               required >
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="">{{ __('Profession') }} <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add your new profession!"></i>
+                            <label for="password" class="">{{ __('Profession') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add new profession!"></i>
                             </label>
 
                             <select class="form-control profession" name="profession[]" multiple="multiple" required>
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="">{{ __('Skills') }} <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add your new skill!"></i></label>
+                            <label for="password" class="">{{ __('Skills') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add new skill!"></i></label>
                             <select class="form-control skills" name="skills[]" multiple="multiple" required>
                                 @foreach ($skillList as $skill)
                                 <option value="{{$skill->name}}">{{ $skill->name }}</option>
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="">{{ __('Profile Image') }} <i class="fas fa-info-circle" data-toggle="tooltip" title="Add a professional profile image!"></i></label>
+                            <label for="password" class="">{{ __('Profile Image') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Add a professional profile image! Max size 5 mb"></i></label>
                             <input class="form-control dropify" type="file" name="image" required>
                         </div>
 

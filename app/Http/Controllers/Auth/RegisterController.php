@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\UserTheme;
 use App\Services\UserService;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Request;
@@ -56,11 +57,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:191'],
-            'email' => ['required', 'string', 'email', 'max:191', 'unique:users'],
+            'name' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             // 'phone' => ['required', 'string','max:11','starts_with:01'],
-            'phone' => ['required', 'string', 'max:191'],
-            'address' => ['nullable', 'string', 'max:191'],
+            'phone' => ['required', 'string', 'max:20'],
+            'address' => ['nullable', 'string', 'max:50'],
             // 'profession' => ['required', 'string', 'max:191'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'image' => ['nullable', 'image', 'max:10000'],
@@ -82,6 +83,7 @@ class RegisterController extends Controller
             Image::make($image)->resize(250, 250)->save('user_images/' . $imageName);
         }
 
+        DB::beginTransaction();
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -92,6 +94,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
         (new UserService)->createUserInfo($user);
+        DB::commit();
         return $user;
     }
 }

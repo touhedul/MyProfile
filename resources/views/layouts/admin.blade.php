@@ -96,12 +96,14 @@
                         @php
                             $sitelink = App\Models\Sitelink::where('user_id',auth()->id())->where('default_status',1)->first();
                         @endphp
+                        @if (auth()->user()->has_profile)
                         <li class="btn-group nav-item">
                             <a href="{{ $sitelink ? $sitelink->link : '/'}}" target="_blank" class="nav-link">
                                 <i class="nav-link-icon fas fa-share-square"></i>
                                 {{ __('Visit Site') }}
                             </a>
                         </li>
+                        @endif
                         @can('log-activity-view')
                             <li class="nav-item">
                                 <a href="{{ route('admin.systemActivityLog') }}" class="nav-link">
@@ -175,7 +177,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="widget-content-left">
+                                {{-- Language --}}
+                                {{-- <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
@@ -197,7 +200,7 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
