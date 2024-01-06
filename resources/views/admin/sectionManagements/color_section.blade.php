@@ -6,7 +6,7 @@
     @include('includes.page_header_index', [
         'title' => __('Color Section Management'),
         'url' => '',
-        'icon' => $icon ?? 'pe-7s-menu',
+        'icon' => $icon ?? 'pe-7s-paint',
         'permission' => '',
     ])
     <div class="row">

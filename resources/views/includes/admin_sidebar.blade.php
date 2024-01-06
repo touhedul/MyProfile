@@ -23,6 +23,172 @@
     @endif
 @endcan
 
+
+@can('Menu-management')
+<li class="">
+    <a href="{{route('admin.menuManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/menu-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Menu Management') }}
+    </a>
+</li>
+@endcan
+@can('Home-management')
+<li class="">
+    <a href="{{route('admin.homeManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/home-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-home"></i>
+        {{ __('Home Management') }}
+    </a>
+</li>
+@endcan
+@can('About-management')
+<li class="">
+    <a href="{{route('admin.aboutManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/about-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-id"></i>
+        {{ __('About Management') }}
+    </a>
+</li>
+@endcan
+
+
+
+
+@can('Service-view')
+<li class="">
+    <a href="{{route('admin.services.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/services**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-helm"></i>
+        {{ __('Service Management') }}
+    </a>
+</li>
+@endcan
+
+@can('Skill-view')
+<li class="">
+    <a href="{{route('admin.skills.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/skills**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-tools"></i>
+        {{ __('Skill Management') }}
+    </a>
+</li>
+@endcan
+
+@can('Project-view')
+<li class="">
+    <a href="{{route('admin.projects.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/projects**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-portfolio"></i>
+        {{ __('Project Management') }}
+    </a>
+</li>
+@endcan
+
+@can('Color-section-management')
+<li class="">
+    <a href="{{route('admin.colorSectionManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/color-section-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-paint"></i>
+        {{ __('Color Section Management') }}
+    </a>
+</li>
+@endcan
+@can('Course-view')
+<li class="">
+    <a href="{{route('admin.courses.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/courses**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-notebook"></i>
+        {{ __('Course Management') }}
+    </a>
+</li>
+@endcan
+
+@can('Experience-view')
+<li class="">
+    <a href="{{route('admin.experiences.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/experiences**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-global"></i>
+        {{ __('Experiences Management') }}
+    </a>
+</li>
+@endcan
+
+@can('Achievement-view')
+<li class="">
+    <a href="{{route('admin.achievements.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/achievements**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-medal"></i>
+        {{ __('Achievements') }}
+    </a>
+</li>
+@endcan
+
+@can('Education-view')
+<li class="">
+    <a href="{{route('admin.education.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/education**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-study"></i>
+        {{ __('Education') }}
+    </a>
+</li>
+@endcan
+
+@can('Testimonial-view')
+<li class="">
+    <a href="{{route('admin.testimonials.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/testimonials**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-news-paper"></i>
+        {{ __('Testimonials') }}
+    </a>
+</li>
+@endcan
+
+@can('Client-view')
+<li class="">
+    <a href="{{route('admin.clients.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/clients**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-users"></i>
+        {{ __('Clients') }}
+    </a>
+</li>
+@endcan
+
+
+@can('Contactinfo-view')
+<li class="">
+    <a href="{{route('admin.contactinfos.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/contactinfos**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-phone"></i>
+        {{ __('Contactinfos') }}
+    </a>
+</li>
+@endcan
+
+@can('Social-view')
+<li class="">
+    <a href="{{route('admin.socials.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/socials**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-box1"></i>
+        {{ __('Socials') }}
+    </a>
+</li>
+@endcan
+
+@can('ProfessionCategory-view')
+<li class="">
+    <a href="{{route('admin.professionCategories.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/professionCategories**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Profession Categories') }}
+    </a>
+</li>
+@endcan
+
+@can('Profession-view')
+<li class="">
+    <a href="{{route('admin.professions.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/professions**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Professions') }}
+    </a>
+</li>
+@endcan
+
+@can('SkillList-view')
+<li class="">
+    <a href="{{route('admin.skillLists.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/skillLists**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Skill Lists') }}
+    </a>
+</li>
+@endcan
+
+
+
 {{-- Contacts --}}
 @can('contact-view')
     @if (Route::has('admin.contacts'))
@@ -249,167 +415,3 @@
     </a>
 </li>
 @endcan
-
-@can('Menu-management')
-<li class="">
-    <a href="{{route('admin.menuManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/menu-management**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Menu Management') }}
-    </a>
-</li>
-@endcan
-@can('Home-management')
-<li class="">
-    <a href="{{route('admin.homeManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/home-management**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Home Management') }}
-    </a>
-</li>
-@endcan
-@can('About-management')
-<li class="">
-    <a href="{{route('admin.aboutManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/about-management**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('About Management') }}
-    </a>
-</li>
-@endcan
-
-
-
-
-@can('Service-view')
-<li class="">
-    <a href="{{route('admin.services.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/services**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Service Management') }}
-    </a>
-</li>
-@endcan
-
-@can('Skill-view')
-<li class="">
-    <a href="{{route('admin.skills.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/skills**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Skill Management') }}
-    </a>
-</li>
-@endcan
-
-@can('Project-view')
-<li class="">
-    <a href="{{route('admin.projects.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/projects**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Project Management') }}
-    </a>
-</li>
-@endcan
-
-@can('Color-section-management')
-<li class="">
-    <a href="{{route('admin.colorSectionManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/color-section-management**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Color Section Management') }}
-    </a>
-</li>
-@endcan
-@can('Course-view')
-<li class="">
-    <a href="{{route('admin.courses.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/courses**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Course Management') }}
-    </a>
-</li>
-@endcan
-
-@can('Experience-view')
-<li class="">
-    <a href="{{route('admin.experiences.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/experiences**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Experiences Management') }}
-    </a>
-</li>
-@endcan
-
-@can('Achievement-view')
-<li class="">
-    <a href="{{route('admin.achievements.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/achievements**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Achievements') }}
-    </a>
-</li>
-@endcan
-
-@can('Education-view')
-<li class="">
-    <a href="{{route('admin.education.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/education**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Education') }}
-    </a>
-</li>
-@endcan
-
-@can('Testimonial-view')
-<li class="">
-    <a href="{{route('admin.testimonials.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/testimonials**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Testimonials') }}
-    </a>
-</li>
-@endcan
-
-@can('Client-view')
-<li class="">
-    <a href="{{route('admin.clients.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/clients**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Clients') }}
-    </a>
-</li>
-@endcan
-
-
-@can('Contactinfo-view')
-<li class="">
-    <a href="{{route('admin.contactinfos.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/contactinfos**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Contactinfos') }}
-    </a>
-</li>
-@endcan
-
-@can('Social-view')
-<li class="">
-    <a href="{{route('admin.socials.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/socials**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Socials') }}
-    </a>
-</li>
-@endcan
-
-@can('ProfessionCategory-view')
-<li class="">
-    <a href="{{route('admin.professionCategories.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/professionCategories**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Profession Categories') }}
-    </a>
-</li>
-@endcan
-
-@can('Profession-view')
-<li class="">
-    <a href="{{route('admin.professions.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/professions**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Professions') }}
-    </a>
-</li>
-@endcan
-
-@can('SkillList-view')
-<li class="">
-    <a href="{{route('admin.skillLists.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/skillLists**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Skill Lists') }}
-    </a>
-</li>
-@endcan
-

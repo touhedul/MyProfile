@@ -14,7 +14,7 @@ use App\Models\AdditionalInfo;
 class CourseController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-notebook';
 
 
     public function index(CourseDataTable $courseDataTable)

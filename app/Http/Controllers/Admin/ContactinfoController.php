@@ -14,7 +14,7 @@ use App\Models\AdditionalInfo;
 class ContactinfoController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-phone';
 
 
     public function index(ContactinfoDataTable $contactinfoDataTable)

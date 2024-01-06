@@ -14,7 +14,7 @@ use App\Models\AdditionalInfo;
 class ServiceController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-helm';
 
 
     public function index(ServiceDataTable $serviceDataTable)

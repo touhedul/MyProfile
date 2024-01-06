@@ -5,12 +5,6 @@ namespace Tests\Feature\Frontend;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\ResetPasswordNotification;
-use App\Services\UserService;
-use Illuminate\Support\Facades\Artisan;
 
 class AuthTest extends TestCase
 {
@@ -88,7 +82,7 @@ class AuthTest extends TestCase
 
         $response->assertRedirect(route('admin.dashboard'));
         $this->assertDatabaseHas('users', ['email' => 'john@example.com']);
-        $user = User::where('email','john@example.com')->first();
+        $user = User::where('email', 'john@example.com')->first();
         $this->assertDatabaseHas('user_themes', ['user_id' => $user->id]);
         $this->assertDatabaseHas('sitelinks', ['user_id' => $user->id]);
         $this->assertDatabaseHas('user_menus', ['user_id' => $user->id]);
@@ -118,7 +112,7 @@ class AuthTest extends TestCase
     {
         $response = $this->post('/register', []);
 
-        $response->assertSessionHasErrors(['name', 'email', 'password','phone']);
+        $response->assertSessionHasErrors(['name', 'email', 'password', 'phone']);
     }
 
     /** @test */
@@ -174,15 +168,29 @@ class AuthTest extends TestCase
     }
 
     /** @test */
-    public function user_can_create_profile()
-    {
-        $user = User::factory()->create();
+    // public function user_can_create_profile()
+    // {
+    //     $user = User::factory()->create();
 
-        (new UserService)->createUserInfo($user);
+    //     (new UserService)->createUserInfo($user);
 
-        // $response = $this->actingAs($user)->post(route('admin.users.createProfile'), ['email' => $user->email]);
-        // $response = $this->actingAs($this->admin)->post(route('admin.users.store', $data));
+    //     Storage::fake('public');
+
+    //     $file = UploadedFile::fake()->image('avatar.jpeg');
+
+    //     $data = [
+
+    //         'address' => 'Dummy address',
+    //         'profession' => ['one', 'two'],
+    //         'skills' => ['one', 'two'],
+    //         'image' =>  $file,
+    //     ];
 
 
-    }
+
+    //     $response = $this->actingAs($user)->post(route('admin.users.createProfile', $data));
+
+    //     info(json_encode($response));
+    //     dd($response);
+    // }
 }

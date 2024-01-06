@@ -6,7 +6,7 @@
     @include('includes.page_header_index', [
         'title' => __('About Management'),
         'url' => '',
-        'icon' => $icon ?? 'pe-7s-menu',
+        'icon' => $icon ?? 'pe-7s-id',
         'permission' => '',
     ])
     <div class="row">

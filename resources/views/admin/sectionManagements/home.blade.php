@@ -6,7 +6,7 @@
     @include('includes.page_header_index', [
         'title' => __('Home Management'),
         'url' => '',
-        'icon' => $icon ?? 'pe-7s-menu',
+        'icon' => $icon ?? 'pe-7s-home',
         'permission' => '',
     ])
     <div class="row">

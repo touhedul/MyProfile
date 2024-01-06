@@ -15,7 +15,7 @@ use App\Models\AdditionalInfo;
 class TestimonialController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-news-paper';
 
 
     public function index(TestimonialDataTable $testimonialDataTable)

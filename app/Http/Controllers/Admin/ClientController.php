@@ -13,7 +13,7 @@ use App\Http\Controllers\AppBaseController;
 class ClientController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-users';
 
 
     public function index(ClientDataTable $clientDataTable)

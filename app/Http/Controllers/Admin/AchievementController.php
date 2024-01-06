@@ -15,7 +15,7 @@ use App\Models\AdditionalInfo;
 class AchievementController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-medal';
 
 
     public function index(AchievementDataTable $achievementDataTable)

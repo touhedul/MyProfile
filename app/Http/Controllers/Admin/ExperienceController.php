@@ -14,7 +14,7 @@ use App\Models\AdditionalInfo;
 class ExperienceController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-global';
 
 
     public function index(ExperienceDataTable $experienceDataTable)

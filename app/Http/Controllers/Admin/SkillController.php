@@ -15,7 +15,7 @@ use App\Models\AdditionalInfo;
 class SkillController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-tools';
 
 
     public function index(SkillDataTable $skillDataTable)

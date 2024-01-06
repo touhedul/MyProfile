@@ -15,12 +15,12 @@ use App\Models\AdditionalInfo;
 class ProjectController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-portfolio';
 
 
     public function index(ProjectDataTable $projectDataTable)
     {
-        
+
         $this->authorize('Project-view');
         $icon = $this->icon;
         $projectInfo = AdditionalInfo::where('user_id',auth()->id())->where(function($query){

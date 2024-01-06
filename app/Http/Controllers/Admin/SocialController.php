@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class SocialController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-box1';
 
 
     public function index(SocialDataTable $socialDataTable)
