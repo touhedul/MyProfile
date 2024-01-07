@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('menu_id');
             $table->string('menu_title');
+            $table->string('background_color')->nullable();
             $table->boolean('show_status')->default(1);
             $table->timestamps();
         });

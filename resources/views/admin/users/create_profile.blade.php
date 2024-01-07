@@ -58,7 +58,7 @@
 
                         <div class="form-group">
                             <label for="password" class="">{{ __('Profile Image') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Add a professional profile image! Max size 5 mb"></i></label>
-                            <input class="form-control dropify" type="file" name="image" required>
+                            <input class="form-control dropify" type="file" name="image" required accept="image/*">
                         </div>
 
                         <div class="form-group">

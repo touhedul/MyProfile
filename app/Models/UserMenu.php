@@ -13,6 +13,7 @@ class UserMenu extends Model
         'user_id',
         'menu_id',
         'menu_title',
+        'background_color',
         'show_status',
     ];
 }

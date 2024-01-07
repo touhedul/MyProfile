@@ -16,18 +16,26 @@ class MenuSeeder extends Seeder
     public function run()
     {
         $menus = [
-            ['name' => 'Home','status'=>1],//
-            ['name' => 'About','status'=>1],//
-            ['name' => 'Skill','status'=>1],//
-            ['name' => 'Service','status'=>1],//
-            ['name' => 'Project','status'=>1],//
-            ['name' => 'Course','status'=>0],
-            ['name' => 'Achievement','status'=>0],
-            ['name' => 'Experience','status'=>1],//
-            ['name' => 'Education','status'=>1],//
-            ['name' => 'Testimonial','status'=>0],
-            ['name' => 'Client','status'=>0],
-            ['name' => 'Contact','status'=>1],//
+            ['name' => 'Home','status'=>1,'background_color' => '#ffffff'],
+
+            ['name' => 'About','status'=>1,'background_color' => '#ffffff'],
+
+            ['name' => 'Skill','status'=>1,'background_color' => '#f8f9fa'],
+
+            ['name' => 'Service','status'=>1,'background_color' => '#ffffff'],
+
+            ['name' => 'Project','status'=>1,'background_color' => '#f8f9fa'],
+
+            ['name' => 'Course','status'=>0,'background_color' => '#ffffff'],
+            ['name' => 'Achievement','status'=>0,'background_color' => '#f8f9fa'],
+            ['name' => 'Experience','status'=>1,'background_color' => '#ffffff'],
+
+            ['name' => 'Education','status'=>1,'background_color' => '#f8f9fa'],
+
+            ['name' => 'Testimonial','status'=>0,'background_color' => '#ffffff'],
+            ['name' => 'Client','status'=>0,'background_color' => '#f8f9fa'],
+            ['name' => 'Contact','status'=>1,'background_color' => '#ffffff'],
+
         ];
 
         $menus = array_map(function ($item) {

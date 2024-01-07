@@ -25,7 +25,7 @@ class Menu extends Model
 
 
     public $fillable = [
-        'name','status'
+        'name','status','background_color'
     ];
 
     /**

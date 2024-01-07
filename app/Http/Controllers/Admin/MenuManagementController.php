@@ -25,6 +25,7 @@ class MenuManagementController extends Controller
             [
                 'user_menu_ids' => 'required',
                 'menu_titles' => 'required',
+                'background_colors' => 'required',
                 'menu_titles.*' => 'required|string|max:30',
             ],
             [
@@ -40,7 +41,7 @@ class MenuManagementController extends Controller
                 $showStatus = in_array($userMenuId, $request->show_status) ? 1 : 0;
             }
 
-            UserMenu::where('id', $userMenuId)->update(['menu_title' => $request->menu_titles[$key], 'show_status' => $showStatus]);
+            UserMenu::where('id', $userMenuId)->update(['menu_title' => $request->menu_titles[$key], 'show_status' => $showStatus,'background_color' => $request->background_colors[$key]]);
         }
 
         notify()->success(__("Successfully Updated"), __("Success"));

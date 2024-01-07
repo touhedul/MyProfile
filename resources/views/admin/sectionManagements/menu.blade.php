@@ -17,6 +17,7 @@
                             <tr>
                                 <th>Sl.</th>
                                 <th>Title</th>
+                                <th>Backgound Color</th>
                                 <th>Show</th>
                             </tr>
                         </thead>
@@ -26,6 +27,15 @@
                                 <td>{{$loop->index+1}}</td>
                                 <input type="hidden" name="user_menu_ids[]" value="{{$userMenu->id}}">
                                 <td><input max="30" autofocus class="form-control" type="text" name="menu_titles[]" value="{{$userMenu->menu_title}}"/></td>
+                                <td>
+
+                                    {{-- @if ($userMenu->background_color == null)
+                                    type="hidden"
+                                    @else --}}
+                                    <input
+                                    type="color"
+                                    class="form-control" name="background_colors[]" value="{{$userMenu->background_color}}">
+                                </td>
                                 <td>
                                     <div class="form-group">
                                         <div class="custom-control custom-switch">

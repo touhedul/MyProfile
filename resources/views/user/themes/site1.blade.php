@@ -84,16 +84,42 @@
                                 <li class="nav-item"><a class="nav-link smooth-scroll active"
                                         href="#home">{{ $userInfo->menus[0]->menu_title }}</a></li>
                             @endif
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#services">Services</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#why-choose">Why Choose</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#process">Process</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#clients">Clients</a></li>
+
+                            @if ($userInfo->menus[1]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">{{ $userInfo->menus[1]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[2]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#skills">{{ $userInfo->menus[2]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[3]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#services">{{ $userInfo->menus[3]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[4]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#project">{{ $userInfo->menus[4]->menu_title }}</a> </li>
+                            @endif
+                            @if ($userInfo->menus[5]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#course">{{ $userInfo->menus[5]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[6]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#achievement">{{ $userInfo->menus[6]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[7]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">{{ $userInfo->menus[7]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[8]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">{{ $userInfo->menus[8]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[9]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#testimonial">{{ $userInfo->menus[9]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[10]->show_status)
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#client">{{ $userInfo->menus[10]->menu_title }}</a></li>
+                            @endif
+                            @if ($userInfo->menus[11]->show_status)
                             <li class="align-items-center h-auto ms-lg-3"><a href="#contact"
-                                    class="nav-link btn btn-outline-light shadow-none d-inline-block rounded-pill mt-3 mt-lg-0 smooth-scroll">Contact</a>
+                                    class="nav-link btn btn-outline-light shadow-none d-inline-block rounded-pill mt-3 mt-lg-0 smooth-scroll">{{ $userInfo->menus[11]->menu_title }}</a>
                             </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -106,10 +132,8 @@
   ============================================= -->
         <div id="content" role="main">
 
-            <!-- Intro
-    ============================================= -->
+            <!-- Home Start -->
             @if ($userInfo->menus[0]->show_status)
-
                 <section id="home">
                     <div class="hero-wrap">
                         @if ($userInfo->additional_infos->where('key', 'particle_status')->first()->value)
@@ -173,13 +197,14 @@
                         </div>
                     </div>
                 </section>
-                <!-- Intro end -->
             @endif
+            <!-- Home end -->
 
+
+            <!-- About Start -->
             @if ($userInfo->menus[1]->show_status)
-                <!-- About
-    ============================================= -->
-                <section id="about" class="section">
+
+                <section id="about" class="section" style="background-color: {{ $userInfo->menus[1]->background_color }} !important">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-5 text-center mb-5 mb-lg-0 wow fadeInLeft"> <img
@@ -244,12 +269,54 @@
                         </div>
                     </div>
                 </section>
-
-                <!-- About end -->
             @endif
-            <!-- Services
-    ============================================= -->
-            <section id="services" class="section bg-light">
+            <!-- About end -->
+
+
+            <!-- Skills Start -->
+            @if ($userInfo->menus[2]->show_status)
+            <section id="skills" class="section bg-light" style="background-color: {{ $userInfo->menus[2]->background_color }} !important">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 text-center wow fadeInLeft">
+                            <div class="hero-wrap section h-100 rounded shadow-lg p-5">
+                                <div class="hero-mask opacity-6 bg-dark rounded"></div>
+                                <div class="hero-bg hero-bg-scroll rounded"
+                                    @php
+                                        $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->value;
+                                    @endphp
+                                    style="background-image:url('{{ $skillImage ? asset('images/' . $skillImage) : defaultImage('skill_image') }}');">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 align-self-center mt-5 mt-md-0 wow fadeInRight">
+                            <div class="px-lg-4">
+                                <h3 class="text-6 mb-3">
+                                    {{ $userInfo->additional_infos->where('key', 'skill_text')->first()->value }}</h3>
+                                <p class="text-muted">{!! $userInfo->additional_infos->where('key', 'skill_description')->first()->value !!}</p>
+                                @foreach ($userInfo->skills->sortByDesc('id') as $skill)
+                                    <p class="fw-500 text-start mb-2">{{ $skill->title }} <span
+                                            class="float-end">{{ $skill->percentage }}%</span>
+                                    </p>
+                                    <div class="progress progress-sm mb-4">
+                                        <div class="progress-bar bg-primary" role="progressbar"
+                                            style="width: {{ $skill->percentage }}%"
+                                            aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @endif
+            <!-- Skills end -->
+
+
+            <!-- Services Start -->
+            @if ($userInfo->menus[3]->show_status)
+            <section id="services" class="section " style="background-color: {{ $userInfo->menus[3]->background_color }} !important">
                 <div class="container">
 
                     <!-- Heading -->
@@ -281,48 +348,11 @@
                     </div>
                 </div>
             </section>
+            @endif
             <!-- Services end -->
 
-            <!-- Why Choose
-    ============================================= -->
-            <section id="why-choose" class="section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6 text-center wow fadeInLeft">
-                            <div class="hero-wrap section h-100 rounded shadow-lg p-5">
-                                <div class="hero-mask opacity-6 bg-dark rounded"></div>
-                                <div class="hero-bg hero-bg-scroll rounded"
-                                    @php
-$skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->value; @endphp
-                                    style="background-image:url('{{ $skillImage ? asset('images/' . $skillImage) : defaultImage('skill_image') }}');">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 align-self-center mt-5 mt-md-0 wow fadeInRight">
-                            <div class="px-lg-4">
-                                <h3 class="text-6 mb-3">
-                                    {{ $userInfo->additional_infos->where('key', 'skill_text')->first()->value }}</h3>
-                                <p class="text-muted">{!! $userInfo->additional_infos->where('key', 'skill_description')->first()->value !!}</p>
-                                @foreach ($userInfo->skills->sortByDesc('id') as $skill)
-                                    <p class="fw-500 text-start mb-2">{{ $skill->title }} <span
-                                            class="float-end">{{ $skill->percentage }}%</span>
-                                    </p>
-                                    <div class="progress progress-sm mb-4">
-                                        <div class="progress-bar bg-primary" role="progressbar"
-                                            style="width: {{ $skill->percentage }}%"
-                                            aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Why Choose end -->
 
-            <!-- Promo Box
- ============================================= -->
+            <!-- Color Section Start -->
             @if ($userInfo->color_section->show_status)
                 <section class="section text-center" style="background-color: var(--theme-color)">
                     <div class="container wow bounceIn">
@@ -336,11 +366,12 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     </div>
                 </section>
             @endif
-            <!-- Promo Box end -->
+            <!-- Color Section end -->
 
-            <!-- Portfolio
- ============================================= -->
-            <section id="portfolio" class="section">
+
+            <!-- Project Start-->
+             @if ($userInfo->menus[4]->show_status)
+            <section id="project" class="section" style="background-color: {{ $userInfo->menus[4]->background_color }} !important">
                 <div class="container">
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
@@ -378,11 +409,13 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     </div>
                 </div>
             </section>
-            <!-- Portfolio end -->
+            @endif
+            <!-- Project end -->
 
-            <!-- Process
-    ============================================= -->
-            <section id="process" class="section bg-light">
+
+            <!-- Course Start-->
+             @if ($userInfo->menus[5]->show_status)
+            <section id="course" class="section bg-light" style="background-color: {{ $userInfo->menus[5]->background_color }} !important">
                 <div class="container">
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
@@ -417,11 +450,56 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     </div>
                 </div>
             </section>
-            <!-- Process end -->
+            @endif
+            <!-- Course end -->
+
+
+            <!-- Achievement start -->
+            @if ($userInfo->menus[6]->show_status)
+            <section id="achievement" class="section " style="background-color: {{ $userInfo->menus[6]->background_color }} !important">
+                <div class="container">
+
+                    <div class="row mb-5 wow fadeIn">
+                        <div class="col-lg-9 col-xl-8 mx-auto text-center">
+                            <h2 class="fw-600 mb-3">
+                                {{ $userInfo->additional_infos->where('key', 'achievement_text')->first()->value }}
+                            </h2>
+                            <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
+                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'achievement_description')->first()->value !!} </p>
+                        </div>
+                    </div>
+                    <!-- Heading -->
+
+                    <div class="row wow fadeInUp">
+                        <div class="col-lg-9 mx-auto">
+                            <div class="owl-carousel owl-theme" data-autoplay="true" data-loop="true"
+                                data-nav="true" data-margin="30" data-slideby="1" data-stagepadding="5"
+                                data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
+
+
+                                @foreach ($userInfo->achievements->where('status', 1)->sortByDesc('id') as $achievement)
+                                    <div class="item text-center px-5">
+
+                                        <img class="img-fluid d-inline-block w-auto"
+                                            src="{{ $achievement->image ? asset('images/' . $achievement->image) : defaultImage('no_image') }}"
+                                            alt="">
+                                        <br>
+                                        <h5>{{ $achievement->title }}</h5>
+                                        <p class="text-4">{!! $achievement->details !!}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @endif
+            <!-- Achievement End -->
+
 
             <!-- Experience start -->
-
-            <section id="experience" class="section">
+             @if ($userInfo->menus[7]->show_status)
+            <section id="experience" class="section bg-light" style="background-color: {{ $userInfo->menus[7]->background_color }} !important">
                 <div class="container">
 
                     <div class="row mb-5 wow fadeIn">
@@ -466,118 +544,13 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     </div>
                 </div>
             </section>
+            @endif
             <!-- Experience End -->
 
-            <!-- Achievement start -->
 
-            <section id="achievement" class="section bg-light">
-                <div class="container">
-
-                    <div class="row mb-5 wow fadeIn">
-                        <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                            <h2 class="fw-600 mb-3">
-                                {{ $userInfo->additional_infos->where('key', 'achievement_text')->first()->value }}
-                            </h2>
-                            <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'achievement_description')->first()->value !!} </p>
-                        </div>
-                    </div>
-                    <!-- Heading -->
-
-                    <div class="row wow fadeInUp">
-                        <div class="col-lg-9 mx-auto">
-                            <div class="owl-carousel owl-theme" data-autoplay="true" data-loop="true"
-                                data-nav="true" data-margin="30" data-slideby="1" data-stagepadding="5"
-                                data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
-
-
-                                @foreach ($userInfo->achievements->where('status', 1)->sortByDesc('id') as $achievement)
-                                    <div class="item text-center px-5">
-
-                                        <img class="img-fluid d-inline-block w-auto"
-                                            src="{{ $achievement->image ? asset('images/' . $achievement->image) : defaultImage('no_image') }}"
-                                            alt="">
-                                        <br>
-                                        <h5>{{ $achievement->title }}</h5>
-                                        <p class="text-4">{!! $achievement->details !!}</p>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Achievement End -->
-            <section id="clients" class="section">
-                <div class="container">
-
-                    <!-- Heading -->
-                    <div class="row mb-5 wow fadeIn">
-                        <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                            <h2 class="fw-600 mb-3"> {{ $userInfo->additional_infos->where('key', 'testimonial_text')->first()->value }}</h2>
-                            <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted"> {!! $userInfo->additional_infos->where('key', 'testimonial_description')->first()->value !!}</p>
-                        </div>
-                    </div>
-                    <!-- Heading End -->
-
-                    <div class="row wow fadeInUp">
-                        <div class="col-lg-9 mx-auto">
-
-                            <div class="owl-carousel owl-theme" data-autoplay="true" data-loop="true"
-                                data-nav="true" data-margin="30" data-slideby="1" data-stagepadding="5"
-                                data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
-
-                                @foreach ($userInfo->testimonials->where('status',1)->sortByDesc('id') as $testimonial)
-
-                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
-                                            class="fa fa-quote-left"></i></span>
-                                    <p class="text-4">{!! $testimonial->message !!}</p>
-                                    @if ($testimonial->image)
-                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
-                                        src="{{ asset('images/'.$testimonial->image) }}" />
-                                    @endif
-                                    <strong class="d-block fw-500">{{$testimonial->name}}</strong> <span
-                                    class="text-muted text-2">{{$testimonial->designation}}</span>
-                                </div>
-
-                                @endforeach
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-            </section>
-            <!-- Clients end -->
-
-            <!-- Clients Logo
-    ============================================= -->
-            <div class="bg-light py-5">
-                <div class="container">
-                    <div class="row align-items-center">
-
-                        <div class="owl-carousel owl-theme" data-autoplay="true" data-nav="true" data-loop="true"
-                            data-margin="30" data-slideby="2" data-stagepadding="5" data-items-xs="2"
-                            data-items-sm="3" data-items-md="4" data-items-lg="6">
-
-                            @foreach ($userInfo->clients->where('status',1)->sortByDesc('id') as $client)
-                            <div class="item"><a href="#"><img class="img-fluid"
-                                        src="{{ $client->image ? asset('images/'.$client->image) : defaultImage('client_image') }}"
-                                        alt="" /></a></div>
-                            @endforeach
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Clients Logo end -->
-
-            {{-- Education Start --}}
-
-            <section id="contact" class="section">
+             <!-- Education Start  -->
+             @if ($userInfo->menus[8]->show_status)
+            <section id="education" class="section" style="background-color: {{ $userInfo->menus[8]->background_color }} !important">
                 <div class="container">
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
@@ -625,13 +598,88 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     </div>
                 </div>
             </section>
-            {{-- Education end --}}
+            @endif
+            <!-- Education end  -->
 
 
+            <!-- Testimonial start -->
+             @if ($userInfo->menus[9]->show_status)
+            <section id="testimonial" class="section" style="background-color: {{ $userInfo->menus[9]->background_color }} !important">
+                <div class="container">
 
-            <!-- Contact
-    ============================================= -->
-            <section id="contact" class="section">
+                    <!-- Heading -->
+                    <div class="row mb-5 wow fadeIn">
+                        <div class="col-lg-9 col-xl-8 mx-auto text-center">
+                            <h2 class="fw-600 mb-3"> {{ $userInfo->additional_infos->where('key', 'testimonial_text')->first()->value }}</h2>
+                            <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
+                            <p class="text-4 text-muted"> {!! $userInfo->additional_infos->where('key', 'testimonial_description')->first()->value !!}</p>
+                        </div>
+                    </div>
+                    <!-- Heading End -->
+
+                    <div class="row wow fadeInUp">
+                        <div class="col-lg-9 mx-auto">
+
+                            <div class="owl-carousel owl-theme" data-autoplay="true" data-loop="true"
+                                data-nav="true" data-margin="30" data-slideby="1" data-stagepadding="5"
+                                data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1">
+
+                                @foreach ($userInfo->testimonials->where('status',1)->sortByDesc('id') as $testimonial)
+
+                                <div class="item text-center px-5"> <span class="text-9 text-muted opacity-3"><i
+                                            class="fa fa-quote-left"></i></span>
+                                    <p class="text-4">{!! $testimonial->message !!}</p>
+                                    @if ($testimonial->image)
+                                    <img class="img-fluid d-inline-block w-auto rounded-circle shadow-sm border"
+                                        src="{{ asset('images/'.$testimonial->image) }}" />
+                                    @endif
+                                    <strong class="d-block fw-500">{{$testimonial->name}}</strong> <span
+                                    class="text-muted text-2">{{$testimonial->designation}}</span>
+                                </div>
+
+                                @endforeach
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+            @endif
+            <!-- Testimonial end -->
+
+
+            <!-- Clients Logo start -->
+            @if ($userInfo->menus[10]->show_status)
+            <section id="client" class="section" style="background-color: {{ $userInfo->menus[10]->background_color }} !important">
+            <div class="bg-light py-5">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="owl-carousel owl-theme" data-autoplay="true" data-nav="true" data-loop="true"
+                            data-margin="30" data-slideby="2" data-stagepadding="5" data-items-xs="2"
+                            data-items-sm="3" data-items-md="4" data-items-lg="6">
+
+                            @foreach ($userInfo->clients->where('status',1)->sortByDesc('id') as $client)
+                            <div class="item"><a href="#"><img class="img-fluid"
+                                        src="{{ $client->image ? asset('images/'.$client->image) : defaultImage('client_image') }}"
+                                        alt="" /></a></div>
+                            @endforeach
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </section>
+            @endif
+            <!-- Clients Logo end -->
+
+
+            <!-- Contact Start-->
+             @if ($userInfo->menus[11]->show_status)
+            <section id="contact" class="section" style="background-color: {{ $userInfo->menus[11]->background_color }} !important">
                 <div class="container">
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
@@ -690,6 +738,7 @@ $skillImage = $userInfo->additional_infos->where('key','skill_image')->first()->
                     </div>
                 </div>
             </section>
+            @endif
             <!-- Contact end -->
 
         </div>
