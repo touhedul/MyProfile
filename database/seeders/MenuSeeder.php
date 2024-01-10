@@ -16,7 +16,7 @@ class MenuSeeder extends Seeder
     public function run()
     {
         $menus = [
-            ['name' => 'Home','status'=>1,'background_color' => '#ffffff'],
+            ['name' => 'Home','status'=>1,'background_color' => null],
 
             ['name' => 'About','status'=>1,'background_color' => '#ffffff'],
 

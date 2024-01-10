@@ -33,6 +33,7 @@ abstract class TestCase extends BaseTestCase
     {
         $admin = User::factory()->create();
         $admin->assignRole('admin');
+        $this->hasProfile($admin);
         return $admin;
     }
 
@@ -40,6 +41,7 @@ abstract class TestCase extends BaseTestCase
     {
         $user = User::factory()->create();
         $user->assignRole('user');
+        $this->hasProfile($user);
         return $user;
     }
 
@@ -48,6 +50,7 @@ abstract class TestCase extends BaseTestCase
     {
         $user = User::factory()->create();
         (new UserService)->createUserInfo($user);
+        $this->hasProfile($user);
         return $user;
     }
 
@@ -61,6 +64,12 @@ abstract class TestCase extends BaseTestCase
         // $noPermissionAdmin->assignRole('admin');
 
         $noPermissionAdmin->assignRole('new-role');
+        $this->hasProfile($noPermissionAdmin);
         return $noPermissionAdmin;
+    }
+
+    public function hasProfile($user)
+    {
+        $user->update(['has_profile' => 1]);
     }
 }

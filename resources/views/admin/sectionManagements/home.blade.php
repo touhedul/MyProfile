@@ -86,13 +86,20 @@
                             </div>
                             <div class="card-body">
                                 <input type="text" placeholder="Write welcome message" name="text_1" value="{{ $userHome->text_1 }}" class="form-control col-md-6">
-                                {{-- <br> --}}
-                                {{-- Typing Texts: --}}
                                 <br>
-                                <input type="text" placeholder="Typing text..." name="text_2[]" value="{{ $userHome->text_2[0] }}" class="form-control col-md-6">
+                                @foreach ($userHome->text_2 as $text)
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Type text..." name="text_2[]" value="{{ $text }}" class="form-control">
+                                        </div>
+                                        
+                                        <div class="col-md-6" style="margin-top:5px">
+                                            <a href="#"><i style="" data-toggle="tooltip" title="Add new row" class="fa fa-plus fa-lg"></i></a>
+                                            <a style="margin-left:15px;color:red" href="#"><i data-toggle="tooltip" title="Remove this row" class="fa fa-times fa-lg"></i></a>
+                                        </div>
+                                    </div>
                                 <br>
-                                <input type="text" placeholder="Typing text..." name="text_2[]" value="{{ $userHome->text_2[1] }}" class="form-control col-md-6">
-                                <br>
+                                @endforeach
                                 <input type="text" placeholder="" name="text_3" value="{{ $userHome->text_3 }}" class="form-control col-md-6">
                             </div>
                         </div>

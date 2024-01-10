@@ -19,13 +19,14 @@ class MenuManagementController extends Controller
 
     public function save(Request $request)
     {
+        
         $this->authorize('Menu-management');
 
         $request->validate(
             [
-                'user_menu_ids' => 'required',
-                'menu_titles' => 'required',
-                'background_colors' => 'required',
+                'user_menu_ids' => 'required|array',
+                'menu_titles' => 'required|array',
+                'background_colors' => 'required|array',
                 'menu_titles.*' => 'required|string|max:30',
             ],
             [

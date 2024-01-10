@@ -17,10 +17,10 @@ class MenuManagementTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Menu Management');
     }
-    
+
     public function test_customer_can_update_menu()
     {
-        $data = ['user_menu_ids'=>[1,2],'menu_titles'=>['a','b']];
+        $data = ['user_menu_ids'=>[1,2],'menu_titles'=>['a','b'],'background_colors' => ['#ffffff','#000000']];
         $response = $this->actingAs($this->customer)->post(route('admin.menuManagement.save',$data));
         $this->assertDatabaseHas('user_menus', ['menu_title' => 'a']);
     }

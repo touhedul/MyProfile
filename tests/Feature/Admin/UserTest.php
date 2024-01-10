@@ -20,6 +20,7 @@ class UserTest extends TestCase
         $response = $this->actingAs($this->admin)->get(route('admin.users.index'));
 
         $response->assertOk();
+
         $response->assertViewHas('users', function ($collection) use ($user) {
             return $collection->contains($user);
         });
