@@ -87,19 +87,21 @@
                             <div class="card-body">
                                 <input type="text" placeholder="Write welcome message" name="text_1" value="{{ $userHome->text_1 }}" class="form-control col-md-6">
                                 <br>
-                                @foreach ($userHome->text_2 as $text)
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" placeholder="Type text..." name="text_2[]" value="{{ $text }}" class="form-control">
+                                <div id="text">
+                                    @foreach ($userHome->text_2 as $text)
+                                        <div class="row text-row">
+                                            <div class="col-md-6">
+                                                <input type="text" placeholder="Type text..." name="text_2[]" value="{{ $text }}" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-6" style="margin-top:5px">
+                                                <a href="javascript:void(0);" class="add"><i style="" data-toggle="tooltip" title="Add new row" class="fa fa-plus fa-lg"></i></a>
+                                                <a style="margin-left:15px;color:red" href="javascript:void(0);" class="remove"><i data-toggle="tooltip" title="Remove this row" class="fa fa-times fa-lg"></i></a>
+                                            </div>
                                         </div>
-                                        
-                                        <div class="col-md-6" style="margin-top:5px">
-                                            <a href="#"><i style="" data-toggle="tooltip" title="Add new row" class="fa fa-plus fa-lg"></i></a>
-                                            <a style="margin-left:15px;color:red" href="#"><i data-toggle="tooltip" title="Remove this row" class="fa fa-times fa-lg"></i></a>
-                                        </div>
-                                    </div>
-                                <br>
-                                @endforeach
+                                    <br>
+                                    @endforeach
+                                </div>
                                 <input type="text" placeholder="" name="text_3" value="{{ $userHome->text_3 }}" class="form-control col-md-6">
                             </div>
                         </div>
@@ -154,6 +156,15 @@
 <script>
     $(document).ready(function(){
         $('.dropify').dropify();
+        $(document).on('click','.add',function(){
+            var newDiv ='<div class="row text-row"><div class="col-md-6"> <input type="text" placeholder="Type text..." name="text_2[]" value="" class="form-control"> </div> <div class="col-md-6" style="margin-top:5px"> <a href="javascript:void(0);" class="add"><i style="" data-toggle="tooltip" title="Add new row" class="fa fa-plus fa-lg"></i></a> <a style="margin-left:15px;color:red" href="javascript:void(0);" class="remove"><i data-toggle="tooltip" title="Remove this row" class="fa fa-times fa-lg"></i></a></div></div> <br>';
+
+            $("#text").append(newDiv);
+        });
+
+        $(document).on('click','.remove',function(){
+            $(this).parent().parent().remove();
+        });
     });
 </script>
 @endsection
