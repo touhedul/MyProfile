@@ -167,15 +167,17 @@
                                         <p class="text-5 text-uppercase text-white ls-4 mb-2 mb-md-3">
                                             {{ $userInfo->home?->text_1 }}
                                         </p>
-                                        @if (count(json_decode($userInfo->home?->text_2)) > 0)
+                                        @if (is_array(json_decode($userInfo->home?->text_2)) && count(json_decode($userInfo->home?->text_2)) > 0)
                                             <div class="typed-strings">
                                                 @foreach (json_decode($userInfo->home?->text_2) as $item)
                                                     <p>{{ $item }}</p>
                                                 @endforeach
                                             </div>
+                                            @if (json_decode($userInfo->home?->text_2)[0])
+                                            <h2 class="text-17 fw-600 text-white mb-2 mb-md-3"><span
+                                                    class="typed"></span>
+                                            @endif
                                         @endif
-                                        <h2 class="text-17 fw-600 text-white mb-2 mb-md-3"><span
-                                                class="typed"></span>
                                         </h2>
                                         <p class="text-5 text-light">{{ $userInfo->home?->text_3 }}</p>
 

@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Models\ProfessionCategory;
 use App\Models\Admin;
-
+use App\Models\UserMenu;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Permission\Models\Role;
 use View;
@@ -36,6 +36,5 @@ class ViewServiceProvider extends ServiceProvider
             $roles = Role::where('name','!=','super-admin')->where('name','!=','user')->get();
             $view->with('roles', $roles);
         });
-        //
     }
 }

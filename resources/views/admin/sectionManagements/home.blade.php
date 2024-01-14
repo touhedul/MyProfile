@@ -14,7 +14,9 @@
             <div class="main-card mb-3 card">
                 <div class="card-body">
                     <form action="{{ route('admin.homeManagement.save') }}" method="POST" enctype="multipart/form-data">
-                        <button type="submit" class="btn btn-primary pull-right">Update All</button>
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-primary pull-right">Update All</button>
+                        </div>
                         <br>
                         <br>
                         @csrf
@@ -25,12 +27,12 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img height="100px" width="120px"
+                                        <img class="img-fluid"
                                             src="{{ $userHome->slider_1 ? asset('images/' . $userHome->slider_1) : defaultImage('home_slider_1') }}"
                                             alt="">
-                                             (1500 X 1000)
-                                        <div class="form-group">
-                                            <input type="file" accept="image/*" name="slider_1" style="margin-top: 10px">
+                                            (1500 X 1000)
+                                            <div class="form-group">
+                                            <input type="file" accept="image/*" name="slider_1" style="margin-top: 10px" class="dropify">
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
                                                     <input name="slider_1_status"
@@ -45,10 +47,10 @@
                                     </div>
 
                                     <div class="col-md-4">
-                                        <img height="100px" width="120px"
+                                        <img class="img-fluid"
                                             src="{{ $userHome->slider_2 ? asset('images/' . $userHome->slider_2) : defaultImage('home_slider_2') }}"
                                             alt=""> (1500 X 1000)
-                                        <input type="file" accept="image/*" name="slider_2" style="margin-top: 10px">
+                                        <input type="file" accept="image/*" name="slider_2" style="margin-top: 10px" class="dropify">
                                         <div class="form-group">
                                             <div class="custom-control custom-switch">
                                                 <input name="slider_2_status"
@@ -61,10 +63,10 @@
                                     </div>
 
                                     <div class="col-md-4">
-                                        <img height="100px" width="120px"
+                                        <img class="img-fluid"
                                             src="{{ $userHome->slider_3 ? asset('images/' . $userHome->slider_3) : defaultImage('home_slider_3') }}"
                                             alt=""> (1500 X 1000)
-                                        <input type="file" accept="image/*" name="slider_3" style="margin-top: 10px">
+                                        <input type="file" accept="image/*" name="slider_3" style="margin-top: 10px" class="dropify">
                                         <div class="form-group">
                                             <div class="custom-control custom-switch">
                                                 <input name="slider_3_status"
@@ -88,21 +90,26 @@
                                 <input type="text" placeholder="Write welcome message" name="text_1" value="{{ $userHome->text_1 }}" class="form-control col-md-6">
                                 <br>
                                 <div id="text">
+                                    @if ($userHome->text_2)
                                     @foreach ($userHome->text_2 as $text)
-                                        <div class="row text-row">
+
+                                        <div class="row text-row" style="margin-top: 5px">
                                             <div class="col-md-6">
                                                 <input type="text" placeholder="Type text..." name="text_2[]" value="{{ $text }}" class="form-control">
                                             </div>
 
                                             <div class="col-md-6" style="margin-top:5px">
-                                                <a href="javascript:void(0);" class="add"><i style="" data-toggle="tooltip" title="Add new row" class="fa fa-plus fa-lg"></i></a>
-                                                <a style="margin-left:15px;color:red" href="javascript:void(0);" class="remove"><i data-toggle="tooltip" title="Remove this row" class="fa fa-times fa-lg"></i></a>
+                                                <a href="javascript:void(0);" class="add"><i style="" class="fa fa-plus fa-lg"></i></a>
+                                                @if ($loop->index != 0)
+                                                <a style="margin-left:15px;color:red" href="javascript:void(0);" class="remove"><i  class="fa fa-trash fa-lg"></i></a>
+                                                @endif
                                             </div>
                                         </div>
-                                    <br>
                                     @endforeach
+                                    @endif
                                 </div>
-                                <input type="text" placeholder="" name="text_3" value="{{ $userHome->text_3 }}" class="form-control col-md-6">
+                                <br>
+                                <input type="text" name="text_3" value="{{ $userHome->text_3 }}" class="form-control col-md-6" placeholder="Write profile title. Ex: Software Engineer, Digital Marketer">
                             </div>
                         </div>
                         <br>
@@ -157,7 +164,7 @@
     $(document).ready(function(){
         $('.dropify').dropify();
         $(document).on('click','.add',function(){
-            var newDiv ='<div class="row text-row"><div class="col-md-6"> <input type="text" placeholder="Type text..." name="text_2[]" value="" class="form-control"> </div> <div class="col-md-6" style="margin-top:5px"> <a href="javascript:void(0);" class="add"><i style="" data-toggle="tooltip" title="Add new row" class="fa fa-plus fa-lg"></i></a> <a style="margin-left:15px;color:red" href="javascript:void(0);" class="remove"><i data-toggle="tooltip" title="Remove this row" class="fa fa-times fa-lg"></i></a></div></div> <br>';
+            var newDiv ='<div class="row text-row" style="margin-top: 5px"><div class="col-md-6"> <input type="text" required placeholder="Type text..." name="text_2[]" value="" class="form-control"> </div> <div class="col-md-6" style="margin-top:5px"> <a href="javascript:void(0);" class="add"><i style="" class="fa fa-plus fa-lg"></i></a> <a style="margin-left:15px;color:red" href="javascript:void(0);" class="remove"><i  class="fa fa-trash fa-lg"></i></a></div></div>';
 
             $("#text").append(newDiv);
         });

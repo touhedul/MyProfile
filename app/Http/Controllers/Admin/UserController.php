@@ -115,6 +115,7 @@ class UserController extends AppBaseController
     {
         $request->validate([
             'address' => 'required|string|max:191',
+            'profile_title' => 'required|string|max:191',
             'profession' => 'required|array',
             'skills' => 'required|array',
             'image' => 'required|image|max:5000',
@@ -133,7 +134,7 @@ class UserController extends AppBaseController
 
         $user->home->update([
             'text_2' => json_encode($professionWithExtraText),
-            'text_3' => $request->address
+            'text_3' => $request->profile_title
         ]);
 
         $skillArray = array();

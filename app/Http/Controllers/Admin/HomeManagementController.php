@@ -23,7 +23,7 @@ class HomeManagementController extends Controller
 
     public function save(HomeManagementRequest $request)
     {
-        return $request;
+        // return $request;
         $home = Home::where('user_id',auth()->id())->firstOrFail();
 
         $slider1 = $request->slider_1 ? FileHelper::uploadImageByName($request,"slider_1",1500,1000) : $home->slider_1;

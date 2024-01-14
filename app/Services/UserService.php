@@ -104,9 +104,9 @@ class UserService
     {
         Home::create([
             'user_id' => $user->id,
-            'text_1' => 'WELCOME TO MY WORLD',
+            'text_1' => 'WELCOME TO MY REALM OF EXCELLENCE',
             'text_2' => json_encode(["I'm $user->name", "I'm a $user->profession"]),
-            'text_3' => 'lived in Dhaka, Bangladesh',
+            'text_3' => 'Laravel Developer',
             'button_text' => 'Download CV',
         ]);
     }

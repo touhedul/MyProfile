@@ -30,7 +30,7 @@ class HomeManagementRequest extends FormRequest
             'text_1' => 'nullable|string|max:191',
             'text_3' => 'nullable|string|max:191',
             'button_text' => 'nullable|string|max:191',
-            'file' => 'nullable|mimes:png,jpg,pdf,doc,docx|max:2000',
+            'file' => 'nullable|mimes:png,jpg,jpeg,webp,xls,xlsx,ppt,pdf,doc,docx|max:2000',
         ];
     }
 }

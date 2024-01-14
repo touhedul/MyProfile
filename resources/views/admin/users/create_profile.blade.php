@@ -35,6 +35,13 @@
                                required >
                         </div>
 
+
+                        <div class="form-group">
+                            <label for="password" class="">{{ __('Profile Title') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write your current profession title!"></i></label>
+                            <input placeholder="Write your designation title. Ex: Software Engineer, Digital Marketer" value="{{ old('profile_title') }}" class="form-control" type="text" name="profile_title"
+                               required >
+                        </div>
+
                         <div class="form-group">
                             <label for="password" class="">{{ __('Profession') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add new profession!"></i>
                             </label>
