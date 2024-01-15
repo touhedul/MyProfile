@@ -28,7 +28,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <img class="img-fluid"
-                                            src="{{ $userHome->slider_1 ? asset('images/' . $userHome->slider_1) : defaultImage('home_slider_1') }}"
+                                            src="{{ $userHome->slider_1 ? asset('images/' . $userHome->slider_1) : defaultImage($userHome->default_slider_1) }}"
                                             alt="">
                                             (1500 X 1000)
                                             <div class="form-group">
@@ -48,7 +48,7 @@
 
                                     <div class="col-md-4">
                                         <img class="img-fluid"
-                                            src="{{ $userHome->slider_2 ? asset('images/' . $userHome->slider_2) : defaultImage('home_slider_2') }}"
+                                            src="{{ $userHome->slider_2 ? asset('images/' . $userHome->slider_2) : defaultImage($userHome->default_slider_2) }}"
                                             alt=""> (1500 X 1000)
                                         <input type="file" accept="image/*" name="slider_2" style="margin-top: 10px" class="dropify">
                                         <div class="form-group">
@@ -64,7 +64,7 @@
 
                                     <div class="col-md-4">
                                         <img class="img-fluid"
-                                            src="{{ $userHome->slider_3 ? asset('images/' . $userHome->slider_3) : defaultImage('home_slider_3') }}"
+                                            src="{{ $userHome->slider_3 ? asset('images/' . $userHome->slider_3) : defaultImage($userHome->default_slider_3) }}"
                                             alt=""> (1500 X 1000)
                                         <input type="file" accept="image/*" name="slider_3" style="margin-top: 10px" class="dropify">
                                         <div class="form-group">

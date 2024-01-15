@@ -72,13 +72,22 @@ if (!function_exists('defaultImage')) {
         $image = "";
         switch ($type) {
             case 'home_slider_1':
-                $image = asset('frontend/theme1/images/intro-bg.jpg');
+                $image = asset('frontend/theme1/images/home_slider_1.jpg');
                 break;
             case 'home_slider_2':
-                $image = asset('frontend/theme1/images/intro-bg-2.jpg');
+                $image = asset('frontend/theme1/images/home_slider_2.jpg');
                 break;
             case 'home_slider_3':
-                $image = asset('frontend/theme1/images/intro-bg-3.jpg');
+                $image = asset('frontend/theme1/images/home_slider_3.jpg');
+                break;
+            case 'home_slider_4':
+                $image = asset('frontend/theme1/images/home_slider_4.jpg');
+                break;
+            case 'home_slider_5':
+                $image = asset('frontend/theme1/images/home_slider_5.jpg');
+                break;
+            case 'home_slider_6':
+                $image = asset('frontend/theme1/images/home_slider_6.jpg');
                 break;
             case 'about_image':
                 $image = asset('frontend/theme1/images/about-me.jpg');

@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('slider_1')->nullable();
             $table->string('slider_2')->nullable();
             $table->string('slider_3')->nullable();
+            $table->string('default_slider_1')->nullable();
+            $table->string('default_slider_2')->nullable();
+            $table->string('default_slider_3')->nullable();
             $table->boolean('slider_1_status')->default(1);
             $table->boolean('slider_2_status')->default(1);
             $table->boolean('slider_3_status')->default(1);

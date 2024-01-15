@@ -145,18 +145,18 @@
                             data-nav="false" data-items="1">
                             @if ($userInfo->home?->slider_1_status)
                                 <div class="item"
-                                    style="background-image:url('{{ $userInfo->home?->slider_1 ? asset('images/' . $userInfo->home?->slider_1) : defaultImage('home_slider_1') }}');">
+                                    style="background-image:url('{{ $userInfo->home?->slider_1 ? asset('images/' . $userInfo->home?->slider_1) : defaultImage($userInfo->home?->default_slider_1) }}');">
                                 </div>
                             @endif
                             @if ($userInfo->home?->slider_2_status)
                                 <div class="item"
-                                    style="background-image:url('{{ $userInfo->home?->slider_2 ? asset('images/' . $userInfo->home?->slider_2) : defaultImage('home_slider_2') }}');">
+                                    style="background-image:url('{{ $userInfo->home?->slider_2 ? asset('images/' . $userInfo->home?->slider_2) : defaultImage($userInfo->home?->default_slider_2) }}');">
                                 </div>
                             @endif
 
                             @if ($userInfo->home?->slider_3_status)
                                 <div class="item"
-                                    style="background-image:url('{{ $userInfo->home?->slider_3 ? asset('images/' . $userInfo->home?->slider_3) : defaultImage('home_slider_3') }}');">
+                                    style="background-image:url('{{ $userInfo->home?->slider_3 ? asset('images/' . $userInfo->home?->slider_3) : defaultImage($userInfo->home?->default_slider_3) }}');">
                                 </div>
                             @endif
                         </div>

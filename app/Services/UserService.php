@@ -93,7 +93,7 @@ class UserService
 
         $userMenus = array();
         foreach ($menus as $menu) {
-            $userMenus[] = ['user_id' => $user->id, 'menu_id' => $menu->id, 'menu_title' => $menu->name, 'show_status' => $menu->status, 'background_color' => $menu->background_color,'created_at' => now(), 'updated_at' => now()];
+            $userMenus[] = ['user_id' => $user->id, 'menu_id' => $menu->id, 'menu_title' => $menu->name, 'show_status' => $menu->status, 'background_color' => $menu->background_color, 'created_at' => now(), 'updated_at' => now()];
             // UserMenu::create($userMenus);
         }
         UserMenu::insert($userMenus);
@@ -102,12 +102,17 @@ class UserService
 
     public function createHomeSection($user)
     {
+        $defaultHomeSliders = (new DefaultImageService)->getHomeSliders();
+
         Home::create([
             'user_id' => $user->id,
             'text_1' => 'WELCOME TO MY REALM OF EXCELLENCE',
             'text_2' => json_encode(["I'm $user->name", "I'm a $user->profession"]),
             'text_3' => 'Laravel Developer',
             'button_text' => 'Download CV',
+            'default_slider_1' => $defaultHomeSliders[0],
+            'default_slider_2' => $defaultHomeSliders[1],
+            'default_slider_3' => $defaultHomeSliders[2],
         ]);
     }
 
@@ -518,20 +523,20 @@ class UserService
     public function createClientSection($user)
     {
         Client::create([
-            'user_id'=>$user->id,
-            'image'=>''
+            'user_id' => $user->id,
+            'image' => ''
         ]);
         Client::create([
-            'user_id'=>$user->id,
-            'image'=>''
+            'user_id' => $user->id,
+            'image' => ''
         ]);
         Client::create([
-            'user_id'=>$user->id,
-            'image'=>''
+            'user_id' => $user->id,
+            'image' => ''
         ]);
         Client::create([
-            'user_id'=>$user->id,
-            'image'=>''
+            'user_id' => $user->id,
+            'image' => ''
         ]);
     }
 
@@ -553,21 +558,21 @@ class UserService
     public function createContactinfo($user)
     {
         Contactinfo::create([
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'VISIT US',
             'details' => '145 Murphy Canyon Rd. <br> Suite 100-18, San Diego CA 2028',
             'icon' => 'fas fa-map-marker-alt',
         ]);
 
         Contactinfo::create([
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'CALL US NOW',
             'details' => 'Phone: (+060) 9898980098 <br>Fax: (+060) 8898880088',
             'icon' => 'fas fa-phone-alt',
         ]);
 
         Contactinfo::create([
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'INQUIRIES',
             'details' => 'info@kenilpatel.com <br>Mon to Fri (10 am – 8 pm)',
             'icon' => 'fas fa-envelope',
@@ -580,7 +585,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'footer_text',
-            'value' => 'Copyright ©  '.date('Y')." ".$user->name.'. All Rights Reserved.',
+            'value' => 'Copyright ©  ' . date('Y') . " " . $user->name . '. All Rights Reserved.',
         ]);
         $this->createSocial($user);
     }
@@ -588,22 +593,22 @@ class UserService
     public function createSocial($user)
     {
         Social::create([
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'link' => 'https://twitter.com',
             'icon' => 'fab fa-twitter',
         ]);
         Social::create([
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'link' => 'https://facebook.com',
             'icon' => 'fab fa-facebook-f',
         ]);
         Social::create([
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'link' => 'https://linkedin.com',
             'icon' => 'fab fa-linkedin-in',
         ]);
         Social::create([
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'link' => 'https://github.com',
             'icon' => 'fab fa-github',
         ]);

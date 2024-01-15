@@ -6,6 +6,7 @@ use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HomeManagementRequest;
 use App\Models\Home;
+use App\Services\DefaultImageService;
 use Illuminate\Http\Request;
 
 class HomeManagementController extends Controller
@@ -14,9 +15,8 @@ class HomeManagementController extends Controller
     {
 
         $this->authorize('Home-management');
-         $userHome = Home::where('user_id', auth()->id())->first();
+        $userHome = Home::where('user_id', auth()->id())->first();
         $userHome->text_2 = json_decode($userHome->text_2);
-        // return $userHome;
         return view('admin.sectionManagements.home', compact('userHome'));
     }
 
@@ -24,11 +24,11 @@ class HomeManagementController extends Controller
     public function save(HomeManagementRequest $request)
     {
         // return $request;
-        $home = Home::where('user_id',auth()->id())->firstOrFail();
+        $home = Home::where('user_id', auth()->id())->firstOrFail();
 
-        $slider1 = $request->slider_1 ? FileHelper::uploadImageByName($request,"slider_1",1500,1000) : $home->slider_1;
-        $slider2 = $request->slider_2 ?  FileHelper::uploadImageByName($request,"slider_2",1500,1000) : $home->slider_2;
-        $slider3 = $request->slider_3 ?  FileHelper::uploadImageByName($request,"slider_3",1500,1000) : $home->slider_3;
+        $slider1 = $request->slider_1 ? FileHelper::uploadImageByName($request, "slider_1", 1500, 1000) : $home->slider_1;
+        $slider2 = $request->slider_2 ?  FileHelper::uploadImageByName($request, "slider_2", 1500, 1000) : $home->slider_2;
+        $slider3 = $request->slider_3 ?  FileHelper::uploadImageByName($request, "slider_3", 1500, 1000) : $home->slider_3;
         $file = $request->file ? FileHelper::uploadFile($request) : $home->file;
 
         $home->user_id = auth()->id();
