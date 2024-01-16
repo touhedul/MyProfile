@@ -126,6 +126,10 @@ class UserService
             'text_3' => "I combine our passion for design focused in people with advanced development technologies. 350+ clients have procured exceptional results and happiness while working with me.
 
             Delivering work within time and budget which meets client’s requirements is our moto. when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard. Lorem Ipsum has been the industry's standard dummy text ever since.",
+
+
+            // Hello, I'm [Your Name], a [Your Profession] based in [Your Address]. With a focus on [Your Skills], I'm dedicated to delivering quality results in every project I undertake. I bring a strong work ethic and a passion for [Your Profession] to the table. Whether it's [a specific aspect of your profession] or [another relevant activity], I'm known for my proficiency and attention to detail. Connect with me for reliable and top-notch [Your Profession] services.
+            
             'count_1' => '10',
             'count_text_1' => 'Years Experiance',
             'count_2' => '20',

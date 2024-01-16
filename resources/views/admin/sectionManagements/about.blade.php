@@ -9,6 +9,9 @@
         'icon' => $icon ?? 'pe-7s-id',
         'permission' => '',
     ])
+
+
+
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card">
@@ -23,10 +26,14 @@
                                 image
                             </div>
                             <div class="card-body">
-                                <img height="100px" width="125px"
-                                src="{{ $userAbout->image ? asset('images/' . $userAbout->image) : defaultImage('about_image') }}"
-                                alt="">
-                                 (500 X 625)
+                                <div class="row justify-content-center">
+                                    <div class="col-md-3">
+                                        <img class="img-fluid"
+                                        src="{{ $userAbout->image ? asset('images/' . $userAbout->image) : defaultImage('about_image') }}"
+                                        alt="">
+                                        (500 X 625)
+                                    </div>
+                                </div>
                                  <br>
                                  <input type="file" accept="image/*" name="image" class="dropify" style="margin-top: 10px">
                             </div>
@@ -37,9 +44,9 @@
                                 Texts
                             </div>
                             <div class="card-body">
-                                <input type="text" placeholder="About Me" name="text_1" value="{{ $userAbout->text_1 }}" class="form-control col-md-6">
+                                <input maxlength="150" type="text" maxlength="150" placeholder="About Me" name="text_1" value="{{ $userAbout->text_1 }}" class="form-control col-md-6">
                                 <br>
-                                <input type="text" placeholder="Hello! I am John" name="text_2" value="{{ $userAbout->text_2 }}" class="form-control col-md-6">
+                                <input maxlength="150" type="text" maxlength="150" placeholder="Hello! I am John" name="text_2" value="{{ $userAbout->text_2 }}" class="form-control col-md-6">
                                 <br>
                                 <textarea name="text_3" placeholder="Write about yourself" id="" cols="30" rows="10" class="form-control">{!! $userAbout->text_3 !!}</textarea>
                             </div>
@@ -55,17 +62,17 @@
                                     <div class="col-md-4">
                                         <input type="number" min="0" name="count_1" placeholder="10" value="{{ $userAbout->count_1 }}" class="form-control col-md-6">
                                         <br>
-                                        <input type="text" name="count_text_1" placeholder="Years of experience" value="{{ $userAbout->count_text_1 }}" class="form-control col-md-6">
+                                        <input type="text" maxlength="150" name="count_text_1" placeholder="Years of experience" value="{{ $userAbout->count_text_1 }}" class="form-control col-md-6">
                                     </div>
                                     <div class="col-md-4">
                                         <input type="number" min="0" name="count_2" placeholder="20" value="{{ $userAbout->count_2 }}" class="form-control col-md-6">
                                         <br>
-                                        <input type="text" name="count_text_2" placeholder="Project Done" value="{{ $userAbout->count_text_2 }}" class="form-control col-md-6">
+                                        <input type="text" maxlength="150" name="count_text_2" placeholder="Project Done" value="{{ $userAbout->count_text_2 }}" class="form-control col-md-6">
                                     </div>
                                     <div class="col-md-4">
                                         <input type="number" min="0" name="count_3" placeholder="30" value="{{ $userAbout->count_3 }}" class="form-control col-md-6">
                                         <br>
-                                        <input type="text" name="count_text_3" placeholder="Number of clients" value="{{ $userAbout->count_text_3 }}" class="form-control col-md-6">
+                                        <input type="text" maxlength="150" name="count_text_3" placeholder="Number of clients" value="{{ $userAbout->count_text_3 }}" class="form-control col-md-6">
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +84,7 @@
                             </div>
                             <div class="card-body">
                                 <br>
-                                <input type="text" name="button_text" placeholder="Button text" value="{{ $userAbout->button_text }}"
+                                <input type="text" maxlength="150" name="button_text" placeholder="Button text" value="{{ $userAbout->button_text }}"
                                     class="form-control  col-md-6">
                                 <br>
                                 Show Button :
@@ -91,7 +98,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <input type="text" name="extra_text" placeholder="Write extra text" value="{{ $userAbout->extra_text }}" class="form-control col-md-6">
+                                <input type="text" maxlength="150" name="extra_text" placeholder="Write extra text" value="{{ $userAbout->extra_text }}" class="form-control col-md-6">
                             </div>
                         </div>
 
