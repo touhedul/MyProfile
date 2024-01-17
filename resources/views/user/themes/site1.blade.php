@@ -257,13 +257,12 @@
                                     </div>
                                 </div>
                                 @if ($userInfo->about?->button_status)
-                                    <a class="btn btn-secondary rounded-pill mt-3" data-bs-toggle="modal"
-                                        data-bs-target="#about-us-details"
-                                        href="#">{{ $userInfo->about?->button_text }}</a>
+                                    <a class="btn btn-secondary rounded-pill mt-3 smooth-scroll"
+                                        href="#contact">{{ $userInfo->about?->button_text }}</a>
                                 @endif
 
                                 @if ($userInfo->about?->extra_text)
-                                    <a href="#portfolio"
+                                    <a href="#project"
                                         class="btn btn-link smooth-scroll mt-3 px-4">{{ $userInfo->about?->extra_text }}<span
                                             class="text-1 ms-2"><i class="fas fa-chevron-right"></i></span></a>
                                 @endif

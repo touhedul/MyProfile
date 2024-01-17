@@ -44,9 +44,9 @@
                                 Texts
                             </div>
                             <div class="card-body">
-                                <input maxlength="150" type="text" maxlength="150" placeholder="About Me" name="text_1" value="{{ $userAbout->text_1 }}" class="form-control col-md-6">
+                                <input maxlength="150" type="text" placeholder="About Me" name="text_1" value="{{ $userAbout->text_1 }}" class="form-control col-md-6">
                                 <br>
-                                <input maxlength="150" type="text" maxlength="150" placeholder="Hello! I am John" name="text_2" value="{{ $userAbout->text_2 }}" class="form-control col-md-6">
+                                <input maxlength="150" type="text" placeholder="Hello! I am John" name="text_2" value="{{ $userAbout->text_2 }}" class="form-control col-md-6">
                                 <br>
                                 <textarea name="text_3" placeholder="Write about yourself" id="" cols="30" rows="10" class="form-control">{!! $userAbout->text_3 !!}</textarea>
                             </div>
@@ -60,19 +60,19 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="number" min="0" name="count_1" placeholder="10" value="{{ $userAbout->count_1 }}" class="form-control col-md-6">
+                                        <input type="number" min="0" name="count_1" placeholder="10" value="{{ $userAbout->count_1 }}" class="form-control">
                                         <br>
-                                        <input type="text" maxlength="150" name="count_text_1" placeholder="Years of experience" value="{{ $userAbout->count_text_1 }}" class="form-control col-md-6">
+                                        <input type="text" maxlength="150" name="count_text_1" placeholder="Years of experience" value="{{ $userAbout->count_text_1 }}" class="form-control">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" min="0" name="count_2" placeholder="20" value="{{ $userAbout->count_2 }}" class="form-control col-md-6">
+                                        <input type="number" min="0" name="count_2" placeholder="20" value="{{ $userAbout->count_2 }}" class="form-control">
                                         <br>
-                                        <input type="text" maxlength="150" name="count_text_2" placeholder="Project Done" value="{{ $userAbout->count_text_2 }}" class="form-control col-md-6">
+                                        <input type="text" maxlength="150" name="count_text_2" placeholder="Project Done" value="{{ $userAbout->count_text_2 }}" class="form-control">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" min="0" name="count_3" placeholder="30" value="{{ $userAbout->count_3 }}" class="form-control col-md-6">
+                                        <input type="number" min="0" name="count_3" placeholder="30" value="{{ $userAbout->count_3 }}" class="form-control">
                                         <br>
-                                        <input type="text" maxlength="150" name="count_text_3" placeholder="Number of clients" value="{{ $userAbout->count_text_3 }}" class="form-control col-md-6">
+                                        <input type="text" maxlength="150" name="count_text_3" placeholder="Number of clients" value="{{ $userAbout->count_text_3 }}" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <input type="text" maxlength="150" name="extra_text" placeholder="Write extra text" value="{{ $userAbout->extra_text }}" class="form-control col-md-6">
+                                <input type="text" maxlength="150" name="extra_text" placeholder="Discover my projects" value="{{ $userAbout->extra_text }}" class="form-control col-md-6">
                             </div>
                         </div>
 

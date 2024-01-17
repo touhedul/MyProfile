@@ -123,7 +123,7 @@ class UserService
             'user_id' => $user->id,
             'text_1' => 'About Me',
             'text_2' => 'Hello! I am ' . $user->name,
-            'text_3' => "Myself $user->name, a {$user->home->text_3} based in $user->address. I'm dedicated to delivering quality results in every project I undertake. I'm known for my proficiency and attention to detail.I find joy in exploring the world both intellectually and physically. I am always eager to take on new challenges that push me to grow and learn.
+            'text_3' => "I am always eager to take on new challenges that push me to grow and learn. I'm dedicated to delivering quality results in every project I undertake. I'm known for my proficiency and attention to detail.I find joy in exploring the world both intellectually and physically.
             <br>
             <br>
             Outside of the professional realm, you can often find me in different extra curriculum activities. I believe in the importance of maintaining a well-rounded and balanced life.
@@ -131,15 +131,15 @@ class UserService
             <br>
             Feel free to reach out if you share common interests or just want to connect. I'm excited to embark on this journey of growth, connection, and discovery!",
 
-            'count_1' => '10',
+            'count_1' => '5',
             'count_text_1' => 'Years Experiance',
-            'count_2' => '20',
-            'count_text_2' => 'Happy Clients',
-            'count_3' => '30',
+            'count_2' => '17',
+            'count_text_2' => 'Skill Set',
+            'count_3' => '26',
             'count_text_3' => 'Projects Done',
-            'button_text' => 'My Services',
+            'button_text' => 'Contact Me',
             'button_status' => true,
-            'extra_text' => 'Discover my portfolio',
+            'extra_text' => 'Discover my projects',
         ]);
     }
 
