@@ -31,15 +31,14 @@
 
                         <div class="form-group">
                             <label for="password" class="">{{ __('Address') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write your current address!"></i></label>
-                            <input placeholder="Write your address. Ex: Dhaka,Bangladesh" value="{{ old('address') }}" class="form-control" type="text" name="address"
-                               required >
+                            <input placeholder="Write your address. Ex: Dhaka,Bangladesh" value="{{ old('address') }}" class="form-control" type="text" name="address" maxlength="50" minlength="4" required >
                         </div>
 
 
                         <div class="form-group">
                             <label for="password" class="">{{ __('Profile Title') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write your current profession title!"></i></label>
-                            <input placeholder="Write your designation title. Ex: Software Engineer, Digital Marketer" value="{{ old('profile_title') }}" class="form-control" type="text" name="profile_title"
-                               required >
+                            <input placeholder="Write your designation title. Ex: Software Engineer, Digital Marketer" value="{{ old('profile_title') }}" class="form-control" type="text" name="profile_title" minlength="3"
+                               required maxlength="50">
                         </div>
 
                         <div class="form-group">

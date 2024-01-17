@@ -123,13 +123,14 @@ class UserService
             'user_id' => $user->id,
             'text_1' => 'About Me',
             'text_2' => 'Hello! I am ' . $user->name,
-            'text_3' => "I combine our passion for design focused in people with advanced development technologies. 350+ clients have procured exceptional results and happiness while working with me.
+            'text_3' => "Myself $user->name, a {$user->home->text_3} based in $user->address. I'm dedicated to delivering quality results in every project I undertake. I'm known for my proficiency and attention to detail.I find joy in exploring the world both intellectually and physically. I am always eager to take on new challenges that push me to grow and learn.
+            <br>
+            <br>
+            Outside of the professional realm, you can often find me in different extra curriculum activities. I believe in the importance of maintaining a well-rounded and balanced life.
+            <br>
+            <br>
+            Feel free to reach out if you share common interests or just want to connect. I'm excited to embark on this journey of growth, connection, and discovery!",
 
-            Delivering work within time and budget which meets client’s requirements is our moto. when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard. Lorem Ipsum has been the industry's standard dummy text ever since.",
-
-
-            // Hello, I'm [Your Name], a [Your Profession] based in [Your Address]. With a focus on [Your Skills], I'm dedicated to delivering quality results in every project I undertake. I bring a strong work ethic and a passion for [Your Profession] to the table. Whether it's [a specific aspect of your profession] or [another relevant activity], I'm known for my proficiency and attention to detail. Connect with me for reliable and top-notch [Your Profession] services.
-            
             'count_1' => '10',
             'count_text_1' => 'Years Experiance',
             'count_2' => '20',

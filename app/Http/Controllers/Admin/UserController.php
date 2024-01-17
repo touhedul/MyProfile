@@ -114,8 +114,8 @@ class UserController extends AppBaseController
     public function createProfile(Request $request)
     {
         $request->validate([
-            'address' => 'required|string|max:191',
-            'profile_title' => 'required|string|max:191',
+            'address' => 'required|string|max:50|min:4',
+            'profile_title' => 'required|string|max:50|min:3',
             'profession' => 'required|array',
             'skills' => 'required|array',
             'image' => 'required|image|max:5000',
@@ -155,7 +155,7 @@ class UserController extends AppBaseController
 
         $user->about->update(['image' => $fileName]);;
 
-        $user->update(['has_profile' => 1]);
+        $user->update(['has_profile' => 1,'address' => $request->address]);
 
         notify()->success(__("Successfully created your profile."), __("Success"));
         return redirect()->route('admin.dashboard');

@@ -730,6 +730,7 @@
     <script type="text/javascript" src="{{ asset('admin/assets/scripts/main.js') }}"></script>
     {{-- Flash Notification --}}
     <script src="{{ asset('js/iziToast.js') }}"></script>
+    {{-- <script src="{{ asset('parsley/parsley.min.js') }}"></script> --}}
     {{-- Select 2 --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     {{-- Jquery UI --}}
