@@ -50,6 +50,14 @@
 @endcan
 
 
+@can('Skill-view')
+<li class="">
+    <a href="{{route('admin.skills.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/skills**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-tools"></i>
+        {{ __('Skill Management') }}
+    </a>
+</li>
+@endcan
 
 
 @can('Service-view')
@@ -61,14 +69,6 @@
 </li>
 @endcan
 
-@can('Skill-view')
-<li class="">
-    <a href="{{route('admin.skills.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/skills**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-tools"></i>
-        {{ __('Skill Management') }}
-    </a>
-</li>
-@endcan
 
 @can('Project-view')
 <li class="">

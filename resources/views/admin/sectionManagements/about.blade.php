@@ -60,19 +60,19 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="number" min="0" name="count_1" placeholder="10" value="{{ $userAbout->count_1 }}" class="form-control">
+                                        <input type="number" min="0" max="20000000" name="count_1" placeholder="10" value="{{ $userAbout->count_1 }}" class="form-control">
                                         <br>
-                                        <input type="text" maxlength="150" name="count_text_1" placeholder="Years of experience" value="{{ $userAbout->count_text_1 }}" class="form-control">
+                                        <input type="text" maxlength="150" name="count_text_1" placeholder="Years experience" value="{{ $userAbout->count_text_1 }}" class="form-control">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" min="0" name="count_2" placeholder="20" value="{{ $userAbout->count_2 }}" class="form-control">
+                                        <input type="number" min="0" max="20000000" name="count_2" placeholder="20" value="{{ $userAbout->count_2 }}" class="form-control">
                                         <br>
-                                        <input type="text" maxlength="150" name="count_text_2" placeholder="Project Done" value="{{ $userAbout->count_text_2 }}" class="form-control">
+                                        <input type="text" maxlength="150" name="count_text_2" placeholder="Skill Set" value="{{ $userAbout->count_text_2 }}" class="form-control">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" min="0" name="count_3" placeholder="30" value="{{ $userAbout->count_3 }}" class="form-control">
+                                        <input type="number" min="0" max="20000000" name="count_3" placeholder="30" value="{{ $userAbout->count_3 }}" class="form-control">
                                         <br>
-                                        <input type="text" maxlength="150" name="count_text_3" placeholder="Number of clients" value="{{ $userAbout->count_text_3 }}" class="form-control">
+                                        <input type="text" maxlength="150" name="count_text_3" placeholder="Project Done" value="{{ $userAbout->count_text_3 }}" class="form-control">
                                     </div>
                                 </div>
                             </div>

@@ -132,7 +132,7 @@ class UserService
             Feel free to reach out if you share common interests or just want to connect. I'm excited to embark on this journey of growth, connection, and discovery!",
 
             'count_1' => '5',
-            'count_text_1' => 'Years Experiance',
+            'count_text_1' => 'Years Experience',
             'count_2' => '17',
             'count_text_2' => 'Skill Set',
             'count_3' => '26',
@@ -211,7 +211,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'skill_description',
-            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'value' => 'My skills encompass versatile problem-solving, effective communication, and adept project management. I bring a dynamic skill set to any endeavor.',
         ]);
         AdditionalInfo::create([
             'user_id' => $user->id,

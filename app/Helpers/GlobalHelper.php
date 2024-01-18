@@ -90,10 +90,10 @@ if (!function_exists('defaultImage')) {
                 $image = asset('frontend/theme1/images/home_slider_6.jpg');
                 break;
             case 'about_image':
-                $image = asset('frontend/theme1/images/about-me.jpg');
+                $image = asset('frontend/theme1/images/about.jpg');
                 break;
             case 'skill_image':
-                $image = asset('frontend/theme1/images/why-choose.jpg');
+                $image = asset('frontend/theme1/images/skill_2.jpg');
                 break;
             case 'no_image':
                 $image = asset('frontend/theme1/images/no-image.jpg');

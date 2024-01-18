@@ -26,14 +26,14 @@ class MenuSeeder extends Seeder
 
             ['name' => 'Project','status'=>1,'background_color' => '#f8f9fa'],
 
-            ['name' => 'Course','status'=>0,'background_color' => '#ffffff'],
-            ['name' => 'Achievement','status'=>0,'background_color' => '#f8f9fa'],
+            ['name' => 'Course','status'=>1,'background_color' => '#ffffff'],
+            ['name' => 'Achievement','status'=>1,'background_color' => '#f8f9fa'],
             ['name' => 'Experience','status'=>1,'background_color' => '#ffffff'],
 
             ['name' => 'Education','status'=>1,'background_color' => '#f8f9fa'],
 
-            ['name' => 'Testimonial','status'=>0,'background_color' => '#ffffff'],
-            ['name' => 'Client','status'=>0,'background_color' => '#f8f9fa'],
+            ['name' => 'Testimonial','status'=>1,'background_color' => '#ffffff'],
+            ['name' => 'Client','status'=>1,'background_color' => '#f8f9fa'],
             ['name' => 'Contact','status'=>1,'background_color' => '#ffffff'],
 
         ];

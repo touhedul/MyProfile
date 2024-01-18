@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="">{{ __('Profession') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add new profession!"></i>
+                            <label for="password" class="">{{ __('Profession') }} (max:3)<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add new profession!"></i>
                             </label>
 
                             <select class="form-control profession" name="profession[]" multiple="multiple" required>
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="">{{ __('Skills') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add new skill!"></i></label>
+                            <label for="password" class="">{{ __('Top Skills') }} (max:4)<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Write and press enter to add new skill!"></i></label>
                             <select class="form-control skills" name="skills[]" multiple="multiple" required>
                                 @foreach ($skillList as $skill)
                                 <option value="{{$skill->name}}">{{ $skill->name }}</option>
@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="">{{ __('Profile Image') }}<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Add a professional profile image! Max size 5 mb"></i></label>
+                            <label for="password" class="">{{ __('Profile Image') }} (500 X 625)<span class="text-red">*</span> <i class="fas fa-info-circle" data-toggle="tooltip" title="Add a professional profile image! Max size 5 mb"></i></label>
                             <input class="form-control dropify" type="file" name="image" required accept="image/*">
                         </div>
 
@@ -87,11 +87,15 @@
                 $('.dropify').dropify();
                 $('.profession').select2({
                     placeholder: "Choose your professions",
-                    tags: true
+                    tags: true,
+                    maximumSelectionLength: 3
+
                 });
                 $('.skills').select2({
                     tags: true,
                     placeholder: "Choose your skills",
+                    maximumSelectionLength: 4
+
                 });
 
             });
