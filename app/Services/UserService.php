@@ -154,7 +154,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'service_description',
-            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'value' => ' Elevate your brand with my comprehensive services. From design to strategy, I offer tailored solutions that resonate and drive success for your business.',
         ]);
 
         $this->createServices($user);
@@ -255,7 +255,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'project_description',
-            'value' => 'I help you build brand for your business at an affordable price. Thousands of clients have procured exceptional results while working with Me..',
+            'value' => 'Explore a showcase of my diverse projects, where creativity meets functionality. Each endeavor reflects passion and precision in design and development.',
         ]);
 
         $this->createProjects($user);
@@ -332,7 +332,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'course_description',
-            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'value' => 'Dive into a curated selection of courses designed to enhance skills and knowledge. Elevate your learning journey with transformative content and practical insights.',
         ]);
         $this->createCourse($user);
     }
@@ -381,7 +381,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'experience_description',
-            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'value' => 'Embark on a journey through my professional odyssey. A tapestry of challenges, growth, and achievements, showcasing a wealth of skills and expertise.',
         ]);
         $this->createExperience($user);
     }
@@ -433,7 +433,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'achievement_description',
-            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'value' => 'Celebrate milestones and triumphs in my journey. From impactful projects to industry recognition, each achievement is a testament to dedication and success.',
         ]);
         $this->createAchievement($user);
     }
@@ -463,7 +463,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'education_description',
-            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'value' => 'Discover the academic chapters that shape my knowledge landscape. A culmination of learning experiences, degrees, and skills acquired on the educational journey.',
         ]);
         $this->createEducation($user);
     }
@@ -498,7 +498,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'testimonial_description',
-            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'value' => 'Hear from satisfied clients and colleagues. Genuine words of endorsement, reflecting trust, collaboration, and the positive impact of our professional interactions.',
         ]);
         $this->createTestimonial($user);
     }
@@ -555,7 +555,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'contactinfo_description',
-            'value' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'value' => 'Reach out effortlessly. Find my contact details for inquiries, collaborations, or just to say hello. I look forward to connecting with you!',
         ]);
         $this->createContactinfo($user);
     }
