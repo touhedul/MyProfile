@@ -164,37 +164,37 @@ class UserService
     {
         Service::create([
             'title' => 'Graphic Design',
-            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'description' => "Unlocking creativity through pixels, I craft visually stunning designs that captivate and convey your brand's essence.",
             'icon' => 'fas fa-palette',
             'user_id' => $user->id
         ]);
         Service::create([
             'title' => 'Web Design',
-            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'description' => "Building digital experiences that resonate. My web designs seamlessly blend aesthetics with user-centric functionality.",
             'icon' => 'fas fa-desktop',
             'user_id' => $user->id
         ]);
         Service::create([
             'title' => 'Web Development',
-            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'description' => "Transforming ideas into dynamic web solutions. I specialize in coding the future, ensuring your online presence is top-notch.",
             'icon' => 'fas fa-pencil-ruler',
             'user_id' => $user->id
         ]);
         Service::create([
             'title' => 'Brand Identity',
-            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'description' => "Crafting brands that stand out. From logos to messaging, I shape cohesive identities that leave a lasting impression.",
             'icon' => 'fas fa-paint-brush',
             'user_id' => $user->id
         ]);
         Service::create([
             'title' => 'Business Analysis',
-            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'description' => "Navigating the complexities of business with precision. I analyze data to drive strategic decisions and enhance efficiency.",
             'icon' => 'fas fa-chart-area',
             'user_id' => $user->id
         ]);
         Service::create([
             'title' => 'Digital Marketing',
-            'description' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge.",
+            'description' => "Strategizing in the digital realm. I leverage online channels to skyrocket your brand's visibility and drive conversions",
             'icon' => 'fas fa-bullhorn',
             'user_id' => $user->id
         ]);
@@ -265,49 +265,120 @@ class UserService
     public function createProjects($user)
     {
         Project::create([
-            'title' => 'Project Title 1',
+            'title' => 'Digital Transformation Strategy',
             'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+            'details' => '
+                <p><strong>Project Info:</strong></p>
+                <p>Launching a dynamic marketing campaign to elevate brand visibility..</p>
+
+                <p><strong>Project Details:</strong></p>
+                <ul>
+                    <li>Elevate your business with a comprehensive digital transformation strategy.</li>
+                    <li>Strategic analysis of current processes and identification of optimization opportunities.</li>
+                    <li>Implementation of cutting-edge technologies to enhance operational efficiency.</li>
+                    <li>Seamless integration of digital solutions tailored to meet your unique business goals.</li>
+                </ul>
+            ',
         ]);
+
+
         Project::create([
-            'title' => 'Project Title 2',
+            'title' => 'Accelerated Marketing Campaign',
             'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+            'details' => '
+                <p><strong>Project Info:</strong></p>
+                <p>Craft a path to success by embracing a powerful digital transformation strategy. Our expert team conducts a thorough analysis of your current processes, identifying optimization opportunities.</p>
+
+                <p><strong>Project Details:</strong></p>
+                <ul>
+                    <li>Implement targeted social media strategies.</li>
+                    <li>Create engaging content for diverse digital platforms.</li>
+                    <li>Analyze campaign performance with advanced analytics tools.</li>
+                    <li>Optimize strategies for maximum impact and audience reach.</li>
+                    <li>Ensure seamless integration across all marketing channels.</li>
+                    <li>Drive brand recognition and customer engagement to new heights.</li>
+                </ul>
+            ',
         ]);
+
+
         Project::create([
-            'title' => 'Project Title 3',
+            'title' => 'E-commerce Website',
             'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+            'details' => '
+                <p><strong>Project Info:</strong></p>
+                <p>Transforming your online presence with a revamped e-commerce website. </p>
+
+                <p><strong>Project Details:</strong></p>
+                <ul>
+                    <li>Redesign user interface for enhanced customer experience.</li>
+                    <li>Implement secure and seamless payment gateways.</li>
+                    <li>Optimize website performance for faster loading times.</li>
+                    <li>Integrate inventory management system for efficient operations.</li>
+                    <li>Develop responsive design for cross-device compatibility.</li>
+                    <li>Conduct rigorous testing to ensure a flawless user journey.</li>
+                    <li>Elevate your online store to new heights of functionality and aesthetics.</li>
+                </ul>
+            ',
         ]);
+
         Project::create([
-            'title' => 'Project Title 4',
+            'title' => 'Employee Training Platform',
             'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+            'details' => '
+                <p><strong>Project Info:</strong></p>
+                <p>Developing a comprehensive online training platform for employee skill. </p>
+
+                <p><strong>Project Details:</strong></p>
+                <ul>
+                    <li>Design user-friendly interface for easy navigation.</li>
+                    <li>Implement interactive modules for engaging learning experiences.</li>
+                    <li>Integrate progress tracking and assessment tools.</li>
+                    <li>Ensure compatibility across various devices for flexible accessibility.</li>
+                    <li>Incorporate multimedia elements to enhance content delivery.</li>
+                    <li>Provide analytics for performance evaluation and continuous improvement.</li>
+                    <li>Empower your workforce with a state-of-the-art training solution.</li>
+                </ul>
+            ',
         ]);
+
         Project::create([
-            'title' => 'Project Title 5',
+            'title' => 'Sustainable Product Packaging',
             'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+            'details' => '
+                <p><strong>Project Info:</strong></p>
+                <p>Redefining your brand’s environmental impact through sustainable packaging design. </p>
+
+                <p><strong>Project Details:</strong></p>
+                <ul>
+                    <li>Conduct a comprehensive audit of current packaging materials.</li>
+                    <li>Collaborate with eco-friendly suppliers for sustainable alternatives.</li>
+                    <li>Design packaging that minimizes environmental footprint.</li>
+                    <li>Communicate the brand’s commitment to sustainability through visuals.</li>
+                    <li>Implement cost-effective solutions without compromising quality.</li>
+                    <li>Promote eco-friendly practices and enhance brand reputation.</li>
+                </ul>
+            ',
         ]);
+
         Project::create([
-            'title' => 'Project Title 6',
+            'title' => 'Mobile App Development',
             'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
-        ]);
-        Project::create([
-            'title' => 'Project Title 7',
-            'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
-        ]);
-        Project::create([
-            'title' => 'Project Title 8',
-            'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
-        ]);
-        Project::create([
-            'title' => 'Project Title 9',
-            'user_id' => $user->id,
-            'details' => '<p><strong>Project Info:</strong></p><p>Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p><p><strong>Project Details:</strong></p><ul><li>Client:Neil Patel</li><li>Industry:Information Technologies</li><li>Technologies:HTML5, CSS3, PHP, jQuery, Bootstrap 4</li><li>Date:Jan 22, 2020</li></ul>',
+            'details' => '
+                <p><strong>Project Info:</strong></p>
+                <p>Creating a cutting-edge mobile app to promote health and wellness. </p>
+
+                <p><strong>Project Details:</strong></p>
+                <ul>
+                    <li>Develop a user-friendly interface for seamless navigation.</li>
+                    <li>Integrate health tracking features for personalized user insights.</li>
+                    <li>Implement secure data storage and privacy measures.</li>
+                    <li>Incorporate gamification elements for enhanced user engagement.</li>
+                    <li>Collaborate with health experts for content creation and advice.</li>
+                    <li>Conduct beta testing for user feedback and app optimization.</li>
+                    <li>Empower users to take control of their well-being with a feature-rich mobile app.</li>
+                </ul>
+            ',
         ]);
     }
 
