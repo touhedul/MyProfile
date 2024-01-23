@@ -403,7 +403,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'course_description',
-            'value' => 'Dive into a curated selection of courses designed to enhance skills and knowledge. Elevate your learning journey with transformative content and practical insights.',
+            'value' => 'Dive into a curated selection of courses designed to enhance skills and knowledge. Elevate my learning journey with transformative content and practical insights.',
         ]);
         $this->createCourse($user);
     }
@@ -412,33 +412,33 @@ class UserService
     {
         Course::create([
             'user_id' => $user->id,
-            'title' => 'Planning & Consulting',
-            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+            'title' => "Foundations of Digital Literacy",
+            'details' => "Develop essential skills for navigating the digital landscape confidently. Learn about online safety, effective internet research, and basic digital tools to enhance your digital literacy.",
         ]);
         Course::create([
             'user_id' => $user->id,
-            'title' => 'Content',
-            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+            'title' => "Mastering Microsoft Office Suite",
+            'details' => "Unlock the full potential of Microsoft Office tools - Word, Excel, and PowerPoint. From document creation to data analysis and impactful presentations, this course will make you a proficient Office user.",
         ]);
         Course::create([
             'user_id' => $user->id,
-            'title' => 'Conception',
-            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+            'title' => "Spoken English for Everyday Communication",
+            'details' => "Enhance your spoken English skills for effective communication in daily life. This course focuses on practical language use, helping you express yourself confidently in various situations.",
         ]);
         Course::create([
             'user_id' => $user->id,
-            'title' => 'Design & Development',
-            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+            'title' => "Practical Computer Skills for Office and Home",
+            'details' => "Acquire essential computer skills for both office and personal use. Learn to navigate the digital world, use common software applications, and manage files efficiently.",
         ]);
         Course::create([
             'user_id' => $user->id,
-            'title' => 'Final discussion',
-            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+            'title' => "Social Media Marketing Essentials",
+            'details' => "Dive into the world of social media marketing. This course covers the basics of creating a social media presence, content strategy, and effective promotion for personal or business use.",
         ]);
         Course::create([
             'user_id' => $user->id,
-            'title' => 'Delivery & Launch',
-            'details' => "We're smart, we're hard working, we're easy to talk to, and we love a challenge lisque persius mea essent possim iriure.",
+            'title' => "Introduction to Online Freelancing",
+            'details' => "Explore the world of online freelancing. This course covers the basics of freelancing platforms, creating a compelling profile, and tips for success in the digital freelance marketplace.",
         ]);
     }
 
@@ -513,13 +513,18 @@ class UserService
     {
         Achievement::create([
             'user_id' => $user->id,
-            'title' => 'Champion in Hackathon',
-            'details' => 'This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'title' => 'Pioneer in Creativity',
+            'details' => 'Honored with the prestigious Innovator of the Year Award for consistently pushing the boundaries of creativity and bringing fresh perspectives to projects. This achievement highlights a commitment to innovation and a passion for turning ideas into impactful solutions.',
         ]);
         Achievement::create([
             'user_id' => $user->id,
-            'title' => 'Participate in Student 2 Startup',
-            'details' => 'This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'title' => 'Leadership Excellence Recognition',
+            'details' => 'Recognized for outstanding leadership excellence, characterized by the ability to inspire, motivate, and guide teams towards achieving unprecedented success. This achievement reflects a commitment to fostering a positive and collaborative work environment while driving results.',
+        ]);
+        Achievement::create([
+            'user_id' => $user->id,
+            'title' => 'Community Impact Champion',
+            'details' => 'Acknowledged as a Community Impact Champion for dedicated efforts in making a positive difference. This achievement showcases a commitment to social responsibility, community engagement, and the ability to leverage skills and resources to contribute meaningfully to the well-being of others.',
         ]);
     }
 
@@ -579,20 +584,20 @@ class UserService
         Testimonial::create([
             'user_id' => $user->id,
             'name' => 'Touhedul Islam',
-            'designation' => 'Founder at ratul tech',
-            'message' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'designation' => 'Founder at Ratul tech',
+            'message' => "Collaborating with this professional was an absolute pleasure. Commitment to excellence and attention to detail were truly commendable. Exceeded expectations and delivered exceptional results. Highly recommended for anyone seeking a dedicated and talented professional.",
         ]);
         Testimonial::create([
             'user_id' => $user->id,
-            'name' => 'Fayes Islam',
-            'designation' => 'CEO at ratul tech',
-            'message' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'name' => 'Fayes Ahmed',
+            'designation' => 'CEO at Amber IT',
+            'message' => "Had the privilege of working with a standout professional on a project. Expertise displayed was unparalleled, demonstrating a profound understanding of the subject matter and an unwavering commitment to achieving success. This individual is a valuable asset to any team or project.",
         ]);
         Testimonial::create([
             'user_id' => $user->id,
             'name' => 'Torikul Islam',
-            'designation' => 'CTO at ratul tech',
-            'message' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'designation' => 'CTO at Snow Fleak',
+            'message' => "Can't speak highly enough about the experience of working with a remarkable professional. Creativity, professionalism, and the ability to think outside the box set this person apart. Not only met but exceeded expectations. Wouldn't hesitate to recommend for anyone looking for a skilled and dedicated professional.",
         ]);
     }
 
