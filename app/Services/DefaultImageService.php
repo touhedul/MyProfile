@@ -21,4 +21,22 @@ class DefaultImageService
         return (array_slice($sliders, 0, 3));
     }
 
+    public function getProjectImages()
+    {
+        $sliders = [
+            'project_1.jpg',
+            'project_2.jpg',
+            'project_3.jpg',
+            'project_4.jpg',
+            'project_5.jpg',
+            'project_6.jpg',
+            'project_7.jpg',
+            'project_8.jpg',
+            'project_9.jpg',
+        ];
+
+        shuffle($sliders);
+        return (array_slice($sliders, 0, 6));
+    }
+
 }

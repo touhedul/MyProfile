@@ -392,7 +392,7 @@
                                     <div class="col-sm-6 col-lg-4 artwork">
                                         <div class="portfolio-box rounded">
                                             <div class="portfolio-img rounded"> <img class="img-fluid d-block"
-                                                    src="{{ $project->image ? asset('images/' . $project->image) : defaultImage('no_image') }}"
+                                                    src="{{ file_exists(public_path('images/'.$project->image)) ? asset('images/' . $project->image) : defaultImage($project->image) }}"
                                                     alt="">
                                                 <div class="portfolio-overlay"> <a class="popup-ajax stretched-link"
                                                         href="{{ route('projectDetails', $project->id) }}"></a>

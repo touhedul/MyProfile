@@ -16,7 +16,7 @@
 <div class="form-group">
     <b>{!! Form::label('image',  __('Image')) !!}</b>
     @php
-        $image = $project->image ? asset('images/'.$project->image) : defaultImage('no_image') ;
+        $image = file_exists(public_path('images/'.$project->image)) ? asset('images/' . $project->image) : defaultImage($project->image);
     @endphp
     <p><img height="200px" width="auto" src="{{$image}}" alt=""></p>
 </div>

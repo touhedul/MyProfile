@@ -22,7 +22,7 @@ class ProjectDataTable extends DataTable
                 return Str::limit($dataTable->details,50);
             })
             ->addColumn('image', function ($dataTable) {
-                $image = $dataTable->image ? asset('images/'.$dataTable->image) : defaultImage('no_image') ;
+                $image = file_exists(public_path('images/'.$dataTable->image)) ? asset('images/'.$dataTable->image) : defaultImage($dataTable->image) ;
                 return "<img width='auto' height='80px' src='{$image}'/>";
             })
 

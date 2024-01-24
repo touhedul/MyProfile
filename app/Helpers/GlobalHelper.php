@@ -106,6 +106,11 @@ if (!function_exists('defaultImage')) {
                 break;
         }
 
+        if($image){
+            return $image;
+        }else{
+            return file_exists(public_path('frontend/theme1/images/'.$type)) ? asset('frontend/theme1/images/'.$type) : asset('frontend/theme1/images/no-image.jpg');
+        }
         return $image;
     }
 }

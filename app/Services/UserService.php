@@ -264,9 +264,11 @@ class UserService
 
     public function createProjects($user)
     {
+        $defaultProjectImages = (new DefaultImageService)->getProjectImages();
         Project::create([
             'title' => 'Digital Transformation Strategy',
             'user_id' => $user->id,
+            'image' => $defaultProjectImages[0],
             'details' => '
                 <p><strong>Project Info:</strong></p>
                 <p>Launching a dynamic marketing campaign to elevate brand visibility..</p>
@@ -285,6 +287,7 @@ class UserService
         Project::create([
             'title' => 'Accelerated Marketing Campaign',
             'user_id' => $user->id,
+            'image' => $defaultProjectImages[1],
             'details' => '
                 <p><strong>Project Info:</strong></p>
                 <p>Craft a path to success by embracing a powerful digital transformation strategy. Our expert team conducts a thorough analysis of your current processes, identifying optimization opportunities.</p>
@@ -305,6 +308,7 @@ class UserService
         Project::create([
             'title' => 'E-commerce Website',
             'user_id' => $user->id,
+            'image' => $defaultProjectImages[2],
             'details' => '
                 <p><strong>Project Info:</strong></p>
                 <p>Transforming your online presence with a revamped e-commerce website. </p>
@@ -325,6 +329,7 @@ class UserService
         Project::create([
             'title' => 'Employee Training Platform',
             'user_id' => $user->id,
+            'image' => $defaultProjectImages[3],
             'details' => '
                 <p><strong>Project Info:</strong></p>
                 <p>Developing a comprehensive online training platform for employee skill. </p>
@@ -345,6 +350,7 @@ class UserService
         Project::create([
             'title' => 'Sustainable Product Packaging',
             'user_id' => $user->id,
+            'image' => $defaultProjectImages[4],
             'details' => '
                 <p><strong>Project Info:</strong></p>
                 <p>Redefining your brand’s environmental impact through sustainable packaging design. </p>
@@ -364,6 +370,7 @@ class UserService
         Project::create([
             'title' => 'Mobile App Development',
             'user_id' => $user->id,
+            'image' => $defaultProjectImages[5],
             'details' => '
                 <p><strong>Project Info:</strong></p>
                 <p>Creating a cutting-edge mobile app to promote health and wellness. </p>
@@ -461,33 +468,33 @@ class UserService
     {
         Experience::create([
             'user_id' => $user->id,
-            'company' => 'Company 1',
-            'role' => 'Designer',
-            'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'company' => 'TechInnovate Bangladesh',
+            'role' => 'Senior Software Engineer',
+            'details' => "Worked on cutting-edge projects, specializing in full-stack development. Collaborated with cross-functional teams to deliver innovative solutions.",
             'duration' => '2 Year',
             'year' => 2016,
         ]);
         Experience::create([
             'user_id' => $user->id,
-            'company' => 'Company 2',
-            'role' => 'Developer',
-            'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'company' => 'GreenScape Solutions Ltd.',
+            'role' => 'UX/UI Designer',
+            'details' => "Played a pivotal role in creating visually appealing and user-friendly interfaces. Successfully revamped the user experience of the company's flagship product.",
             'duration' => '1 Year',
             'year' => 2018,
         ]);
         Experience::create([
             'user_id' => $user->id,
-            'company' => 'Company 3',
-            'role' => 'Visulaizer',
-            'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'company' => 'EcoTech Innovations Ltd.',
+            'role' => 'Environmental Analyst',
+            'details' => "Conducted comprehensive environmental impact assessments for various projects. Analyzed data to identify sustainable practices and recommend eco-friendly solutions.",
             'duration' => '6 Month',
             'year' => 2019,
         ]);
         Experience::create([
             'user_id' => $user->id,
-            'company' => 'Company 4',
-            'role' => 'Business Analyst',
-            'details' => 'How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.',
+            'company' => 'FinSmart Solutions Bangladesh',
+            'role' => 'Financial Analyst',
+            'details' => "Analyzed financial data to provide strategic insights for decision-making. Prepared detailed financial reports and forecasts, aiding in budget planning.",
             'duration' => '1 Year',
             'year' => 2020,
         ]);
@@ -549,17 +556,29 @@ class UserService
         Education::create([
             'user_id' => $user->id,
             'name' => 'S.S.C',
-            'details' => 'This is a SSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'details' => '<p><strong>School</strong>: Ideal School &amp; College<br />
+            <strong>Department</strong>: Science<br />
+            <strong>Session</strong>: 2013-2014<br />
+            <strong>GPA</strong>: 4.89</p>
+            ',
         ]);
         Education::create([
             'user_id' => $user->id,
             'name' => 'H.S.C',
-            'details' => 'This is a HSC paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'details' => '<p><strong>College</strong>: Dhaka College<br />
+            <strong>Department</strong>: Science<br />
+            <strong>Session</strong>: 2015-2016<br />
+            <strong>GPA</strong>: 5.0</p>
+            ',
         ]);
         Education::create([
             'user_id' => $user->id,
             'name' => 'Honours',
-            'details' => 'This is a Honours paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is a demo paragraph. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'details' => '<p><strong>University</strong>: Cumilla University<br />
+            <strong>Subject</strong>: Computer Science <br />
+            <strong>Session</strong>: 2017-2018<br />
+            <strong>CGPA</strong>: 3.69</p>
+            ',
         ]);
     }
 

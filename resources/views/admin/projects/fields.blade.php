@@ -15,7 +15,7 @@
 <!-- Image Field -->
 @isset($project)
 @php
-$image = $project->image ? asset('images/'.$project->image) : defaultImage('no_image') ;
+$image = file_exists(public_path('images/'.$project->image)) ? asset('images/' . $project->image) : defaultImage($project->image);
 @endphp
 <img height="150px" width="auto" src="{{$image}}" alt="" srcset="">
 @endisset
