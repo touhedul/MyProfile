@@ -39,4 +39,18 @@ class DefaultImageService
         return (array_slice($sliders, 0, 6));
     }
 
+    public function getAchievementImages()
+    {
+        $sliders = [
+            'achievement_1.jpg',
+            'achievement_2.jpg',
+            'achievement_3.jpg',
+            'achievement_4.jpg',
+            'achievement_5.jpg',
+        ];
+
+        shuffle($sliders);
+        return (array_slice($sliders, 0, 3));
+    }
+
 }

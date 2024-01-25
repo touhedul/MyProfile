@@ -69,6 +69,7 @@ if (!function_exists('notification')) {
 if (!function_exists('defaultImage')) {
     function defaultImage($type)
     {
+
         $image = "";
         switch ($type) {
             case 'home_slider_1':
@@ -105,11 +106,10 @@ if (!function_exists('defaultImage')) {
                 $image = asset('frontend/theme1/images/logo.png');
                 break;
         }
-
         if($image){
             return $image;
         }else{
-            return file_exists(public_path('frontend/theme1/images/'.$type)) ? asset('frontend/theme1/images/'.$type) : asset('frontend/theme1/images/no-image.jpg');
+            return $type && file_exists(public_path('frontend/theme1/images/'.$type)) ? asset('frontend/theme1/images/'.$type) : asset('frontend/theme1/images/no-image.jpg');
         }
         return $image;
     }

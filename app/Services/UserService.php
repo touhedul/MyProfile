@@ -518,20 +518,25 @@ class UserService
 
     public function createAchievement($user)
     {
+
+        $defaultAchievementImages = (new DefaultImageService)->getAchievementImages();
         Achievement::create([
             'user_id' => $user->id,
             'title' => 'Pioneer in Creativity',
             'details' => 'Honored with the prestigious Innovator of the Year Award for consistently pushing the boundaries of creativity and bringing fresh perspectives to projects. This achievement highlights a commitment to innovation and a passion for turning ideas into impactful solutions.',
+            'image' => $defaultAchievementImages[0],
         ]);
         Achievement::create([
             'user_id' => $user->id,
             'title' => 'Leadership Excellence Recognition',
             'details' => 'Recognized for outstanding leadership excellence, characterized by the ability to inspire, motivate, and guide teams towards achieving unprecedented success. This achievement reflects a commitment to fostering a positive and collaborative work environment while driving results.',
+            'image' => $defaultAchievementImages[1],
         ]);
         Achievement::create([
             'user_id' => $user->id,
             'title' => 'Community Impact Champion',
             'details' => 'Acknowledged as a Community Impact Champion for dedicated efforts in making a positive difference. This achievement showcases a commitment to social responsibility, community engagement, and the ability to leverage skills and resources to contribute meaningfully to the well-being of others.',
+            'image' => $defaultAchievementImages[2],
         ]);
     }
 

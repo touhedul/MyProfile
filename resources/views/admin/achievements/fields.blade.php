@@ -14,7 +14,7 @@
 <!-- Image Field -->
 @isset($achievement)
 @php
-$image = $achievement->image ? asset('images/'.$achievement->image) : defaultImage('no_image') ;
+$image = $achievement->image && file_exists(public_path('images/'.$achievement->image)) ? asset('images/'.$achievement->image) : defaultImage($achievement->image) ;
 @endphp
 <img height="150px" width="auto" src="{{$image}}" alt="" srcset="">
 @endisset

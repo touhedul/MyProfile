@@ -482,7 +482,7 @@
                                     <div class="item text-center px-5">
 
                                         <img class="img-fluid d-inline-block w-auto"
-                                            src="{{ $achievement->image ? asset('images/' . $achievement->image) : defaultImage('no_image') }}"
+                                            src="{{ $achievement->image && file_exists(public_path('images/'.$achievement->image)) ? asset('images/'.$achievement->image) : defaultImage($achievement->image) }}"
                                             alt="">
                                         <br>
                                         <h5>{{ $achievement->title }}</h5>
