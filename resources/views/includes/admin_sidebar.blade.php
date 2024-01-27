@@ -28,7 +28,7 @@
 <li class="">
     <a href="{{route('admin.menuManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/menu-management**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-menu"></i>
-        {{ __('Menu Management') }}
+        {{ __('Menu') }}
     </a>
 </li>
 @endcan
@@ -36,7 +36,7 @@
 <li class="">
     <a href="{{route('admin.homeManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/home-management**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-home"></i>
-        {{ __('Home Management') }}
+        {{ __('Home') }}
     </a>
 </li>
 @endcan
@@ -44,7 +44,7 @@
 <li class="">
     <a href="{{route('admin.aboutManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/about-management**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-id"></i>
-        {{ __('About Management') }}
+        {{ __('About') }}
     </a>
 </li>
 @endcan
@@ -54,7 +54,7 @@
 <li class="">
     <a href="{{route('admin.skills.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/skills**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-tools"></i>
-        {{ __('Skill Management') }}
+        {{ __('Skill') }}
     </a>
 </li>
 @endcan
@@ -64,7 +64,7 @@
 <li class="">
     <a href="{{route('admin.services.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/services**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-helm"></i>
-        {{ __('Service Management') }}
+        {{ __('Service') }}
     </a>
 </li>
 @endcan
@@ -74,7 +74,7 @@
 <li class="">
     <a href="{{route('admin.projects.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/projects**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-portfolio"></i>
-        {{ __('Project Management') }}
+        {{ __('Project') }}
     </a>
 </li>
 @endcan
@@ -83,7 +83,7 @@
 <li class="">
     <a href="{{route('admin.colorSectionManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/color-section-management**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-paint"></i>
-        {{ __('Color Section Management') }}
+        {{ __('Color Section') }}
     </a>
 </li>
 @endcan
@@ -91,7 +91,7 @@
 <li class="">
     <a href="{{route('admin.courses.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/courses**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-notebook"></i>
-        {{ __('Course Management') }}
+        {{ __('Course') }}
     </a>
 </li>
 @endcan
@@ -100,7 +100,7 @@
 <li class="">
     <a href="{{route('admin.experiences.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/experiences**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-global"></i>
-        {{ __('Experiences Management') }}
+        {{ __('Experiences') }}
     </a>
 </li>
 @endcan
@@ -155,7 +155,7 @@
 <li class="">
     <a href="{{route('admin.socials.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/socials**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-box1"></i>
-        {{ __('Socials') }}
+        {{ __('Footer & Social') }}
     </a>
 </li>
 @endcan

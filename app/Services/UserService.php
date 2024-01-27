@@ -154,7 +154,7 @@ class UserService
         AdditionalInfo::create([
             'user_id' => $user->id,
             'key' => 'service_description',
-            'value' => ' Elevate your brand with my comprehensive services. From design to strategy, I offer tailored solutions that resonate and drive success for your business.',
+            'value' => 'Elevate your brand with my comprehensive services. From design to strategy, I offer tailored solutions that resonate and drive success for your business.',
         ]);
 
         $this->createServices($user);
@@ -660,26 +660,26 @@ class UserService
         $this->createContactinfo($user);
     }
 
-    public function createContactinfo($user)
+    public function createContactinfo($user,$data=null)
     {
         Contactinfo::create([
             'user_id' => $user->id,
             'title' => 'VISIT US',
-            'details' => '145 Murphy Canyon Rd. <br> Suite 100-18, San Diego CA 2028',
+            'details' => @$data['address'] ?? '145 Murphy Canyon Rd. <br> Suite 100-18, San Diego CA 2028',
             'icon' => 'fas fa-map-marker-alt',
         ]);
 
         Contactinfo::create([
             'user_id' => $user->id,
             'title' => 'CALL US NOW',
-            'details' => 'Phone: (+060) 9898980098 <br>Fax: (+060) 8898880088',
+            'details' =>  @$data['phone'] ?? 'Phone: (+060) 9898980098 <br>Fax: (+060) 8898880088',
             'icon' => 'fas fa-phone-alt',
         ]);
 
         Contactinfo::create([
             'user_id' => $user->id,
             'title' => 'INQUIRIES',
-            'details' => 'info@kenilpatel.com <br>Mon to Fri (10 am – 8 pm)',
+            'details' =>  @$data['email'] ?? 'info@kenilpatel.com <br>Mon to Fri (10 am – 8 pm)',
             'icon' => 'fas fa-envelope',
         ]);
     }

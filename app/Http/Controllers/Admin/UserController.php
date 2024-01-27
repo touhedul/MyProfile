@@ -157,6 +157,12 @@ class UserController extends AppBaseController
 
         $user->update(['has_profile' => 1,'address' => $request->address]);
 
+        $user->contactinfos()->delete();
+
+        $data['phone'] = $user->phone;
+        $data['email'] = $user->email;
+        $data['address'] = $user->address;
+        (new UserService)->createContactinfo($user,$data);
         notify()->success(__("Successfully created your profile."), __("Success"));
         return redirect()->route('admin.dashboard');
     }

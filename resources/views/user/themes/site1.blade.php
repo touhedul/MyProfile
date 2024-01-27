@@ -685,9 +685,9 @@
                     <!-- Heading -->
                     <div class="row mb-5 wow fadeIn">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
-                            <h2 class="fw-600 mb-3">{{ $userInfo->additional_infos->where('key', 'contactinfo_text')->first()->value }}</h2>
+                            <h2 class="fw-600 mb-3"> {{ $userInfo->additional_infos->where('key', 'contactinfo_text')->first()->value }}</h2>
                             <hr class="heading-separator-line bg-primary opacity-10 mx-auto">
-                            <p class="text-4 text-muted">>{!! $userInfo->additional_infos->where('key', 'contactinfo_description')->first()->value !!}
+                            <p class="text-4 text-muted">{!! $userInfo->additional_infos->where('key', 'contactinfo_description')->first()->value !!}
                             </p>
                         </div>
                     </div>
