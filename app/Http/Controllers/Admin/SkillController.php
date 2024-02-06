@@ -41,8 +41,6 @@ class SkillController extends AppBaseController
         $this->authorize('Skill-create');
         $request['user_id'] = auth()->id();
         Skill::create($request->all());
-        //$imageName = FileHelper::uploadImage($request);
-        //Skill::create(array_merge($request->all(), ['image' => $imageName]));
         notify()->success(__("Successfully Created"), __("Success"));
         return redirect(route('admin.skills.index'));
     }
@@ -65,8 +63,6 @@ class SkillController extends AppBaseController
     public function update(Skill $skill, SkillUpdateRequest $request)
     {
         $this->authorize('Skill-update');
-        // $imageName = FileHelper::uploadImage($request, $skill);
-        // $skill->fill(array_merge($request->all(), ['image' => $imageName]))->save();
         $skill->fill($request->all())->save();
         notify()->success(__("Successfully Updated"), __("Success"));
         return redirect(route('admin.skills.index'));
@@ -76,7 +72,6 @@ class SkillController extends AppBaseController
     public function destroy(Skill $skill)
     {
         $this->authorize('Skill-delete');
-        //FileHelper::deleteImage($skill);
         $skill->delete();
     }
 

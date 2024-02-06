@@ -34,7 +34,7 @@ class NotificationDataTable extends DataTable
 
     public function query(Notification $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->where('user_id',auth()->id());
     }
 
     public function html()

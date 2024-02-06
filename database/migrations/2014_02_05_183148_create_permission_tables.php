@@ -298,6 +298,14 @@ class CreatePermissionTables extends Migration
                     'contact-view',
                 ]
             ],
+            [
+                'group_name' => 'notification',
+                'permissions' => [
+                    ['name' => 'Notification-view', 'route' => route('admin.notifications.index'), 'search_status' => 1],
+                    ['name' => 'Notification-delete', 'route' => NULL, 'search_status' => 0],
+                    ['name' => 'Notification-mark-read', 'route' => NULL, 'search_status' => 0],
+                ]
+            ],
 
 
         ];

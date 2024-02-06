@@ -22,7 +22,7 @@
                             <div class="form-group">
                                 <input type="text" class="form-control"
                                     value="{{ $skillInfo->where('key', 'skill_text')->first()->value }}" name="skill_text"
-                                    placeholder="My Services">
+                                    placeholder="My Skills">
                             </div>
                             <div class="form-group">
                                 <textarea name="skill_description" id="" cols="30" rows="10"
@@ -62,25 +62,4 @@
 
 @include('includes.ckeditor_push', ['name' => 'skill_description'])
 
-{{-- @section('script')
-<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script>
-    // CKEDITOR.replace( 'details' );
-        CKEDITOR.replace( 'skill_description', {
-            filebrowserUploadUrl: "{{route('ckeditor.image.upload', ['_token' => csrf_token()])}}",
-            filebrowserUploadMethod: 'form'
-        });
-</script>
-@endsection --}}
-
-{{-- @push('script')
-<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script>
-    // CKEDITOR.replace( 'details' );
-        CKEDITOR.replace( 'skill_description', {
-            filebrowserUploadUrl: "{{route('ckeditor.image.upload', ['_token' => csrf_token()])}}",
-            filebrowserUploadMethod: 'form'
-        });
-</script>
-@endpush --}}
 

@@ -130,6 +130,7 @@
                 </div>
                 @php
                     $notifications = App\Models\Notification::where('read_status', 0)
+                        ->where('user_id',auth()->id())
                         ->latest()
                         ->take(10)
                         ->get();
