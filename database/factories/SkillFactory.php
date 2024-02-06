@@ -23,9 +23,9 @@ class SkillFactory extends Factory
     {
         return [
             'title' => $this->faker->word,
-        'percentage' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'percentage' => rand(80, 100),
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

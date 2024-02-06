@@ -66,6 +66,17 @@ if (!function_exists('notification')) {
     }
 }
 
+
+if (!function_exists('checkUserAndAuthId')) {
+    function checkUserAndAuthId($model): void
+    {
+        if(auth()->id() != $model->user_id){
+            abort(403);
+        }
+    }
+}
+
+
 if (!function_exists('defaultImage')) {
     function defaultImage($type)
     {

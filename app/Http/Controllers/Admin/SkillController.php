@@ -22,10 +22,10 @@ class SkillController extends AppBaseController
     {
         $this->authorize('Skill-view');
         $icon = $this->icon;
-        $skillInfo = AdditionalInfo::where('user_id',auth()->id())->where(function($query){
-            $query->where('key','skill_text')->orWhere('key','skill_description')->orWhere('key','skill_image');
+        $skillInfo = AdditionalInfo::where('user_id', auth()->id())->where(function ($query) {
+            $query->where('key', 'skill_text')->orWhere('key', 'skill_description')->orWhere('key', 'skill_image');
         })->get();
-        return $skillDataTable->render('admin.skills.index',compact('icon','skillInfo'));
+        return $skillDataTable->render('admin.skills.index', compact('icon', 'skillInfo'));
     }
 
 
@@ -49,20 +49,23 @@ class SkillController extends AppBaseController
     public function show(Skill $skill)
     {
         $this->authorize('Skill-view');
-        return view('admin.skills.show',compact('skill'))->with('icon', $this->icon);
+        checkUserAndAuthId($skill);
+        return view('admin.skills.show', compact('skill'))->with('icon', $this->icon);
     }
 
 
     public function edit(Skill $skill)
     {
         $this->authorize('Skill-update');
-        return view('admin.skills.edit',compact('skill'))->with('icon', $this->icon);
+        checkUserAndAuthId($skill);
+        return view('admin.skills.edit', compact('skill'))->with('icon', $this->icon);
     }
 
 
     public function update(Skill $skill, SkillUpdateRequest $request)
     {
         $this->authorize('Skill-update');
+        checkUserAndAuthId($skill);
         $skill->fill($request->all())->save();
         notify()->success(__("Successfully Updated"), __("Success"));
         return redirect(route('admin.skills.index'));
@@ -72,6 +75,7 @@ class SkillController extends AppBaseController
     public function destroy(Skill $skill)
     {
         $this->authorize('Skill-delete');
+        checkUserAndAuthId($skill);
         $skill->delete();
     }
 
@@ -79,11 +83,11 @@ class SkillController extends AppBaseController
     public function saveText(SkillTextUpdate $request)
     {
         $this->authorize('Skill-update');
-        AdditionalInfo::where('user_id',auth()->id())->where('key','skill_text')->update(['value' => $request->skill_text]);
-        AdditionalInfo::where('user_id',auth()->id())->where('key','skill_description')->update(['value' => $request->skill_description]);
+        AdditionalInfo::where('user_id', auth()->id())->where('key', 'skill_text')->update(['value' => $request->skill_text]);
+        AdditionalInfo::where('user_id', auth()->id())->where('key', 'skill_description')->update(['value' => $request->skill_description]);
 
-        $additionalInfo = AdditionalInfo::where('user_id',auth()->id())->where('key','skill_image')->first();
-        $skill_image = $request->skill_image ? FileHelper::uploadImageByName($request,"skill_image",700,470) : $additionalInfo->skill_image;
+        $additionalInfo = AdditionalInfo::where('user_id', auth()->id())->where('key', 'skill_image')->first();
+        $skill_image = $request->skill_image ? FileHelper::uploadImageByName($request, "skill_image", 700, 470) : $additionalInfo->skill_image;
         $additionalInfo->update(['value' => $skill_image]);
 
         notify()->success(__("Successfully Updated"), __("Success"));
