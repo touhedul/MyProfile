@@ -26,9 +26,6 @@ class ServiceUpdateRequest extends FormRequest
     public function rules()
     {
         $rules = Service::$rules;
-        
-        // $rules = array_merge($rules,['image' => 'nullable|image|max:10000']);
-        // $rules = array_merge($rules,['file' => 'nullable|mimes:jpg,png,jpeg,gif,doc,docx,pdf,ppt,pptx,xls,xlsx|max:10000']);
         return $rules;
     }
 }

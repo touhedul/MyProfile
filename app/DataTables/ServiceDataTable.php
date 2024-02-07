@@ -29,19 +29,13 @@ class ServiceDataTable extends DataTable
                 $deactive = '<div class="mb-2 mr-2 badge badge-danger">'.__('Deactive').'</div>';
                 return $dataTable->status == 1 ? $active : $deactive;
             })
-            // ->addColumn('image', function ($dataTable) {
-            //     return "<img width='100px' height='80px' src='".asset('images/'.$dataTable->image)."'/>";
-            // })
-            // ->addColumn('file',function($dataTable){
-            //     return "<a download href='".asset('files/'. $dataTable->file)."'>Download</a>";
-            // })
             ->rawColumns(['description', 'action', 'icon', 'status']);
 
     }
 
     public function query(Service $model)
     {
-        return $model->newQuery()->where('user_id',auth()->id());
+        return $model->newQuery()->where('user_id',auth()->id())->latest();
     }
 
     public function html()

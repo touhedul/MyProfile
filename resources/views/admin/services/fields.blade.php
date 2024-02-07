@@ -73,6 +73,10 @@
 
     <script>
         $(document).ready(function() {
+
+            @if (isset($service) && $service->icon)
+                $("#iconInput").val("{{ $service->icon }}");
+            @endif
             $('.demo').iconpicker({
                 hideOnSelect: true,
                 @if (isset($service) && $service->icon)
@@ -85,5 +89,5 @@
             });
         })
     </script>
-    
+
 @endpush

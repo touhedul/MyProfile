@@ -25,7 +25,7 @@ class ServiceFactory extends Factory
             'title' => $this->faker->word,
         'description' => $this->faker->text,
         'icon' => $this->faker->word,
-        'status' => $this->faker->word,
+        'status' => rand(0,1),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

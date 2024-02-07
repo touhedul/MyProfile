@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DataTables\ServiceDataTable;
-use App\Http\Requests;
 use App\Http\Requests\ServiceCreateRequest;
 use App\Http\Requests\ServiceUpdateRequest;
 use App\Models\Service;
@@ -49,6 +48,7 @@ class ServiceController extends AppBaseController
     public function show(Service $service)
     {
         $this->authorize('Service-view');
+        checkUserAndAuthId($service);
         return view('admin.services.show',compact('service'))->with('icon', $this->icon);
     }
 
@@ -56,6 +56,7 @@ class ServiceController extends AppBaseController
     public function edit(Service $service)
     {
         $this->authorize('Service-update');
+        checkUserAndAuthId($service);
         return view('admin.services.edit',compact('service'))->with('icon', $this->icon);
     }
 
@@ -63,6 +64,7 @@ class ServiceController extends AppBaseController
     public function update(Service $service, ServiceUpdateRequest $request)
     {
         $this->authorize('Service-update');
+        checkUserAndAuthId($service);
         $status = $request->status ?? 0;
         $service->fill(array_merge($request->all(),['status' => $status]))->save();
         notify()->success(__("Successfully Updated"), __("Success"));
@@ -73,7 +75,7 @@ class ServiceController extends AppBaseController
     public function destroy(Service $service)
     {
         $this->authorize('Service-delete');
-        //FileHelper::deleteImage($service);
+        checkUserAndAuthId($service);
         $service->delete();
     }
 

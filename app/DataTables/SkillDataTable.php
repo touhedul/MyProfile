@@ -22,7 +22,7 @@ class SkillDataTable extends DataTable
 
     public function query(Skill $model)
     {
-        return $model->newQuery()->where('user_id',auth()->id());
+        return $model->newQuery()->where('user_id',auth()->id())->latest();
     }
 
     public function html()
