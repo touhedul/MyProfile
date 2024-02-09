@@ -32,7 +32,7 @@ class AchievementDataTable extends DataTable
 
     public function query(Achievement $model)
     {
-        return $model->newQuery()->where('user_id',auth()->id());
+        return $model->newQuery()->where('user_id',auth()->id())->latest();
     }
 
     public function html()

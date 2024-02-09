@@ -51,6 +51,7 @@ class ExperienceController extends AppBaseController
     public function show(Experience $experience)
     {
         $this->authorize('Experience-view');
+        checkUserAndAuthId($experience);
         return view('admin.experiences.show',compact('experience'))->with('icon', $this->icon);
     }
 
@@ -58,6 +59,7 @@ class ExperienceController extends AppBaseController
     public function edit(Experience $experience)
     {
         $this->authorize('Experience-update');
+        checkUserAndAuthId($experience);
         return view('admin.experiences.edit',compact('experience'))->with('icon', $this->icon);
     }
 
@@ -65,6 +67,7 @@ class ExperienceController extends AppBaseController
     public function update(Experience $experience, ExperienceUpdateRequest $request)
     {
         $this->authorize('Experience-update');
+        checkUserAndAuthId($experience);
 
         $status = $request->status ?? 0;
         $experience->fill(array_merge($request->all(),['status' => $status]))->save();
@@ -76,6 +79,7 @@ class ExperienceController extends AppBaseController
     public function destroy(Experience $experience)
     {
         $this->authorize('Experience-delete');
+        checkUserAndAuthId($experience);
         //FileHelper::deleteImage($experience);
         $experience->delete();
     }

@@ -43,7 +43,7 @@ class ProjectController extends AppBaseController
 
         $status = $request->status ?? 0;
         $request['user_id'] = auth()->id();
-        $imageName = FileHelper::uploadImage($request);
+        $imageName = FileHelper::uploadImage($request,null,[],800,600);
         Project::create(array_merge($request->all(), ['image' => $imageName,'status'=>$status]));
         notify()->success(__("Successfully Created"), __("Success"));
         return redirect(route('admin.projects.index'));
@@ -53,6 +53,7 @@ class ProjectController extends AppBaseController
     public function show(Project $project)
     {
         $this->authorize('Project-view');
+        checkUserAndAuthId($project);
         return view('admin.projects.show',compact('project'))->with('icon', $this->icon);
     }
 
@@ -60,6 +61,7 @@ class ProjectController extends AppBaseController
     public function edit(Project $project)
     {
         $this->authorize('Project-update');
+        checkUserAndAuthId($project);
         return view('admin.projects.edit',compact('project'))->with('icon', $this->icon);
     }
 
@@ -67,7 +69,8 @@ class ProjectController extends AppBaseController
     public function update(Project $project, ProjectUpdateRequest $request)
     {
         $this->authorize('Project-update');
-        $imageName = FileHelper::uploadImage($request, $project);
+        checkUserAndAuthId($project);
+        $imageName = FileHelper::uploadImage($request, $project,[],800,600);
         $status = $request->status ?? 0;
         $project->fill(array_merge($request->all(), ['image' => $imageName,'status' =>$status]))->save();
         notify()->success(__("Successfully Updated"), __("Success"));
@@ -78,6 +81,7 @@ class ProjectController extends AppBaseController
     public function destroy(Project $project)
     {
         $this->authorize('Project-delete');
+        checkUserAndAuthId($project);
         FileHelper::deleteImage($project);
         $project->delete();
     }

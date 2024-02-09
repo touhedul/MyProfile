@@ -51,6 +51,7 @@ class TestimonialController extends AppBaseController
     public function show(Testimonial $testimonial)
     {
         $this->authorize('Testimonial-view');
+        checkUserAndAuthId($testimonial);
         return view('admin.testimonials.show',compact('testimonial'))->with('icon', $this->icon);
     }
 
@@ -58,6 +59,7 @@ class TestimonialController extends AppBaseController
     public function edit(Testimonial $testimonial)
     {
         $this->authorize('Testimonial-update');
+        checkUserAndAuthId($testimonial);
         return view('admin.testimonials.edit',compact('testimonial'))->with('icon', $this->icon);
     }
 
@@ -65,6 +67,7 @@ class TestimonialController extends AppBaseController
     public function update(Testimonial $testimonial, TestimonialUpdateRequest $request)
     {
         $this->authorize('Testimonial-update');
+        checkUserAndAuthId($testimonial);
         $imageName = FileHelper::uploadImage($request, $testimonial,[],700,460);
         $status = $request->status ?? 0;
         $testimonial->fill(array_merge($request->all(), ['image' => $imageName,'status'=>$status]))->save();
@@ -76,6 +79,7 @@ class TestimonialController extends AppBaseController
     public function destroy(Testimonial $testimonial)
     {
         $this->authorize('Testimonial-delete');
+        checkUserAndAuthId($testimonial);
         //FileHelper::deleteImage($testimonial);
         $testimonial->delete();
     }

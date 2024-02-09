@@ -50,6 +50,7 @@ class CourseController extends AppBaseController
     public function show(Course $course)
     {
         $this->authorize('Course-view');
+        checkUserAndAuthId($course);
         return view('admin.courses.show',compact('course'))->with('icon', $this->icon);
     }
 
@@ -57,6 +58,7 @@ class CourseController extends AppBaseController
     public function edit(Course $course)
     {
         $this->authorize('Course-update');
+        checkUserAndAuthId($course);
         return view('admin.courses.edit',compact('course'))->with('icon', $this->icon);
     }
 
@@ -64,6 +66,7 @@ class CourseController extends AppBaseController
     public function update(Course $course, CourseUpdateRequest $request)
     {
         $this->authorize('Course-update');
+        checkUserAndAuthId($course);
         $status = $request->status ?? 0;
         $course->fill(array_merge($request->all(),['status' => $status]))->save();
         notify()->success(__("Successfully Updated"), __("Success"));
@@ -74,7 +77,7 @@ class CourseController extends AppBaseController
     public function destroy(Course $course)
     {
         $this->authorize('Course-delete');
-        //FileHelper::deleteImage($course);
+        checkUserAndAuthId($course);
         $course->delete();
     }
 

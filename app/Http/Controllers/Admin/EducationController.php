@@ -51,6 +51,7 @@ class EducationController extends AppBaseController
     public function show(Education $education)
     {
         $this->authorize('Education-view');
+        checkUserAndAuthId($education);
         return view('admin.education.show',compact('education'))->with('icon', $this->icon);
     }
 
@@ -58,6 +59,7 @@ class EducationController extends AppBaseController
     public function edit(Education $education)
     {
         $this->authorize('Education-update');
+        checkUserAndAuthId($education);
         return view('admin.education.edit',compact('education'))->with('icon', $this->icon);
     }
 
@@ -65,6 +67,7 @@ class EducationController extends AppBaseController
     public function update(Education $education, EducationUpdateRequest $request)
     {
         $this->authorize('Education-update');
+        checkUserAndAuthId($education);
         $status = $request->status ?? 0;
         $education->fill(array_merge($request->all(),['status' => $status]))->save();
         notify()->success(__("Successfully Updated"), __("Success"));
@@ -75,7 +78,7 @@ class EducationController extends AppBaseController
     public function destroy(Education $education)
     {
         $this->authorize('Education-delete');
-        //FileHelper::deleteImage($education);
+        checkUserAndAuthId($education);
         $education->delete();
     }
 

@@ -45,6 +45,7 @@ class ClientController extends AppBaseController
     public function show(Client $client)
     {
         $this->authorize('Client-view');
+        checkUserAndAuthId($client);
         return view('admin.clients.show',compact('client'))->with('icon', $this->icon);
     }
 
@@ -52,6 +53,7 @@ class ClientController extends AppBaseController
     public function edit(Client $client)
     {
         $this->authorize('Client-update');
+        checkUserAndAuthId($client);
         return view('admin.clients.edit',compact('client'))->with('icon', $this->icon);
     }
 
@@ -59,6 +61,7 @@ class ClientController extends AppBaseController
     public function update(Client $client, ClientUpdateRequest $request)
     {
         $this->authorize('Client-update');
+        checkUserAndAuthId($client);
         $imageName = FileHelper::uploadImage($request, $client,[],200,150);
         $status = $request->status ?? 0;
         $client->fill(array_merge($request->all(), ['image' => $imageName,'status'=>$status]))->save();
@@ -70,6 +73,7 @@ class ClientController extends AppBaseController
     public function destroy(Client $client)
     {
         $this->authorize('Client-delete');
+        checkUserAndAuthId($client);
         FileHelper::deleteImage($client);
         $client->delete();
     }

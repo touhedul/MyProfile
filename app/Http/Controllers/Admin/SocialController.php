@@ -50,6 +50,7 @@ class SocialController extends AppBaseController
     public function show(Social $social)
     {
         $this->authorize('Social-view');
+        checkUserAndAuthId($social);
         return view('admin.socials.show',compact('social'))->with('icon', $this->icon);
     }
 
@@ -57,6 +58,7 @@ class SocialController extends AppBaseController
     public function edit(Social $social)
     {
         $this->authorize('Social-update');
+        checkUserAndAuthId($social);
         return view('admin.socials.edit',compact('social'))->with('icon', $this->icon);
     }
 
@@ -64,6 +66,7 @@ class SocialController extends AppBaseController
     public function update(Social $social, SocialUpdateRequest $request)
     {
         $this->authorize('Social-update');
+        checkUserAndAuthId($social);
 
         $status = $request->status ?? 0;
         $social->fill(array_merge($request->all(),['status' => $status]))->save();
@@ -75,6 +78,7 @@ class SocialController extends AppBaseController
     public function destroy(Social $social)
     {
         $this->authorize('Social-delete');
+        checkUserAndAuthId($social);
         //FileHelper::deleteImage($social);
         $social->delete();
     }

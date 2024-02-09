@@ -50,6 +50,7 @@ class ContactinfoController extends AppBaseController
     public function show(Contactinfo $contactinfo)
     {
         $this->authorize('Contactinfo-view');
+        checkUserAndAuthId($contactinfo);
         return view('admin.contactinfos.show',compact('contactinfo'))->with('icon', $this->icon);
     }
 
@@ -57,6 +58,7 @@ class ContactinfoController extends AppBaseController
     public function edit(Contactinfo $contactinfo)
     {
         $this->authorize('Contactinfo-update');
+        checkUserAndAuthId($contactinfo);
         return view('admin.contactinfos.edit',compact('contactinfo'))->with('icon', $this->icon);
     }
 
@@ -64,6 +66,7 @@ class ContactinfoController extends AppBaseController
     public function update(Contactinfo $contactinfo, ContactinfoUpdateRequest $request)
     {
         $this->authorize('Contactinfo-update');
+        checkUserAndAuthId($contactinfo);
         $status = $request->status ?? 0;
         $contactinfo->fill(array_merge($request->all(),['status' => $status]))->save();
         notify()->success(__("Successfully Updated"), __("Success"));
@@ -74,7 +77,7 @@ class ContactinfoController extends AppBaseController
     public function destroy(Contactinfo $contactinfo)
     {
         $this->authorize('Contactinfo-delete');
-        //FileHelper::deleteImage($contactinfo);
+        checkUserAndAuthId($contactinfo);
         $contactinfo->delete();
     }
 

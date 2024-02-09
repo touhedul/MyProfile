@@ -22,10 +22,10 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word,
+        'title' => $this->faker->word,
         'details' => $this->faker->text,
         'image' => $this->faker->word,
-        'status' => $this->faker->word,
+        'status' => rand(0,1),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
