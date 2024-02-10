@@ -47,7 +47,7 @@
                             </div>
                         </div>
 
-                        {{-- <br>
+                        <br>
 
                         <div class="card">
                             <div class="card-header">
@@ -59,7 +59,7 @@
                                     value="{{ $userColorSection->color }}" class="form-control  col-md-6">
                                 <br>
                             </div>
-                        </div> --}}
+                        </div>
                         <br>
                         <div class="card">
                             <div class="card-header">

@@ -57,12 +57,10 @@ class Experience extends Model
      * @var array
      */
     public static $rules = [
-        'company' => 'required|string|max:191',
-        'role' => 'nullable|string|max:191',
+        'company' => 'required|string|max:190',
+        'role' => 'nullable|string|max:190',
         'details' => 'nullable|string|max:65530',
-        'duration' => 'nullable|string|max:191',
+        'duration' => 'nullable|string|max:190',
         'year' => 'nullable|numeric'
     ];
-
-
 }

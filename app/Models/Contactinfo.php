@@ -53,10 +53,8 @@ class Contactinfo extends Model
      * @var array
      */
     public static $rules = [
-        'title' => 'required|string|max:191',
+        'title' => 'required|string|max:190',
         'details' => 'nullable|string|max:65530',
-        'icon' => 'nullable|string|max:191'
+        'icon' => 'nullable|string|max:190'
     ];
-
-
 }

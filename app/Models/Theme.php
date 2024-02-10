@@ -24,7 +24,7 @@ class Theme extends Model
 
 
     public $fillable = [
-        'name','default_status'
+        'name', 'default_status'
     ];
 
     /**
@@ -43,8 +43,6 @@ class Theme extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191'
+        'name' => 'required|string|max:190'
     ];
-
-
 }

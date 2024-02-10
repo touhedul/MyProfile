@@ -23,7 +23,7 @@ class Notification extends Model
     use HasFactory;
 
     public $table = 'notifications';
-    
+
 
 
 
@@ -55,10 +55,8 @@ class Notification extends Model
      * @var array
      */
     public static $rules = [
-        'title' => 'required|string|max:191',
+        'title' => 'required|string|max:190',
         'description' => 'nullable',
         'link' => 'nullable'
     ];
-
-    
 }

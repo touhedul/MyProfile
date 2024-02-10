@@ -19,7 +19,7 @@ use Spatie\Activitylog\LogOptions;
 class Setting extends Model
 {
 
-    use HasFactory,LogsActivity;
+    use HasFactory, LogsActivity;
 
     public $table = 'settings';
 
@@ -48,8 +48,8 @@ class Setting extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191',
-        'value' => 'nullable|string|max:191'
+        'name' => 'required|string|max:190',
+        'value' => 'nullable|string|max:190'
     ];
 
 
@@ -57,6 +57,4 @@ class Setting extends Model
     {
         return LogOptions::defaults();
     }
-    
-
 }

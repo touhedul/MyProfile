@@ -24,7 +24,7 @@ class EducationTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'education_text' => 'nullable|string|max:191',
+            'education_text' => 'nullable|string|max:190',
             'education_description' => 'nullable|string|max:65530',
         ];
     }

@@ -19,7 +19,7 @@ class SkillList extends Model
     use HasFactory;
 
     public $table = 'skill_lists';
-    
+
 
 
 
@@ -43,8 +43,6 @@ class SkillList extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191'
+        'name' => 'required|string|max:190'
     ];
-
-    
 }

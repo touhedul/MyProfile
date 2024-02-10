@@ -42,7 +42,7 @@ use Spatie\Activitylog\LogOptions;
  */
 class Admin extends Authenticatable
 {
-    use Notifiable, HasFactory,LogsActivity;
+    use Notifiable, HasFactory, LogsActivity;
 
     public $table = 'admins';
 
@@ -76,8 +76,8 @@ class Admin extends Authenticatable
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191',
-        'password' => 'required|string|max:191|min:8'
+        'name' => 'required|string|max:190',
+        'password' => 'required|string|max:190|min:8'
     ];
 
     // override for sending the reset password using queue
@@ -90,6 +90,4 @@ class Admin extends Authenticatable
     {
         return LogOptions::defaults();
     }
-    
-
 }

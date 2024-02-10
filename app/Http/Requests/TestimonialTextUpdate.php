@@ -24,7 +24,7 @@ class TestimonialTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'testimonial_text' => 'nullable|string|max:191',
+            'testimonial_text' => 'nullable|string|max:190',
             'testimonial_description' => 'nullable|string|max:65530',
         ];
     }

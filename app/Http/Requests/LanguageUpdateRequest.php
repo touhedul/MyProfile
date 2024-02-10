@@ -27,7 +27,7 @@ class LanguageUpdateRequest extends FormRequest
     {
         $rules =  Language::$rules;
         $rules = array_merge($rules, [
-            'code' => 'required|string|max:191|alpha_dash|unique:languages,code,' . $this->language->id
+            'code' => 'required|string|max:190|alpha_dash|unique:languages,code,' . $this->language->id
         ]);
         return $rules;
     }

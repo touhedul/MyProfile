@@ -24,7 +24,7 @@ class ExperienceTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'experience_text' => 'nullable|string|max:191',
+            'experience_text' => 'nullable|string|max:190',
             'experience_description' => 'nullable|string|max:65530',
         ];
     }

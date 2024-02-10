@@ -24,7 +24,7 @@ class ContactInfoTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'contact_info_text' => 'nullable|string|max:191',
+            'contact_info_text' => 'nullable|string|max:190',
             'contact_info_description' => 'nullable|string|max:65530',
 
         ];

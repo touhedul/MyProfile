@@ -23,10 +23,10 @@ class ContactFeedbackController extends Controller
     {
 
         $this->validate($request, [
-            'name' => 'required|string|max:191',
+            'name' => 'required|string|max:190',
             'user_id' => 'required|integer',
-            'email' => 'required|string|email|max:191',
-            'phone' => 'nullable|string|max:191',
+            'email' => 'required|string|email|max:190',
+            'phone' => 'nullable|string|max:190',
             'message' => 'nullable|string|max:65500',
             'feedback' => 'nullable|integer'
         ]);
@@ -39,9 +39,9 @@ class ContactFeedbackController extends Controller
         $feedback->feedback = $request->feedback;
         $feedback->save();
         notification([
-            'title'=>'New contact.',
+            'title' => 'New contact.',
             'user_id' => $request->user_id,
-            'description' => $feedback->name. ' send a contact request',
+            'description' => $feedback->name . ' send a contact request',
             'link' => route('admin.contacts')
         ]);
 

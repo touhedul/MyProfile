@@ -44,8 +44,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this ->redirectTo = config('admin.admin_route_prefix')."/".config('admin.admin_dashboard');
-        $this->middleware(['guest','blockIp']);
+        $this->redirectTo = config('admin.admin_route_prefix') . "/" . config('admin.admin_dashboard');
+        $this->middleware(['guest', 'blockIp']);
     }
 
     /**
@@ -62,7 +62,7 @@ class RegisterController extends Controller
             // 'phone' => ['required', 'string','max:11','starts_with:01'],
             'phone' => ['required', 'string', 'max:20'],
             'address' => ['nullable', 'string', 'max:50'],
-            // 'profession' => ['required', 'string', 'max:191'],
+            // 'profession' => ['required', 'string', 'max:190'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'image' => ['nullable', 'image', 'max:10000'],
         ]);

@@ -49,13 +49,13 @@ class Profession extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191',
+        'name' => 'required|string|max:190',
         'profession_category_id' => 'required|integer'
     ];
 
     public function category()
     {
-        return $this->belongsTo(ProfessionCategory::class,'profession_category_id');
+        return $this->belongsTo(ProfessionCategory::class, 'profession_category_id');
     }
 
     public function menus()
@@ -65,8 +65,6 @@ class Profession extends Model
 
     public function scopeActive()
     {
-        return $this->where('status',1);
+        return $this->where('status', 1);
     }
-
-
 }

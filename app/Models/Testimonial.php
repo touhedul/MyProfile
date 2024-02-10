@@ -56,11 +56,9 @@ class Testimonial extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191',
-        'designation' => 'nullable|string|max:191',
+        'name' => 'required|string|max:190',
+        'designation' => 'nullable|string|max:190',
         'message' => 'required|string|max:65530',
-        'image' => 'nullable|image|max:191'
+        'image' => 'nullable|image|max:190'
     ];
-
-
 }

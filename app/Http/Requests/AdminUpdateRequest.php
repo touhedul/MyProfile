@@ -30,7 +30,7 @@ class AdminUpdateRequest extends FormRequest
 
         $rules = array_merge($rules, [
             'email' => 'required|unique:users,email,' . $this->admin,
-            'password' => 'nullable|string|min:8|max:191',
+            'password' => 'nullable|string|min:8|max:190',
         ]);
         // $rules = array_merge($rules,['file' => 'nullable|mimes:jpg,png,jpeg,gif,doc,docx,pdf,ppt,pptx,xls,xlsx|max:10000']);
         return $rules;

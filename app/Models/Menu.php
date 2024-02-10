@@ -25,7 +25,7 @@ class Menu extends Model
 
 
     public $fillable = [
-        'name','status','background_color'
+        'name', 'status', 'background_color'
     ];
 
     /**
@@ -44,8 +44,6 @@ class Menu extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191'
+        'name' => 'required|string|max:190'
     ];
-
-
 }

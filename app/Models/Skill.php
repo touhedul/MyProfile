@@ -46,9 +46,7 @@ class Skill extends Model
      * @var array
      */
     public static $rules = [
-        'title' => 'required|string|max:191',
+        'title' => 'required|string|max:190',
         'percentage' => 'required|numeric|min:0|max:100'
     ];
-
-
 }

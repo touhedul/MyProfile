@@ -24,7 +24,7 @@ class AchAchievementTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'achievement_text' => 'nullable|string|max:191',
+            'achievement_text' => 'nullable|string|max:190',
             'achievement_description' => 'nullable|string|max:65530',
         ];
     }

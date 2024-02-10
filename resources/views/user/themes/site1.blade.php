@@ -355,7 +355,8 @@
 
             <!-- Color Section Start -->
             @if ($userInfo->color_section->show_status)
-                <section class="section text-center" style="background-color: var(--theme-color)">
+
+                <section class="section text-center" style="background-color: {{ $userInfo->color_section->color }}">
                     <div class="container wow bounceIn">
                         <p class="lead text-white">{{ $userInfo->color_section->text_1 }}</p>
                         <h2 class="text-10 text-white mb-4">{{ $userInfo->color_section->text_2 }}</h2>

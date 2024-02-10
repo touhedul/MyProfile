@@ -50,9 +50,7 @@ class Education extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191',
+        'name' => 'required|string|max:190',
         'details' => 'nullable|string|max:65530'
     ];
-
-
 }

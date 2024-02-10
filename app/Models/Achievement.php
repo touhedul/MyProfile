@@ -53,10 +53,8 @@ class Achievement extends Model
      * @var array
      */
     public static $rules = [
-        'title' => 'required|string|max:191',
+        'title' => 'required|string|max:190',
         'details' => 'nullable|string|max:65530',
         'image' => 'nullable|image|max:5000'
     ];
-
-
 }

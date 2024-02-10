@@ -24,7 +24,7 @@ class ServiceTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'service_text' => 'nullable|string|max:191',
+            'service_text' => 'nullable|string|max:190',
             'service_description' => 'nullable|string|max:65530',
 
         ];

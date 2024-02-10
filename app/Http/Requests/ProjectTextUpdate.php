@@ -24,7 +24,7 @@ class ProjectTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'project_text' => 'nullable|string|max:191',
+            'project_text' => 'nullable|string|max:190',
             'project_description' => 'nullable|string|max:65530',
         ];
     }

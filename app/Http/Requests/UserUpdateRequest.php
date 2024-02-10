@@ -30,7 +30,7 @@ class UserUpdateRequest extends FormRequest
         $rules = array_merge($rules, [
             'image' => 'nullable|image|max:10000',
             'email' => 'email|unique:users,email,' . $this->user,
-            'password' => 'nullable|string|min:8|max:191',
+            'password' => 'nullable|string|min:8|max:190',
         ]);
         // $rules = array_merge($rules,['file' => 'nullable|mimes:jpg,png,jpeg,gif,doc,docx,pdf,ppt,pptx,xls,xlsx|max:10000']);
         return $rules;

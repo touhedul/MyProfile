@@ -27,8 +27,8 @@ class UserCreateRequest extends FormRequest
     {
         $rules =  User::$rules;
         $rules = array_merge($rules, [
-            'email' => 'required|email|max:191|unique:users',
-            'password' => 'required|string|min:8|max:191',
+            'email' => 'required|email|max:190|unique:users',
+            'password' => 'required|string|min:8|max:190',
         ]);
         return $rules;
     }

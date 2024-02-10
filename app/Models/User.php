@@ -95,9 +95,9 @@ class User extends Authenticatable //implements MustVerifyEmail
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191',
-        'phone' => 'nullable|string|max:191',
-        'address' => 'nullable|string|max:191',
+        'name' => 'required|string|max:190',
+        'phone' => 'nullable|string|max:190',
+        'address' => 'nullable|string|max:190',
         'image' => 'nullable|image||max:10000',
     ];
 

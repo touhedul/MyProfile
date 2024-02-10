@@ -19,7 +19,7 @@ class ProfessionCategory extends Model
     use HasFactory;
 
     public $table = 'profession_categories';
-    
+
 
 
 
@@ -43,8 +43,6 @@ class ProfessionCategory extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:191'
+        'name' => 'required|string|max:190'
     ];
-
-    
 }

@@ -69,6 +69,14 @@
 </li>
 @endcan
 
+@can('Color-section-management')
+<li class="">
+    <a href="{{route('admin.colorSectionManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/color-section-management**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-paint"></i>
+        {{ __('Color Section') }}
+    </a>
+</li>
+@endcan
 
 @can('Project-view')
 <li class="">
@@ -79,14 +87,6 @@
 </li>
 @endcan
 
-@can('Color-section-management')
-<li class="">
-    <a href="{{route('admin.colorSectionManagement.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/color-section-management**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-paint"></i>
-        {{ __('Color Section') }}
-    </a>
-</li>
-@endcan
 @can('Course-view')
 <li class="">
     <a href="{{route('admin.courses.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/courses**') ? 'mm-active' : '' }}">

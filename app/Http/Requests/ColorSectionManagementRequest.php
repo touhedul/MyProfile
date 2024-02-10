@@ -24,9 +24,9 @@ class ColorSectionManagementRequest extends FormRequest
     public function rules()
     {
         return [
-            'text_1' => "nullable|string|max:191",
-            'text_2' => "nullable|string|max:191",
-            'button_text' => "nullable|string|max:191",
+            'text_1' => "nullable|string|max:190",
+            'text_2' => "nullable|string|max:190",
+            'button_text' => "nullable|string|max:190",
         ];
     }
 }

@@ -24,7 +24,7 @@ class SkillTextUpdate extends FormRequest
     public function rules()
     {
         return [
-            'skill_text' => 'nullable|string|max:191',
+            'skill_text' => 'nullable|string|max:190',
             'skill_description' => 'nullable|string|max:65530',
             'skill_image' => 'nullable|image|max:5000',
         ];
