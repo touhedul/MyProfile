@@ -22,7 +22,7 @@ class ExperienceFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word,
+        'company' => $this->faker->word,
         'role' => $this->faker->word,
         'details' => $this->faker->text,
         'duration' => $this->faker->word,

@@ -21,12 +21,6 @@ class ExperienceDataTable extends DataTable
             ->addColumn('details',function($dataTable){
                 return Str::limit($dataTable->details,50);
             })
-            // ->addColumn('image', function ($dataTable) {
-            //     return "<img width='100px' height='80px' src='".asset('images/'.$dataTable->image)."'/>";
-            // })
-            // ->addColumn('file',function($dataTable){
-            //     return "<a download href='".asset('files/'. $dataTable->file)."'>Download</a>";
-            // })
             ->addColumn('status', 'includes.status_show')
             ->rawColumns(['details', 'action', 'image', 'status']);
     }
@@ -55,7 +49,8 @@ class ExperienceDataTable extends DataTable
             'role',
             'details',
             'duration',
-            'year'
+            'year',
+            'status'
         ];
     }
 

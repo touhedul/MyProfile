@@ -23,7 +23,7 @@ class ServiceTest extends TestCase
     }
 
 
-    public function test_customer_can_update_skill_texts()
+    public function test_customer_can_update_service_texts()
     {
         $data = ['service_text' => 'Dummy Text', 'service_description' => 'Dummy description'];
         $this->actingAs($this->customer)->post(route('admin.services.saveText'), $data);

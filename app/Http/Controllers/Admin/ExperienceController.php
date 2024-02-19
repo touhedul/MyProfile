@@ -41,8 +41,6 @@ class ExperienceController extends AppBaseController
         $status = $request->status ?? 0;
         $request['user_id'] = auth()->id();
         Experience::create(array_merge($request->all(),['status'=>$status]));
-        //$imageName = FileHelper::uploadImage($request);
-        //Experience::create(array_merge($request->all(), ['image' => $imageName]));
         notify()->success(__("Successfully Created"), __("Success"));
         return redirect(route('admin.experiences.index'));
     }

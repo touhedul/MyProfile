@@ -15,7 +15,7 @@
 <!-- Details Field -->
 <div class="form-group">
     <b>{!! Form::label('details',  __('Details')) !!}</b>
-    <p>{{ $experience->details }}</p>
+    <p>{!! $experience->details !!}</p>
 </div>
 
 
