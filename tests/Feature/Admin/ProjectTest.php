@@ -34,7 +34,7 @@ class ProjectTest extends TestCase
 
 
 
-    public function test_admin_can_visit_project_list_page()
+    public function test_customer_can_visit_project_list_page()
     {
         $response = $this->actingAs($this->customer)->get(route('admin.projects.index'));
 
@@ -42,7 +42,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_admin_can_visit_project_create_page()
+    public function test_customer_can_visit_project_create_page()
     {
         $response = $this->actingAs($this->customer)->get(route('admin.projects.create'));
 
@@ -50,7 +50,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_admin_can_store_project()
+    public function test_customer_can_store_project()
     {
         $projectData = $this->projectData();
 
@@ -62,7 +62,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_admin_can_visit_project_show_page()
+    public function test_customer_can_visit_project_show_page()
     {
         $project = $this->projectCreate();
 
@@ -73,7 +73,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_admin_can_visit_project_edit_page()
+    public function test_customer_can_visit_project_edit_page()
     {
         $project = $this->projectCreate();
 
@@ -84,7 +84,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_admin_can_update_project()
+    public function test_customer_can_update_project()
     {
         $projectData = $this->projectData();
         $project = $this->projectCreate();
@@ -97,7 +97,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_admin_can_delete_project()
+    public function test_customer_can_delete_project()
     {
         $project = $this->projectCreate();
 
@@ -110,7 +110,7 @@ class ProjectTest extends TestCase
 
     // No permission admin
 
-    public function test_no_permission_admin_cannot_access_project_list_page()
+    public function test_no_permission_customer_cannot_access_project_list_page()
     {
         $response = $this->actingAs($this->noPermissionAdmin)->get(route('admin.projects.index'));
 
@@ -118,7 +118,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_no_permission_admin_cannot_access_project_create_page()
+    public function test_no_permission_customer_cannot_access_project_create_page()
     {
         $response = $this->actingAs($this->noPermissionAdmin)->get(route('admin.projects.create'));
 
@@ -126,7 +126,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_no_permission_admin_cannot_access_project_edit_page()
+    public function test_no_permission_customer_cannot_access_project_edit_page()
     {
         $project = $this->projectCreate();
 
@@ -136,7 +136,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_no_permission_admin_cannot_access_project_show_page()
+    public function test_no_permission_customer_cannot_access_project_show_page()
     {
         $project = $this->projectCreate();
 
@@ -146,7 +146,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_no_permission_admin_cannot_store_project()
+    public function test_no_permission_customer_cannot_store_project()
     {
         $projectData = $this->projectData();
 
@@ -156,7 +156,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_no_permission_admin_cannot_update_project()
+    public function test_no_permission_customer_cannot_update_project()
     {
         $projectData = $this->projectData();
         $project = $this->projectCreate();
@@ -167,7 +167,7 @@ class ProjectTest extends TestCase
     }
 
 
-    public function test_no_permission_admin_cannot_delete_project()
+    public function test_no_permission_customer_cannot_delete_project()
     {
         $project = $this->projectCreate();
 

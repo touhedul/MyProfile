@@ -24,6 +24,7 @@ class CourseFactory extends Factory
         return [
         'title' => $this->faker->word,
         'details' => $this->faker->text,
+        'status' => rand(0,1),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

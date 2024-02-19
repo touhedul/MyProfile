@@ -35,7 +35,7 @@ class ServiceDataTable extends DataTable
 
     public function query(Service $model)
     {
-        return $model->newQuery()->where('user_id',auth()->id())->latest();
+        return $model->newQuery()->where('user_id',auth()->id());
     }
 
     public function html()

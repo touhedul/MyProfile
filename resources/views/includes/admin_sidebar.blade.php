@@ -96,20 +96,20 @@
 </li>
 @endcan
 
-@can('Experience-view')
-<li class="">
-    <a href="{{route('admin.experiences.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/experiences**') ? 'mm-active' : '' }}">
-        <i class="metismenu-icon pe-7s-global"></i>
-        {{ __('Experiences') }}
-    </a>
-</li>
-@endcan
-
 @can('Achievement-view')
 <li class="">
     <a href="{{route('admin.achievements.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/achievements**') ? 'mm-active' : '' }}">
         <i class="metismenu-icon pe-7s-medal"></i>
         {{ __('Achievements') }}
+    </a>
+</li>
+@endcan
+
+@can('Experience-view')
+<li class="">
+    <a href="{{route('admin.experiences.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/experiences**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-global"></i>
+        {{ __('Experiences') }}
     </a>
 </li>
 @endcan

@@ -41,7 +41,7 @@ class AchievementController extends AppBaseController
         $this->authorize('Achievement-create');
 
         $status = $request->status ?? 0;
-        $imageName = FileHelper::uploadImage($request,null,[],700,460);
+        $imageName = FileHelper::uploadImage($request,null,[],500,600);
         Achievement::create(array_merge($request->all(),['status'=>$status,'image' => $imageName,'user_id'=>auth()->id()]));
         notify()->success(__("Successfully Created"), __("Success"));
         return redirect(route('admin.achievements.index'));
@@ -51,6 +51,7 @@ class AchievementController extends AppBaseController
     public function show(Achievement $achievement)
     {
         $this->authorize('Achievement-view');
+        checkUserAndAuthId($achievement);
         return view('admin.achievements.show',compact('achievement'))->with('icon', $this->icon);
     }
 
@@ -58,6 +59,7 @@ class AchievementController extends AppBaseController
     public function edit(Achievement $achievement)
     {
         $this->authorize('Achievement-update');
+        checkUserAndAuthId($achievement);
         return view('admin.achievements.edit',compact('achievement'))->with('icon', $this->icon);
     }
 
@@ -65,7 +67,8 @@ class AchievementController extends AppBaseController
     public function update(Achievement $achievement, AchievementUpdateRequest $request)
     {
         $this->authorize('Achievement-update');
-        $imageName = FileHelper::uploadImage($request, $achievement,[],700,460);
+        checkUserAndAuthId($achievement);
+        $imageName = FileHelper::uploadImage($request, $achievement,[],500,600);
         $status = $request->status ?? 0;
         $achievement->fill(array_merge($request->all(), ['image' => $imageName,'status'=>$status]))->save();
         notify()->success(__("Successfully Updated"), __("Success"));
@@ -76,6 +79,7 @@ class AchievementController extends AppBaseController
     public function destroy(Achievement $achievement)
     {
         $this->authorize('Achievement-delete');
+        checkUserAndAuthId($achievement);
         FileHelper::deleteImage($achievement);
         $achievement->delete();
     }
