@@ -22,9 +22,9 @@ class EducationFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word,
+        'name' => $this->faker->word,
         'details' => $this->faker->text,
-        'status' => $this->faker->word,
+        'status' => rand(0,1),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

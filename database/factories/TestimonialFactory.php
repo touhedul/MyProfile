@@ -23,12 +23,12 @@ class TestimonialFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-        'designation' => $this->faker->word,
-        'message' => $this->faker->text,
-        'image' => $this->faker->word,
-        'status' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'designation' => $this->faker->word,
+            'message' => $this->faker->text,
+            'image' => $this->faker->word,
+            'status' => rand(0,1),
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

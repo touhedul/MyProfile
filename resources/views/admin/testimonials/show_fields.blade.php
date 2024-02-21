@@ -20,13 +20,13 @@
 
 
 <!-- Image Field -->
-<div class="form-group">
+{{-- <div class="form-group">
     <b>{!! Form::label('image',  __('Image')) !!}</b>
     @php
         $image = $testimonial->image ? asset('images/'.$testimonial->image) : defaultImage('no_image') ;
     @endphp
     <p><img height="200px" width="auto" src="{{$image}}" alt=""></p>
-</div>
+</div> --}}
 
 
 

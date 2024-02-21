@@ -20,7 +20,7 @@
 
 
 <!-- Image Field -->
-@isset($testimonial)
+{{-- @isset($testimonial)
 @php
 $image = $testimonial->image ? asset('images/'.$testimonial->image) : defaultImage('no_image') ;
 @endphp
@@ -31,7 +31,7 @@ $image = $testimonial->image ? asset('images/'.$testimonial->image) : defaultIma
     {!! Form::label('image',  __('Image')) !!} (65 X 65)
     {!! Form::file('image',['class' => 'form-control dropify']) !!}
 </div>
-<div class="clearfix"></div>
+<div class="clearfix"></div> --}}
 
 
 <!-- Status Field -->

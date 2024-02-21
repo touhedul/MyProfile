@@ -80,7 +80,7 @@ class TestimonialController extends AppBaseController
     {
         $this->authorize('Testimonial-delete');
         checkUserAndAuthId($testimonial);
-        //FileHelper::deleteImage($testimonial);
+        FileHelper::deleteImage($testimonial);
         $testimonial->delete();
     }
 

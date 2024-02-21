@@ -59,6 +59,6 @@ class Testimonial extends Model
         'name' => 'required|string|max:190',
         'designation' => 'nullable|string|max:190',
         'message' => 'required|string|max:65530',
-        'image' => 'nullable|image|max:190'
+        // 'image' => 'nullable|image|max:5000'
     ];
 }

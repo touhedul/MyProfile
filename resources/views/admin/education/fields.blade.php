@@ -8,7 +8,7 @@
 <!-- Details Field -->
 <div class="form-group">
     {!! Form::label('details',  __('Details')) !!}
-    {!! Form::textarea('details', null, ['class' => 'form-control','required','maxlength' => 65530]) !!}
+    {!! Form::textarea('details', null, ['class' => 'form-control','maxlength' => 65530]) !!}
 </div>
 
 
