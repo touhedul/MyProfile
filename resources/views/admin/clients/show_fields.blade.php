@@ -1,7 +1,10 @@
 <!-- Image Field -->
 <div class="form-group">
     <b>{!! Form::label('image',  __('Image')) !!}</b>
-    <p><img height="200px" width="auto" src="{{$client->image}}" alt=""></p>
+    @php
+         $image = $client->image ? asset('images/'.$client->image) : defaultImage('client_image');
+    @endphp
+    <p><img height="150px" width="auto" src="{{$image}}" alt=""></p>
 </div>
 
 

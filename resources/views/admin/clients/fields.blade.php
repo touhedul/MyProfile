@@ -7,6 +7,7 @@
     {!! Form::label('image',  __('Image')) !!}
     {!! Form::file('image',['class' => 'form-control dropify']) !!}
 </div>
+(200 X 150)
 <div class="clearfix"></div>
 
 <!-- Status Field -->
