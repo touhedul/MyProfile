@@ -39,7 +39,6 @@
 </div>
 
 
-
 <!-- Status Field -->
 @include('includes.status_field',['variable' => @$contactinfo])
 
@@ -67,6 +66,9 @@
     <script>
         $(document).ready(function() {
 
+            @if (isset($contactinfo) && $contactinfo->icon)
+                $("#iconInput").val("{{ $contactinfo->icon }}");
+            @endif
             $('.demo').iconpicker({
                 hideOnSelect: true,
                 @if (isset($contactinfo) && $contactinfo->icon)
