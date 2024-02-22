@@ -703,14 +703,14 @@
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <input name="name" type="text" class="form-control border-2" required
-                                            placeholder="Your Name">
+                                            placeholder="Your Name" maxlength="190">
                                     </div>
                                     <div class="col-md-6">
                                         <input name="email" type="email" class="form-control border-2" required
-                                            placeholder="Your Email">
+                                            placeholder="Your Email" maxlength="190">
                                     </div>
                                     <div class="col-md-12">
-                                        <textarea name="message" class="form-control border-2" rows="5" required
+                                        <textarea name="message" class="form-control border-2" rows="5" required maxlength="65530"
                                             placeholder="Tell us more about your needs........"></textarea>
                                     </div>
                                     <div class="col-md-12 text-center">

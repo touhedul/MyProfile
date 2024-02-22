@@ -296,6 +296,7 @@ class CreatePermissionTables extends Migration
                 'group_name' => 'others',
                 'permissions' => [
                     'contact-view',
+                    'contact-feedback-delete'
                 ]
             ],
             [
