@@ -22,11 +22,10 @@ class SocialFactory extends Factory
     public function definition()
     {
         return [
-            'link' => $this->faker->word,
-        'icon' => $this->faker->word,
-        'status' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'link' => $this->faker->url,
+            'icon' => $this->faker->word,
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

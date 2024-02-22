@@ -50,7 +50,7 @@ class Social extends Model
      * @var array
      */
     public static $rules = [
-        'link' => 'required|string|max:190',
+        'link' => 'required|url|max:190',
         'icon' => 'required|string|max:190'
     ];
 }

@@ -758,7 +758,7 @@
                                 class="{{$social->icon}}"></i></a></li>
                     @endforeach
                 </ul>
-                <p class="text-muted text-center">{!! $userInfo->additional_infos->where('key', 'footer_text')->first()->value !!}</p>
+                <p class="text-muted text-center"> {{ $userInfo->additional_infos->where('key', 'footer_text')->first()->value }}</p>
             </div>
         </footer>
         <!-- Footer end -->

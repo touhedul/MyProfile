@@ -6,7 +6,7 @@
 <!-- Link Field -->
 <div class="form-group">
     {!! Form::label('link', __('Link')) !!}
-    {!! Form::text('link', null, ['class' => 'form-control','required','maxlength' => 191]) !!}
+    {!! Form::url('link', null, ['class' => 'form-control','required','maxlength' => 191]) !!}
 </div>
 
 
@@ -49,10 +49,13 @@
     <script>
         $(document).ready(function() {
 
+            @if (isset($social) && $social->icon)
+                $("#iconInput").val("{{ $social->icon }}");
+            @endif
             $('.demo').iconpicker({
                 hideOnSelect: true,
-                @if (isset($contactinfo) && $contactinfo->icon)
-                selected:'{{ $contactinfo->icon }}'
+                @if (isset($social) && $social->icon)
+                selected:'{{ $social->icon }}'
                 @endif
             });
             $('.demo').on('iconpickerSelected', function(event) {

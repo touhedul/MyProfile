@@ -79,7 +79,6 @@ class SocialController extends AppBaseController
     {
         $this->authorize('Social-delete');
         checkUserAndAuthId($social);
-        //FileHelper::deleteImage($social);
         $social->delete();
     }
 

@@ -18,7 +18,7 @@
                     <form action="{{route('admin.socials.saveText')}}" method="POSt">
                         @csrf
                         <div class="form-group">
-                            <textarea name="footer_text" id="" cols="30" rows="10" placeholder="How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.">{{$footer->where('key','footer_text')->first()->value}}
+                            <textarea name="footer_text" id="" cols="30" rows="10" class="form-control" placeholder="Copyright @2024 All right reserved!">{{$footer->where('key','footer_text')->first()->value}}
                             </textarea>
                         </div>
                         <div class="form-group">
@@ -43,6 +43,6 @@
     </div>
 </div>
 
-@include('includes.ckeditor_push',['name'=>'footer_text'])
+{{-- @include('includes.ckeditor_push',['name'=>'footer_text']) --}}
 @endsection
 
