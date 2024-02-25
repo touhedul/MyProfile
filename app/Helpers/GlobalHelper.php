@@ -62,6 +62,7 @@ if (!function_exists('notification')) {
             'title' => $data['title'],
             'description' => $data['description'],
             'link' => $data['link'],
+            'user_id' => @$data['user_id'] ?? NULL,
         ]);
     }
 }

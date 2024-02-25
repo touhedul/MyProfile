@@ -35,7 +35,7 @@ class NotificationController extends AppBaseController
 
     public function markAllRead()
     {
-        Notification::where('read_status',0)->update(['read_status' => 1]);
+        Notification::where('read_status',0)->where('user_id',auth()->id())->update(['read_status' => 1]);
         notify()->success(__("Successful"), __("Success"));
         return redirect()->route('admin.notifications.index');
     }

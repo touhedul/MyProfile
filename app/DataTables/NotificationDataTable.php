@@ -19,7 +19,7 @@ class NotificationDataTable extends DataTable
         })
             ->addIndexColumn()
             ->addColumn('', '')
-            ->addColumn('Sl', '');
+            ->addColumn('Sl', '')
         // ->addColumn('details',function($dataTable){
         //     return Str::limit($dataTable->details,50);
         // })
@@ -29,7 +29,7 @@ class NotificationDataTable extends DataTable
         // ->addColumn('file',function($dataTable){
         //     return "<a download href='".asset('files/'. $dataTable->file)."'>Download</a>";
         // })
-        // ->rawColumns(['details', 'action', 'image', 'file']);
+        ->rawColumns(['details', 'action', 'image', 'file']);
     }
 
     public function query(Notification $model)

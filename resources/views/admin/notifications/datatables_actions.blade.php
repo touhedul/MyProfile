@@ -1,8 +1,8 @@
-<div class='btn-group'>
+<div class='btn-group'">
     @can('Notification-mark-read')
     @if ($dataTable->read_status == 0)
     <a href="{{ route('admin.notifications.markRead', $dataTable->id) }}" class='btn btn-sm btn-primary'>
-        {{ __('Mark Read') }}
+        {{ __('Mark') }}&nbsp;{{ __('Read') }}
     </a>
     @endif
     @endcan

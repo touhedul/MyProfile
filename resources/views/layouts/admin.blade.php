@@ -174,7 +174,7 @@
                                                         tabindex="0" class="btn btn-primary">{{ __('View All') }}</a>
 
                                                     @if (count($notifications) > 0)
-                                                        <a type="button" style="margin-top: 10px"
+                                                        <a type="button"
                                                             href="{{ route('admin.notifications.markAllRead') }}"
                                                             tabindex="0" class="btn btn-warning ">{{ __('Mark All Read') }}</a>
                                                     @endif
