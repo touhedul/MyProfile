@@ -15,10 +15,14 @@ class FileHelper
         }
         if ($request->hasFile('image')) {
             FileHelper::deleteImage($user);
-            $image = $request->file('image');
-            $imageName = time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            $imageFile = $request->file('image');
+            $imageName = time() . uniqid() . '.' . $imageFile->getClientOriginalExtension();
+            $image = Image::make($imageFile);
+            if($request->cropCoordinates){
+                $image = self::cropImage($request,$imageFile);
+            }
 
-            Image::make($image)->resize($width, $height)->save('images/' . $imageName, 50);
+            $image->resize($width, $height)->save('images/' . $imageName, 50);
             // Avatart Image
             if (in_array('avatar', $type)) {
                 if (array_key_exists('avatarWidth', $type) && array_key_exists('avatarHeight', $type)) {
@@ -28,7 +32,7 @@ class FileHelper
                     $avatarWidth = 100;
                     $avatarHeight = 100;
                 }
-                Image::make($image)->resize($avatarWidth, $avatarHeight)->save('images/avatar-' . $imageName, 50);
+                Image::make($imageFile)->resize($avatarWidth, $avatarHeight)->save('images/avatar-' . $imageName, 50);
             }
             if (in_array('big', $type)) {
                 if (array_key_exists('bigWidth', $type) && array_key_exists('bigHeight', $type)) {
@@ -38,7 +42,7 @@ class FileHelper
                     $bigWidth = 720;
                     $bigHeight = 1080;
                 }
-                Image::make($image)->resize($bigWidth, $bigHeight)->save('images/big-' . $imageName, 50);
+                Image::make($imageFile)->resize($bigWidth, $bigHeight)->save('images/big-' . $imageName, 50);
             }
             // Image::make($image)->resize(400, null, function ($constraint) {
             //     $constraint->aspectRatio();
@@ -100,5 +104,17 @@ class FileHelper
             Image::make($image)->resize($width, $height)->save('images/' . $imageName, 50);
         }
         return $imageName;
+    }
+
+
+    public static function cropImage($request,$image)
+    {
+        $cropCoordinates = json_decode($request->cropCoordinates);
+        $topLeftX = $cropCoordinates->points[0];
+        $topLeftY = $cropCoordinates->points[1];
+        $bottomRightX = $cropCoordinates->points[2];
+        $bottomRightY = $cropCoordinates->points[3];
+
+        return Image::make($image)->crop($bottomRightX - $topLeftX, $bottomRightY - $topLeftY, $topLeftX, $topLeftY);
     }
 }
