@@ -1,8 +1,4 @@
-@push('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.css">
-    <style>
-    </style>
-@endpush
+
 
 <!-- Title Field -->
 <div class="form-group">
@@ -35,13 +31,9 @@
     <input type="file" name="image" class="form-control dropify" @if (!isset($project)) required @endif
         id="image">
 </div>
-<br>
-<div class="row justify-content-center">
-    <div id="imagePreview" class="col-md-4"></div>
-</div>
 
-<input type="hidden" name="cropCoordinates" id="cropCoordinates">
-<br>
+
+@include('includes.image_crop_preview')
 
 @include('includes.status_field', ['variable' => @$project])
 
