@@ -29,17 +29,21 @@
                                     placeholder="How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.">{{ $skillInfo->where('key', 'skill_description')->first()->value }}
                             </textarea>
                             </div>
-                            <div class="form-group">
-                                <img height="100px" width="120px"
-                                    src="{{ $skillInfo->where('key', 'skill_image')->first()->value ? asset('images/' . $skillInfo->where('key', 'skill_image')->first()->value) : defaultImage('skill_image') }}"
-                                    alt="">
-                                    <br>
+                            <div class="form-group" id="imageDiv">
+                                <div class="row col-md-4">
+                                    <img height="100px" width="220px" height="auto" class="img-fluid"
+                                        src="{{ $skillInfo->where('key', 'skill_image')->first()->value ? asset('images/' . $skillInfo->where('key', 'skill_image')->first()->value) : defaultImage('skill_image') }}"
+                                        alt="">
+                                </div>
+                                <br>
+                                <input type="file" accept="image/*" class="dropify" name="skill_image"
+                                    style="margin-top: 10px" id="image">
                                 (700 X 470) <br>
-                                <input type="file" accept="image/*" name="skill_image" style="margin-top: 10px">
 
                             </div>
+                            @include('includes.image_crop_preview')
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary" id="submitBtn">Update</button>
                             </div>
                         </form>
                     </div>
@@ -62,4 +66,6 @@
 
 @include('includes.ckeditor_push', ['name' => 'skill_description'])
 
+@include('includes.dropify_push')
 
+@include('includes.image_crop', ['width' => 233, 'height' => 156])

@@ -95,13 +95,24 @@ class FileHelper
     }
 
 
-    public static function uploadImageByName($request, $imageFile,$width=520,$height=400)
+    public static function uploadImageByName($request, $imageFileName,$width=520,$height=400)
     {
         $imageName = "";
-        if ($request->hasFile("$imageFile")) {
-            $image = $request->file($imageFile);
-            $imageName = time() . uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize($width, $height)->save('images/' . $imageName, 50);
+        if ($request->hasFile("$imageFileName")) {
+            $imageFile = $request->file($imageFileName);
+            $imageName = time() . uniqid() . '.' . $imageFile->getClientOriginalExtension();
+
+            $image = Image::make($imageFile);
+            if($request->cropCoordinates){
+                $image = self::cropImage($request,$imageFile);
+            }elseif($imageFileName == "slider_1"){
+                $image = self::cropImageWithCoordinates($request->cropCoordinates1,$imageFile);
+            }elseif($imageFileName == "slider_2"){
+                $image = self::cropImageWithCoordinates($request->cropCoordinates2,$imageFile);
+            }elseif($imageFileName == "slider_3"){
+                $image = self::cropImageWithCoordinates($request->cropCoordinates3,$imageFile);
+            }
+            $image->resize($width, $height)->save('images/' . $imageName, 50);
         }
         return $imageName;
     }
@@ -117,4 +128,18 @@ class FileHelper
 
         return Image::make($image)->crop($bottomRightX - $topLeftX, $bottomRightY - $topLeftY, $topLeftX, $topLeftY);
     }
+
+
+    public static function cropImageWithCoordinates($cropCoordinates,$image)
+    {
+        $cropCoordinates = json_decode($cropCoordinates);
+        $topLeftX = $cropCoordinates->points[0];
+        $topLeftY = $cropCoordinates->points[1];
+        $bottomRightX = $cropCoordinates->points[2];
+        $bottomRightY = $cropCoordinates->points[3];
+
+        return Image::make($image)->crop($bottomRightX - $topLeftX, $bottomRightY - $topLeftY, $topLeftX, $topLeftY);
+    }
+
+
 }
