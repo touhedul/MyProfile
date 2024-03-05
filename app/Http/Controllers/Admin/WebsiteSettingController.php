@@ -37,7 +37,7 @@ class WebsiteSettingController extends Controller
         })->get();
 
         if ($request->hasFile('logo')) {
-            $image = FileHelper::uploadImageByName($request, 'logo', 70, 30);
+            $image = FileHelper::uploadImageByName($request, 'logo', 110, 50);
             $websiteSettings->where('key','logo')->first()->update(['value'=>$image]);
         }
         $websiteSettings->where('key','theme_color')->first()->update(['value'=>$request->theme_color]);

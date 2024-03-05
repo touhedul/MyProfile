@@ -26,9 +26,9 @@ class HomeManagementController extends Controller
         // return $request;
         $home = Home::where('user_id', auth()->id())->firstOrFail();
 
-        $slider1 = $request->slider_1 ? FileHelper::uploadImageByName($request, "slider_1", 1500, 1000) : $home->slider_1;
-        $slider2 = $request->slider_2 ?  FileHelper::uploadImageByName($request, "slider_2", 1500, 1000) : $home->slider_2;
-        $slider3 = $request->slider_3 ?  FileHelper::uploadImageByName($request, "slider_3", 1500, 1000) : $home->slider_3;
+        $slider1 = $request->slider_1 ? FileHelper::uploadImageByName($request, "slider_1", 1920, 1080) : $home->slider_1;
+        $slider2 = $request->slider_2 ?  FileHelper::uploadImageByName($request, "slider_2", 1920, 1080) : $home->slider_2;
+        $slider3 = $request->slider_3 ?  FileHelper::uploadImageByName($request, "slider_3", 1920, 1080) : $home->slider_3;
         $file = $request->file ? FileHelper::uploadFile($request) : $home->file;
 
         $home->user_id = auth()->id();

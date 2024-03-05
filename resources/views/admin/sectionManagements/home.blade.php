@@ -34,7 +34,7 @@
                                             <img class="img-fluid"
                                                 src="{{ $userHome->slider_1 ? asset('images/' . $userHome->slider_1) : defaultImage($userHome->default_slider_1) }}"
                                                 alt="">
-                                            (1500 X 1000)
+                                            (1920 X 1080)
                                             <div class="form-group">
                                                 <input type="file" accept="image/*" name="slider_1"
                                                     style="margin-top: 10px" class="dropify" id="image1">
@@ -61,7 +61,7 @@
                                         <div id="imageDiv2">
                                             <img class="img-fluid"
                                                 src="{{ $userHome->slider_2 ? asset('images/' . $userHome->slider_2) : defaultImage($userHome->default_slider_2) }}"
-                                                alt=""> (1500 X 1000)
+                                                alt=""> (1920 X 1080)
                                             <input type="file" accept="image/*" name="slider_2" style="margin-top: 10px"
                                                 class="dropify" id="image2">
                                         </div>
@@ -89,7 +89,7 @@
                                         <div id="imageDiv3">
                                             <img class="img-fluid"
                                                 src="{{ $userHome->slider_3 ? asset('images/' . $userHome->slider_3) : defaultImage($userHome->default_slider_3) }}"
-                                                alt=""> (1500 X 1000)
+                                                alt=""> (1920 X 1080)
                                             <input type="file" accept="image/*" name="slider_3" style="margin-top: 10px"
                                                 class="dropify" id="image3">
                                         </div>
@@ -232,8 +232,8 @@
                     // Initialize Croppie
                     var croppie = new Croppie(document.getElementById(previewId), {
                         viewport: {
-                            width: 150,
-                            height: 100,
+                            width: 192,
+                            height: 108,
                             type: 'square' // Change as per your requirement
                         },
                         enableZoom: true, // Disable zooming to ensure the selected area is fixed
