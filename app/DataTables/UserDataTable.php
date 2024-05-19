@@ -20,8 +20,8 @@ class UserDataTable extends DataTable
             ->addColumn('', '')
             ->addColumn('Sl', '')
             ->addColumn('status', function ($dataTable) {
-                $active = '<div class="mb-2 mr-2 badge badge-success">'.__('Active').'</div>';
-                $deactive = '<div class="mb-2 mr-2 badge badge-danger">'.__('Deactive').'</div>';
+                $active = '<div class="mb-2 mr-2 badge badge-success">' . __('Active') . '</div>';
+                $deactive = '<div class="mb-2 mr-2 badge badge-danger">' . __('Deactive') . '</div>';
                 return $dataTable->status == 1 ? $active : $deactive;
             })
             // ->addColumn('image', function ($dataTable) {
@@ -43,8 +43,8 @@ class UserDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false,'title' => __('Action')])
-            ->parameters(AdminHelper::datatableDesign('User','user-delete'));
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => __('Action')])
+            ->parameters(AdminHelper::datatableDesign('User', 'user-delete'));
     }
 
     protected function getColumns()
@@ -52,13 +52,14 @@ class UserDataTable extends DataTable
         return [
             '',
             'id',
-            ['data'=>'Sl','title'=>__('Sl')],
+            ['data' => 'Sl', 'title' => __('Sl')],
             // 'Sl',
-            ['data'=>'name','title'=>__('Name')],
-            ['data'=>'email','title'=>__('Email')],
-            ['data'=>'phone','title'=>__('Phone')],
-            ['data'=>'address','title'=>__('Address')],
-            ['data'=>'status','title'=>__('Status')],
+            ['data' => 'name', 'title' => __('Name')],
+            ['data' => 'email', 'title' => __('Email')],
+            ['data' => 'phone', 'title' => __('Phone')],
+            ['data' => 'address', 'title' => __('Address')],
+            ['data' => 'referral_code', 'title' => __('Referral Code')],
+            ['data' => 'status', 'title' => __('Status')],
             // 'image'
         ];
     }

@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->boolean('has_profile')->default(0);
             $table->string('provider')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('referral_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -42,7 +43,7 @@ class CreateUsersTable extends Migration
                 'has_profile' => 1,
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
-                'remember_token' => rand(100,1000000),
+                'remember_token' => rand(100, 1000000),
             ]
         );
         User::create(
@@ -55,7 +56,7 @@ class CreateUsersTable extends Migration
                 'has_profile' => 1,
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
-                'remember_token' => rand(100,1000000),
+                'remember_token' => rand(100, 1000000),
             ]
         );
         User::create(
@@ -68,7 +69,7 @@ class CreateUsersTable extends Migration
                 'has_profile' => 1,
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
-                'remember_token' => rand(100,1000000),
+                'remember_token' => rand(100, 1000000),
             ]
         );
 
@@ -81,7 +82,7 @@ class CreateUsersTable extends Migration
                 'address' => 'Demo Address',
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
-                'remember_token' => rand(100,1000000),
+                'remember_token' => rand(100, 1000000),
             ]
         );
         User::create(
@@ -93,7 +94,7 @@ class CreateUsersTable extends Migration
                 'address' => 'Demo Address',
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
-                'remember_token' => rand(100,1000000),
+                'remember_token' => rand(100, 1000000),
             ]
         );
         User::create(
@@ -105,7 +106,7 @@ class CreateUsersTable extends Migration
                 'address' => 'Demo Address',
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
-                'remember_token' => rand(100,1000000),
+                'remember_token' => rand(100, 1000000),
             ]
         );
         User::create(
@@ -117,7 +118,7 @@ class CreateUsersTable extends Migration
                 'address' => 'Demo Address',
                 'image' => 'user.jpg',
                 'email_verified_at' => now(),
-                'remember_token' => rand(100,1000000),
+                'remember_token' => rand(100, 1000000),
             ]
         );
     }

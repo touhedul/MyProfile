@@ -65,6 +65,7 @@ class RegisterController extends Controller
             // 'profession' => ['required', 'string', 'max:190'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'image' => ['nullable', 'image', 'max:10000'],
+            'referral_code' => ['nullable', 'string', 'max:190'],
         ]);
     }
 
@@ -88,6 +89,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'referral_code' => $data['referral_code'],
             // 'profession' => $data['profession'],
             // 'address' => $data['address'],
             'image' => $imageName,

@@ -70,7 +70,8 @@ class User extends Authenticatable //implements MustVerifyEmail
         'address',
         'image',
         'has_profile', //default 0
-        'status' //default 1
+        'status', //default 1
+        'referral_code'
     ];
 
     /**
@@ -99,6 +100,7 @@ class User extends Authenticatable //implements MustVerifyEmail
         'phone' => 'nullable|string|max:190',
         'address' => 'nullable|string|max:190',
         'image' => 'nullable|image||max:10000',
+        'referral_code' => 'nullable|string||max:190',
     ];
 
     /**
