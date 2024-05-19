@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use Opcodes\LogViewer\Facades\LogViewer;
 use Schema;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,5 +28,11 @@ class AppServiceProvider extends ServiceProvider
     {
         // Model::preventLazyLoading(! app()->isProduction());
         Schema::defaultStringLength(190);
+        LogViewer::auth(function ($request) {
+            return $request->user()
+                && in_array($request->user()->email, [
+                    'admin@admin.com',
+                ]);
+        });
     }
 }
