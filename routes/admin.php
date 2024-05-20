@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ColorSectionManagementController;
 use App\Http\Controllers\Admin\ContactFeedbackController;
 use App\Http\Controllers\Admin\ContactinfoController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\CustomDomainController;
 use App\Http\Controllers\Admin\WebsiteSettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationController;
@@ -56,13 +57,13 @@ Route::group(['prefix' => config('admin.admin_route_prefix'), 'as' => 'admin.'],
 // Route::post('password/reset', 'Auth\Admin\ResetPasswordController@reset')->name('password.update');
 
 //has profile middleware
-Route::get( config('admin.admin_route_prefix').'/create-profile', [UserController::class, 'createProfilePage'])->name('admin.users.createProfilePage')->middleware(['auth', 'preventBackHistory','notUser','localaization']);
+Route::get(config('admin.admin_route_prefix') . '/create-profile', [UserController::class, 'createProfilePage'])->name('admin.users.createProfilePage')->middleware(['auth', 'preventBackHistory', 'notUser', 'localaization']);
 
-Route::post( config('admin.admin_route_prefix').'/create-profile', [UserController::class, 'createProfile'])->name('admin.users.createProfile')->middleware(['auth', 'preventBackHistory','notUser','localaization']);
+Route::post(config('admin.admin_route_prefix') . '/create-profile', [UserController::class, 'createProfile'])->name('admin.users.createProfile')->middleware(['auth', 'preventBackHistory', 'notUser', 'localaization']);
 
 
 
-Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaization','hasProfile']], function () {
+Route::group(['middleware' => ['auth', 'preventBackHistory', 'notUser', 'localaization', 'hasProfile']], function () {
     Route::group(['prefix' => config('admin.admin_route_prefix'), 'as' => 'admin.'], function () {
 
         // Dashboard
@@ -159,15 +160,15 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
         Route::get('notifications/mark-read/{notification}', [NotificationController::class, 'markRead'])->name('notifications.markRead');
         Route::get('notifications-mark-all-read', [NotificationController::class, 'markAllRead'])->name('notifications.markAllRead');
 
-         //Application Resources Routes
-         Route::resources(
+        //Application Resources Routes
+        Route::resources(
             [
                 // 'faculties' => FacultyController::class,
-                'themes'=>ThemeController::class,
-                'menus'=>MenuController::class,
+                'themes' => ThemeController::class,
+                'menus' => MenuController::class,
                 'services' => ServiceController::class,
-                'skills'=>SkillController::class,
-                'projects'=>ProjectController::class,
+                'skills' => SkillController::class,
+                'projects' => ProjectController::class,
                 'courses' => CourseController::class,
                 'experiences' => ExperienceController::class,
                 'achievements' => AchievementController::class,
@@ -182,39 +183,42 @@ Route::group(['middleware' => ['auth', 'preventBackHistory','notUser','localaiza
             ]
         );
 
-        Route::get('menu-management',[MenuManagementController::class,'index'])->name('menuManagement.index');
-        Route::post('menu-management',[MenuManagementController::class,'save'])->name('menuManagement.save');
+        Route::get('menu-management', [MenuManagementController::class, 'index'])->name('menuManagement.index');
+        Route::post('menu-management', [MenuManagementController::class, 'save'])->name('menuManagement.save');
 
-        Route::get('home-management',[HomeManagementController::class,'index'])->name('homeManagement.index');
-        Route::post('home-management',[HomeManagementController::class,'save'])->name('homeManagement.save');
+        Route::get('home-management', [HomeManagementController::class, 'index'])->name('homeManagement.index');
+        Route::post('home-management', [HomeManagementController::class, 'save'])->name('homeManagement.save');
 
-        Route::get('about-management',[AboutManagementController::class,'index'])->name('aboutManagement.index');
-        Route::post('about-management',[AboutManagementController::class,'save'])->name('aboutManagement.save');
+        Route::get('about-management', [AboutManagementController::class, 'index'])->name('aboutManagement.index');
+        Route::post('about-management', [AboutManagementController::class, 'save'])->name('aboutManagement.save');
 
-        Route::post('service-management',[ServiceController::class,'saveText'])->name('services.saveText');
+        Route::post('service-management', [ServiceController::class, 'saveText'])->name('services.saveText');
 
-        Route::post('skill-management',[SkillController::class,'saveText'])->name('skills.saveText');
+        Route::post('skill-management', [SkillController::class, 'saveText'])->name('skills.saveText');
 
-        Route::post('project-management',[ProjectController::class,'saveText'])->name('projects.saveText');
+        Route::post('project-management', [ProjectController::class, 'saveText'])->name('projects.saveText');
 
-        Route::post('course-management',[CourseController::class,'saveText'])->name('courses.saveText');
+        Route::post('course-management', [CourseController::class, 'saveText'])->name('courses.saveText');
 
-        Route::post('experience-management',[ExperienceController::class,'saveText'])->name('experiences.saveText');
+        Route::post('experience-management', [ExperienceController::class, 'saveText'])->name('experiences.saveText');
 
-        Route::post('achievement-management',[AchievementController::class,'saveText'])->name('achievements.saveText');
+        Route::post('achievement-management', [AchievementController::class, 'saveText'])->name('achievements.saveText');
 
-        Route::post('education-management',[EducationController::class,'saveText'])->name('education.saveText');
+        Route::post('education-management', [EducationController::class, 'saveText'])->name('education.saveText');
 
-        Route::post('testimonial-management',[TestimonialController::class,'saveText'])->name('testimonials.saveText');
+        Route::post('testimonial-management', [TestimonialController::class, 'saveText'])->name('testimonials.saveText');
 
-        Route::post('contactinfo-management',[ContactinfoController::class,'saveText'])->name('contactinfos.saveText');
+        Route::post('contactinfo-management', [ContactinfoController::class, 'saveText'])->name('contactinfos.saveText');
 
-        Route::post('footertext-management',[SocialController::class,'saveText'])->name('socials.saveText');
+        Route::post('footertext-management', [SocialController::class, 'saveText'])->name('socials.saveText');
 
-        Route::get('color-section-management',[ColorSectionManagementController::class,'index'])->name('colorSectionManagement.index');
-        Route::post('color-section-management',[ColorSectionManagementController::class,'save'])->name('colorSectionManagement.save');
+        Route::get('color-section-management', [ColorSectionManagementController::class, 'index'])->name('colorSectionManagement.index');
+        Route::post('color-section-management', [ColorSectionManagementController::class, 'save'])->name('colorSectionManagement.save');
 
-        Route::get('website-settings',[WebsiteSettingController::class,'index'])->name('websiteSettings.index');
-        Route::post('website-settings',[WebsiteSettingController::class,'save'])->name('websiteSettings.save');
+        Route::get('website-settings', [WebsiteSettingController::class, 'index'])->name('websiteSettings.index');
+        Route::post('website-settings', [WebsiteSettingController::class, 'save'])->name('websiteSettings.save');
+
+        Route::get('custom-domain', [CustomDomainController::class, 'requestDomainPage'])->name('requestDomainPage');
+        Route::post('custom-domain', [CustomDomainController::class, 'requestDomain'])->name('requestDomain');
     });
 });
