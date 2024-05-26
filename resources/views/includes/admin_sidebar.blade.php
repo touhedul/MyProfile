@@ -415,3 +415,12 @@
     </a>
 </li>
 @endcan
+@can('CustomDomain-view')
+<li class="">
+    <a href="{{route('admin.customDomains.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/customDomains**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Custom Domains') }}
+    </a>
+</li>
+@endcan
+

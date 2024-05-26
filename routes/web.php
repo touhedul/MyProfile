@@ -36,3 +36,8 @@ Route::group(['middleware'=>['blockIp','localaization']],function(){
 
 });
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('customDomains', App\Http\Controllers\Admin\CustomDomainController::class, ["as" => 'admin']);
+});

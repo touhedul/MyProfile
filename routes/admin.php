@@ -180,6 +180,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory', 'notUser', 'localai
                 'professionCategories' => ProfessionCategoryController::class,
                 'professions' => ProfessionController::class,
                 'skillLists' => SkillListController::class,
+                'customDomains' => CustomDomainController::class
             ]
         );
 
