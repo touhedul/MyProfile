@@ -219,7 +219,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory', 'notUser', 'localai
         Route::get('website-settings', [WebsiteSettingController::class, 'index'])->name('websiteSettings.index');
         Route::post('website-settings', [WebsiteSettingController::class, 'save'])->name('websiteSettings.save');
 
-        Route::get('custom-domain', [CustomDomainController::class, 'requestDomainPage'])->name('requestDomainPage');
-        Route::post('custom-domain', [CustomDomainController::class, 'requestDomain'])->name('requestDomain');
+        Route::get('custom-domain', [CustomDomainController::class, 'requestDomainPage'])->name('customDomains.requestDomainPage');
+        Route::post('custom-domain', [CustomDomainController::class, 'requestDomain'])->name('customDomains.requestDomain');
     });
 });

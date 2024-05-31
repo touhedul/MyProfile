@@ -8,6 +8,8 @@ use App\Http\Requests\CustomDomainCreateRequest;
 use App\Http\Requests\CustomDomainUpdateRequest;
 use App\Models\CustomDomain;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
+use Str;
 
 class CustomDomainController extends AppBaseController
 {
@@ -71,5 +73,35 @@ class CustomDomainController extends AppBaseController
     {
         $this->authorize('CustomDomain-delete');
         $customDomain->delete();
+    }
+
+
+    public function requestDomainPage()
+    {
+        $customDomain = CustomDomain::where('user_id', auth()->id())->first();
+        return view('admin.custom_domains.request_domain', compact('customDomain'))->with('icon', $this->icon);
+    }
+
+
+    public function requestDomain(Request $request)
+    {
+        $request->validate([
+            'domain' => 'required|string|max:100|unique:custom_domains,domain'
+        ]);
+
+
+        $appDomain = Str::replace(['http://', 'https://'], '', config('app.url'));
+        $domain = strtolower($request->domain . "." . $appDomain);
+
+
+        $domain = Str::replace($appDomain, '', $domain);
+
+        CustomDomain::FirstOrCreate([
+            'user_id' => auth()->id(),
+            'domain' => $request->domain,
+        ]);
+
+        notify()->success(__("Successfully Requested.Admin will contact you soon."), __("Success"));
+        return back();
     }
 }

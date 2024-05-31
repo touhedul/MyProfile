@@ -52,8 +52,7 @@ class CustomDomain extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required|integer',
-        'domain' => 'required|string|max:100'
+        'user_id' => 'required|integer'
     ];
 
     public function user()

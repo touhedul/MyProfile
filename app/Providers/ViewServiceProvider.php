@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use App\Models\User;
 
 use App\Models\ProfessionCategory;
@@ -30,15 +31,15 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(['admin.custom_domains.fields'], function ($view) {
-            $userItems = User::pluck('name','id')->toArray();
+            $userItems = User::role('customer')->pluck('name', 'id')->toArray();
             $view->with('userItems', $userItems);
         });
         View::composer(['admin.professions.fields'], function ($view) {
-            $profession_categoryItems = ProfessionCategory::pluck('name','id')->toArray();
+            $profession_categoryItems = ProfessionCategory::pluck('name', 'id')->toArray();
             $view->with('profession_categoryItems', $profession_categoryItems);
         });
         View::composer(['admin.admins.fields'], function ($view) {
-            $roles = Role::where('name','!=','super-admin')->where('name','!=','user')->get();
+            $roles = Role::where('name', '!=', 'super-admin')->where('name', '!=', 'user')->get();
             $view->with('roles', $roles);
         });
     }

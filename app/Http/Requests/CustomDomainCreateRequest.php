@@ -25,6 +25,11 @@ class CustomDomainCreateRequest extends FormRequest
      */
     public function rules()
     {
-        return CustomDomain::$rules;
+
+        $rules =  CustomDomain::$rules;
+        $rules = array_merge($rules, [
+            'domain' => 'required|string|max:100|unique:custom_domains,domain'
+        ]);
+        return $rules;
     }
 }

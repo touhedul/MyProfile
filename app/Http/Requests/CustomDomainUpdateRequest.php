@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\CustomDomain;
+use Illuminate\Validation\Rule;
 
 class CustomDomainUpdateRequest extends FormRequest
 {
@@ -25,10 +26,17 @@ class CustomDomainUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = CustomDomain::$rules;
-        
-        // $rules = array_merge($rules,['image' => 'nullable|image|max:10000']);
-        // $rules = array_merge($rules,['file' => 'nullable|mimes:jpg,png,jpeg,gif,doc,docx,pdf,ppt,pptx,xls,xlsx|max:10000']);
+
+        $rules =  CustomDomain::$rules;
+        $rules = array_merge($rules, [
+
+            'domain' => [
+                'required',
+                Rule::unique('custom_domains')->ignore($this->route('customDomains')),
+            ],
+
+            // 'domain' => 'required|string|max:100|unique:custom_domains,domain,except,' . $this->customDomain //. $this->customDomain
+        ]);
         return $rules;
     }
 }

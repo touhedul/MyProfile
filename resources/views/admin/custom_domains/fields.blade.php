@@ -20,7 +20,6 @@
 
 
 <div class="form-group">
-    {!! Form::label('is_sub_domain', __('Is Sub Domain')) !!}
 
     <div class="form-group">
         <div class="custom-control custom-switch">
@@ -28,8 +27,8 @@
                 @if (isset($customDomain) && $customDomain->is_sub_domain == 1) checked
                 @elseif (!isset($customDomain))
                 checked @endif
-                type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">{{ __('is_sub_domain') }}</label>
+                type="checkbox" class="custom-control-input" id="customSwitch2">
+            <label class="custom-control-label" for="customSwitch2">{{ __('Is Sub Domain') }}</label>
         </div>
     </div>
 </div>

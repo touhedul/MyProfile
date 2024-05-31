@@ -22,6 +22,9 @@ class CustomDomainDataTable extends DataTable
                 return $dataTable->user?->name . " (" . $dataTable->user->email . ")";
             })
             ->addColumn('is_sub_domain', function ($dataTable) {
+                if ($dataTable->is_sub_domain == NULL) {
+                    return '<div class="mb-2 mr-2 badge badge-warning">' . __('Pending') . '</div>';
+                }
                 if ($dataTable->is_sub_domain) {
                     return '<div class="mb-2 mr-2 badge badge-success">' . __('Active') . '</div>';
                 } else {
@@ -29,7 +32,7 @@ class CustomDomainDataTable extends DataTable
                 }
             })
             ->addColumn('status', 'includes.status_show')
-            ->rawColumns(['details', 'action', 'image', 'file']);
+            ->rawColumns(['details', 'action', 'status', 'is_sub_domain']);
     }
 
     public function query(CustomDomain $model)

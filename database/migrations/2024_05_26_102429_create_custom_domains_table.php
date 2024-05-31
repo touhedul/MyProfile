@@ -18,8 +18,8 @@ class CreateCustomDomainsTable extends Migration
         Schema::create('custom_domains', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('domain');
-            $table->boolean('status')->default(1);
+            $table->string('domain')->unique();
+            $table->boolean('status')->nullable();
             $table->boolean('is_sub_domain')->default(1);
             $table->timestamps();
         });
@@ -27,7 +27,7 @@ class CreateCustomDomainsTable extends Migration
         $adminPermissions = [
 
             [
-                'group_name' => 'CustomDomain',
+                'group_name' => 'Custom Domain',
                 'permissions' => [
                     // CustomDomain Permissions
                     ['name' => 'CustomDomain-view', 'route' => route('admin.customDomains.index'), 'search_status' => 1],
@@ -39,6 +39,18 @@ class CreateCustomDomainsTable extends Migration
         ];
 
         (new AdminHelper())->addPermission("admin", $adminPermissions);
+
+        $customerPermissions = [
+
+            [
+                'group_name' => 'Custom Domain',
+                'permissions' => [
+                    ['name' => 'CustomDomain-request', 'route' => NULL, 'search_status' => 0],
+                ]
+            ],
+        ];
+
+        (new AdminHelper())->addPermission("customer", $customerPermissions);
     }
 
     /**
