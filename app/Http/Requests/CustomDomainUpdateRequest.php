@@ -30,12 +30,7 @@ class CustomDomainUpdateRequest extends FormRequest
         $rules =  CustomDomain::$rules;
         $rules = array_merge($rules, [
 
-            'domain' => [
-                'required',
-                Rule::unique('custom_domains')->ignore($this->route('customDomains')),
-            ],
-
-            // 'domain' => 'required|string|max:100|unique:custom_domains,domain,except,' . $this->customDomain //. $this->customDomain
+            'domain' => 'required'
         ]);
         return $rules;
     }

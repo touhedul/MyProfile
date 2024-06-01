@@ -251,6 +251,16 @@
                 </a>
             </li>
         @endcan
+        {{-- User --}}
+        @can('CustomDomain-request')
+            <li class="{{ Request::is(config('admin.admin_route_prefix') . '/custom-domain**') ? 'mm-active' : '' }}">
+                <a href="{{ route('admin.customDomains.requestDomainPage') }}">
+                    <i class="metismenu-icon"></i>
+                    {{ __('Custom Domain') }}
+                </a>
+            </li>
+        @endcan
+
 
         @can('setting-view')
             <li class="{{ request()->route()->getName() == 'admin.settings.index' ? 'mm-active' : '' }}">
@@ -291,6 +301,15 @@
                 <a href="{{ route('admin.roles.index') }}" class="">
                     <i class="metismenu-icon pe-7s-user"></i>
                     {{ __('Roles') }}
+                </a>
+            </li>
+        @endcan
+        {{-- admin --}}
+        @can('CustomDomain-view')
+            <li class="{{ Request::is(config('admin.admin_route_prefix') . '/customDomains**') ? 'mm-active' : '' }}">
+                <a href="{{ route('admin.customDomains.index') }}">
+                    <i class="metismenu-icon pe-7s-menu"></i>
+                    {{ __('Custom Domains') }}
                 </a>
             </li>
         @endcan
@@ -433,25 +452,6 @@
             class="{{ Request::is(config('admin.admin_route_prefix') . '/menus**') ? 'mm-active' : '' }}">
             <i class="metismenu-icon pe-7s-menu"></i>
             {{ __('Menus') }}
-        </a>
-    </li>
-@endcan
-@can('CustomDomain-view')
-    <li class="">
-        <a href="{{ route('admin.customDomains.index') }}"
-            class="{{ Request::is(config('admin.admin_route_prefix') . '/customDomains**') ? 'mm-active' : '' }}">
-            <i class="metismenu-icon pe-7s-menu"></i>
-            {{ __('Custom Domains') }}
-        </a>
-    </li>
-@endcan
-
-@can('CustomDomain-request')
-    <li class="">
-        <a href="{{ route('admin.customDomains.requestDomainPage') }}"
-            class="{{ Request::is(config('admin.admin_route_prefix') . '/custom-domain**') ? 'mm-active' : '' }}">
-            <i class="metismenu-icon pe-7s-menu"></i>
-            {{ __('Custom Domain') }}
         </a>
     </li>
 @endcan

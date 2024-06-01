@@ -36,7 +36,7 @@
     <style>
         .form-control::-webkit-input-placeholder {
             color: #b3b3b3;
-            }
+        }
     </style>
 
 
@@ -91,7 +91,8 @@
                 <div class="app-header-left">
                     <div class="search-wrapper">
                         <div class="input-holder">
-                            <input id="tags" type="text" class="search-input" placeholder="{{ __('Type to search') }}">
+                            <input id="tags" type="text" class="search-input"
+                                placeholder="{{ __('Type to search') }}">
                             <button id="search-button" class="search-icon"><span></span></button>
                         </div>
                         <button class="close"></button>
@@ -99,15 +100,21 @@
                     <ul class="header-menu nav">
 
                         @php
-                            $sitelink = App\Models\Sitelink::where('user_id',auth()->id())->where('default_status',1)->first();
+                            $sitelink = App\Models\Sitelink::where('user_id', auth()->id())
+                                ->where('default_status', 1)
+                                ->first();
+                            $customDomain = App\Models\CustomDomain::where('user_id', auth()->id())
+                                ->where('status', 1)
+                                ->first();
                         @endphp
                         @if (auth()->user()->has_profile)
-                        <li class="btn-group nav-item">
-                            <a href="{{ $sitelink ? $sitelink->link : '/'}}" target="_blank" class="nav-link">
-                                <i class="nav-link-icon fas fa-share-square"></i>
-                                {{ __('Visit Site') }}
-                            </a>
-                        </li>
+                            <li class="btn-group nav-item">
+                                <a href="{{ @$customDomain ? $customDomain->domain : $sitelink->link ?? '/' }}"
+                                    target="_blank" class="nav-link">
+                                    <i class="nav-link-icon fas fa-share-square"></i>
+                                    {{ __('Visit Site') }}
+                                </a>
+                            </li>
                         @endif
                         @can('log-activity-view')
                             <li class="nav-item">
@@ -130,7 +137,7 @@
                 </div>
                 @php
                     $notifications = App\Models\Notification::where('read_status', 0)
-                        ->where('user_id',auth()->id())
+                        ->where('user_id', auth()->id())
                         ->latest()
                         ->take(10)
                         ->get();
@@ -147,7 +154,7 @@
                                                 <span class="notification"></span>
                                             @endif
                                             <i class="nav-link-icon fas fa-bell fa-2x"></i><i
-                                            class="fa fa-angle-down ml-2 opacity-8 "></i>
+                                                class="fa fa-angle-down ml-2 opacity-8 "></i>
                                             &nbsp;&nbsp;&nbsp;
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
@@ -171,12 +178,14 @@
                                             <div class="row justify-content-center" style="margin-left: 12px">
                                                 <div class="col-md-6">
                                                     <a type="button" href="{{ route('admin.notifications.index') }}"
-                                                        tabindex="0" class="btn btn-primary">{{ __('View All') }}</a>
+                                                        tabindex="0"
+                                                        class="btn btn-primary">{{ __('View All') }}</a>
 
                                                     @if (count($notifications) > 0)
                                                         <a type="button"
                                                             href="{{ route('admin.notifications.markAllRead') }}"
-                                                            tabindex="0" class="btn btn-warning ">{{ __('Mark All Read') }}</a>
+                                                            tabindex="0"
+                                                            class="btn btn-warning ">{{ __('Mark All Read') }}</a>
                                                     @endif
                                                 </div>
                                             </div>
@@ -212,21 +221,25 @@
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
                                             <img width="42" class="rounded-circle"
-                                                src="{{ asset('admin/assets/images/avatars/avatar.jpg') }}" alt="">
+                                                src="{{ asset('admin/assets/images/avatars/avatar.jpg') }}"
+                                                alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" style="--width:15rem"
                                             class="dropdown-menu dropdown-menu-right">
-                                            <h6 tabindex="-1" class="dropdown-header">{{ __('Profile Setting') }}</h6>
+                                            <h6 tabindex="-1" class="dropdown-header">{{ __('Profile Setting') }}
+                                            </h6>
                                             @can('change-password')
-                                                <a type="button" href="{{ route('admin.change.password') }}" tabindex="0"
-                                                    class="dropdown-item">{{ __('Change Password') }}</a>
+                                                <a type="button" href="{{ route('admin.change.password') }}"
+                                                    tabindex="0" class="dropdown-item">{{ __('Change Password') }}</a>
                                             @endcan
-                                            <a href="{{ route('admin.logout') }}" onclick="event.preventDefault();
+                                            <a href="{{ route('admin.logout') }}"
+                                                onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();"
-                                                type="button" tabindex="0" class="dropdown-item">{{ __('Logout') }}</a>
-                                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
-                                                style="display: none;">
+                                                type="button" tabindex="0"
+                                                class="dropdown-item">{{ __('Logout') }}</a>
+                                            <form id="logout-form" action="{{ route('admin.logout') }}"
+                                                method="POST" style="display: none;">
                                                 @csrf
                                             </form>
                                         </div>
@@ -744,10 +757,7 @@
                 $("#tags").focus();
             });
             @php
-                $userPermissions = auth()
-                    ->user()
-                    ->getAllPermissions()
-                    ->where('search_status', 1);
+                $userPermissions = auth()->user()->getAllPermissions()->where('search_status', 1);
             @endphp
             var availableTags = [
 

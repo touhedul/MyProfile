@@ -6,7 +6,7 @@
     @include('includes.page_header_index', [
         'title' => __('Website Setting'),
         'url' => '',
-        'icon' => $icon ?? 'pe-7s-menu',
+        'icon' => $icon ?? 'pe-7s-settings',
         'permission' => '',
     ])
     <div class="row">

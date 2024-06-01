@@ -14,7 +14,7 @@ use Str;
 class CustomDomainController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-world';
 
 
     public function index(CustomDomainDataTable $customDomainDataTable)
@@ -89,16 +89,31 @@ class CustomDomainController extends AppBaseController
             'domain' => 'required|string|max:100|unique:custom_domains,domain'
         ]);
 
+        $customDomain = CustomDomain::where('user_id', auth()->id())->first();
+
+        if ($customDomain) {
+            notify()->warning(__("You have already requested for custom domain."), __("Warning"));
+            return back();
+        }
+
+        $pos = strpos($request->domain, '.');
+
+        $domain = $pos !== false ? substr($request->domain, 0, $pos) : $request->domain;
 
         $appDomain = Str::replace(['http://', 'https://'], '', config('app.url'));
-        $domain = strtolower($request->domain . "." . $appDomain);
 
+        $domain = "https://" . strtolower($domain . "." . $appDomain);
 
-        $domain = Str::replace($appDomain, '', $domain);
+        $customDomain = CustomDomain::where('domain', $domain)->first();
 
-        CustomDomain::FirstOrCreate([
+        if ($customDomain) {
+            notify()->warning(__("The domain has already been taken"), __("Warning"));
+            return back()->withInput();
+        }
+
+        CustomDomain::create([
             'user_id' => auth()->id(),
-            'domain' => $request->domain,
+            'domain' => $domain,
         ]);
 
         notify()->success(__("Successfully Requested.Admin will contact you soon."), __("Success"));

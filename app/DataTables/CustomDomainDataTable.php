@@ -21,18 +21,28 @@ class CustomDomainDataTable extends DataTable
             ->addColumn('user', function ($dataTable) {
                 return $dataTable->user?->name . " (" . $dataTable->user->email . ")";
             })
-            ->addColumn('is_sub_domain', function ($dataTable) {
-                if ($dataTable->is_sub_domain == NULL) {
+            ->addColumn('domain', function ($dataTable) {
+                return "<a href='" . $dataTable->domain . "' target='_blank'>" . $dataTable->domain . "</a>";
+            })
+            ->addColumn('status', function ($dataTable) {
+                // return $dataTable->status;
+                if ($dataTable->status === NULL) {
                     return '<div class="mb-2 mr-2 badge badge-warning">' . __('Pending') . '</div>';
                 }
-                if ($dataTable->is_sub_domain) {
+                if ($dataTable->status == 1) {
                     return '<div class="mb-2 mr-2 badge badge-success">' . __('Active') . '</div>';
                 } else {
                     return '<div class="mb-2 mr-2 badge badge-danger">' . __('Deactive') . '</div>';
                 }
             })
-            ->addColumn('status', 'includes.status_show')
-            ->rawColumns(['details', 'action', 'status', 'is_sub_domain']);
+            ->addColumn('is_sub_domain', function ($dataTable) {
+                if ($dataTable->is_sub_domain) {
+                    return '<div class="mb-2 mr-2 badge badge-success">' . __('Yes') . '</div>';
+                } else {
+                    return '<div class="mb-2 mr-2 badge badge-primary">' . __('No') . '</div>';
+                }
+            })
+            ->rawColumns(['details', 'action', 'status', 'is_sub_domain', 'domain']);
     }
 
     public function query(CustomDomain $model)

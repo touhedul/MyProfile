@@ -147,8 +147,11 @@
                             $sitelink = App\Models\Sitelink::where('user_id', auth()->id())
                                 ->where('default_status', 1)
                                 ->first();
+                            $customDomain = App\Models\CustomDomain::where('user_id', auth()->id())
+                                ->where('status', 1)
+                                ->first();
                         @endphp
-                        <a href="{{ $sitelink ? $sitelink->link : '/' }}" target="_blank">
+                        <a href="{{ @$customDomain ? $customDomain->domain : $sitelink->link ?? '/' }}" target="_blank">
                             <div class="card mb-3 widget-content bg-slick-carbon">
                                 <div class="widget-content-wrapper text-white">
                                     <div class="widget-content-right">
@@ -411,7 +414,8 @@
                     </a>
                 </div>
                 <div class="col-md-6 col-xl-4">
-                    <a href="{{ route('admin.logout') }}" onclick="event.preventDefault();
+                    <a href="{{ route('admin.logout') }}"
+                        onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         <div class="card mb-3 widget-content bg-royal">
                             <div class="widget-content-wrapper text-white">
@@ -423,10 +427,9 @@
                             </div>
                         </div>
                     </a>
-                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
-                                                style="display: none;">
-                                                @csrf
-                                            </form>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </div>
         @else

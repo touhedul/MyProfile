@@ -11,7 +11,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\PageController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware'=>['blockIp','localaization']],function(){
+Route::group(['middleware' => ['blockIp', 'localaization']], function () {
 
     Route::get('/', [IndexController::class, 'index'])->name('index');
 
@@ -33,11 +33,4 @@ Route::group(['middleware'=>['blockIp','localaization']],function(){
     Route::get('/language/{locale}', [IndexController::class, 'changeLanguage'])->name('changeLanguage');
 
     Route::get('/project-details/{project}', [IndexController::class, 'projectDetails'])->name('projectDetails');
-
-});
-
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::resource('customDomains', App\Http\Controllers\Admin\CustomDomainController::class, ["as" => 'admin']);
 });

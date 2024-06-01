@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactFeedback;
+use App\Models\CustomDomain;
 use App\Models\Gallery;
 use App\Models\Project;
 use App\Models\Sitelink;
@@ -19,18 +20,17 @@ class IndexController extends Controller
     {
         $url = request()->url();
 
-        $siteLink = Sitelink::where('link',$url)->with('user')->first();
-
-        if($siteLink){
-            $userInfo = (new UserService)->userInfoForSite($siteLink->user_id);
-            return view('user.themes.site'.$userInfo->default_theme->theme_id,compact('userInfo'));
+        $customDomain = CustomDomain::where('domain', $url)->where('status', 1)->first();
+        if ($customDomain) {
+            $userInfo = (new UserService)->userInfoForSite($customDomain->user_id);
+            return view('user.themes.site' . $userInfo->default_theme->theme_id, compact('userInfo'));
         }
         return view('frontend.index');
     }
 
     public function add($a)
     {
-        return $a."ratul";
+        return $a . "ratul";
     }
 
     public function changeLanguage($locale)
@@ -45,13 +45,11 @@ class IndexController extends Controller
         $userId = base64_decode($base64Userid);
         $userInfo = (new UserService)->userInfoForSite($userId);
 
-        return view('user.themes.site'.$userInfo->default_theme->theme_id,compact('userInfo'));
+        return view('user.themes.site' . $userInfo->default_theme->theme_id, compact('userInfo'));
     }
 
     public function projectDetails(Project $project)
     {
-        return view('includes.project_details',compact('project'));
+        return view('includes.project_details', compact('project'));
     }
-
-
 }
