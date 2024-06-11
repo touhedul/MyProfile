@@ -12,14 +12,14 @@ use App\Http\Controllers\AppBaseController;
 class ProfessionCategoryController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-map';
 
 
     public function index(ProfessionCategoryDataTable $professionCategoryDataTable)
     {
         $this->authorize('ProfessionCategory-view');
         $icon = $this->icon;
-        return $professionCategoryDataTable->render('admin.profession_categories.index',compact('icon'));
+        return $professionCategoryDataTable->render('admin.profession_categories.index', compact('icon'));
     }
 
 
@@ -44,14 +44,14 @@ class ProfessionCategoryController extends AppBaseController
     public function show(ProfessionCategory $professionCategory)
     {
         $this->authorize('ProfessionCategory-view');
-        return view('admin.profession_categories.show',compact('professionCategory'))->with('icon', $this->icon);
+        return view('admin.profession_categories.show', compact('professionCategory'))->with('icon', $this->icon);
     }
 
 
     public function edit(ProfessionCategory $professionCategory)
     {
         $this->authorize('ProfessionCategory-update');
-        return view('admin.profession_categories.edit',compact('professionCategory'))->with('icon', $this->icon);
+        return view('admin.profession_categories.edit', compact('professionCategory'))->with('icon', $this->icon);
     }
 
 

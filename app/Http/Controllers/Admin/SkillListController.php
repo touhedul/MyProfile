@@ -12,14 +12,14 @@ use App\Http\Controllers\AppBaseController;
 class SkillListController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-star';
 
 
     public function index(SkillListDataTable $skillListDataTable)
     {
         $this->authorize('SkillList-view');
         $icon = $this->icon;
-        return $skillListDataTable->render('admin.skill_lists.index',compact('icon'));
+        return $skillListDataTable->render('admin.skill_lists.index', compact('icon'));
     }
 
 
@@ -44,14 +44,14 @@ class SkillListController extends AppBaseController
     public function show(SkillList $skillList)
     {
         $this->authorize('SkillList-view');
-        return view('admin.skill_lists.show',compact('skillList'))->with('icon', $this->icon);
+        return view('admin.skill_lists.show', compact('skillList'))->with('icon', $this->icon);
     }
 
 
     public function edit(SkillList $skillList)
     {
         $this->authorize('SkillList-update');
-        return view('admin.skill_lists.edit',compact('skillList'))->with('icon', $this->icon);
+        return view('admin.skill_lists.edit', compact('skillList'))->with('icon', $this->icon);
     }
 
 

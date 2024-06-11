@@ -155,6 +155,26 @@
     </li>
 @endcan
 
+@can('Theme-view')
+    <li class="">
+        <a href="{{ route('admin.themes.index') }}"
+            class="{{ Request::is(config('admin.admin_route_prefix') . '/themes**') ? 'mm-active' : '' }}">
+            <i class="metismenu-icon pe-7s-plugin"></i>
+            {{ __('Themes') }}
+        </a>
+    </li>
+@endcan
+
+
+@can('Menu-view')
+    <li class="">
+        <a href="{{ route('admin.menus.index') }}"
+            class="{{ Request::is(config('admin.admin_route_prefix') . '/menus**') ? 'mm-active' : '' }}">
+            <i class="metismenu-icon pe-7s-menu"></i>
+            {{ __('Menus') }}
+        </a>
+    </li>
+@endcan
 
 @can('Contactinfo-view')
     <li class="">
@@ -180,7 +200,7 @@
     <li class="">
         <a href="{{ route('admin.professionCategories.index') }}"
             class="{{ Request::is(config('admin.admin_route_prefix') . '/professionCategories**') ? 'mm-active' : '' }}">
-            <i class="metismenu-icon pe-7s-menu"></i>
+            <i class="metismenu-icon pe-7s-map"></i>
             {{ __('Profession Categories') }}
         </a>
     </li>
@@ -190,7 +210,7 @@
     <li class="">
         <a href="{{ route('admin.professions.index') }}"
             class="{{ Request::is(config('admin.admin_route_prefix') . '/professions**') ? 'mm-active' : '' }}">
-            <i class="metismenu-icon pe-7s-menu"></i>
+            <i class="metismenu-icon pe-7s-lintern"></i>
             {{ __('Professions') }}
         </a>
     </li>
@@ -200,7 +220,7 @@
     <li class="">
         <a href="{{ route('admin.skillLists.index') }}"
             class="{{ Request::is(config('admin.admin_route_prefix') . '/skillLists**') ? 'mm-active' : '' }}">
-            <i class="metismenu-icon pe-7s-menu"></i>
+            <i class="metismenu-icon pe-7s-star"></i>
             {{ __('Skill Lists') }}
         </a>
     </li>
@@ -435,23 +455,3 @@
         @csrf
     </form>
 </li>
-@can('Theme-view')
-    <li class="">
-        <a href="{{ route('admin.themes.index') }}"
-            class="{{ Request::is(config('admin.admin_route_prefix') . '/themes**') ? 'mm-active' : '' }}">
-            <i class="metismenu-icon pe-7s-menu"></i>
-            {{ __('Themes') }}
-        </a>
-    </li>
-@endcan
-
-
-@can('Menu-view')
-    <li class="">
-        <a href="{{ route('admin.menus.index') }}"
-            class="{{ Request::is(config('admin.admin_route_prefix') . '/menus**') ? 'mm-active' : '' }}">
-            <i class="metismenu-icon pe-7s-menu"></i>
-            {{ __('Menus') }}
-        </a>
-    </li>
-@endcan

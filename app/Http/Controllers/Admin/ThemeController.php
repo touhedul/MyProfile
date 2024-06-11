@@ -12,14 +12,14 @@ use App\Http\Controllers\AppBaseController;
 class ThemeController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-plugin';
 
 
     public function index(ThemeDataTable $themeDataTable)
     {
         $this->authorize('Theme-view');
         $icon = $this->icon;
-        return $themeDataTable->render('admin.themes.index',compact('icon'));
+        return $themeDataTable->render('admin.themes.index', compact('icon'));
     }
 
 
@@ -44,14 +44,14 @@ class ThemeController extends AppBaseController
     public function show(Theme $theme)
     {
         $this->authorize('Theme-view');
-        return view('admin.themes.show',compact('theme'))->with('icon', $this->icon);
+        return view('admin.themes.show', compact('theme'))->with('icon', $this->icon);
     }
 
 
     public function edit(Theme $theme)
     {
         $this->authorize('Theme-update');
-        return view('admin.themes.edit',compact('theme'))->with('icon', $this->icon);
+        return view('admin.themes.edit', compact('theme'))->with('icon', $this->icon);
     }
 
 

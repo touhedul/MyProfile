@@ -13,14 +13,14 @@ use App\Models\Menu;
 class ProfessionController extends AppBaseController
 {
 
-    private $icon = 'pe-7s-menu';
+    private $icon = 'pe-7s-lintern';
 
 
     public function index(ProfessionDataTable $professionDataTable)
     {
         $this->authorize('Profession-view');
         $icon = $this->icon;
-        return $professionDataTable->render('admin.professions.index',compact('icon'));
+        return $professionDataTable->render('admin.professions.index', compact('icon'));
     }
 
 
@@ -28,7 +28,7 @@ class ProfessionController extends AppBaseController
     {
         $this->authorize('Profession-create');
         $menus = Menu::orderBy('name')->get();
-        return view('admin.professions.create',compact('menus'))->with('icon', $this->icon);
+        return view('admin.professions.create', compact('menus'))->with('icon', $this->icon);
     }
 
 
@@ -37,7 +37,7 @@ class ProfessionController extends AppBaseController
         // return $request;
         $this->authorize('Profession-create');
         $status = $request->status ?? 0;
-        $profession = Profession::create(array_merge($request->all(),['status' => $status]));
+        $profession = Profession::create(array_merge($request->all(), ['status' => $status]));
         // $profession->menus()->attach($request->menu_id);
         notify()->success(__("Successfully Created"), __("Success"));
         return redirect(route('admin.professions.index'));
@@ -47,7 +47,7 @@ class ProfessionController extends AppBaseController
     public function show(Profession $profession)
     {
         $this->authorize('Profession-view');
-        return view('admin.professions.show',compact('profession'))->with('icon', $this->icon);
+        return view('admin.professions.show', compact('profession'))->with('icon', $this->icon);
     }
 
 
@@ -55,7 +55,7 @@ class ProfessionController extends AppBaseController
     {
         $this->authorize('Profession-update');
         $menus = Menu::orderBy('name')->get();
-        return view('admin.professions.edit',compact('profession','menus'))->with('icon', $this->icon);
+        return view('admin.professions.edit', compact('profession', 'menus'))->with('icon', $this->icon);
     }
 
 
@@ -63,7 +63,7 @@ class ProfessionController extends AppBaseController
     {
         $this->authorize('Profession-update');
         $status = $request->status ?? 0;
-        $profession->fill(array_merge($request->all(),['status' => $status]))->save();
+        $profession->fill(array_merge($request->all(), ['status' => $status]))->save();
         // $profession->menus()->sync($request->menu_id);
         notify()->success(__("Successfully Updated"), __("Success"));
         return redirect(route('admin.professions.index'));
