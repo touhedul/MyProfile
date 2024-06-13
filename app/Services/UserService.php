@@ -660,18 +660,18 @@ class UserService
         $this->createContactinfo($user);
     }
 
-    public function createContactinfo($user,$data=null)
+    public function createContactinfo($user, $data = null)
     {
         Contactinfo::create([
             'user_id' => $user->id,
-            'title' => 'VISIT US',
+            'title' => 'VISIT ME',
             'details' => @$data['address'] ?? '145 Murphy Canyon Rd. <br> Suite 100-18, San Diego CA 2028',
             'icon' => 'fas fa-map-marker-alt',
         ]);
 
         Contactinfo::create([
             'user_id' => $user->id,
-            'title' => 'CALL US NOW',
+            'title' => 'CALL ME NOW',
             'details' =>  @$data['phone'] ?? 'Phone: (+060) 9898980098 <br>Fax: (+060) 8898880088',
             'icon' => 'fas fa-phone-alt',
         ]);

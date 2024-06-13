@@ -2,6 +2,7 @@
 
 use App\Models\Notification;
 use App\Models\Setting;
+use App\Models\User;
 
 if (!function_exists('setting')) {
 
@@ -67,11 +68,18 @@ if (!function_exists('notification')) {
     }
 }
 
+if (!function_exists('defaultAdmin')) {
+    function defaultAdmin()
+    {
+        return User::where('email', 'admin@admin.com')->first();
+    }
+}
+
 
 if (!function_exists('checkUserAndAuthId')) {
     function checkUserAndAuthId($model): void
     {
-        if(auth()->id() != $model->user_id){
+        if (auth()->id() != $model->user_id) {
             abort(403);
         }
     }
@@ -118,10 +126,10 @@ if (!function_exists('defaultImage')) {
                 $image = asset('frontend/theme1/images/logo.png');
                 break;
         }
-        if($image){
+        if ($image) {
             return $image;
-        }else{
-            return $type && file_exists(public_path('frontend/theme1/images/'.$type)) ? asset('frontend/theme1/images/'.$type) : asset('frontend/theme1/images/no-image.jpg');
+        } else {
+            return $type && file_exists(public_path('frontend/theme1/images/' . $type)) ? asset('frontend/theme1/images/' . $type) : asset('frontend/theme1/images/no-image.jpg');
         }
         return $image;
     }

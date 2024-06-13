@@ -35,7 +35,7 @@ class UserDataTable extends DataTable
 
     public function query(User $model)
     {
-        return $model->newQuery()->role('user');
+        return $model->newQuery()->role('customer');
     }
 
     public function html()

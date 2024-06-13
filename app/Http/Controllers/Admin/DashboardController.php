@@ -21,12 +21,12 @@ class DashboardController extends Controller
         $this->authorize('dashboard-view');
 
 
-        $todayUser = User::role('user')->whereDate('created_at', Carbon::today())->count();
-        $weekUser = User::role('user')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
-        $monthUser = User::role('user')->whereMonth('created_at', Carbon::now()->month)->count();
-        $yearUser = User::role('user')->whereYear('created_at', date('Y'))->count();
+        $todayUser = User::role('customer')->whereDate('created_at', Carbon::today())->count();
+        $weekUser = User::role('customer')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+        $monthUser = User::role('customer')->whereMonth('created_at', Carbon::now()->month)->count();
+        $yearUser = User::role('customer')->whereYear('created_at', date('Y'))->count();
 
-        $recentlyRegisteredUsers = User::role('user')->latest()->take(5)->get();
+        $recentlyRegisteredUsers = User::role('customer')->latest()->take(5)->get();
 
         return view('admin.others.dashboard', compact(
             'todayUser',

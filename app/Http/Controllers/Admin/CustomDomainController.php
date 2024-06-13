@@ -116,6 +116,7 @@ class CustomDomainController extends AppBaseController
             'domain' => $domain,
         ]);
 
+        notification(["title" => "Custom domain requested", "description" => "Custom domain requested by user", "link" => route('admin.notifications.index'), "user_id" => defaultAdmin()->id]);
         notify()->success(__("Successfully Requested.Admin will contact you soon."), __("Success"));
         return back();
     }
