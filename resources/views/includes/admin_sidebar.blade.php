@@ -381,6 +381,13 @@
                     {{ __('System Activity Log') }}
                 </a>
             </li>
+            <li class="">
+                <a href="{{ URL::to(config('log-viewer.route_path')) }}" target="_blank">
+                    <i class="metismenu-icon">
+                    </i>
+                    {{ __('Log viewer') }}
+                </a>
+            </li>
         </ul>
     </li>
 @endcan

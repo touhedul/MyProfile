@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory', 'notUser', 'localai
 
         // contact and feedback
         Route::get('contacts', [ContactFeedbackController::class, 'contacts'])->name('contacts');
-        // Route::get('feedbacks', [ContactFeedbackController::class,'feedbacks'])->name('feedbacks');
+        Route::get('feedbacks', [ContactFeedbackController::class, 'feedbacks'])->name('feedbacks');
         Route::get('contacts/{contactFeedback}', [ContactFeedbackController::class, 'show'])->name('contactFeedback.show');
         Route::delete('contact-feedback-delete/{contactFeedback}', [ContactFeedbackController::class, 'contactFeedbackDelete'])->name('contactFeedback.delete');
 

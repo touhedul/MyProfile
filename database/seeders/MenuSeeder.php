@@ -16,25 +16,25 @@ class MenuSeeder extends Seeder
     public function run()
     {
         $menus = [
-            ['name' => 'Home','status'=>1,'background_color' => null],
+            ['name' => 'Home', 'status' => 1, 'background_color' => null],
 
-            ['name' => 'About','status'=>1,'background_color' => '#ffffff'],
+            ['name' => 'About', 'status' => 1, 'background_color' => '#ffffff'],
 
-            ['name' => 'Skill','status'=>1,'background_color' => '#f8f9fa'],
+            ['name' => 'Skill', 'status' => 1, 'background_color' => '#f8f9fa'],
 
-            ['name' => 'Service','status'=>1,'background_color' => '#ffffff'],
+            ['name' => 'Service', 'status' => 0, 'background_color' => '#ffffff'],
 
-            ['name' => 'Project','status'=>1,'background_color' => '#f8f9fa'],
+            ['name' => 'Project', 'status' => 1, 'background_color' => '#f8f9fa'],
 
-            ['name' => 'Course','status'=>1,'background_color' => '#ffffff'],
-            ['name' => 'Achievement','status'=>1,'background_color' => '#f8f9fa'],
-            ['name' => 'Experience','status'=>1,'background_color' => '#ffffff'],
+            ['name' => 'Course', 'status' => 1, 'background_color' => '#ffffff'],
+            ['name' => 'Achievement', 'status' => 1, 'background_color' => '#f8f9fa'],
+            ['name' => 'Experience', 'status' => 1, 'background_color' => '#ffffff'],
 
-            ['name' => 'Education','status'=>1,'background_color' => '#f8f9fa'],
+            ['name' => 'Education', 'status' => 1, 'background_color' => '#f8f9fa'],
 
-            ['name' => 'Testimonial','status'=>1,'background_color' => '#ffffff'],
-            ['name' => 'Client','status'=>1,'background_color' => '#f8f9fa'],
-            ['name' => 'Contact','status'=>1,'background_color' => '#ffffff'],
+            ['name' => 'Testimonial', 'status' => 0, 'background_color' => '#ffffff'],
+            ['name' => 'Client', 'status' => 0, 'background_color' => '#f8f9fa'],
+            ['name' => 'Contact', 'status' => 1, 'background_color' => '#ffffff'],
 
         ];
 
