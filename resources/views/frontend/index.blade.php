@@ -1,162 +1,21 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Page Title -->
-    <title>Wexim</title>
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('frontend/business_site/images/favicon.ico') }}">
-    <!-- Animate -->
-    <link rel="stylesheet" href="{{ asset('frontend/business_site/css/animate.min.css') }}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/business_site/css/bootstrap.min.css') }}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('frontend/business_site/css/font-awesome.min.css') }}">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="{{ asset('frontend/business_site/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/business_site/css/owl.theme.default.min.css') }}">
-    <!-- Cube Portfolio -->
-    <link rel="stylesheet" href="{{ asset('frontend/business_site/css/cubeportfolio.min.css') }}">
-    <!-- Fancy Box -->
-    <link rel="stylesheet" href="{{ asset('frontend/business_site/css/jquery.fancybox.min.css') }}">
-    <!-- REVOLUTION STYLE SHEETS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/business_site/rs-plugin/css/settings.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/business_site/rs-plugin/css/navigation.css') }}">
-    <!-- Style Sheet -->
-    <link rel="stylesheet" href="{{ asset('frontend/business_site/css/style.css') }}">
-
-
-</head>
-
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="90">
-
-    <!--Loader Start-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="loader-blocks">
-                <span class="block-1"></span>
-                <span class="block-2"></span>
-                <span class="block-3"></span>
-                <span class="block-4"></span>
-                <span class="block-5"></span>
-                <span class="block-6"></span>
-                <span class="block-7"></span>
-                <span class="block-8"></span>
-                <span class="block-9"></span>
-                <span class="block-10"></span>
-                <span class="block-11"></span>
-                <span class="block-12"></span>
-                <span class="block-13"></span>
-                <span class="block-14"></span>
-                <span class="block-15"></span>
-                <span class="block-16"></span>
-            </div>
-        </div>
-    </div>
-    <!--Loader End-->
-
-    <!--Header Start-->
-    <header>
-
-        <!--Navigation-->
-        <nav class="navbar navbar-top-default navbar-expand-lg navbar-gradient nav-icon">
-            <div class="container">
-                <a href="javascript:void(0)" title="Logo" class="logo scroll">
-                    <!--Logo Default-->
-                    <img src="{{ asset('frontend/business_site/images/logo-white.png') }}" alt="logo"
-                        class="logo-dark default">
-                </a>
-
-                <!--Nav Links-->
-                <div class="collapse navbar-collapse" id="wexim">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-link scroll" href="#home">Home</a>
-                        <a class="nav-link scroll" href="#about">About</a>
-                        <a class="nav-link scroll" href="#team">Team</a>
-                        <a class="nav-link scroll" href="#portfolio">Work</a>
-                        <a class="nav-link scroll" href="#price">Pricing</a>
-                        <a class="nav-link scroll" href="#blog">Blog</a>
-                        <a class="nav-link scroll" href="#contact">Contact</a>
-                        <span class="menu-line"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-
-                <!--Side Menu Button-->
-                <a href="javascript:void(0)" class="d-inline-block sidemenu_btn" id="sidemenu_toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </a>
-
-            </div>
-        </nav>
-
-        <!--Side Nav-->
-        <div class="side-menu">
-            <div class="inner-wrapper">
-                <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
-                <nav class="side-nav w-100">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link scroll" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll" href="#team">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll" href="#portfolio">Work</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll" href="#price">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll" href="#blog">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div class="side-footer text-white w-100">
-                    <ul class="social-icons-simple">
-                        <li><a class="facebook-text-hvr" href="javascript:void(0)"><i class="fa fa-facebook"></i>
-                            </a> </li>
-                        <li><a class="instagram-text-hvr" href="javascript:void(0)"><i class="fa fa-instagram"></i>
-                            </a> </li>
-                        <li><a class="twitter-text-hvr" href="javascript:void(0)"><i class="fa fa-twitter"></i> </a>
-                        </li>
-                    </ul>
-                    <p class="text-white">&copy; 2021 Wexim. Made With Love by Themesindustry</p>
-                </div>
-            </div>
-        </div>
-        <a id="close_side_menu" href="javascript:void(0);"></a>
-        <!-- End side menu -->
-
-    </header>
-    <!--Header end-->
-
+@extends('layouts.frontend')
+@section('title')
+    HOME
+@endsection
+@section('content')
     <!--slider-->
     <section id="home" class="p-0 single-slide">
         <h2 class="d-none">hidden</h2>
-        <div id="rev_slider_19_1_wrapper" class="rev_slider_wrapper fullscreen-container"
-            data-alias="wexim_slider_01" data-source="gallery" style="background:transparent;padding:0px;">
+        <div id="rev_slider_19_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="wexim_slider_01"
+            data-source="gallery" style="background:transparent;padding:0px;">
             <!-- START REVOLUTION SLIDER 5.4.8.1 fullscreen mode -->
-            <div id="rev_slider_19_1" class="rev_slider fullscreenbanner" style="display:none;"
-                data-version="5.4.8.1">
+            <div id="rev_slider_19_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.8.1">
                 <ul> <!-- SLIDE  -->
                     <li data-index="rs-94" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
-                        data-hideslideonmobile="off" data-easein="default" data-easeout="default"
-                        data-masterspeed="300" data-rotate="0" data-saveperformance="off" data-title="Slide"
-                        data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6=""
-                        data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300"
+                        data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2=""
+                        data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8=""
+                        data-param9="" data-param10="" data-description="">
                         <!-- MAIN IMAGE -->
                         <img src="{{ asset('frontend/business_site/images/gradient-bg.png') }}" alt=""
                             data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
@@ -174,9 +33,8 @@
                             data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                             style="z-index: 5;">
                             <div class="rs-looped rs-wave" data-speed="10" data-angle="0" data-radius="10"
-                                data-origin="50% 50%"><img
-                                    src="{{ asset('frontend/business_site/images/square.png') }}" alt=""
-                                    data-ww="['695px','695px','596px','382px']"
+                                data-origin="50% 50%"><img src="{{ asset('frontend/business_site/images/square.png') }}"
+                                    alt="" data-ww="['695px','695px','596px','382px']"
                                     data-hh="['619px','619px','531px','341px']" data-no-retina> </div>
                         </div>
 
@@ -197,14 +55,13 @@
                         <div class="tp-caption   tp-resizeme" id="slide-94-layer-3"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                             data-y="['middle','middle','middle','middle']" data-voffset="['-81','-81','-64','-48']"
-                            data-fontsize="['25','25','18','14']" data-lineheight="['20','20','18','14']"
-                            data-width="none" data-height="none" data-whitespace="nowrap" data-type="text"
-                            data-responsive_offset="on"
+                            data-fontsize="['25','25','18','14']" data-lineheight="['20','20','18','14']" data-width="none"
+                            data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
                             data-frames='[{"delay":1979.8828125,"speed":1500,"sfxcolor":"#ffffff","sfx_effect":"blockfromtop","frame":"0","from":"z:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
                             data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
                             data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                             style="z-index: 7; white-space: nowrap; font-size: 25px; line-height: 20px; font-weight: 300; color: #ffffff; letter-spacing: 0px;font-family:Poppins;">
-                            Creative Onepage </div>
+                            Create your portfolio </div>
 
                         <!-- LAYER NR. 4 -->
                         <div class="tp-caption   tp-resizeme" id="slide-94-layer-4"
@@ -217,7 +74,7 @@
                             data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
                             data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                             style="z-index: 8; white-space: nowrap;font-weight: 600; color: #ffffff; letter-spacing: 0px;font-family:Poppins;">
-                            <div class="text-center" id="js-rotating">Parallax,Website</div>
+                            <div class="text-center" id="js-rotating">Effortlessly,Dynamic,Instant</div>
                         </div>
 
                         <!-- LAYER NR. 5 -->
@@ -230,7 +87,7 @@
                             data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
                             data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                             style="z-index: 9; white-space: nowrap;"><a class="btn btn-large btn-blue btn-rounded"
-                                href="javascript:void(0)"> Getting Start </a></div>
+                                href="javascript:void(0)"> Signup Now </a></div>
                     </li>
                 </ul>
             </div>
@@ -250,17 +107,16 @@
             <div class="row align-items-center wow fadeIn">
                 <div class="col-md-6">
                     <div class="title">
-                        <h6 class="third-color mb-3">Basic info about componay</h6>
-                        <h2>Wexim - A Creative Design Agency in NewYork, USA</h2>
+                        <h6 class="third-color mb-3">Showcasing Professionals Finest Achievements</h6>
+                        <h2>Empowering Professionals to Showcase Their Best Work</h2>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
-                    <p>Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc
-                        vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam porttitor
-                        justo sed mi finibus, vel tristique risus faucibus.
+                    <p>With our innovative platform, we empower professionals to effortlessly create stunning portfolio
+                        websites in minutes. Whether you're a designer, developer, marketer, or freelancer, our intuitive
+                        interface and customizable features make it easy to showcase your skills and accomplishments.
                         <br><br>
-                        Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc
-                        vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus.
+                        Stand out from the crowd and elevate your online presence with our platform.
                     </p>
                 </div>
             </div>
@@ -272,9 +128,9 @@
                         <span class="item-number gradient-text1">
                             01.
                         </span>
-                        <h6 class="mb-4">Website Design</h6>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit augue diam, accumsan ipsum dolor sit
-                            amet, consectetur adipiscing.</p>
+                        <h6 class="mb-4">Customizable Designs</h6>
+                        <p>Tailor your portfolio with sleek, professional designs that reflect your unique style and brand.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4 wow fadeInUp">
@@ -282,9 +138,9 @@
                         <span class="item-number gradient-text1">
                             02.
                         </span>
-                        <h6 class="mb-4">Website Development</h6>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit augue diam, accumsan ipsum dolor sit
-                            amet, consectetur adipiscing.</p>
+                        <h6 class="mb-4">Easy Content Management</h6>
+                        <p>Effortlessly update and manage your portfolio content with our user-friendly interface, no coding
+                            required.</p>
                     </div>
                 </div>
                 <div class="col-md-4 wow fadeInRight">
@@ -292,9 +148,9 @@
                         <span class="item-number gradient-text1">
                             03.
                         </span>
-                        <h6 class="mb-4">Project Management</h6>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit augue diam, accumsan ipsum dolor sit
-                            amet, consectetur adipiscing.</p>
+                        <h6 class="mb-4">Instant Website Generation</h6>
+                        <p>Generate your personalized portfolio website instantly, saving you time and hassle in the
+                            process.</p>
                     </div>
                 </div>
             </div>
@@ -333,11 +189,10 @@
             <div class="row wow fadeIn">
                 <div class="col-md-12 text-center">
                     <div class="title d-inline-block">
-                        <h6 class="mb-3">Basic info about componay</h6>
-                        <h2 class="gradient-text1 mb-3">Creative Heads</h2>
-                        <p>Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor
-                            nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam
-                            porttitor justo sed mi finibus, vel tristique risus faucibus. </p>
+                        <h2 class="gradient-text1 mb-3"> Trusted by Professionals</h2>
+                        <p>Join a growing community of professionals who have transformed their careers with our platform.
+                            Discover how users from various fields are showcasing their skills, achievements, and
+                            experiences with sleek, personalized portfolio websites. </p>
                     </div>
                 </div>
             </div>
@@ -357,8 +212,8 @@
                                     <ul class="team-social">
                                         <li><a class="facebook-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i
-                                                    class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i class="fa fa-twitter"
+                                                    aria-hidden="true"></i></a></li>
                                         <li><a class="instagram-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                         <li><a class="pinterest-bg-hvr" href="javascript:void(0);"><i
@@ -403,8 +258,8 @@
                                     <ul class="team-social">
                                         <li><a class="facebook-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i
-                                                    class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i class="fa fa-twitter"
+                                                    aria-hidden="true"></i></a></li>
                                         <li><a class="instagram-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                         <li><a class="pinterest-bg-hvr" href="javascript:void(0);"><i
@@ -448,8 +303,8 @@
                                     <ul class="team-social">
                                         <li><a class="facebook-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i
-                                                    class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i class="fa fa-twitter"
+                                                    aria-hidden="true"></i></a></li>
                                         <li><a class="instagram-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                         <li><a class="pinterest-bg-hvr" href="javascript:void(0);"><i
@@ -493,8 +348,8 @@
                                     <ul class="team-social">
                                         <li><a class="facebook-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i
-                                                    class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i class="fa fa-twitter"
+                                                    aria-hidden="true"></i></a></li>
                                         <li><a class="instagram-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                         <li><a class="pinterest-bg-hvr" href="javascript:void(0);"><i
@@ -539,8 +394,8 @@
                                     <ul class="team-social">
                                         <li><a class="facebook-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i
-                                                    class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a class="twitter-bg-hvr" href="javascript:void(0);"><i class="fa fa-twitter"
+                                                    aria-hidden="true"></i></a></li>
                                         <li><a class="instagram-bg-hvr" href="javascript:void(0);"><i
                                                     class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                         <li><a class="pinterest-bg-hvr" href="javascript:void(0);"><i
@@ -587,17 +442,19 @@
             <div class="row align-items-center">
                 <div class="col-md-6 wow fadeInLeft">
                     <div class="title">
-                        <h6 class="third-color mb-3">Latest design of our company</h6>
-                        <h2>Creative Portfolio Designs</h2>
+                        <h6 class="third-color mb-3">Comprehensive Tools for Your Success</h6>
+                        <h2>Key Application Features</h2>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4 wow fadeInRight">
-                    <p>Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc
-                        vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam porttitor
-                        justo sed mi finibus, vel tristique risus faucibus.
+                    <p>Our platform offers a robust set of features designed to help you create a professional and
+                        personalized portfolio with ease. Customize your site with various sections like education,
+                        projects, achievements, and experiences. Enjoy automatic content and image generation, ensuring a
+                        polished look without the hassle.
                         <br><br>
-                        Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc
-                        vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus.
+                        Effortlessly update your information with our user-friendly interface, and take advantage of
+                        versatile design options to truly make your portfolio stand out. Elevate your online presence and
+                        impress potential employers or clients with a sleek, dynamic portfolio.
                     </p>
                 </div>
             </div>
@@ -625,8 +482,7 @@
                         <div class="cbp-item web-design graphic">
                             <a href="images/work-1.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-1.jpg') }}"
-                                        alt="port-1">
+                                    <img src="{{ asset('frontend/business_site/images/work-1.jpg') }}" alt="port-1">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -642,8 +498,7 @@
                         <div class="cbp-item seo marketing">
                             <a href="images/work-2.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-2.jpg') }}"
-                                        alt="port-2">
+                                    <img src="{{ asset('frontend/business_site/images/work-2.jpg') }}" alt="port-2">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -658,8 +513,7 @@
                         <div class="cbp-item seo marketing">
                             <a href="images/work-4.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-4.jpg') }}"
-                                        alt="port-4">
+                                    <img src="{{ asset('frontend/business_site/images/work-4.jpg') }}" alt="port-4">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -674,8 +528,7 @@
                         <div class="cbp-item graphic seo marketing">
                             <a href="images/work-3.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-3.jpg') }}"
-                                        alt="port-3">
+                                    <img src="{{ asset('frontend/business_site/images/work-3.jpg') }}" alt="port-3">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -690,8 +543,7 @@
                         <div class="cbp-item web-design graphic">
                             <a href="images/work-5.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-5.jpg') }}"
-                                        alt="port-5">
+                                    <img src="{{ asset('frontend/business_site/images/work-5.jpg') }}" alt="port-5">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -706,8 +558,7 @@
                         <div class="cbp-item seo marketing graphic ">
                             <a href="images/work-6.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-6.jpg') }}"
-                                        alt="port-6">
+                                    <img src="{{ asset('frontend/business_site/images/work-6.jpg') }}" alt="port-6">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -722,8 +573,7 @@
                         <div class="cbp-item web-design seo">
                             <a href="images/work-7.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-7.jpg') }}"
-                                        alt="port-7">
+                                    <img src="{{ asset('frontend/business_site/images/work-7.jpg') }}" alt="port-7">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -738,8 +588,7 @@
                         <div class="cbp-item web-design graphic">
                             <a href="images/work-8.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-8.jpg') }}"
-                                        alt="port-8">
+                                    <img src="{{ asset('frontend/business_site/images/work-8.jpg') }}" alt="port-8">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -770,7 +619,7 @@
     <!--Portfolio end-->
 
     <!--Pricing Start-->
-    <section id="price" class="bg-light">
+    {{-- <section id="price" class="bg-light">
         <div class="container">
             <!--Heading-->
             <div class="row">
@@ -851,7 +700,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Pricing End Start-->
 
     <!--Content Start-->
@@ -861,10 +710,11 @@
 
                 <div class="col-lg-6 wow fadeInLeft">
                     <div class="title">
-                        <h6 class="third-color mb-3">You can trust us</h6>
-                        <h2 class="mb-4">We Can<br>Make Your Design</h2>
-                        <p>Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit Vestibulum auctor nunc
-                            vitae diam eleifend, in maximus metus sollicitu eleifend in maximus metus sollicitudin.</p>
+                        <h6 class="third-color mb-3">Optimized for Every Device</h6>
+                        <h2 class="mb-4">Mobile-Friendly<br>Portfolio Websites</h2>
+                        <p>Our platform ensures your portfolio looks stunning on any device. With responsive design, your
+                            site automatically adjusts to fit smartphones, tablets, and desktops, providing a seamless
+                            experience everywhere.</p>
                     </div>
                 </div>
 
@@ -888,26 +738,22 @@
                         <!--testimonial item-->
                         <div class="testimonial-item item">
                             <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae
-                                egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna
-                                laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. Nunc aliquet lacus vel
-                                posuere volutpat. Fusce ultrices sollicitudin nisl nec elementum. </p>
+                            <p class="mb-4">This platform revolutionized how I present my work. Within minutes, I had a
+                                sleek portfolio showcasing my skills. Highly recommended! </p>
 
                             <!--Image-->
                             <div class="testimonial-image">
                                 <img src="{{ asset('frontend/business_site/images/testimonial-img1.jpg') }}"
                                     alt="image">
                             </div>
-                            <h5 class="font-weight-500 third-color">Sara WIlliamson</h5>
+                            <h5 class="font-weight-500 third-color">Sarah C</h5>
                             <span class="destination">Project Manager, The Company Inc.</span>
                         </div>
                         <!--testimonial item-->
                         <div class="testimonial-item item">
                             <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae
-                                egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna
-                                laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. Nunc aliquet lacus vel
-                                posuere volutpat. Fusce ultrices sollicitudin nisl nec elementum. </p>
+                            <p class="mb-4">I'm amazed by the simplicity and professionalism of this platform. It's truly
+                                a game-changer for freelancers like me. </p>
 
                             <!--Image-->
                             <div class="testimonial-image">
@@ -920,10 +766,8 @@
                         <!--testimonial item-->
                         <div class="testimonial-item item">
                             <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae
-                                egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna
-                                laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. Nunc aliquet lacus vel
-                                posuere volutpat. Fusce ultrices sollicitudin nisl nec elementum. </p>
+                            <p class="mb-4">I've received nothing but positive feedback since using this platform. It's
+                                easy to use, and my portfolio looks fantastic on any device. </p>
 
                             <!--Image-->
                             <div class="testimonial-image">
@@ -944,23 +788,23 @@
                         <div class="counter-row">
                             <!--counters item-->
                             <div class="counter-item">
-                                <div class="count alt-font">69</div>
-                                <h6 class="text-white">Award Won</h6>
+                                <div class="count alt-font">690</div>
+                                <h6 class="text-white">Active Users</h6>
                             </div>
                             <!--counters item-->
                             <div class="counter-item">
                                 <div class="count alt-font">780</div>
-                                <h6 class="text-white">Employees</h6>
+                                <h6 class="text-white">Skills Highlighted</h6>
                             </div>
                             <!--counters item-->
                             <div class="counter-item">
                                 <div class="count alt-font">456</div>
-                                <h6 class="text-white">Happy Clients</h6>
+                                <h6 class="text-white">Projects Showcased </h6>
                             </div>
                             <!--counters item-->
                             <div class="counter-item">
                                 <div class="count alt-font">599</div>
-                                <h6 class="text-white">Finished Projects</h6>
+                                <h6 class="text-white">Positive Reviews </h6>
                             </div>
                         </div>
                     </div>
@@ -977,11 +821,10 @@
             <div class="row">
                 <div class="col-md-12 text-center wow fadeIn">
                     <div class="title d-inline-block">
-                        <h6 class="mb-3">Most reliable application</h6>
-                        <h2 class="gradient-text1 mb-3">Mobile App Design</h2>
-                        <p>Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor
-                            nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam
-                            porttitor justo sed mi finibus, vel tristique risus faucibus. </p>
+                        <h6 class="mb-3">Sleek Mobile Experience</h6>
+                        <h2 class="gradient-text1 mb-3">Optimized for Portfolios</h2>
+                        <p>Experience seamless browsing on-the-go with our mobile-responsive portfolio websites. Showcase
+                            your skills effortlessly from any device, anywhere. </p>
                     </div>
                 </div>
             </div>
@@ -993,16 +836,14 @@
                     <!--App deatil item-->
                     <div class="app-feature">
                         <i class="fa fa-diamond gradient-text1" aria-hidden="true"></i>
-                        <h4 class="mb-3">Theme Options</h4>
-                        <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit Suspendisse in orci
-                            enim gravida nibh.</p>
+                        <h4 class="mb-3">Intuitive Navigation</h4>
+                        <p>Easily navigate your portfolio with user-friendly mobile controls</p>
                     </div>
                     <!--App deatil item-->
                     <div class="app-feature">
                         <i class="fa fa-edit gradient-text1" aria-hidden="true"></i>
-                        <h4 class="mb-3">Customization</h4>
-                        <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit Suspendisse in orci
-                            enim gravida nibh.</p>
+                        <h4 class="mb-3">Dynamic Content Display</h4>
+                        <p>Ensure your content looks great and is easily accessible on smartphones.</p>
                     </div>
                 </div>
 
@@ -1013,16 +854,13 @@
                         <img src="{{ asset('frontend/business_site/images/iphone-img.png') }}" alt="image">
                         <div id="app-slider" class="owl-carousel owl-theme">
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/iphone-slide1.jpg') }}"
-                                    alt="">
+                                <img src="{{ asset('frontend/business_site/images/iphone-slide1.jpg') }}" alt="">
                             </div>
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/iphone-slide2.jpg') }}"
-                                    alt="">
+                                <img src="{{ asset('frontend/business_site/images/iphone-slide2.jpg') }}" alt="">
                             </div>
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/iphone-slide3.jpg') }}"
-                                    alt="">
+                                <img src="{{ asset('frontend/business_site/images/iphone-slide3.jpg') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -1032,16 +870,15 @@
                     <!--App deatil item-->
                     <div class="app-feature">
                         <i class="fa fa-code gradient-text1" aria-hidden="true"></i>
-                        <h4 class="mb-3">Powerful Code</h4>
-                        <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit Suspendisse in orci
-                            enim gravida nibh.</p>
+                        <h4 class="mb-3">Instant Updates</h4>
+                        <p>Update your portfolio instantly, keeping your mobile visitors engaged with fresh content</p>
                     </div>
                     <!--App deatil item-->
                     <div class="app-feature">
                         <i class="fa fa-folder-open-o gradient-text1" aria-hidden="true"></i>
-                        <h4 class="mb-3">Documentation</h4>
-                        <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit Suspendisse in orci
-                            enim gravida nibh.</p>
+                        <h4 class="mb-3">Responsive Design</h4>
+                        <p>Enjoy a responsive design that adapts to various screen sizes for a consistent user experience.
+                        </p>
                     </div>
                 </div>
 
@@ -1125,14 +962,14 @@
                             <!--Social Icon-->
                             <div class="address-social">
                                 <ul class="list-unstyled">
-                                    <li><a class="facebook-text-hvr" href="javascript:void(0);"><i
-                                                class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a class="twitter-text-hvr" href="javascript:void(0);"><i
-                                                class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a class="facebook-text-hvr" href="javascript:void(0);"><i class="fa fa-facebook"
+                                                aria-hidden="true"></i></a></li>
+                                    <li><a class="twitter-text-hvr" href="javascript:void(0);"><i class="fa fa-twitter"
+                                                aria-hidden="true"></i></a></li>
                                     <li><a class="google-text-hvr" href="javascript:void(0);"><i
                                                 class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a class="linkedin-text-hvr" href="javascript:void(0);"><i
-                                                class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a class="linkedin-text-hvr" href="javascript:void(0);"><i class="fa fa-linkedin"
+                                                aria-hidden="true"></i></a></li>
                                     <li><a class="instagram-text-hvr" href="javascript:void(0);"><i
                                                 class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 </ul>
@@ -1208,89 +1045,4 @@
         </div>
     </section>
     <!--Contact End-->
-
-    <!--Footer Start-->
-    <section class="bg-light text-center">
-        <h2 class="d-none">hidden</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-social">
-                        <ul class="list-unstyled">
-                            <li><a class="wow fadeInUp" href="javascript:void(0);"><i class="fa fa-facebook"
-                                        aria-hidden="true"></i></a></li>
-                            <li><a class="wow fadeInDown" href="javascript:void(0);"><i class="fa fa-twitter"
-                                        aria-hidden="true"></i></a></li>
-                            <li><a class="wow fadeInUp" href="javascript:void(0);"><i class="fa fa-google-plus"
-                                        aria-hidden="true"></i></a></li>
-                            <li><a class="wow fadeInDown" href="javascript:void(0);"><i class="fa fa-linkedin"
-                                        aria-hidden="true"></i></a></li>
-                            <li><a class="wow fadeInUp" href="javascript:void(0);"><i class="fa fa-instagram"
-                                        aria-hidden="true"></i></a></li>
-                            <li><a class="wow fadeInDown" href="javascript:void(0);"><i class="fa fa-envelope-o"
-                                        aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                    <p class="company-about fadeIn">© 2021 Wexim. Made With Love By <a
-                            href="javascript:void(0);">Themesindustry</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Footer End-->
-
-    <!--Scroll Top-->
-    <a class="scroll-top-arrow" href="javascript:void(0);"><i class="fa fa-angle-up"></i></a>
-    <!--Scroll Top End-->
-
-    <!-- Optional JavaScript -->
-    <script src="{{ asset('frontend/business_site/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('frontend/business_site/js/popper.min.js') }}"></script>
-    <script src="{{ asset('frontend/business_site/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('frontend/business_site/js/jquery.appear.js') }}"></script>
-    <!-- isotop gallery -->
-    <script src="{{ asset('frontend/business_site/js/isotope.pkgd.min.js') }}"></script>
-    <!-- cube portfolio gallery -->
-    <script src="{{ asset('frontend/business_site/js/jquery.cubeportfolio.min.js') }}"></script>
-    <!-- owl carousel slider -->
-    <script src="{{ asset('frontend/business_site/js/owl.carousel.min.js') }}"></script>
-    <!-- text rotate -->
-    <script src="{{ asset('frontend/business_site/js/morphext.min.js') }}"></script>
-    <!-- particles -->
-    <script src="{{ asset('frontend/business_site/js/particles.min.js') }}"></script>
-    <!-- parallax Background -->
-    <script src="{{ asset('frontend/business_site/js/parallaxie.min.js') }}"></script>
-    <!-- fancybox popup -->
-    <script src="{{ asset('frontend/business_site/js/jquery.fancybox.min.js') }}"></script>
-    <!-- fancybox popup -->
-    <script src="{{ asset('frontend/business_site/js/wow.js') }}"></script>
-    <!-- REVOLUTION JS FILES -->
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
-    <!-- SLIDER REVOLUTION EXTENSIONS -->
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.actions.min.js') }}">
-    </script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.carousel.min.js') }}">
-    </script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.kenburn.min.js') }}">
-    </script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js') }}">
-    </script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.migration.min.js') }}">
-    </script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.navigation.min.js') }}">
-    </script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.parallax.min.js') }}">
-    </script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.slideanims.min.js') }}">
-    </script>
-    <script src="{{ asset('frontend/business_site/rs-plugin/js/extensions/revolution.extension.video.min.js') }}"></script>
-    <!-- map -->
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyB6YJu2gWq_4ABpOPGLy0c4JKg82U7a_JM"></script>
-    <script src="{{ asset('frontend/business_site/js/map.js') }}"></script>
-    <!-- custom script -->
-    <script src="{{ asset('frontend/business_site/js/script.js') }}"></script>
-
-</body>
-
-</html>
+@endsection

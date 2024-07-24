@@ -462,3 +462,12 @@
         @csrf
     </form>
 </li>
+@can('Blog-view')
+<li class="">
+    <a href="{{route('admin.blogs.index')}}" class="{{ Request::is(config('admin.admin_route_prefix').'/blogs**') ? 'mm-active' : '' }}">
+        <i class="metismenu-icon pe-7s-menu"></i>
+        {{ __('Blogs') }}
+    </a>
+</li>
+@endcan
+

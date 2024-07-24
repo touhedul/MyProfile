@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\ContactFeedback;
 use App\Models\CustomDomain;
 use App\Models\Gallery;
@@ -25,7 +26,9 @@ class IndexController extends Controller
             $userInfo = (new UserService)->userInfoForSite($customDomain->user_id);
             return view('user.themes.site' . $userInfo->default_theme->theme_id, compact('userInfo'));
         }
-        return view('frontend.index');
+
+        $blogs = Blog::limit(2)->latest()->get();
+        return view('frontend.index', compact('blogs'));
     }
 
     public function add($a)

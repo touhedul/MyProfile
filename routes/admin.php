@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AchievementController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\BackupController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ColorSectionManagementController;
 use App\Http\Controllers\Admin\ContactFeedbackController;
@@ -101,6 +102,7 @@ Route::group(['middleware' => ['auth', 'preventBackHistory', 'notUser', 'localai
                 'roles' => RoleController::class,
                 'languages' => LanguageController::class,
                 'notifications' => NotificationController::class,
+                'blogs' => BlogController::class,
 
             ]
         );
