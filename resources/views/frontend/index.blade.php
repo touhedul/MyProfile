@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('title')
-    HOME
+    {{ config('app.name') }}
 @endsection
 @section('content')
     <!--slider-->
@@ -74,7 +74,7 @@
                             data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
                             data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                             style="z-index: 8; white-space: nowrap;font-weight: 600; color: #ffffff; letter-spacing: 0px;font-family:Poppins;">
-                            <div class="text-center" id="js-rotating">Effortlessly,Dynamic,Instant</div>
+                            <div class="text-center" id="js-rotating">Instant,Dynamic,Effortlessly</div>
                         </div>
 
                         <!-- LAYER NR. 5 -->
@@ -101,7 +101,7 @@
     <!--slider end-->
 
     <!--About Start-->
-    <section id="about">
+    <section id="about" class="bg-light">
         <div class="container">
             <!--About-->
             <div class="row align-items-center wow fadeIn">
@@ -116,7 +116,8 @@
                         websites in minutes. Whether you're a designer, developer, marketer, or freelancer, our intuitive
                         interface and customizable features make it easy to showcase your skills and accomplishments.
                         <br><br>
-                        Stand out from the crowd and elevate your online presence with our platform.
+                        Stand out from the crowd and elevate your online presence with our platform. Distinguish yourself
+                        from the competition and take your online presence to new heights with our innovative platform
                     </p>
                 </div>
             </div>
@@ -129,7 +130,8 @@
                             01.
                         </span>
                         <h6 class="mb-4">Customizable Designs</h6>
-                        <p>Tailor your portfolio with sleek, professional designs that reflect your unique style and brand.
+                        <p>Tailor your portfolio with sleek, professional designs that reflect your unique style and <br>
+                            brand.
                         </p>
                     </div>
                 </div>
@@ -162,15 +164,19 @@
                         <img src="{{ asset('frontend/business_site/images/laptop-img.png') }}" alt="laptop">
                         <div id="laptop-slide" class="owl-carousel owl-theme">
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/laptop-slide-img1.jpg') }}"
+                                <img src="{{ asset('frontend/business_site/images/my/laptop_slider_1.png') }}"
                                     alt="image">
                             </div>
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/laptop-slide-img2.jpg') }}"
+                                <img src="{{ asset('frontend/business_site/images/my/laptop_slider_2.png') }}"
                                     alt="image">
                             </div>
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/laptop-slide-img3.jpg') }}"
+                                <img src="{{ asset('frontend/business_site/images/my/laptop_slider_4.png') }}"
+                                    alt="image">
+                            </div>
+                            <div class="item">
+                                <img src="{{ asset('frontend/business_site/images/my/laptop_slider_3.png') }}"
                                     alt="image">
                             </div>
                         </div>
@@ -183,7 +189,7 @@
     <!--About End-->
 
     <!--Team Start-->
-    <section id="team" class="bg-light">
+    {{-- <section id="team" class="bg-light">
         <div class="container">
             <!--Heading-->
             <div class="row wow fadeIn">
@@ -432,7 +438,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Team Start-->
 
     <!--Portfolio Start-->
@@ -463,7 +469,7 @@
                 <div class="col-md-12">
 
                     <!--Portfolio Filters-->
-                    <div id="js-filters-mosaic-flat" class="cbp-l-filters-button">
+                    {{-- <div id="js-filters-mosaic-flat" class="cbp-l-filters-button">
 
                         <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">All</div>
                         <span class="text-blue">/</span>
@@ -474,7 +480,7 @@
                         <div data-filter=".graphic" class="cbp-filter-item">SEO</div>
                         <span class="text-blue"> / </span>
                         <div data-filter=".marketing" class="cbp-filter-item">Marketing</div>
-                    </div>
+                    </div> --}}
 
                     <!--Portfolio Items-->
                     <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
@@ -720,7 +726,7 @@
 
                 <div class="col-lg-6 wow fadeInRight">
                     <div class="content-image">
-                        <img src="{{ asset('frontend/business_site/images/phone.png') }}" alt="image">
+                        <img src="{{ asset('frontend/business_site/images/my/mobile.png') }}" alt="image">
                     </div>
                 </div>
             </div>
