@@ -165,11 +165,12 @@
                     <div class="navbar-nav ms-auto">
                         <a class="nav-link scroll" href="#home">Home</a>
                         <a class="nav-link scroll" href="#about">About</a>
-                        <a class="nav-link scroll" href="#team">Team</a>
-                        <a class="nav-link scroll" href="#portfolio">Work</a>
-                        <a class="nav-link scroll" href="#price">Pricing</a>
-                        <a class="nav-link scroll" href="#blog">Blog</a>
+                        {{-- <a class="nav-link scroll" href="#team">Team</a> --}}
+                        <a class="nav-link scroll" href="#portfolio">Features</a>
+                        {{-- <a class="nav-link scroll" href="#price">Pricing</a>
+                        <a class="nav-link scroll" href="#blog">Blog</a> --}}
                         <a class="nav-link scroll" href="#contact">Contact</a>
+                        <a class="nav-link scroll" href="#">Login/Signup</a>
                         <span class="menu-line"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -196,34 +197,37 @@
                         <li class="nav-item">
                             <a class="nav-link scroll" href="#about">About</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link scroll" href="#team">Team</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link scroll" href="#portfolio">Work</a>
+                            <a class="nav-link scroll" href="#portfolio">Features</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link scroll" href="#price">Pricing</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link scroll" href="#blog">Blog</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link scroll" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scroll" href="#">Login/Signup</a>
                         </li>
                     </ul>
                 </nav>
 
                 <div class="side-footer text-white w-100">
-                    <ul class="social-icons-simple">
+                    {{-- <ul class="social-icons-simple">
                         <li><a class="facebook-text-hvr" href="javascript:void(0)"><i class="fa fa-facebook"></i>
                             </a> </li>
                         <li><a class="instagram-text-hvr" href="javascript:void(0)"><i class="fa fa-instagram"></i>
                             </a> </li>
                         <li><a class="twitter-text-hvr" href="javascript:void(0)"><i class="fa fa-twitter"></i> </a>
                         </li>
-                    </ul>
-                    <p class="text-white">&copy; 2021 Wexim. Made With Love by Themesindustry</p>
+                    </ul> --}}
+                    <p class="text-white">&copy; {{ date('Y') }} {{ config('app.name') }} All Right Reserved</p>
                 </div>
             </div>
         </div>
@@ -241,7 +245,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="footer-social">
+                    {{-- <div class="footer-social">
                         <ul class="list-unstyled">
                             <li><a class="wow fadeInUp" href="javascript:void(0);"><i class="fa fa-facebook"
                                         aria-hidden="true"></i></a></li>
@@ -256,9 +260,9 @@
                             <li><a class="wow fadeInDown" href="javascript:void(0);"><i class="fa fa-envelope-o"
                                         aria-hidden="true"></i></a></li>
                         </ul>
-                    </div>
-                    <p class="company-about fadeIn">© 2021 Wexim. Made With Love By <a
-                            href="javascript:void(0);">Themesindustry</a></p>
+                    </div> --}}
+                    <p class="company-about fadeIn">© {{ date('Y') }} All Right Reserved <a
+                            href="javascript:void(0);"> {{ config('app.name') }}</a></p>
                 </div>
             </div>
         </div>

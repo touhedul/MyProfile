@@ -710,7 +710,7 @@
     <!--Pricing End Start-->
 
     <!--Content Start-->
-    <section class="content">
+    <section class="content bg-light">
         <div class="container">
             <div class="row">
 
@@ -733,92 +733,6 @@
         </div>
     </section>
     <!--Content End-->
-
-    <!--Testimonial Start-->
-    <section class="p-0">
-        <div class="container-fluid">
-            <div class="row">
-                <!--testimonial-->
-                <div class="col-md-6 bg-light">
-                    <div id="testimonial_slider" class="owl-carousel">
-                        <!--testimonial item-->
-                        <div class="testimonial-item item">
-                            <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
-                            <p class="mb-4">This platform revolutionized how I present my work. Within minutes, I had a
-                                sleek portfolio showcasing my skills. Highly recommended! </p>
-
-                            <!--Image-->
-                            <div class="testimonial-image">
-                                <img src="{{ asset('frontend/business_site/images/testimonial-img1.jpg') }}"
-                                    alt="image">
-                            </div>
-                            <h5 class="font-weight-500 third-color">Sarah C</h5>
-                            <span class="destination">Project Manager, The Company Inc.</span>
-                        </div>
-                        <!--testimonial item-->
-                        <div class="testimonial-item item">
-                            <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
-                            <p class="mb-4">I'm amazed by the simplicity and professionalism of this platform. It's truly
-                                a game-changer for freelancers like me. </p>
-
-                            <!--Image-->
-                            <div class="testimonial-image">
-                                <img src="{{ asset('frontend/business_site/images/testimonial-img2.jpg') }}"
-                                    alt="image">
-                            </div>
-                            <h5 class="font-weight-500 third-color">Jhon Amstrong</h5>
-                            <span class="destination">Company CEO, The Abacus Inc.</span>
-                        </div>
-                        <!--testimonial item-->
-                        <div class="testimonial-item item">
-                            <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
-                            <p class="mb-4">I've received nothing but positive feedback since using this platform. It's
-                                easy to use, and my portfolio looks fantastic on any device. </p>
-
-                            <!--Image-->
-                            <div class="testimonial-image">
-                                <img src="{{ asset('frontend/business_site/images/testimonial-img3.jpg') }}"
-                                    alt="image">
-                            </div>
-                            <h5 class="font-weight-500 third-color">Stephine Jhon</h5>
-                            <span class="destination">General Manager, The Company Inc.</span>
-                        </div>
-                    </div>
-                </div>
-                <!--counters-->
-                <div class="col-md-6 p-0">
-                    <!--counter background-->
-                    <div class="counters d-flex align-items-center text-start bg-img1">
-                        <!--overlay-->
-                        <div class="bg-overlay gradient-bg1 opacity-8"></div>
-                        <div class="counter-row">
-                            <!--counters item-->
-                            <div class="counter-item">
-                                <div class="count alt-font">690</div>
-                                <h6 class="text-white">Active Users</h6>
-                            </div>
-                            <!--counters item-->
-                            <div class="counter-item">
-                                <div class="count alt-font">780</div>
-                                <h6 class="text-white">Skills Highlighted</h6>
-                            </div>
-                            <!--counters item-->
-                            <div class="counter-item">
-                                <div class="count alt-font">456</div>
-                                <h6 class="text-white">Projects Showcased </h6>
-                            </div>
-                            <!--counters item-->
-                            <div class="counter-item">
-                                <div class="count alt-font">599</div>
-                                <h6 class="text-white">Positive Reviews </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Testimonial End-->
 
     <!--App Section-->
     <section id="app">
@@ -894,8 +808,94 @@
     </section>
     <!--App Section End-->
 
+    <!--Testimonial Start-->
+    <section class="p-0">
+        <div class="container-fluid">
+            <div class="row">
+                <!--testimonial-->
+                <div class="col-md-6 bg-light">
+                    <div id="testimonial_slider" class="owl-carousel">
+                        <!--testimonial item-->
+                        <div class="testimonial-item item">
+                            <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
+                            <p class="mb-4">This platform revolutionized how I present my work. Within minutes, I had a
+                                sleek portfolio showcasing my skills. Highly recommended! </p>
+
+                            <!--Image-->
+                            {{-- <div class="testimonial-image">
+                                <img src="{{ asset('frontend/business_site/images/testimonial-img1.jpg') }}"
+                                    alt="image">
+                            </div> --}}
+                            <h5 class="font-weight-500 third-color">Sarah C</h5>
+                            <span class="destination">Project Manager, The Company Inc.</span>
+                        </div>
+                        <!--testimonial item-->
+                        <div class="testimonial-item item">
+                            <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
+                            <p class="mb-4">I'm amazed by the simplicity and professionalism of this platform. It's truly
+                                a game-changer for freelancers like me. </p>
+
+                            <!--Image-->
+                            {{-- <div class="testimonial-image">
+                                <img src="{{ asset('frontend/business_site/images/testimonial-img2.jpg') }}"
+                                    alt="image">
+                            </div> --}}
+                            <h5 class="font-weight-500 third-color">Jhon Amstrong</h5>
+                            <span class="destination">Company CEO, The Abacus Inc.</span>
+                        </div>
+                        <!--testimonial item-->
+                        <div class="testimonial-item item">
+                            <i class="fa fa-quote-right testimonial-icon gradient-text1"></i>
+                            <p class="mb-4">I've received nothing but positive feedback since using this platform. It's
+                                easy to use, and my portfolio looks fantastic on any device. </p>
+
+                            <!--Image-->
+                            {{-- <div class="testimonial-image">
+                                <img src="{{ asset('frontend/business_site/images/testimonial-img3.jpg') }}"
+                                    alt="image">
+                            </div> --}}
+                            <h5 class="font-weight-500 third-color">Stephine Jhon</h5>
+                            <span class="destination">General Manager, The Company Inc.</span>
+                        </div>
+                    </div>
+                </div>
+                <!--counters-->
+                <div class="col-md-6 p-0">
+                    <!--counter background-->
+                    <div class="counters d-flex align-items-center text-start bg-img1">
+                        <!--overlay-->
+                        <div class="bg-overlay gradient-bg1 opacity-8"></div>
+                        <div class="counter-row">
+                            <!--counters item-->
+                            <div class="counter-item">
+                                <div class="count alt-font">690</div>
+                                <h6 class="text-white">Active Users</h6>
+                            </div>
+                            <!--counters item-->
+                            <div class="counter-item">
+                                <div class="count alt-font">780</div>
+                                <h6 class="text-white">Skills Highlighted</h6>
+                            </div>
+                            <!--counters item-->
+                            <div class="counter-item">
+                                <div class="count alt-font">456</div>
+                                <h6 class="text-white">Projects Showcased </h6>
+                            </div>
+                            <!--counters item-->
+                            <div class="counter-item">
+                                <div class="count alt-font">599</div>
+                                <h6 class="text-white">Positive Reviews </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Testimonial End-->
+
     <!--Blog Start-->
-    <section id="blog" class="bg-light">
+    {{-- <section id="blog" class="bg-light">
         <div class="container">
 
             <div class="row align-items-center mb-5">
@@ -940,11 +940,11 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <!--Blog End-->
 
     <!--Address Start-->
-    <section id="contact" class="p-0">
+    {{-- <section id="contact" class="p-0">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-6 p-0">
@@ -990,11 +990,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Address End-->
 
     <!--Contact Start-->
-    <section>
+    <section id="contact">
         <div class="container">
             <!--Heading-->
             <div class="row">
