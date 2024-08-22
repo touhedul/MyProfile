@@ -483,12 +483,12 @@
                     </div> --}}
 
                     <!--Portfolio Items-->
-                    <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
+                    {{-- <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
 
                         <div class="cbp-item web-design graphic">
                             <a href="images/work-1.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-1.jpg') }}" alt="port-1">
+                                    <img src="{{ asset('frontend/business_site/images/my/work_1.png') }}" alt="port-1">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -504,7 +504,7 @@
                         <div class="cbp-item seo marketing">
                             <a href="images/work-2.jpg" class="cbp-caption cbp-lightbox">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('frontend/business_site/images/work-2.jpg') }}" alt="port-2">
+                                    <img src="{{ asset('frontend/business_site/images/my/work_2.png') }}" alt="port-2">
                                 </div>
                                 <div class="cbp-caption-activeWrap"></div>
                                 <div class="cbp-l-caption-alignCenter center-block">
@@ -607,7 +607,7 @@
                             </a>
                         </div>
 
-                    </div>
+                    </div> --}}
                     <!--To Enable Load More Button Remove The Class="d-none"-->
                     <div id="js-loadMore-mosaic-flat" class="cbp-l-loadMore-bgbutton d-none">
                         <a href="loadmore.html" class="cbp-l-loadMore-link no-transition btn-rounded" rel="nofollow">
@@ -717,16 +717,16 @@
                 <div class="col-lg-6 wow fadeInLeft">
                     <div class="title">
                         <h6 class="third-color mb-3">Optimized for Every Device</h6>
-                        <h2 class="mb-4">Mobile-Friendly<br>Portfolio Websites</h2>
+                        <h2 class="mb-4">User-Friendly<br>Portfolio Websites</h2>
                         <p>Our platform ensures your portfolio looks stunning on any device. With responsive design, your
-                            site automatically adjusts to fit smartphones, tablets, and desktops, providing a seamless
+                            site automatically adjusts to fit smartphones, <br> tablets, and desktops, providing a seamless
                             experience everywhere.</p>
                     </div>
                 </div>
 
                 <div class="col-lg-6 wow fadeInRight">
                     <div class="content-image">
-                        <img src="{{ asset('frontend/business_site/images/my/mobile.png') }}" alt="image">
+                        <img src="{{ asset('frontend/business_site/images/my/mobile_1.png') }}" alt="image">
                     </div>
                 </div>
             </div>
@@ -774,13 +774,13 @@
                         <img src="{{ asset('frontend/business_site/images/iphone-img.png') }}" alt="image">
                         <div id="app-slider" class="owl-carousel owl-theme">
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/iphone-slide1.jpg') }}" alt="">
+                                <img src="{{ asset('frontend/business_site/images/my/mobile_2.png') }}" alt="">
                             </div>
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/iphone-slide2.jpg') }}" alt="">
+                                <img src="{{ asset('frontend/business_site/images/my/mobile_3.png') }}" alt="">
                             </div>
                             <div class="item">
-                                <img src="{{ asset('frontend/business_site/images/iphone-slide3.jpg') }}" alt="">
+                                <img src="{{ asset('frontend/business_site/images/my/mobile_4.png') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -1000,28 +1000,23 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="title d-inline-block">
-                        <h6 class="mb-3 third-color">Lorem ipsum dolor sit amet</h6>
+                        {{-- <h6 class="mb-3 third-color">Lorem ipsum dolor sit amet</h6> --}}
                         <h2>Let's Get In Touch</h2>
                     </div>
                 </div>
             </div>
 
             <!--contact us-->
-            <form class="contact-form">
+            <form class="contact-form" method="POST" action="{{ route('submit.feedback') }}">
+                @csrf
                 <div class="row">
 
                     <div class="col-sm-12" id="result"></div>
 
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="First Name:" required=""
-                                id="first_name" name="first_name">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Last Name:" required=""
-                                id="last_name" name="last_name">
+                            <input class="form-control" type="text" placeholder="Name:" required=""
+                                id="name" name="name">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
@@ -1042,7 +1037,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-large btn-gradient btn-rounded mt-4" id="submit_btn"><i
+                        <button type="submit" class="btn btn-large btn-gradient btn-rounded mt-4" id=""><i
                                 class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i> <span>Contact
                                 Now</span></button>
                     </div>
