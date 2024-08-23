@@ -118,6 +118,8 @@
     <!-- Style Sheet -->
     <link rel="stylesheet" href="{{ asset('frontend/business_site/css/style.css') }}">
 
+    <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
+
 
 </head>
 
@@ -320,6 +322,10 @@
     <script src="{{ asset('frontend/business_site/js/map.js') }}"></script>
     <!-- custom script -->
     <script src="{{ asset('frontend/business_site/js/script.js') }}"></script>
+
+    <script src="{{ asset('js/iziToast.js') }}"></script>
+
+    @include('vendor.lara-izitoast.toast')
 
 </body>
 

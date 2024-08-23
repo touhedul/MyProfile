@@ -58,6 +58,7 @@ class ContactFeedbackController extends Controller
         ]);
 
         $contact = new ContactFeedback();
+        $contact->user_id = defaultAdmin()->id;
         $contact->name = $request->name;
         $contact->email = $request->email;
         $contact->phone = $request->phone;
@@ -71,6 +72,9 @@ class ContactFeedbackController extends Controller
             'description' => $contact->name . ' send a contact request',
             'link' => route('admin.contacts')
         ]);
+
+
+        notify()->success(__("Thanks for contacting. We will get back to you as soon as possible"), __("Success"));
 
         return back();
     }

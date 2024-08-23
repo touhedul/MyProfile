@@ -1007,7 +1007,7 @@
             </div>
 
             <!--contact us-->
-            <form class="contact-form" method="POST" action="{{ route('submit.feedback') }}">
+            <form class="contact-form" method="POST" action="{{ route('submitContactToAdmin') }}">
                 @csrf
                 <div class="row">
 
@@ -1015,25 +1015,25 @@
 
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Name:" required=""
-                                id="name" name="name">
+                            <input class="form-control" type="text" maxlength="100" placeholder="Name:"
+                                required="" id="name" name="name">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input class="form-control" type="email" placeholder="Email:" required=""
-                                id="email" name="email">
+                            <input class="form-control" type="email" maxlength="100" placeholder="Email:"
+                                required="" id="email" name="email">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input class="form-control" type="tel" placeholder="Phone:" id="phone"
-                                name="phone">
+                            <input class="form-control" type="tel" maxlength="100" placeholder="Phone:"
+                                id="phone" name="phone">
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Message" id="message" name="message"></textarea>
+                            <textarea class="form-control" required maxlength="50000" placeholder="Message" id="message" name="message"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-12">

@@ -18,6 +18,7 @@ Route::group(['middleware' => ['blockIp', 'localaization']], function () {
     //Give feed back and contact User side
     Route::get('contact', [ContactFeedbackController::class, 'contact'])->name('contact');
     Route::post('feedback', [ContactFeedbackController::class, 'submitFeedback'])->name('submit.feedback');
+    Route::post('submitContactToAdmin', [ContactFeedbackController::class, 'submitContactToAdmin'])->name('submitContactToAdmin');
     Route::get('feedback', [ContactFeedbackController::class, 'feedback'])->name('feedback');
 
     // Pages
