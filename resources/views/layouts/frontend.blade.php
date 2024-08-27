@@ -172,7 +172,7 @@
                         {{-- <a class="nav-link scroll" href="#price">Pricing</a>
                         <a class="nav-link scroll" href="#blog">Blog</a> --}}
                         <a class="nav-link scroll" href="#contact">Contact</a>
-                        <a class="nav-link scroll" href="#">Login/Signup</a>
+                        <a class="nav-link" href="{{ route('login') }}">Login/Signup</a>
                         <span class="menu-line"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                     </div>
                 </div>

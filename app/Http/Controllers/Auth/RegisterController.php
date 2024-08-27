@@ -89,7 +89,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'referral_code' => $data['referral_code'],
+            'referral_code' => @$data['referral_code'],
             // 'profession' => $data['profession'],
             // 'address' => $data['address'],
             'image' => $imageName,
