@@ -106,7 +106,7 @@
 @endpush
 
 @section('script')
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script src="{{ asset('admin/assets/scripts/ckeditor/ckeditor.js') }}"></script>
     <script>
         // CKEDITOR.replace( 'details' );
         CKEDITOR.replace('text_3', {

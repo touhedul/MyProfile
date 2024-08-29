@@ -56,8 +56,8 @@
                         </div>
                         <div class="form-group">
                             <label for="mail_from_address">{{ __('Mail From Address') }}</label>
-                            <input required type="text" name="mail_from_address" id="mail_from_address" class="form-control"
-                                value="{{ env('MAIL_FROM_ADDRESS') }}">
+                            <input required type="text" name="mail_from_address" id="mail_from_address"
+                                class="form-control" value="{{ env('MAIL_FROM_ADDRESS') }}">
                         </div>
                         <div class="form-group">
                             <label for="mail_from_name">{{ __('Mail From Name') }}</label>
@@ -112,26 +112,27 @@
                         <div class="card-body">
                             <form id="settingsForm" method="POST" action="{{ route('admin.settings.sendMail') }}">
                                 @csrf
-                            <div class="form-group">
-                                <label for="to">{{ __('To') }}</label>
-                                <input type="email" required name="to" id="to" class="form-control"
-                                    placeholder="Enter email address" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">{{ __('Subject') }}</label>
-                                <input type="text" required name="subject" id="subject" class="form-control" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">{{ __('Body') }}</label>
-                                <textarea name="body" required id="" cols="30" rows="10" class="form-control"></textarea>
-                            </div>
+                                <div class="form-group">
+                                    <label for="to">{{ __('To') }}</label>
+                                    <input type="email" required name="to" id="to" class="form-control"
+                                        placeholder="Enter email address" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">{{ __('Subject') }}</label>
+                                    <input type="text" required name="subject" id="subject" class="form-control"
+                                        value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">{{ __('Body') }}</label>
+                                    <textarea name="body" required id="" cols="30" rows="10" class="form-control"></textarea>
+                                </div>
 
-                            @can('setting-update')
-                                <button type="submit" class="btn btn-success">
-                                    <i class="fas fa-arrow-circle-right"></i>
-                                    <span>{{ __('Send') }}</span>
-                                </button>
-                            @endcan
+                                @can('setting-update')
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-arrow-circle-right"></i>
+                                        <span>{{ __('Send') }}</span>
+                                    </button>
+                                @endcan
                             </form>
                         </div>
                     </div>
@@ -141,7 +142,7 @@
     </div>
 @endsection
 @section('script')
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script src="{{ asset('admin/assets/scripts/ckeditor/ckeditor.js') }}"></script>
     <script>
         // CKEDITOR.replace( 'details' );
         CKEDITOR.replace('body', {

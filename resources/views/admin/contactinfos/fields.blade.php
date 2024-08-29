@@ -6,14 +6,14 @@
 <!-- Title Field -->
 <div class="form-group">
     {!! Form::label('title', __('Title')) !!}
-    {!! Form::text('title', null, ['class' => 'form-control','required','maxlength' => 191]) !!}
+    {!! Form::text('title', null, ['class' => 'form-control', 'required', 'maxlength' => 191]) !!}
 </div>
 
 
 <!-- Details Field -->
 <div class="form-group">
-    {!! Form::label('details',  __('Details')) !!}
-    {!! Form::textarea('details', null, ['class' => 'form-control','required','maxlength' => 65530]) !!}
+    {!! Form::label('details', __('Details')) !!}
+    {!! Form::textarea('details', null, ['class' => 'form-control', 'required', 'maxlength' => 65530]) !!}
 </div>
 
 
@@ -40,18 +40,19 @@
 
 
 <!-- Status Field -->
-@include('includes.status_field',['variable' => @$contactinfo])
+@include('includes.status_field', ['variable' => @$contactinfo])
 
 
 <!-- Submit Field -->
 <div class="form-group">
-    {{ Form::button('<i class="fas fa-plus-circle"></i> '.__('Submit'), ['type' => 'submit', 'class' => 'btn btn-primary '] )  }}
-    <a href="{{ route('admin.contactinfos.index') }}" class="btn btn-danger"><i class="fa fa-window-close" aria-hidden="true"></i> {{ __("Cancel") }}</a>
+    {{ Form::button('<i class="fas fa-plus-circle"></i> ' . __('Submit'), ['type' => 'submit', 'class' => 'btn btn-primary ']) }}
+    <a href="{{ route('admin.contactinfos.index') }}" class="btn btn-danger"><i class="fa fa-window-close"
+            aria-hidden="true"></i> {{ __('Cancel') }}</a>
 </div>
 
 {{-- @include('includes.ckeditor') --}}
 @push('script')
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script src="{{ asset('admin/assets/scripts/ckeditor/ckeditor.js') }}"></script>
     <script>
         // CKEDITOR.replace( 'details' );
         CKEDITOR.replace('details', {
@@ -72,7 +73,7 @@
             $('.demo').iconpicker({
                 hideOnSelect: true,
                 @if (isset($contactinfo) && $contactinfo->icon)
-                selected:'{{ $contactinfo->icon }}'
+                    selected: '{{ $contactinfo->icon }}'
                 @endif
             });
             $('.demo').on('iconpickerSelected', function(event) {
@@ -81,5 +82,4 @@
             });
         })
     </script>
-
 @endpush

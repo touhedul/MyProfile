@@ -59,7 +59,7 @@
 
 
 @push('script')
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script src="{{ asset('admin/assets/scripts/ckeditor/ckeditor.js') }}"></script>
     <script>
         // CKEDITOR.replace( 'details' );
         CKEDITOR.replace('description', {
@@ -80,7 +80,7 @@
             $('.demo').iconpicker({
                 hideOnSelect: true,
                 @if (isset($service) && $service->icon)
-                selected:'{{ $service->icon }}'
+                    selected: '{{ $service->icon }}'
                 @endif
             });
             $('.demo').on('iconpickerSelected', function(event) {
@@ -89,5 +89,4 @@
             });
         })
     </script>
-
 @endpush
