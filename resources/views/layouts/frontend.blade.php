@@ -220,9 +220,21 @@
                         <li class="nav-item">
                             <a class="nav-link scroll" href="#contact">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll" href="#">Login/Signup</a>
-                        </li>
+                        @auth
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                            </li>
+                        @endauth
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endguest
                     </ul>
                 </nav>
 
